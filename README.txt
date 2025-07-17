@@ -1,3 +1,6 @@
+VERSION 1.0
+
+
 Installation:
 
 1. Make sure that Epic Games's MetaHumanForMaya plugin is already installed. You can check it's installation instructions at https://dev.epicgames.com/documentation/en-us/metahuman/installing-in-maya    
