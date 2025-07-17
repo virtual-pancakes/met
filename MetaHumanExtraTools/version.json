@@ -1,5 +1,6 @@
 {
-    "version": "1.02",
-    "changes": "implemented update function\nbug fixes",
-    "new_version_available": false    
+    "current_version": "1.02",
+    "current_version_changes": "implemented update function\nbug fixes",
+    "newest_version": "1.02",
+    "newest_version_changes": "implemented update function\nbug fixes"
 }
