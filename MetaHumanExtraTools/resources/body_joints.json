@@ -1,0 +1,8292 @@
+{
+    "root": {
+        "parent": null,
+        "child": "pelvis",
+        "world_position": [
+            "0",
+            "0",
+            "0"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "pelvis": {
+        "parent": "root",
+        "child": "spine_01",
+        "world_position": [
+            "0",
+            "free",
+            "free"
+        ],
+        "orientation": "+x to child, +y to world -z",
+        "driver": false,
+        "reference_vertex_ids": [
+            24076,
+            24077,
+            24080,
+            24099,
+            24102,
+            24106,
+            24881,
+            24882,
+            24884,
+            26856,
+            27037,
+            27735,
+            27737,
+            28999,
+            29004,
+            29008,
+            29016,
+            29216,
+            31449,
+            31458,
+            33565,
+            33610,
+            33611,
+            33671,
+            33677,
+            33880,
+            37604,
+            37607,
+            37960,
+            37962,
+            38121,
+            38136,
+            38139,
+            38308,
+            38445,
+            38478,
+            38504,
+            38520,
+            39037,
+            39044,
+            39046,
+            39048,
+            41139,
+            41183,
+            41187,
+            41242,
+            41249,
+            41454,
+            45177,
+            45182,
+            45494,
+            45546,
+            45550,
+            45618,
+            45712,
+            45728,
+            45730,
+            45904,
+            46047,
+            46064,
+            46083,
+            46112,
+            46129,
+            46648,
+            46656,
+            46658,
+            46660,
+            46717,
+            47620,
+            47631,
+            47662,
+            47664,
+            48090,
+            49418,
+            49420,
+            49647,
+            49649,
+            49735,
+            49750,
+            49881,
+            49883,
+            49966,
+            49976,
+            49989,
+            50467,
+            50515,
+            50517,
+            51423,
+            51434,
+            51465,
+            51467,
+            51893,
+            53221,
+            53223,
+            53450,
+            53452,
+            53538,
+            53553,
+            53684,
+            53686,
+            53769,
+            53779,
+            53792,
+            54270,
+            54318,
+            54320
+        ],
+        "reference_mesh": "combined"
+    },
+    "spine_01": {
+        "parent": "pelvis",
+        "child": "spine_02",
+        "world_position": [
+            "0",
+            "free",
+            "free"
+        ],
+        "orientation": "+x to child, +y to world -z",
+        "driver": false,
+        "reference_vertex_ids": [
+            24076,
+            24077,
+            24102,
+            24106,
+            24881,
+            24882,
+            24884,
+            26856,
+            27037,
+            28999,
+            29004,
+            29008,
+            29016,
+            31449,
+            33565,
+            33610,
+            33611,
+            33880,
+            37607,
+            37960,
+            37962,
+            38121,
+            38136,
+            38308,
+            38445,
+            38504,
+            38520,
+            39048,
+            41139,
+            41183,
+            41187,
+            41454,
+            45182,
+            45494,
+            45546,
+            45550,
+            45618,
+            45712,
+            45728,
+            45904,
+            46047,
+            46064,
+            46112,
+            46129,
+            46660,
+            46717,
+            47620,
+            47631,
+            47662,
+            47664,
+            48090,
+            49418,
+            49420,
+            49647,
+            49649,
+            49735,
+            49750,
+            49881,
+            49883,
+            49966,
+            49976,
+            49989,
+            50467,
+            50515,
+            50517,
+            51423,
+            51434,
+            51465,
+            51467,
+            51893,
+            53221,
+            53223,
+            53450,
+            53452,
+            53538,
+            53553,
+            53684,
+            53686,
+            53769,
+            53779,
+            53792,
+            54270,
+            54318,
+            54320
+        ],
+        "reference_mesh": "combined"
+    },
+    "spine_02": {
+        "parent": "spine_01",
+        "child": "spine_03",
+        "world_position": [
+            "0",
+            "free",
+            "free"
+        ],
+        "orientation": "+x to child, +y to world -z",
+        "driver": false,
+        "reference_vertex_ids": [
+            24065,
+            24073,
+            24076,
+            24077,
+            24102,
+            24106,
+            24859,
+            24861,
+            24863,
+            24881,
+            24882,
+            24884,
+            26856,
+            27037,
+            28957,
+            28962,
+            28964,
+            28999,
+            29004,
+            29008,
+            29016,
+            31449,
+            33462,
+            33467,
+            33470,
+            33475,
+            33490,
+            33494,
+            33499,
+            33515,
+            33565,
+            33610,
+            33611,
+            37607,
+            37614,
+            37960,
+            37962,
+            38099,
+            38121,
+            38136,
+            38445,
+            38504,
+            38520,
+            39048,
+            41034,
+            41037,
+            41041,
+            41044,
+            41048,
+            41061,
+            41065,
+            41072,
+            41088,
+            41139,
+            41183,
+            41187,
+            45182,
+            45187,
+            45482,
+            45546,
+            45550,
+            45618,
+            45692,
+            45712,
+            45728,
+            46047,
+            46112,
+            46129,
+            46660,
+            46717,
+            47575,
+            47577,
+            47587,
+            47620,
+            47631,
+            49420,
+            49424,
+            49647,
+            49649,
+            49732,
+            49735,
+            49881,
+            49883,
+            49966,
+            50515,
+            50517,
+            51378,
+            51380,
+            51390,
+            51423,
+            51434,
+            53223,
+            53227,
+            53450,
+            53452,
+            53535,
+            53538,
+            53684,
+            53686,
+            53769,
+            54318,
+            54320
+        ],
+        "reference_mesh": "combined"
+    },
+    "spine_03": {
+        "parent": "spine_02",
+        "child": "spine_04",
+        "world_position": [
+            "0",
+            "free",
+            "free"
+        ],
+        "orientation": "+x to child, +y to world -z",
+        "driver": false,
+        "reference_vertex_ids": [
+            24060,
+            24062,
+            24065,
+            24067,
+            24070,
+            24073,
+            24076,
+            24106,
+            24767,
+            24769,
+            24785,
+            24820,
+            24822,
+            24824,
+            24859,
+            24861,
+            24863,
+            24881,
+            24882,
+            24884,
+            27158,
+            27176,
+            28787,
+            28793,
+            28901,
+            28904,
+            28908,
+            28910,
+            28957,
+            28962,
+            28964,
+            28999,
+            29004,
+            29008,
+            31561,
+            31565,
+            33257,
+            33322,
+            33336,
+            33341,
+            33386,
+            33391,
+            33416,
+            33462,
+            33467,
+            33470,
+            33475,
+            33490,
+            33494,
+            33499,
+            33515,
+            33565,
+            37614,
+            37617,
+            37620,
+            37960,
+            37962,
+            38094,
+            38096,
+            38099,
+            38520,
+            38570,
+            38591,
+            38613,
+            40818,
+            40887,
+            40904,
+            40907,
+            40911,
+            40954,
+            40960,
+            40986,
+            41034,
+            41037,
+            41041,
+            41044,
+            41048,
+            41061,
+            41065,
+            41072,
+            41088,
+            41139,
+            45187,
+            45191,
+            45194,
+            45476,
+            45482,
+            45546,
+            45550,
+            45618,
+            45686,
+            45689,
+            45692,
+            46129,
+            46180,
+            46201,
+            46224,
+            46717,
+            47526,
+            47533,
+            47575,
+            47577,
+            47587,
+            47620,
+            47631,
+            49420,
+            49424,
+            49427,
+            49647,
+            49649,
+            49729,
+            49732,
+            49735,
+            49881,
+            49883,
+            49966,
+            50053,
+            50515,
+            50517,
+            51329,
+            51336,
+            51378,
+            51380,
+            51390,
+            51423,
+            51434,
+            53223,
+            53227,
+            53230,
+            53450,
+            53452,
+            53532,
+            53535,
+            53538,
+            53684,
+            53686,
+            53769,
+            53856,
+            54318,
+            54320
+        ],
+        "reference_mesh": "combined"
+    },
+    "spine_04": {
+        "parent": "spine_03",
+        "child": "spine_05",
+        "world_position": [
+            "0",
+            "free",
+            "free"
+        ],
+        "orientation": "+x to child, +y to world -z",
+        "driver": false,
+        "reference_vertex_ids": [
+            24054,
+            24060,
+            24062,
+            24065,
+            24067,
+            24070,
+            24086,
+            24088,
+            24115,
+            24123,
+            24759,
+            24767,
+            24769,
+            24785,
+            24820,
+            24822,
+            24824,
+            24859,
+            26885,
+            26901,
+            27158,
+            27173,
+            27174,
+            27176,
+            27882,
+            27886,
+            28787,
+            28793,
+            28901,
+            28904,
+            28908,
+            28910,
+            28957,
+            31384,
+            31554,
+            31556,
+            31560,
+            31561,
+            31564,
+            31565,
+            31675,
+            33216,
+            33257,
+            33267,
+            33322,
+            33336,
+            33341,
+            33386,
+            33391,
+            33416,
+            33462,
+            33467,
+            33470,
+            33475,
+            33490,
+            33494,
+            33499,
+            37614,
+            37617,
+            37620,
+            37621,
+            38049,
+            38053,
+            38094,
+            38096,
+            38255,
+            38570,
+            38591,
+            38600,
+            38602,
+            38613,
+            38716,
+            38717,
+            39240,
+            40782,
+            40818,
+            40830,
+            40887,
+            40904,
+            40907,
+            40911,
+            40954,
+            40960,
+            40986,
+            41034,
+            41037,
+            41041,
+            41044,
+            41048,
+            41061,
+            41065,
+            41072,
+            45187,
+            45191,
+            45194,
+            45196,
+            45476,
+            45482,
+            45638,
+            45642,
+            45686,
+            45689,
+            45850,
+            45852,
+            46180,
+            46201,
+            46210,
+            46212,
+            46224,
+            46327,
+            46328,
+            47492,
+            47526,
+            47533,
+            47575,
+            47577,
+            47587,
+            49424,
+            49427,
+            49729,
+            49732,
+            50053,
+            51295,
+            51329,
+            51336,
+            51378,
+            51380,
+            51390,
+            53227,
+            53230,
+            53532,
+            53535,
+            53856
+        ],
+        "reference_mesh": "combined"
+    },
+    "spine_05": {
+        "parent": "spine_04",
+        "child": "neck_01",
+        "world_position": [
+            "0",
+            "free",
+            "free"
+        ],
+        "orientation": "+x to child, +y to world -z",
+        "driver": false,
+        "reference_vertex_ids": [
+            2965,
+            2993,
+            2996,
+            17642,
+            24050,
+            24058,
+            24085,
+            24087,
+            31634,
+            40851,
+            45540,
+            46740,
+            46746
+        ],
+        "reference_mesh": "combined"
+    },
+    "neck_01": {
+        "parent": "spine_05",
+        "child": "neck_02",
+        "world_position": [
+            "0",
+            "free",
+            "free"
+        ],
+        "orientation": "+x to child, +y to world -z",
+        "driver": false,
+        "reference_vertex_ids": [
+            2788,
+            2987,
+            5859,
+            6014,
+            6016,
+            6019,
+            6021,
+            6022,
+            6044,
+            6045,
+            11511,
+            11548,
+            11673,
+            11708,
+            11741,
+            11747,
+            11749,
+            11751,
+            11753,
+            11755,
+            11757,
+            11818,
+            11824,
+            11892,
+            11936,
+            17556,
+            17597,
+            17724,
+            17746,
+            17758,
+            17762,
+            17795,
+            17801,
+            17803,
+            17805,
+            17807,
+            17809,
+            17811,
+            17878,
+            17885,
+            17953,
+            17974,
+            17978,
+            17993,
+            18000,
+            20752,
+            20753,
+            20756,
+            20758,
+            20767,
+            20768,
+            20769,
+            20811,
+            20814,
+            20815,
+            20816,
+            20817,
+            20818,
+            20819,
+            20820,
+            20821,
+            20823,
+            20824,
+            20825,
+            20827,
+            20830,
+            20831,
+            20832,
+            20833,
+            20834,
+            20835,
+            20836,
+            20877,
+            20878,
+            20889,
+            20892,
+            20932,
+            20935,
+            21018,
+            21019,
+            21028,
+            23765,
+            23766,
+            23769,
+            23771,
+            23780,
+            23781,
+            23782,
+            23824,
+            23827,
+            23828,
+            23829,
+            23830,
+            23831,
+            23832,
+            23833,
+            23834,
+            23836,
+            23837,
+            23838,
+            23840,
+            23843,
+            23844,
+            23845,
+            23846,
+            23847,
+            23848,
+            23849,
+            23890,
+            23891,
+            23902,
+            23905,
+            23945,
+            23948,
+            24031,
+            24032,
+            24041
+        ],
+        "reference_mesh": "combined"
+    },
+    "neck_02": {
+        "parent": "neck_01",
+        "child": "head",
+        "world_position": [
+            "0",
+            "free",
+            "free"
+        ],
+        "orientation": "+x to child, +y to world -z",
+        "driver": false,
+        "reference_vertex_ids": [
+            11625,
+            11627,
+            11628,
+            11630,
+            11632,
+            11636,
+            11638,
+            11640,
+            11641,
+            11646,
+            11648,
+            11651,
+            11653,
+            11655,
+            11657,
+            11660,
+            11662,
+            11667,
+            11704,
+            11706,
+            11708,
+            11710,
+            11712,
+            11714,
+            11716,
+            11718,
+            11720,
+            11722,
+            11724,
+            11725,
+            11727,
+            11729,
+            11730,
+            11732,
+            11733,
+            11735,
+            11738,
+            11740,
+            11742,
+            11744,
+            11746,
+            11748,
+            11750,
+            11752,
+            11754,
+            11756,
+            11758,
+            11759,
+            11761,
+            11763,
+            11764,
+            11766,
+            11767,
+            11769,
+            11772,
+            11773,
+            11774,
+            11775,
+            11776,
+            11777,
+            11778,
+            11779,
+            11780,
+            11781,
+            11782,
+            11783,
+            11784,
+            11785,
+            11786,
+            11787,
+            11788,
+            11789,
+            17674,
+            17676,
+            17677,
+            17679,
+            17682,
+            17684,
+            17685,
+            17687,
+            17689,
+            17692,
+            17697,
+            17699,
+            17701,
+            17704,
+            17706,
+            17708,
+            17710,
+            17712,
+            17714,
+            17718,
+            17756,
+            17758,
+            17760,
+            17762,
+            17764,
+            17766,
+            17768,
+            17770,
+            17772,
+            17774,
+            17776,
+            17778,
+            17779,
+            17781,
+            17783,
+            17784,
+            17786,
+            17787,
+            17789,
+            17791,
+            17793,
+            17794,
+            17796,
+            17798,
+            17800,
+            17802,
+            17804,
+            17806,
+            17808,
+            17810,
+            17812,
+            17814,
+            17815,
+            17817,
+            17819,
+            17820,
+            17822,
+            17823,
+            17825,
+            17827,
+            17828,
+            17829,
+            17830,
+            17831,
+            17832,
+            17833,
+            17834,
+            17835,
+            17836,
+            17837,
+            17838,
+            17839,
+            17840,
+            17841,
+            17842,
+            17843,
+            17844,
+            17845,
+            17846,
+            17847
+        ],
+        "reference_mesh": "combined"
+    },
+    "head": {
+        "parent": "neck_02",
+        "child": null,
+        "world_position": [
+            "0",
+            "free",
+            "free"
+        ],
+        "orientation": "-90, 0, 90 in WS",
+        "driver": false,
+        "reference_vertex_ids": [
+            20311,
+            20724,
+            20729,
+            20916,
+            20921,
+            20922,
+            20923,
+            21032,
+            21033,
+            23324,
+            23737,
+            23742,
+            23929,
+            23934,
+            23935,
+            23936,
+            24045,
+            24046
+        ],
+        "reference_mesh": "combined"
+    },
+    "clavicle_l": {
+        "parent": "spine_05",
+        "child": "upperarm_l",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "+x to child, +y to world -z",
+        "driver": true,
+        "reference_vertex_ids": [
+            2992,
+            2993,
+            2994,
+            2995,
+            3037,
+            5722,
+            5735,
+            5743,
+            5745,
+            5746,
+            5753,
+            5761,
+            5772,
+            5786,
+            5927,
+            5928,
+            5929,
+            5935,
+            5936,
+            5937,
+            11559,
+            11561,
+            11566,
+            11927,
+            11928,
+            11930,
+            17613,
+            17993,
+            31629,
+            31631,
+            31633,
+            31634,
+            40762,
+            40764,
+            40766,
+            40768
+        ],
+        "reference_mesh": "combined"
+    },
+    "upperarm_l": {
+        "parent": "clavicle_l",
+        "child": "lowerarm_l",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "+x to child, +y to world -z",
+        "driver": true,
+        "reference_vertex_ids": [
+            5876,
+            5877,
+            5878,
+            5879,
+            5894,
+            5895,
+            5944,
+            5947,
+            26810,
+            26828,
+            26829,
+            26830,
+            26831,
+            26840,
+            26841,
+            26923,
+            26924,
+            26933,
+            26984,
+            27009,
+            27018,
+            27019,
+            27184,
+            27195,
+            27196,
+            27775,
+            27781,
+            27794,
+            27795,
+            27805,
+            27806,
+            27807,
+            27810,
+            27811,
+            27812,
+            27813,
+            27814,
+            27817,
+            27818,
+            27819,
+            27820,
+            27821,
+            27824,
+            27825,
+            27826,
+            27827,
+            27828,
+            27831,
+            27832,
+            27833,
+            27834,
+            27835,
+            27838,
+            27839,
+            27840,
+            27841,
+            27842,
+            27845,
+            27846,
+            27847,
+            27848,
+            27849,
+            27857,
+            27858,
+            27859,
+            27860,
+            27861
+        ],
+        "reference_mesh": "combined"
+    },
+    "lowerarm_l": {
+        "parent": "upperarm_l",
+        "child": "hand_l",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "+x to child, +z to parent^child RH",
+        "driver": true,
+        "reference_vertex_ids": [
+            48211,
+            48212,
+            48213,
+            48214,
+            48215,
+            48216,
+            48217,
+            48218,
+            48219,
+            48220,
+            48221,
+            48222,
+            48223,
+            48224,
+            48225,
+            48226,
+            48227,
+            49321,
+            49440,
+            49582,
+            49583,
+            49584,
+            49585,
+            49586,
+            49587,
+            49588,
+            49589,
+            49590,
+            49591,
+            49592,
+            49593,
+            49594,
+            49595,
+            49596,
+            49597,
+            49598,
+            49599,
+            49600,
+            49658,
+            49659,
+            49660,
+            49661,
+            49662,
+            49663,
+            49664,
+            49665,
+            49666,
+            49667,
+            49668,
+            49669,
+            49670,
+            49671,
+            49672,
+            49673,
+            49674,
+            49675,
+            49676,
+            49763,
+            49764,
+            49765,
+            49766,
+            49767,
+            49768,
+            49769,
+            49770,
+            49771,
+            49772,
+            49773,
+            49774,
+            49775,
+            49776,
+            49777,
+            49778,
+            49779,
+            49780,
+            49781,
+            50157,
+            50158,
+            50159,
+            50160
+        ],
+        "reference_mesh": "combined"
+    },
+    "lowerarm_twist_02_l": {
+        "parent": "lowerarm_l",
+        "child": null,
+        "world_position": [
+            "twist",
+            "twist",
+            "twist"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "lowerarm_twist_01_l": {
+        "parent": "lowerarm_l",
+        "child": null,
+        "world_position": [
+            "twist",
+            "twist",
+            "twist"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "lowerarm_correctiveRoot_l": {
+        "parent": "lowerarm_l",
+        "child": "lowerarm_in_l",
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "lowerarm_in_l": {
+        "parent": "lowerarm_correctiveRoot_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "180, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [
+            25498,
+            26960,
+            42614,
+            42615,
+            42620,
+            45450,
+            48223,
+            49595
+        ],
+        "reference_mesh": "combined"
+    },
+    "lowerarm_out_l": {
+        "parent": "lowerarm_correctiveRoot_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [
+            42586,
+            45427,
+            45740,
+            48214,
+            49584,
+            49764
+        ],
+        "reference_mesh": "combined"
+    },
+    "lowerarm_fwd_l": {
+        "parent": "lowerarm_correctiveRoot_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            25494,
+            42602,
+            42603,
+            48218
+        ],
+        "reference_mesh": "combined"
+    },
+    "lowerarm_bck_l": {
+        "parent": "lowerarm_correctiveRoot_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            42628,
+            45456,
+            48227,
+            49600
+        ],
+        "reference_mesh": "combined"
+    },
+    "hand_l": {
+        "parent": "lowerarm_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "-90, 0, 0 in LS",
+        "driver": true,
+        "reference_vertex_ids": [
+            44949,
+            44951,
+            44955,
+            44961,
+            44965,
+            44968,
+            44971,
+            44974,
+            44980,
+            44983,
+            44987,
+            44991,
+            44994,
+            44997,
+            44999,
+            45044,
+            45072,
+            45226,
+            46310,
+            46313,
+            49293,
+            49294,
+            49295,
+            49296,
+            49297,
+            49298,
+            49299,
+            49300,
+            49301,
+            49302,
+            49303,
+            49304,
+            49305,
+            49306,
+            49307,
+            49335,
+            49358,
+            49455,
+            50174,
+            50176
+        ],
+        "reference_mesh": "combined"
+    },
+    "middle_metacarpal_l": {
+        "parent": "hand_l",
+        "child": "middle_01_l",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "+x to child, +z to calculated +z",
+        "driver": false,
+        "reference_vertex_ids": [
+            26390,
+            26391,
+            26392,
+            26419,
+            26420,
+            26421,
+            26445,
+            26446,
+            26447,
+            49228,
+            49229,
+            49253,
+            49254
+        ],
+        "reference_mesh": "combined"
+    },
+    "middle_01_l": {
+        "parent": "middle_metacarpal_l",
+        "child": "middle_02_l",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "+x to child, +z to calculated +z",
+        "driver": true,
+        "reference_vertex_ids": [
+            24387,
+            24388,
+            24389,
+            24394,
+            24395,
+            26217,
+            26218,
+            26219,
+            26221,
+            26222,
+            26252,
+            26253,
+            26254,
+            26256,
+            26257,
+            27214,
+            27215,
+            27216,
+            27219,
+            27220,
+            27221,
+            39841,
+            39844,
+            44300,
+            44303,
+            44309,
+            44311,
+            44343,
+            44344
+        ],
+        "reference_mesh": "combined"
+    },
+    "middle_02_l": {
+        "parent": "middle_01_l",
+        "child": "middle_03_l",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "+x to child, +z to calculated +z",
+        "driver": true,
+        "reference_vertex_ids": [
+            39740,
+            39742,
+            39744,
+            39745,
+            39748,
+            39749,
+            39751,
+            39754,
+            39756,
+            39757,
+            46432,
+            46433,
+            46434,
+            46435,
+            46436,
+            46437,
+            46438,
+            46439,
+            46440,
+            46441
+        ],
+        "reference_mesh": "combined"
+    },
+    "middle_03_l": {
+        "parent": "middle_02_l",
+        "child": "middle_03_half_l",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "0, 0, keep",
+        "driver": true,
+        "reference_vertex_ids": [
+            39578,
+            39580,
+            39582,
+            39585,
+            39587,
+            39589,
+            39592,
+            39594,
+            39600,
+            39716,
+            46452,
+            46453,
+            46454,
+            46455,
+            46456,
+            46457,
+            46458,
+            46459,
+            46460,
+            46461
+        ],
+        "reference_mesh": "combined"
+    },
+    "middle_03_half_l": {
+        "parent": "middle_03_l",
+        "child": "middle_03_in_l",
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "middle_03_in_l": {
+        "parent": "middle_03_half_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            24282
+        ],
+        "reference_mesh": "combined"
+    },
+    "middle_02_dip_l": {
+        "parent": "middle_03_half_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            24292
+        ],
+        "reference_mesh": "combined"
+    },
+    "middle_03_bulge_l": {
+        "parent": "middle_03_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            27471
+        ],
+        "reference_mesh": "combined"
+    },
+    "middle_02_side_inn_l": {
+        "parent": "middle_02_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            47033
+        ],
+        "reference_mesh": "combined"
+    },
+    "middle_02_side_out_l": {
+        "parent": "middle_02_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            39734
+        ],
+        "reference_mesh": "combined"
+    },
+    "middle_02_half_l": {
+        "parent": "middle_02_l",
+        "child": "middle_02_in_l",
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "middle_02_in_l": {
+        "parent": "middle_02_half_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            46441
+        ],
+        "reference_mesh": "combined"
+    },
+    "middle_02_pip_l": {
+        "parent": "middle_02_half_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            27431
+        ],
+        "reference_mesh": "combined"
+    },
+    "middle_02_bulge_l": {
+        "parent": "middle_02_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            39722
+        ],
+        "reference_mesh": "combined"
+    },
+    "middle_01_side_inn_l": {
+        "parent": "middle_01_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            24357
+        ],
+        "reference_mesh": "combined"
+    },
+    "middle_01_side_out_l": {
+        "parent": "middle_01_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            24361
+        ],
+        "reference_mesh": "combined"
+    },
+    "middle_01_half_l": {
+        "parent": "middle_01_l",
+        "child": "middle_01_palm_l",
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "middle_01_palm_l": {
+        "parent": "middle_01_half_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            26215
+        ],
+        "reference_mesh": "combined"
+    },
+    "middle_01_mcp_l": {
+        "parent": "middle_01_half_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            26217
+        ],
+        "reference_mesh": "combined"
+    },
+    "middle_01_bulge_l": {
+        "parent": "middle_01_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            24355,
+            39796
+        ],
+        "reference_mesh": "combined"
+    },
+    "middle_01_palmMid_l": {
+        "parent": "middle_01_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            24375
+        ],
+        "reference_mesh": "combined"
+    },
+    "middle_metacarpal_slide_l": {
+        "parent": "middle_metacarpal_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            44608,
+            44610,
+            44651,
+            44652,
+            44653,
+            44654,
+            44655,
+            44656,
+            44657,
+            44659,
+            46286,
+            46547,
+            46548
+        ],
+        "reference_mesh": "combined"
+    },
+    "pinky_metacarpal_l": {
+        "parent": "hand_l",
+        "child": "pinky_01_l",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "+x to child, +z to calculated +z",
+        "driver": false,
+        "reference_vertex_ids": [
+            26394,
+            26424,
+            26449,
+            27244,
+            27246,
+            44744,
+            44810,
+            44927,
+            46280,
+            49231,
+            49235,
+            49256,
+            49260
+        ],
+        "reference_mesh": "combined"
+    },
+    "pinky_01_l": {
+        "parent": "pinky_metacarpal_l",
+        "child": "pinky_02_l",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "+x to child, +z to calculated +z",
+        "driver": true,
+        "reference_vertex_ids": [
+            49007,
+            49008,
+            49009,
+            49010,
+            49011,
+            49012,
+            49032,
+            49041,
+            49042,
+            49043,
+            49044,
+            49045,
+            49046,
+            49047,
+            49048,
+            49068,
+            49075,
+            49076,
+            49116,
+            49117,
+            49118,
+            49119,
+            49120,
+            49121,
+            49139,
+            49140,
+            50081,
+            50082,
+            50083,
+            50091
+        ],
+        "reference_mesh": "combined"
+    },
+    "pinky_02_l": {
+        "parent": "pinky_01_l",
+        "child": "pinky_03_l",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "+x to child, +z to calculated +z",
+        "driver": true,
+        "reference_vertex_ids": [
+            39454,
+            39456,
+            39459,
+            39461,
+            39465,
+            39467,
+            39469,
+            39474,
+            39477,
+            39479,
+            39483,
+            39485,
+            39487,
+            39488,
+            39491,
+            39492,
+            39494,
+            39497,
+            39499,
+            39500
+        ],
+        "reference_mesh": "combined"
+    },
+    "pinky_03_l": {
+        "parent": "pinky_02_l",
+        "child": "pinky_03_half_l",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "0, 0, keep",
+        "driver": true,
+        "reference_vertex_ids": [
+            24146,
+            24147,
+            24148,
+            24149,
+            24150,
+            24151,
+            24152,
+            24153,
+            24154,
+            24155,
+            24156,
+            24157,
+            24158,
+            24159,
+            24160,
+            24161,
+            24162,
+            24163,
+            24164,
+            24215
+        ],
+        "reference_mesh": "combined"
+    },
+    "pinky_03_half_l": {
+        "parent": "pinky_03_l",
+        "child": "pinky_03_in_l",
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "pinky_03_in_l": {
+        "parent": "pinky_03_half_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            39298
+        ],
+        "reference_mesh": "combined"
+    },
+    "pinky_02_dip_l": {
+        "parent": "pinky_03_half_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            39429
+        ],
+        "reference_mesh": "combined"
+    },
+    "pinky_03_bulge_l": {
+        "parent": "pinky_03_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            27481,
+            39329
+        ],
+        "reference_mesh": "combined"
+    },
+    "pinky_02_half_l": {
+        "parent": "pinky_02_l",
+        "child": "pinky_02_in_l",
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "pinky_02_in_l": {
+        "parent": "pinky_02_half_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            39458
+        ],
+        "reference_mesh": "combined"
+    },
+    "pinky_02_pip_l": {
+        "parent": "pinky_02_half_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            39500
+        ],
+        "reference_mesh": "combined"
+    },
+    "pinky_02_bulge_l": {
+        "parent": "pinky_02_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            39436
+        ],
+        "reference_mesh": "combined"
+    },
+    "pinky_02_side_out_l": {
+        "parent": "pinky_02_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            46904
+        ],
+        "reference_mesh": "combined"
+    },
+    "pinky_02_side_inn_l": {
+        "parent": "pinky_02_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            46903
+        ],
+        "reference_mesh": "combined"
+    },
+    "pinky_01_side_inn_l": {
+        "parent": "pinky_01_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            24239,
+            39509
+        ],
+        "reference_mesh": "combined"
+    },
+    "pinky_01_side_out_l": {
+        "parent": "pinky_01_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            39537,
+            46945
+        ],
+        "reference_mesh": "combined"
+    },
+    "pinky_01_half_l": {
+        "parent": "pinky_01_l",
+        "child": "pinky_01_palm_l",
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "pinky_01_palm_l": {
+        "parent": "pinky_01_half_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            26206
+        ],
+        "reference_mesh": "combined"
+    },
+    "pinky_01_mcp_l": {
+        "parent": "pinky_01_half_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            26246
+        ],
+        "reference_mesh": "combined"
+    },
+    "pinky_01_bulge_l": {
+        "parent": "pinky_01_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            39506
+        ],
+        "reference_mesh": "combined"
+    },
+    "pinky_01_palmMid_l": {
+        "parent": "pinky_01_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            39546
+        ],
+        "reference_mesh": "combined"
+    },
+    "pinky_metacarpal_slide_l": {
+        "parent": "pinky_metacarpal_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            26345,
+            26365,
+            27202,
+            27203,
+            44625,
+            44661,
+            44672,
+            44820,
+            49201,
+            49205,
+            50059,
+            50356,
+            50358
+        ],
+        "reference_mesh": "combined"
+    },
+    "ring_metacarpal_l": {
+        "parent": "hand_l",
+        "child": "ring_01_l",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "+x to child, +z to calculated +z",
+        "driver": false,
+        "reference_vertex_ids": [
+            26392,
+            26393,
+            26394,
+            26421,
+            26422,
+            26423,
+            26447,
+            26448,
+            26449,
+            49230,
+            49232,
+            49255,
+            49257
+        ],
+        "reference_mesh": "combined"
+    },
+    "ring_01_l": {
+        "parent": "ring_metacarpal_l",
+        "child": "ring_02_l",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "+x to child, +z to calculated +z",
+        "driver": true,
+        "reference_vertex_ids": [
+            44337,
+            44339,
+            44341,
+            44350,
+            44353,
+            44416,
+            44418,
+            44420,
+            44428,
+            44431,
+            44577,
+            44579,
+            44581,
+            44586,
+            44589,
+            49027,
+            49028,
+            49063,
+            49064,
+            49067,
+            50060,
+            50084,
+            50085
+        ],
+        "reference_mesh": "combined"
+    },
+    "ring_02_l": {
+        "parent": "ring_01_l",
+        "child": "ring_03_l",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "+x to child, +z to calculated +z",
+        "driver": true,
+        "reference_vertex_ids": [
+            27337,
+            27338,
+            27339,
+            27340,
+            27341,
+            27342,
+            27343,
+            27344,
+            27345,
+            27346,
+            27347,
+            27348,
+            27349,
+            27350,
+            27351,
+            27352,
+            27353,
+            27354,
+            27355,
+            27356
+        ],
+        "reference_mesh": "combined"
+    },
+    "ring_03_l": {
+        "parent": "ring_02_l",
+        "child": "ring_03_half_l",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "0, 0, keep",
+        "driver": true,
+        "reference_vertex_ids": [
+            40327,
+            40329,
+            40331,
+            40334,
+            40336,
+            40338,
+            40341,
+            40343,
+            40349,
+            44116,
+            46442,
+            46443,
+            46444,
+            46445,
+            46446,
+            46447,
+            46448,
+            46449,
+            46450,
+            46451
+        ],
+        "reference_mesh": "combined"
+    },
+    "ring_03_half_l": {
+        "parent": "ring_03_l",
+        "child": "ring_03_in_l",
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "ring_03_in_l": {
+        "parent": "ring_03_half_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            24590
+        ],
+        "reference_mesh": "combined"
+    },
+    "ring_02_dip_l": {
+        "parent": "ring_03_half_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            24598
+        ],
+        "reference_mesh": "combined"
+    },
+    "ring_03_bulge_l": {
+        "parent": "ring_03_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            27451,
+            40363
+        ],
+        "reference_mesh": "combined"
+    },
+    "ring_02_half_l": {
+        "parent": "ring_02_l",
+        "child": "ring_02_in_l",
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "ring_02_in_l": {
+        "parent": "ring_02_half_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            44143
+        ],
+        "reference_mesh": "combined"
+    },
+    "ring_02_pip_l": {
+        "parent": "ring_02_half_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            27341
+        ],
+        "reference_mesh": "combined"
+    },
+    "ring_02_bulge_l": {
+        "parent": "ring_02_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            44122
+        ],
+        "reference_mesh": "combined"
+    },
+    "ring_02_side_out_l": {
+        "parent": "ring_02_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            24593
+        ],
+        "reference_mesh": "combined"
+    },
+    "ring_02_side_inn_l": {
+        "parent": "ring_02_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            24586
+        ],
+        "reference_mesh": "combined"
+    },
+    "ring_01_half_l": {
+        "parent": "ring_01_l",
+        "child": "ring_01_palm_l",
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "ring_01_palm_l": {
+        "parent": "ring_01_half_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            26231
+        ],
+        "reference_mesh": "combined"
+    },
+    "ring_01_mcp_l": {
+        "parent": "ring_01_half_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            26233
+        ],
+        "reference_mesh": "combined"
+    },
+    "ring_01_bulge_l": {
+        "parent": "ring_01_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            26168
+        ],
+        "reference_mesh": "combined"
+    },
+    "ring_01_side_out_l": {
+        "parent": "ring_01_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            26174
+        ],
+        "reference_mesh": "combined"
+    },
+    "ring_01_side_inn_l": {
+        "parent": "ring_01_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            26170
+        ],
+        "reference_mesh": "combined"
+    },
+    "ring_01_palmMid_l": {
+        "parent": "ring_01_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            26188
+        ],
+        "reference_mesh": "combined"
+    },
+    "ring_metacarpal_slide_l": {
+        "parent": "ring_metacarpal_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            44614,
+            44617,
+            44618,
+            44660,
+            44661,
+            44662,
+            44663,
+            44664,
+            44666,
+            44667,
+            44668,
+            46544,
+            46545
+        ],
+        "reference_mesh": "combined"
+    },
+    "thumb_01_l": {
+        "parent": "hand_l",
+        "child": "thumb_02_l",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "+x to child, +z to calculated +z",
+        "driver": true,
+        "reference_vertex_ids": [
+            26463,
+            26550,
+            44778,
+            44780,
+            44781,
+            44783,
+            44784,
+            44786,
+            44788,
+            44789,
+            44791,
+            44792,
+            44794,
+            44796,
+            44802,
+            44835,
+            44838,
+            44840,
+            44841,
+            44843,
+            44845,
+            44846,
+            44848,
+            44849,
+            44851,
+            44853,
+            44859,
+            44891,
+            44893,
+            44896,
+            44898,
+            44900,
+            44902,
+            44905,
+            44907,
+            44914,
+            44915,
+            44948,
+            44950,
+            44952,
+            44953,
+            44954,
+            45071,
+            45079,
+            45080,
+            45081,
+            45082,
+            45083,
+            45084,
+            45085,
+            45086,
+            45089,
+            45266,
+            45287,
+            45418,
+            45419
+        ],
+        "reference_mesh": "combined"
+    },
+    "thumb_02_l": {
+        "parent": "thumb_01_l",
+        "child": "thumb_03_l",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "+x to child, +z to calculated +z",
+        "driver": true,
+        "reference_vertex_ids": [
+            24572,
+            24573,
+            24574,
+            24575,
+            24576,
+            24577,
+            24578,
+            24579,
+            26656,
+            26675,
+            44440,
+            44442,
+            44443,
+            44445,
+            44446,
+            44448,
+            44450,
+            44452,
+            44453
+        ],
+        "reference_mesh": "combined"
+    },
+    "thumb_03_l": {
+        "parent": "thumb_02_l",
+        "child": "thumb_03_half_l",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "0, 0, keep",
+        "driver": true,
+        "reference_vertex_ids": [
+            40147,
+            40149,
+            40151,
+            40153,
+            40155,
+            40157,
+            40158,
+            40160,
+            40162,
+            40164,
+            40165,
+            40166,
+            40167,
+            40169,
+            40173,
+            40262,
+            45238,
+            45239,
+            45252,
+            45253
+        ],
+        "reference_mesh": "combined"
+    },
+    "thumb_03_half_l": {
+        "parent": "thumb_03_l",
+        "child": "thumb_03_pip_l",
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "thumb_03_pip_l": {
+        "parent": "thumb_03_half_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            40263
+        ],
+        "reference_mesh": "combined"
+    },
+    "thumb_03_in_l": {
+        "parent": "thumb_03_half_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            27400
+        ],
+        "reference_mesh": "combined"
+    },
+    "thumb_03_side_out_l": {
+        "parent": "thumb_03_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            24516
+        ],
+        "reference_mesh": "combined"
+    },
+    "thumb_03_side_inn_l": {
+        "parent": "thumb_03_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            40153
+        ],
+        "reference_mesh": "combined"
+    },
+    "thumb_03_bulge_l": {
+        "parent": "thumb_03_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            26671
+        ],
+        "reference_mesh": "combined"
+    },
+    "thumb_02_half_l": {
+        "parent": "thumb_02_l",
+        "child": "thumb_02_mcp_l",
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "thumb_02_mcp_l": {
+        "parent": "thumb_02_half_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            44453
+        ],
+        "reference_mesh": "combined"
+    },
+    "thumb_02_in_l": {
+        "parent": "thumb_02_half_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            40308
+        ],
+        "reference_mesh": "combined"
+    },
+    "thumb_02_side_out_l": {
+        "parent": "thumb_02_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            47278
+        ],
+        "reference_mesh": "combined"
+    },
+    "thumb_02_side_inn_l": {
+        "parent": "thumb_02_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            40300
+        ],
+        "reference_mesh": "combined"
+    },
+    "thumb_02_bulge_l": {
+        "parent": "thumb_02_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            40265
+        ],
+        "reference_mesh": "combined"
+    },
+    "thumb_01_side_out_l": {
+        "parent": "thumb_01_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            45229
+        ],
+        "reference_mesh": "combined"
+    },
+    "thumb_01_side_inn_l": {
+        "parent": "thumb_01_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            49084
+        ],
+        "reference_mesh": "combined"
+    },
+    "index_metacarpal_l": {
+        "parent": "hand_l",
+        "child": "index_01_l",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "+x to child, +z to calculated +z",
+        "driver": false,
+        "reference_vertex_ids": [
+            26385,
+            26387,
+            26388,
+            26389,
+            26415,
+            26416,
+            26417,
+            26418,
+            44858,
+            49195,
+            49215,
+            49226,
+            49250,
+            49266
+        ],
+        "reference_mesh": "combined"
+    },
+    "index_01_l": {
+        "parent": "index_metacarpal_l",
+        "child": "index_02_l",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "+x to child, +z to calculated +z",
+        "driver": true,
+        "reference_vertex_ids": [
+            39859,
+            39863,
+            40136,
+            40138,
+            40140,
+            40142,
+            40144,
+            40145,
+            44282,
+            44284,
+            44315,
+            44320,
+            44323,
+            44325,
+            44327,
+            44329,
+            44330,
+            44356,
+            44358,
+            44394,
+            44399,
+            44402,
+            44404,
+            44406,
+            44408,
+            44409,
+            44434,
+            44436,
+            46239,
+            46240
+        ],
+        "reference_mesh": "combined"
+    },
+    "index_02_l": {
+        "parent": "index_01_l",
+        "child": "index_03_l",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "+x to child, +z to calculated +z",
+        "driver": true,
+        "reference_vertex_ids": [
+            40028,
+            40030,
+            40033,
+            40035,
+            40039,
+            40041,
+            40043,
+            40048,
+            40051,
+            40053,
+            40057,
+            40059,
+            40061,
+            40062,
+            40065,
+            40066,
+            40068,
+            40071,
+            40073,
+            40074
+        ],
+        "reference_mesh": "combined"
+    },
+    "index_03_l": {
+        "parent": "index_02_l",
+        "child": "index_03_half_l",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "0, 0, keep",
+        "driver": true,
+        "reference_vertex_ids": [
+            39868,
+            39870,
+            39872,
+            39875,
+            39877,
+            39879,
+            39882,
+            39884,
+            39890,
+            46399,
+            46402,
+            46403,
+            46404,
+            46405,
+            46406,
+            46407,
+            46408,
+            46409,
+            46410,
+            46411
+        ],
+        "reference_mesh": "combined"
+    },
+    "index_03_half_l": {
+        "parent": "index_03_l",
+        "child": "index_03_in_l",
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "index_03_in_l": {
+        "parent": "index_03_half_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            27390
+        ],
+        "reference_mesh": "combined"
+    },
+    "index_02_dip_l": {
+        "parent": "index_03_half_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            27395
+        ],
+        "reference_mesh": "combined"
+    },
+    "index_03_bulge_l": {
+        "parent": "index_03_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            39921
+        ],
+        "reference_mesh": "combined"
+    },
+    "index_02_side_inn_l": {
+        "parent": "index_02_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            40013
+        ],
+        "reference_mesh": "combined"
+    },
+    "index_02_side_out_l": {
+        "parent": "index_02_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            47156
+        ],
+        "reference_mesh": "combined"
+    },
+    "index_02_half_l": {
+        "parent": "index_02_l",
+        "child": "index_02_in_l",
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "index_02_in_l": {
+        "parent": "index_02_half_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            27326
+        ],
+        "reference_mesh": "combined"
+    },
+    "index_02_pip_l": {
+        "parent": "index_02_half_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            27321
+        ],
+        "reference_mesh": "combined"
+    },
+    "index_02_bulge_l": {
+        "parent": "index_02_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            40000
+        ],
+        "reference_mesh": "combined"
+    },
+    "index_01_side_out_l": {
+        "parent": "index_01_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            24484
+        ],
+        "reference_mesh": "combined"
+    },
+    "index_01_side_inn_l": {
+        "parent": "index_01_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            40089
+        ],
+        "reference_mesh": "combined"
+    },
+    "index_01_half_l": {
+        "parent": "index_01_l",
+        "child": "index_01_palm_l",
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "index_01_palm_l": {
+        "parent": "index_01_half_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            26224
+        ],
+        "reference_mesh": "combined"
+    },
+    "index_01_mcp_l": {
+        "parent": "index_01_half_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            26226
+        ],
+        "reference_mesh": "combined"
+    },
+    "index_01_bulge_l": {
+        "parent": "index_01_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            24478
+        ],
+        "reference_mesh": "combined"
+    },
+    "index_01_palmMid_l": {
+        "parent": "index_01_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            24498
+        ],
+        "reference_mesh": "combined"
+    },
+    "index_metacarpal_slide_l": {
+        "parent": "index_metacarpal_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            26338,
+            26358,
+            44644,
+            44647,
+            44649,
+            46549,
+            49165,
+            50365
+        ],
+        "reference_mesh": "combined"
+    },
+    "wrist_inner_l": {
+        "parent": "hand_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            27313,
+            46337,
+            46362,
+            50175
+        ],
+        "reference_mesh": "combined"
+    },
+    "wrist_outer_l": {
+        "parent": "hand_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            49295
+        ],
+        "reference_mesh": "combined"
+    },
+    "upperarm_twist_01_l": {
+        "parent": "upperarm_l",
+        "child": "upperarm_twistCor_01_l",
+        "world_position": [
+            "twist",
+            "twist",
+            "twist"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "upperarm_twistCor_01_l": {
+        "parent": "upperarm_twist_01_l",
+        "child": null,
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "upperarm_twist_02_l": {
+        "parent": "upperarm_l",
+        "child": "upperarm_tricep_l",
+        "world_position": [
+            "twist",
+            "twist",
+            "twist"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "upperarm_tricep_l": {
+        "parent": "upperarm_twist_02_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            25380,
+            25381,
+            25396,
+            25397,
+            42357,
+            42390,
+            42392,
+            42393,
+            48134
+        ],
+        "reference_mesh": "combined"
+    },
+    "upperarm_bicep_l": {
+        "parent": "upperarm_twist_02_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            25400,
+            42399,
+            42400,
+            42401,
+            42416,
+            48137,
+            48138,
+            48145,
+            48146
+        ],
+        "reference_mesh": "combined"
+    },
+    "upperarm_twistCor_02_l": {
+        "parent": "upperarm_twist_02_l",
+        "child": null,
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "upperarm_correctiveRoot_l": {
+        "parent": "upperarm_l",
+        "child": "upperarm_bck_l",
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "upperarm_bck_l": {
+        "parent": "upperarm_correctiveRoot_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            26841,
+            27859,
+            31639,
+            40870,
+            45829,
+            46798,
+            46800,
+            50599,
+            50600
+        ],
+        "reference_mesh": "combined"
+    },
+    "upperarm_fwd_l": {
+        "parent": "upperarm_correctiveRoot_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            27009,
+            27794,
+            27805,
+            27806,
+            45366,
+            45842,
+            46730,
+            46741,
+            50544
+        ],
+        "reference_mesh": "combined"
+    },
+    "upperarm_in_l": {
+        "parent": "upperarm_correctiveRoot_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            26930,
+            27012,
+            45376,
+            45378,
+            45379,
+            45709,
+            45823,
+            46333,
+            49564,
+            49831,
+            50144,
+            50145
+        ],
+        "reference_mesh": "combined"
+    },
+    "upperarm_out_l": {
+        "parent": "upperarm_correctiveRoot_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            27833,
+            45833,
+            45834,
+            45835,
+            46770,
+            49839,
+            49840,
+            50569,
+            50575
+        ],
+        "reference_mesh": "combined"
+    },
+    "clavicle_out_l": {
+        "parent": "clavicle_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            5731,
+            5962,
+            11583,
+            11588,
+            11922,
+            11923,
+            11925,
+            11948,
+            11949,
+            11951,
+            11969,
+            23789,
+            24000
+        ],
+        "reference_mesh": "combined"
+    },
+    "clavicle_scap_l": {
+        "parent": "clavicle_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            31626,
+            31627,
+            31628,
+            31642,
+            31643,
+            31644,
+            45863,
+            45864,
+            45873
+        ],
+        "reference_mesh": "combined"
+    },
+    "clavicle_r": {
+        "parent": "spine_05",
+        "child": "upperarm_r",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "-x to child, +y to world +z",
+        "driver": true,
+        "reference_vertex_ids": [
+            2992,
+            2993,
+            2994,
+            2995,
+            3037,
+            2651,
+            2664,
+            2672,
+            2674,
+            2675,
+            2682,
+            2690,
+            2701,
+            2715,
+            2856,
+            2857,
+            2858,
+            2864,
+            2865,
+            2866,
+            17608,
+            17606,
+            17615,
+            17991,
+            17995,
+            17997,
+            17613,
+            17993,
+            39189,
+            39191,
+            39193,
+            31634,
+            33199,
+            33201,
+            33203,
+            40768
+        ],
+        "reference_mesh": "combined"
+    },
+    "upperarm_r": {
+        "parent": "clavicle_r",
+        "child": "lowerarm_r",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "-x to child, +y to world +z",
+        "driver": true,
+        "reference_vertex_ids": [
+            2805,
+            2806,
+            2807,
+            2808,
+            2823,
+            2824,
+            2873,
+            2876,
+            28817,
+            31344,
+            28749,
+            28750,
+            31345,
+            28818,
+            28835,
+            31301,
+            31299,
+            31277,
+            28759,
+            31276,
+            31298,
+            31300,
+            31436,
+            28834,
+            31437,
+            31349,
+            31278,
+            31602,
+            31346,
+            31279,
+            31427,
+            28760,
+            31313,
+            31312,
+            31426,
+            31603,
+            28751,
+            31311,
+            31310,
+            31425,
+            28762,
+            28753,
+            31309,
+            31308,
+            31424,
+            28761,
+            28752,
+            31307,
+            31306,
+            31423,
+            31606,
+            31607,
+            31305,
+            31304,
+            31422,
+            31609,
+            31610,
+            31302,
+            31303,
+            31421,
+            31612,
+            31613,
+            31615,
+            31616,
+            31617,
+            31618,
+            31619
+        ],
+        "reference_mesh": "combined"
+    },
+    "lowerarm_r": {
+        "parent": "upperarm_r",
+        "child": "hand_r",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "-x to child, +z to parent^child RH",
+        "driver": false,
+        "reference_vertex_ids": [
+            52014,
+            52015,
+            52016,
+            52017,
+            52018,
+            52019,
+            52020,
+            52021,
+            52022,
+            52023,
+            52024,
+            52025,
+            52026,
+            52027,
+            52028,
+            52029,
+            52030,
+            53124,
+            53243,
+            53385,
+            53386,
+            53387,
+            53388,
+            53389,
+            53390,
+            53391,
+            53392,
+            53393,
+            53394,
+            53395,
+            53396,
+            53397,
+            53398,
+            53399,
+            53400,
+            53401,
+            53402,
+            53403,
+            53461,
+            53462,
+            53463,
+            53464,
+            53465,
+            53466,
+            53467,
+            53468,
+            53469,
+            53470,
+            53471,
+            53472,
+            53473,
+            53474,
+            53475,
+            53476,
+            53477,
+            53478,
+            53479,
+            53566,
+            53567,
+            53568,
+            53569,
+            53570,
+            53571,
+            53572,
+            53573,
+            53574,
+            53575,
+            53576,
+            53577,
+            53578,
+            53579,
+            53580,
+            53581,
+            53582,
+            53583,
+            53584,
+            53960,
+            53961,
+            53962,
+            53963
+        ],
+        "reference_mesh": "combined"
+    },
+    "lowerarm_twist_02_r": {
+        "parent": "lowerarm_r",
+        "child": null,
+        "world_position": [
+            "twist",
+            "twist",
+            "twist"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "lowerarm_twist_01_r": {
+        "parent": "lowerarm_r",
+        "child": null,
+        "world_position": [
+            "twist",
+            "twist",
+            "twist"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "lowerarm_correctiveRoot_r": {
+        "parent": "lowerarm_r",
+        "child": "lowerarm_out_r",
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "lowerarm_out_r": {
+        "parent": "lowerarm_correctiveRoot_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            35012,
+            37854,
+            38147,
+            52017,
+            53387,
+            53567
+        ],
+        "reference_mesh": "combined"
+    },
+    "lowerarm_in_r": {
+        "parent": "lowerarm_correctiveRoot_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            29901,
+            29903,
+            35043,
+            35042,
+            35044,
+            37877,
+            52026,
+            53398
+        ],
+        "reference_mesh": "combined"
+    },
+    "lowerarm_fwd_r": {
+        "parent": "lowerarm_correctiveRoot_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            29890,
+            35028,
+            35027,
+            52021
+        ],
+        "reference_mesh": "combined"
+    },
+    "lowerarm_bck_r": {
+        "parent": "lowerarm_correctiveRoot_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            35054,
+            37883,
+            52030,
+            53403
+        ],
+        "reference_mesh": "combined"
+    },
+    "hand_r": {
+        "parent": "lowerarm_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "-90, 0, 0 in LS",
+        "driver": true,
+        "reference_vertex_ids": [
+            37375,
+            37378,
+            37379,
+            37386,
+            37390,
+            37394,
+            37397,
+            37399,
+            37405,
+            37409,
+            37412,
+            37415,
+            37418,
+            37421,
+            37424,
+            37469,
+            37496,
+            37652,
+            38698,
+            38703,
+            53096,
+            53097,
+            53098,
+            53099,
+            53100,
+            53101,
+            53102,
+            53103,
+            53104,
+            53105,
+            53106,
+            53107,
+            53108,
+            53109,
+            53110,
+            53138,
+            53161,
+            53258,
+            53977,
+            53979
+        ],
+        "reference_mesh": "combined"
+    },
+    "middle_metacarpal_r": {
+        "parent": "hand_r",
+        "child": "middle_01_r",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "-x to child, +z to calculated +z",
+        "driver": false,
+        "reference_vertex_ids": [
+            31030,
+            31031,
+            31032,
+            31068,
+            31069,
+            31070,
+            31099,
+            31100,
+            31101,
+            53031,
+            53032,
+            53056,
+            53057
+        ],
+        "reference_mesh": "combined"
+    },
+    "middle_01_r": {
+        "parent": "middle_metacarpal_r",
+        "child": "middle_02_r",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "-x to child, +z to calculated +z",
+        "driver": true,
+        "reference_vertex_ids": [
+            28234,
+            28235,
+            28236,
+            28245,
+            28248,
+            30785,
+            30784,
+            30786,
+            30788,
+            30791,
+            30826,
+            30825,
+            30827,
+            30829,
+            30832,
+            28246,
+            30789,
+            30830,
+            30850,
+            30809,
+            30770,
+            32279,
+            32281,
+            36726,
+            36728,
+            36737,
+            36735,
+            36769,
+            36768
+        ],
+        "reference_mesh": "combined"
+    },
+    "middle_02_r": {
+        "parent": "middle_01_r",
+        "child": "middle_03_r",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "-x to child, +z to calculated +z",
+        "driver": true,
+        "reference_vertex_ids": [
+            32180,
+            32178,
+            32181,
+            32184,
+            32185,
+            32189,
+            32187,
+            32191,
+            32193,
+            32196,
+            38822,
+            38821,
+            38823,
+            38824,
+            38825,
+            38826,
+            38827,
+            38828,
+            38829,
+            38830
+        ],
+        "reference_mesh": "combined"
+    },
+    "middle_03_r": {
+        "parent": "middle_02_r",
+        "child": "middle_03_half_r",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "0, 0, keep",
+        "driver": true,
+        "reference_vertex_ids": [
+            32017,
+            32015,
+            32020,
+            32024,
+            32022,
+            32027,
+            32031,
+            32029,
+            32038,
+            32154,
+            38842,
+            38841,
+            38843,
+            38844,
+            38845,
+            38846,
+            38847,
+            38848,
+            38849,
+            38850
+        ],
+        "reference_mesh": "combined"
+    },
+    "middle_03_half_r": {
+        "parent": "middle_03_r",
+        "child": "middle_03_in_r",
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "middle_03_in_r": {
+        "parent": "middle_03_half_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            28089
+        ],
+        "reference_mesh": "combined"
+    },
+    "middle_02_dip_r": {
+        "parent": "middle_03_half_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            28159
+        ],
+        "reference_mesh": "combined"
+    },
+    "middle_03_bulge_r": {
+        "parent": "middle_03_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            28109
+        ],
+        "reference_mesh": "combined"
+    },
+    "middle_02_side_inn_r": {
+        "parent": "middle_02_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            50836
+        ],
+        "reference_mesh": "combined"
+    },
+    "middle_02_side_out_r": {
+        "parent": "middle_02_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            32171
+        ],
+        "reference_mesh": "combined"
+    },
+    "middle_02_half_r": {
+        "parent": "middle_02_r",
+        "child": "middle_02_in_r",
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "middle_02_in_r": {
+        "parent": "middle_02_half_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            38830
+        ],
+        "reference_mesh": "combined"
+    },
+    "middle_02_pip_r": {
+        "parent": "middle_02_half_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            28200
+        ],
+        "reference_mesh": "combined"
+    },
+    "middle_02_bulge_r": {
+        "parent": "middle_02_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            32158
+        ],
+        "reference_mesh": "combined"
+    },
+    "middle_01_side_inn_r": {
+        "parent": "middle_01_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            28208
+        ],
+        "reference_mesh": "combined"
+    },
+    "middle_01_side_out_r": {
+        "parent": "middle_01_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            28216
+        ],
+        "reference_mesh": "combined"
+    },
+    "middle_01_half_r": {
+        "parent": "middle_01_r",
+        "child": "middle_01_palm_r",
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "middle_01_palm_r": {
+        "parent": "middle_01_half_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            30781
+        ],
+        "reference_mesh": "combined"
+    },
+    "middle_01_mcp_r": {
+        "parent": "middle_01_half_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            30785
+        ],
+        "reference_mesh": "combined"
+    },
+    "middle_01_bulge_r": {
+        "parent": "middle_01_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            28204,
+            32232
+        ],
+        "reference_mesh": "combined"
+    },
+    "middle_01_palmMid_r": {
+        "parent": "middle_01_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            28222
+        ],
+        "reference_mesh": "combined"
+    },
+    "middle_metacarpal_slide_r": {
+        "parent": "middle_metacarpal_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            37035,
+            37038,
+            37079,
+            37078,
+            37077,
+            37082,
+            37081,
+            37080,
+            37085,
+            37083,
+            38676,
+            38936,
+            38937
+        ],
+        "reference_mesh": "combined"
+    },
+    "pinky_metacarpal_r": {
+        "parent": "hand_r",
+        "child": "pinky_01_r",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "-x to child, +z to calculated +z",
+        "driver": false,
+        "reference_vertex_ids": [
+            31033,
+            31073,
+            31102,
+            31039,
+            31108,
+            37171,
+            37236,
+            37354,
+            38670,
+            53034,
+            53038,
+            53059,
+            53063
+        ],
+        "reference_mesh": "combined"
+    },
+    "pinky_01_r": {
+        "parent": "pinky_metacarpal_r",
+        "child": "pinky_02_r",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "-x to child, +z to calculated +z",
+        "driver": true,
+        "reference_vertex_ids": [
+            52810,
+            52811,
+            52812,
+            52813,
+            52814,
+            52815,
+            52835,
+            52844,
+            52845,
+            52846,
+            52847,
+            52848,
+            52849,
+            52850,
+            52851,
+            52871,
+            52878,
+            52879,
+            52919,
+            52920,
+            52921,
+            52922,
+            52923,
+            52924,
+            52942,
+            52943,
+            53884,
+            53885,
+            53886,
+            53894
+        ],
+        "reference_mesh": "combined"
+    },
+    "pinky_02_r": {
+        "parent": "pinky_01_r",
+        "child": "pinky_03_r",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "-x to child, +z to calculated +z",
+        "driver": true,
+        "reference_vertex_ids": [
+            31893,
+            31891,
+            31895,
+            31899,
+            31901,
+            31906,
+            31904,
+            31910,
+            31913,
+            31917,
+            31923,
+            31921,
+            31924,
+            31927,
+            31928,
+            31932,
+            31930,
+            31934,
+            31936,
+            31939
+        ],
+        "reference_mesh": "combined"
+    },
+    "pinky_03_r": {
+        "parent": "pinky_02_r",
+        "child": "pinky_03_half_r",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "0, 0, keep",
+        "driver": true,
+        "reference_vertex_ids": [
+            27923,
+            27924,
+            27925,
+            27926,
+            27927,
+            27928,
+            27929,
+            27930,
+            27931,
+            27932,
+            27933,
+            27934,
+            27935,
+            27936,
+            27937,
+            27938,
+            27939,
+            27940,
+            28001,
+            28002
+        ],
+        "reference_mesh": "combined"
+    },
+    "pinky_03_half_r": {
+        "parent": "pinky_03_r",
+        "child": "pinky_03_in_r",
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "pinky_03_in_r": {
+        "parent": "pinky_03_half_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            31737
+        ],
+        "reference_mesh": "combined"
+    },
+    "pinky_02_dip_r": {
+        "parent": "pinky_03_half_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            31867
+        ],
+        "reference_mesh": "combined"
+    },
+    "pinky_03_bulge_r": {
+        "parent": "pinky_03_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            27950,
+            31769
+        ],
+        "reference_mesh": "combined"
+    },
+    "pinky_02_half_r": {
+        "parent": "pinky_02_r",
+        "child": "pinky_02_in_r",
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "pinky_02_in_r": {
+        "parent": "pinky_02_half_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            31896
+        ],
+        "reference_mesh": "combined"
+    },
+    "pinky_02_pip_r": {
+        "parent": "pinky_02_half_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            31939
+        ],
+        "reference_mesh": "combined"
+    },
+    "pinky_02_bulge_r": {
+        "parent": "pinky_02_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            31875
+        ],
+        "reference_mesh": "combined"
+    },
+    "pinky_02_side_out_r": {
+        "parent": "pinky_02_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            50707
+        ],
+        "reference_mesh": "combined"
+    },
+    "pinky_02_side_inn_r": {
+        "parent": "pinky_02_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            50706
+        ],
+        "reference_mesh": "combined"
+    },
+    "pinky_01_side_inn_r": {
+        "parent": "pinky_01_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            28046,
+            31946
+        ],
+        "reference_mesh": "combined"
+    },
+    "pinky_01_side_out_r": {
+        "parent": "pinky_01_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            31974,
+            50748
+        ],
+        "reference_mesh": "combined"
+    },
+    "pinky_01_half_r": {
+        "parent": "pinky_01_r",
+        "child": "pinky_01_palm_r",
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "pinky_01_palm_r": {
+        "parent": "pinky_01_half_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            30774
+        ],
+        "reference_mesh": "combined"
+    },
+    "pinky_01_mcp_r": {
+        "parent": "pinky_01_half_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            30819
+        ],
+        "reference_mesh": "combined"
+    },
+    "pinky_01_bulge_r": {
+        "parent": "pinky_01_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            31945
+        ],
+        "reference_mesh": "combined"
+    },
+    "pinky_01_palmMid_r": {
+        "parent": "pinky_01_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            31985
+        ],
+        "reference_mesh": "combined"
+    },
+    "pinky_metacarpal_slide_r": {
+        "parent": "pinky_metacarpal_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            30984,
+            30985,
+            30992,
+            30993,
+            37050,
+            37088,
+            37095,
+            37248,
+            53004,
+            53008,
+            53862,
+            54159,
+            54161
+        ],
+        "reference_mesh": "combined"
+    },
+    "ring_metacarpal_r": {
+        "parent": "hand_r",
+        "child": "ring_01_r",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "-x to child, +z to calculated +z",
+        "driver": false,
+        "reference_vertex_ids": [
+            31032,
+            31034,
+            31033,
+            31070,
+            31072,
+            31071,
+            31101,
+            31103,
+            31102,
+            53033,
+            53035,
+            53058,
+            53060
+        ],
+        "reference_mesh": "combined"
+    },
+    "ring_01_r": {
+        "parent": "ring_metacarpal_r",
+        "child": "ring_02_r",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "-x to child, +z to calculated +z",
+        "driver": true,
+        "reference_vertex_ids": [
+            36765,
+            36763,
+            36766,
+            36774,
+            36779,
+            36844,
+            36842,
+            36845,
+            36852,
+            36857,
+            37005,
+            37003,
+            37006,
+            37010,
+            37015,
+            52830,
+            52831,
+            52866,
+            52867,
+            52870,
+            53863,
+            53887,
+            53888
+        ],
+        "reference_mesh": "combined"
+    },
+    "ring_02_r": {
+        "parent": "ring_01_r",
+        "child": "ring_03_r",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "-x to child, +z to calculated +z",
+        "driver": true,
+        "reference_vertex_ids": [
+            30696,
+            30701,
+            30707,
+            30706,
+            30713,
+            30711,
+            30709,
+            30703,
+            30699,
+            30697,
+            30695,
+            30700,
+            30704,
+            30705,
+            30712,
+            30710,
+            30708,
+            30702,
+            30698,
+            30694
+        ],
+        "reference_mesh": "combined"
+    },
+    "ring_03_r": {
+        "parent": "ring_02_r",
+        "child": "ring_03_half_r",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "0, 0, keep",
+        "driver": true,
+        "reference_vertex_ids": [
+            32766,
+            32764,
+            32769,
+            32773,
+            32771,
+            32776,
+            32780,
+            32778,
+            32787,
+            36542,
+            38832,
+            38831,
+            38833,
+            38834,
+            38835,
+            38836,
+            38837,
+            38838,
+            38839,
+            38840
+        ],
+        "reference_mesh": "combined"
+    },
+    "ring_03_half_r": {
+        "parent": "ring_03_r",
+        "child": "ring_03_in_r",
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "ring_03_in_r": {
+        "parent": "ring_03_half_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            28519
+        ],
+        "reference_mesh": "combined"
+    },
+    "ring_02_dip_r": {
+        "parent": "ring_03_half_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            30682
+        ],
+        "reference_mesh": "combined"
+    },
+    "ring_03_bulge_r": {
+        "parent": "ring_03_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            28539,
+            32800
+        ],
+        "reference_mesh": "combined"
+    },
+    "ring_02_half_r": {
+        "parent": "ring_02_r",
+        "child": "ring_02_in_r",
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "ring_02_in_r": {
+        "parent": "ring_02_half_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            36566
+        ],
+        "reference_mesh": "combined"
+    },
+    "ring_02_pip_r": {
+        "parent": "ring_02_half_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            30713
+        ],
+        "reference_mesh": "combined"
+    },
+    "ring_02_bulge_r": {
+        "parent": "ring_02_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            36546
+        ],
+        "reference_mesh": "combined"
+    },
+    "ring_02_side_out_r": {
+        "parent": "ring_02_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            28524
+        ],
+        "reference_mesh": "combined"
+    },
+    "ring_02_side_inn_r": {
+        "parent": "ring_02_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            28512
+        ],
+        "reference_mesh": "combined"
+    },
+    "ring_01_half_r": {
+        "parent": "ring_01_r",
+        "child": "ring_01_palm_r",
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "ring_01_palm_r": {
+        "parent": "ring_01_half_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            30799
+        ],
+        "reference_mesh": "combined"
+    },
+    "ring_01_mcp_r": {
+        "parent": "ring_01_half_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            30803
+        ],
+        "reference_mesh": "combined"
+    },
+    "ring_01_bulge_r": {
+        "parent": "ring_01_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            30725
+        ],
+        "reference_mesh": "combined"
+    },
+    "ring_01_side_out_r": {
+        "parent": "ring_01_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            30731
+        ],
+        "reference_mesh": "combined"
+    },
+    "ring_01_side_inn_r": {
+        "parent": "ring_01_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            30727
+        ],
+        "reference_mesh": "combined"
+    },
+    "ring_01_palmMid_r": {
+        "parent": "ring_01_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            30745
+        ],
+        "reference_mesh": "combined"
+    },
+    "ring_metacarpal_slide_r": {
+        "parent": "ring_metacarpal_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            37040,
+            37042,
+            37044,
+            37089,
+            37088,
+            37087,
+            37086,
+            37092,
+            37090,
+            37094,
+            37093,
+            38933,
+            38934
+        ],
+        "reference_mesh": "combined"
+    },
+    "thumb_01_r": {
+        "parent": "hand_r",
+        "child": "thumb_02_r",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "-x to child, +z to calculated +z",
+        "driver": true,
+        "reference_vertex_ids": [
+            31085,
+            31130,
+            37206,
+            37204,
+            37209,
+            37207,
+            37212,
+            37210,
+            37216,
+            37215,
+            37219,
+            37218,
+            37221,
+            37223,
+            37227,
+            37263,
+            37266,
+            37264,
+            37269,
+            37267,
+            37273,
+            37272,
+            37276,
+            37275,
+            37278,
+            37280,
+            37284,
+            37320,
+            37318,
+            37323,
+            37321,
+            37327,
+            37325,
+            37334,
+            37332,
+            37340,
+            37339,
+            37376,
+            37374,
+            37377,
+            37381,
+            37380,
+            37497,
+            37505,
+            37507,
+            37506,
+            37508,
+            37509,
+            37511,
+            37510,
+            37512,
+            37515,
+            37691,
+            37712,
+            37844,
+            37845
+        ],
+        "reference_mesh": "combined"
+    },
+    "thumb_02_r": {
+        "parent": "thumb_01_r",
+        "child": "thumb_03_r",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "-x to child, +z to calculated +z",
+        "driver": true,
+        "reference_vertex_ids": [
+            28504,
+            28502,
+            28503,
+            28505,
+            28506,
+            28507,
+            28508,
+            28509,
+            28510,
+            28501,
+            36868,
+            36866,
+            36871,
+            36869,
+            36874,
+            36872,
+            36878,
+            36876,
+            36880
+        ],
+        "reference_mesh": "combined"
+    },
+    "thumb_03_r": {
+        "parent": "thumb_02_r",
+        "child": "thumb_03_half_r",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "0, 0, keep",
+        "driver": true,
+        "reference_vertex_ids": [
+            32588,
+            32586,
+            32591,
+            32589,
+            32594,
+            32592,
+            32599,
+            32597,
+            32602,
+            32600,
+            32604,
+            32603,
+            32607,
+            32605,
+            32608,
+            32701,
+            37665,
+            37664,
+            37678,
+            37679
+        ],
+        "reference_mesh": "combined"
+    },
+    "thumb_03_half_r": {
+        "parent": "thumb_03_r",
+        "child": "thumb_03_pip_r",
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "thumb_03_pip_r": {
+        "parent": "thumb_03_half_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            32700
+        ],
+        "reference_mesh": "combined"
+    },
+    "thumb_03_in_r": {
+        "parent": "thumb_03_half_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            28408
+        ],
+        "reference_mesh": "combined"
+    },
+    "thumb_03_side_out_r": {
+        "parent": "thumb_03_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            28414
+        ],
+        "reference_mesh": "combined"
+    },
+    "thumb_03_side_inn_r": {
+        "parent": "thumb_03_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            32589
+        ],
+        "reference_mesh": "combined"
+    },
+    "thumb_03_bulge_r": {
+        "parent": "thumb_03_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            28425
+        ],
+        "reference_mesh": "combined"
+    },
+    "thumb_02_half_r": {
+        "parent": "thumb_02_r",
+        "child": "thumb_02_mcp_r",
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "thumb_02_mcp_r": {
+        "parent": "thumb_02_half_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            36880
+        ],
+        "reference_mesh": "combined"
+    },
+    "thumb_02_in_r": {
+        "parent": "thumb_02_half_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            32748
+        ],
+        "reference_mesh": "combined"
+    },
+    "thumb_02_side_out_r": {
+        "parent": "thumb_02_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            51081
+        ],
+        "reference_mesh": "combined"
+    },
+    "thumb_02_side_inn_r": {
+        "parent": "thumb_02_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            32736
+        ],
+        "reference_mesh": "combined"
+    },
+    "thumb_02_bulge_r": {
+        "parent": "thumb_02_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            32704
+        ],
+        "reference_mesh": "combined"
+    },
+    "thumb_01_side_out_r": {
+        "parent": "thumb_01_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            37655
+        ],
+        "reference_mesh": "combined"
+    },
+    "thumb_01_side_inn_r": {
+        "parent": "thumb_01_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            52887
+        ],
+        "reference_mesh": "combined"
+    },
+    "index_metacarpal_r": {
+        "parent": "hand_r",
+        "child": "index_01_r",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "-x to child, +z to calculated +z",
+        "driver": false,
+        "reference_vertex_ids": [
+            31025,
+            31028,
+            31027,
+            31029,
+            31064,
+            31066,
+            31065,
+            31067,
+            37285,
+            52998,
+            53018,
+            53029,
+            53053,
+            53069
+        ],
+        "reference_mesh": "combined"
+    },
+    "index_01_r": {
+        "parent": "index_metacarpal_r",
+        "child": "index_02_r",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "-x to child, +z to calculated +z",
+        "driver": true,
+        "reference_vertex_ids": [
+            32295,
+            32301,
+            32573,
+            32575,
+            32578,
+            32581,
+            32582,
+            32584,
+            36709,
+            36710,
+            36741,
+            36746,
+            36748,
+            36751,
+            36754,
+            36755,
+            36757,
+            36783,
+            36784,
+            36820,
+            36825,
+            36827,
+            36830,
+            36833,
+            36834,
+            36836,
+            36861,
+            36862,
+            38630,
+            38629
+        ],
+        "reference_mesh": "combined"
+    },
+    "index_02_r": {
+        "parent": "index_01_r",
+        "child": "index_03_r",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "-x to child, +z to calculated +z",
+        "driver": true,
+        "reference_vertex_ids": [
+            32467,
+            32465,
+            32469,
+            32473,
+            32475,
+            32480,
+            32478,
+            32484,
+            32487,
+            32491,
+            32497,
+            32495,
+            32498,
+            32501,
+            32502,
+            32506,
+            32504,
+            32508,
+            32510,
+            32513
+        ],
+        "reference_mesh": "combined"
+    },
+    "index_03_r": {
+        "parent": "index_02_r",
+        "child": "index_03_half_r",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "0, 0, keep",
+        "driver": true,
+        "reference_vertex_ids": [
+            32307,
+            32305,
+            32310,
+            32314,
+            32312,
+            32317,
+            32321,
+            32319,
+            32328,
+            38789,
+            38792,
+            38791,
+            38793,
+            38794,
+            38795,
+            38796,
+            38797,
+            38798,
+            38799,
+            38800
+        ],
+        "reference_mesh": "combined"
+    },
+    "index_03_half_r": {
+        "parent": "index_03_r",
+        "child": "index_03_in_r",
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "index_03_in_r": {
+        "parent": "index_03_half_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            28256
+        ],
+        "reference_mesh": "combined"
+    },
+    "index_02_dip_r": {
+        "parent": "index_03_half_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            31595
+        ],
+        "reference_mesh": "combined"
+    },
+    "index_03_bulge_r": {
+        "parent": "index_03_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            32361
+        ],
+        "reference_mesh": "combined"
+    },
+    "index_02_side_inn_r": {
+        "parent": "index_02_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            32448
+        ],
+        "reference_mesh": "combined"
+    },
+    "index_02_side_out_r": {
+        "parent": "index_02_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            50959
+        ],
+        "reference_mesh": "combined"
+    },
+    "index_02_half_r": {
+        "parent": "index_02_r",
+        "child": "index_02_in_r",
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "index_02_in_r": {
+        "parent": "index_02_half_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            28341
+        ],
+        "reference_mesh": "combined"
+    },
+    "index_02_pip_r": {
+        "parent": "index_02_half_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            28357
+        ],
+        "reference_mesh": "combined"
+    },
+    "index_02_bulge_r": {
+        "parent": "index_02_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            32435
+        ],
+        "reference_mesh": "combined"
+    },
+    "index_01_side_out_r": {
+        "parent": "index_01_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            28375
+        ],
+        "reference_mesh": "combined"
+    },
+    "index_01_side_inn_r": {
+        "parent": "index_01_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            32527
+        ],
+        "reference_mesh": "combined"
+    },
+    "index_01_half_r": {
+        "parent": "index_01_r",
+        "child": "index_01_palm_r",
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "index_01_palm_r": {
+        "parent": "index_01_half_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            30792
+        ],
+        "reference_mesh": "combined"
+    },
+    "index_01_mcp_r": {
+        "parent": "index_01_half_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            30796
+        ],
+        "reference_mesh": "combined"
+    },
+    "index_01_bulge_r": {
+        "parent": "index_01_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            28369
+        ],
+        "reference_mesh": "combined"
+    },
+    "index_01_palmMid_r": {
+        "parent": "index_01_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            28389
+        ],
+        "reference_mesh": "combined"
+    },
+    "index_metacarpal_slide_r": {
+        "parent": "index_metacarpal_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            30969,
+            30971,
+            37073,
+            37070,
+            37075,
+            38938,
+            52968,
+            54168
+        ],
+        "reference_mesh": "combined"
+    },
+    "wrist_inner_r": {
+        "parent": "hand_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            31171,
+            38726,
+            38751,
+            53978
+        ],
+        "reference_mesh": "combined"
+    },
+    "wrist_outer_r": {
+        "parent": "hand_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            53098
+        ],
+        "reference_mesh": "combined"
+    },
+    "upperarm_twist_01_r": {
+        "parent": "upperarm_r",
+        "child": "upperarm_twistCor_01_r",
+        "world_position": [
+            "twist",
+            "twist",
+            "twist"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "upperarm_twistCor_01_r": {
+        "parent": "upperarm_twist_01_r",
+        "child": null,
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "upperarm_twist_02_r": {
+        "parent": "upperarm_r",
+        "child": "upperarm_tricep_r",
+        "world_position": [
+            "twist",
+            "twist",
+            "twist"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "upperarm_tricep_r": {
+        "parent": "upperarm_twist_02_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            29739,
+            29740,
+            29759,
+            29760,
+            34782,
+            34817,
+            34819,
+            34818,
+            51937
+        ],
+        "reference_mesh": "combined"
+    },
+    "upperarm_bicep_r": {
+        "parent": "upperarm_twist_02_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            29763,
+            34825,
+            34824,
+            34827,
+            34843,
+            51940,
+            51941,
+            51948,
+            51949
+        ],
+        "reference_mesh": "combined"
+    },
+    "upperarm_twistCor_02_r": {
+        "parent": "upperarm_twist_02_r",
+        "child": null,
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "upperarm_correctiveRoot_r": {
+        "parent": "upperarm_r",
+        "child": "upperarm_bck_r",
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "upperarm_bck_r": {
+        "parent": "upperarm_correctiveRoot_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            28835,
+            31617,
+            39199,
+            33303,
+            38235,
+            39179,
+            39181,
+            54402,
+            54403
+        ],
+        "reference_mesh": "combined"
+    },
+    "upperarm_in_r": {
+        "parent": "upperarm_correctiveRoot_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            31289,
+            31286,
+            37805,
+            37803,
+            37802,
+            38115,
+            38228,
+            38722,
+            53367,
+            53634,
+            53947,
+            53948
+        ],
+        "reference_mesh": "combined"
+    },
+    "upperarm_fwd_r": {
+        "parent": "upperarm_correctiveRoot_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            31276,
+            31602,
+            31279,
+            31427,
+            37789,
+            38247,
+            39111,
+            39122,
+            54347
+        ],
+        "reference_mesh": "combined"
+    },
+    "upperarm_out_r": {
+        "parent": "upperarm_correctiveRoot_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            31423,
+            38240,
+            38239,
+            38242,
+            39149,
+            53642,
+            53643,
+            54372,
+            54378
+        ],
+        "reference_mesh": "combined"
+    },
+    "clavicle_out_r": {
+        "parent": "clavicle_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            2660,
+            3012,
+            17628,
+            17634,
+            17986,
+            17989,
+            17990,
+            18013,
+            18015,
+            18016,
+            6027,
+            20776,
+            20987
+        ],
+        "reference_mesh": "combined"
+    },
+    "clavicle_scap_r": {
+        "parent": "clavicle_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            39188,
+            39187,
+            39190,
+            39202,
+            39203,
+            39204,
+            38266,
+            38265,
+            38275
+        ],
+        "reference_mesh": "combined"
+    },
+    "clavicle_pec_r": {
+        "parent": "spine_05",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            31701,
+            31705,
+            31703,
+            31702,
+            31711,
+            31710,
+            31709,
+            31717,
+            38038,
+            38057,
+            38061,
+            38082,
+            38081,
+            38084,
+            38083,
+            38086,
+            38085,
+            38089,
+            38192,
+            38196,
+            38198
+        ],
+        "reference_mesh": "combined"
+    },
+    "spine_04_latissimus_l": {
+        "parent": "spine_05",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            40793,
+            40794,
+            40796,
+            40822,
+            45195,
+            45466,
+            45467,
+            45468,
+            45469,
+            45470,
+            46725,
+            46726,
+            46727
+        ],
+        "reference_mesh": "combined"
+    },
+    "spine_04_latissimus_r": {
+        "parent": "spine_05",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            33233,
+            33232,
+            33230,
+            33260,
+            37622,
+            37894,
+            37893,
+            37892,
+            37896,
+            37895,
+            39107,
+            39108,
+            39109
+        ],
+        "reference_mesh": "combined"
+    },
+    "clavicle_pec_l": {
+        "parent": "spine_05",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            39261,
+            39264,
+            39266,
+            39267,
+            39271,
+            39272,
+            39273,
+            39281,
+            45627,
+            45647,
+            45652,
+            45674,
+            45675,
+            45676,
+            45677,
+            45678,
+            45679,
+            45682,
+            45785,
+            45789,
+            45791
+        ],
+        "reference_mesh": "combined"
+    },
+    "thigh_r": {
+        "parent": "pelvis",
+        "child": "calf_r",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "+x to child, +z to calculated +z",
+        "driver": true,
+        "reference_vertex_ids": [
+            29699,
+            29088,
+            29096,
+            31468,
+            33666,
+            33672,
+            33682,
+            33691,
+            33700,
+            34715,
+            38125,
+            38129,
+            38132,
+            38321,
+            38348,
+            39038,
+            51459,
+            51462,
+            53555,
+            53558,
+            53561,
+            53681,
+            53683,
+            54262
+        ],
+        "reference_mesh": "combined"
+    },
+    "calf_r": {
+        "parent": "thigh_r",
+        "child": "foot_r",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "+x to child, +z to calculated +z",
+        "driver": true,
+        "reference_vertex_ids": [
+            34029,
+            34034,
+            34044,
+            34050,
+            34059,
+            34063,
+            34068,
+            34078,
+            34084,
+            34092,
+            37579,
+            37581,
+            38203,
+            38206,
+            38209,
+            38212,
+            38216,
+            38218,
+            51603,
+            51604,
+            51607,
+            51608,
+            51611,
+            51614,
+            51615,
+            51618,
+            51619,
+            51622,
+            51623,
+            51626,
+            51629,
+            51630,
+            53616,
+            53619,
+            53622,
+            53624,
+            53627,
+            53628,
+            53629,
+            53741,
+            53742,
+            53743
+        ],
+        "reference_mesh": "combined"
+    },
+    "foot_r": {
+        "parent": "calf_r",
+        "child": "ball_r",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "keep, copy, copy",
+        "driver": true,
+        "reference_vertex_ids": [
+            34560,
+            34561,
+            34563,
+            34567,
+            34570,
+            34575,
+            34577,
+            34579,
+            34592,
+            34594,
+            34598,
+            34601,
+            34603,
+            34606,
+            35877,
+            35879,
+            35881,
+            35886,
+            35889,
+            35890,
+            35893,
+            37518,
+            37516,
+            37519,
+            37541,
+            37543,
+            37545,
+            38536,
+            38538,
+            38541,
+            38990,
+            38991,
+            38992,
+            39003,
+            39004,
+            39005
+        ],
+        "reference_mesh": "combined"
+    },
+    "ball_r": {
+        "parent": "foot_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            30353,
+            30356,
+            30324,
+            30309,
+            30310,
+            30435,
+            30437,
+            30441,
+            30326,
+            30320,
+            35760,
+            35762,
+            35768,
+            35776,
+            35774,
+            35835,
+            35834,
+            36534,
+            36533,
+            36537
+        ],
+        "reference_mesh": "combined"
+    },
+    "indextoe_01_r": {
+        "parent": "ball_r",
+        "child": "indextoe_02_r",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            30297,
+            30308,
+            30325,
+            30328,
+            30353,
+            30324,
+            30309,
+            30435,
+            30437,
+            30326,
+            30327,
+            30302,
+            35793,
+            35797,
+            35796,
+            35795,
+            35799,
+            35858,
+            35998,
+            52355,
+            52439
+        ],
+        "reference_mesh": "combined"
+    },
+    "indextoe_02_r": {
+        "parent": "indextoe_01_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            36217,
+            36215,
+            36219,
+            36221,
+            36224,
+            36222,
+            36226,
+            36229,
+            36227,
+            36232,
+            38872,
+            38871,
+            38873,
+            38874,
+            38875,
+            38876,
+            38877,
+            38878,
+            38879,
+            38880
+        ],
+        "reference_mesh": "combined"
+    },
+    "bigtoe_01_r": {
+        "parent": "ball_r",
+        "child": "bigtoe_02_r",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            35779,
+            35777,
+            35782,
+            35787,
+            35785,
+            35831,
+            35829,
+            35835,
+            35834,
+            35856,
+            35859,
+            35860,
+            35862,
+            35861,
+            35869,
+            35871
+        ],
+        "reference_mesh": "combined"
+    },
+    "bigtoe_02_r": {
+        "parent": "bigtoe_01_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            52359,
+            52360,
+            52361,
+            52362,
+            52363,
+            52364,
+            52366,
+            52368,
+            52369,
+            52370,
+            52371,
+            52372,
+            52373,
+            52374,
+            52382,
+            52383,
+            52478,
+            52479,
+            52486,
+            52487
+        ],
+        "reference_mesh": "combined"
+    },
+    "littletoe_01_r": {
+        "parent": "ball_r",
+        "child": "littletoe_02_r",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            30681,
+            30300,
+            30329,
+            30517,
+            30471,
+            30388,
+            30518,
+            30481,
+            30482,
+            30486,
+            30485,
+            30488,
+            30487,
+            30490,
+            30489,
+            30494,
+            30493,
+            30496,
+            30495,
+            30491,
+            30492,
+            30299,
+            30679,
+            30680
+        ],
+        "reference_mesh": "combined"
+    },
+    "littletoe_02_r": {
+        "parent": "littletoe_01_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            32934,
+            32932,
+            32937,
+            32940,
+            32944,
+            32942,
+            32947,
+            32951,
+            32949,
+            32957,
+            38902,
+            38901,
+            38903,
+            38904,
+            38905,
+            38906,
+            38907,
+            38908,
+            38909,
+            38910
+        ],
+        "reference_mesh": "combined"
+    },
+    "middletoe_01_r": {
+        "parent": "ball_r",
+        "child": "middletoe_02_r",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            30308,
+            30306,
+            30323,
+            30322,
+            30319,
+            30324,
+            30435,
+            30441,
+            30443,
+            30320,
+            30321,
+            30307,
+            35791,
+            35790,
+            35789,
+            35788,
+            35794,
+            36000,
+            35999,
+            52353,
+            52440
+        ],
+        "reference_mesh": "combined"
+    },
+    "middletoe_02_r": {
+        "parent": "middletoe_01_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            36350,
+            36348,
+            36353,
+            36356,
+            36360,
+            36358,
+            36363,
+            36367,
+            36365,
+            36373,
+            38882,
+            38881,
+            38883,
+            38884,
+            38885,
+            38886,
+            38887,
+            38888,
+            38889,
+            38890
+        ],
+        "reference_mesh": "combined"
+    },
+    "ringtoe_01_r": {
+        "parent": "ball_r",
+        "child": "ringtoe_02_r",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            30300,
+            30306,
+            30332,
+            30329,
+            30319,
+            30443,
+            30445,
+            30330,
+            30331,
+            30482,
+            30483,
+            30305,
+            35803,
+            35802,
+            35801,
+            35800,
+            36002,
+            36004,
+            36003,
+            52357,
+            52442
+        ],
+        "reference_mesh": "combined"
+    },
+    "ringtoe_02_r": {
+        "parent": "ringtoe_01_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            28670,
+            28669,
+            28673,
+            28675,
+            28678,
+            28677,
+            28681,
+            28684,
+            28683,
+            28687,
+            28671,
+            28672,
+            28674,
+            28676,
+            28679,
+            28680,
+            28682,
+            28685,
+            28686,
+            28688
+        ],
+        "reference_mesh": "combined"
+    },
+    "ankle_bck_r": {
+        "parent": "foot_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            29612,
+            29613,
+            29628,
+            29629,
+            51850
+        ],
+        "reference_mesh": "combined"
+    },
+    "ankle_fwd_r": {
+        "parent": "foot_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            34524,
+            34526,
+            34546,
+            34553,
+            34552,
+            34555,
+            34554,
+            34576,
+            34585,
+            34584,
+            34587,
+            34586,
+            34588
+        ],
+        "reference_mesh": "combined"
+    },
+    "calf_twist_02_r": {
+        "parent": "calf_r",
+        "child": "calf_twistCor_02_r",
+        "world_position": [
+            "twist",
+            "twist",
+            "twist"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "calf_twistCor_02_r": {
+        "parent": "calf_twist_02_r",
+        "child": null,
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "calf_twist_01_r": {
+        "parent": "calf_r",
+        "child": null,
+        "world_position": [
+            "twist",
+            "twist",
+            "twist"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "calf_correctiveRoot_r": {
+        "parent": "calf_r",
+        "child": "calf_kneeBack_r",
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "calf_kneeBack_r": {
+        "parent": "calf_correctiveRoot_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            34047,
+            34049,
+            34051,
+            34081,
+            34080,
+            34083,
+            34082,
+            34085,
+            34123,
+            34126,
+            34127,
+            38210,
+            38211
+        ],
+        "reference_mesh": "combined"
+    },
+    "calf_knee_r": {
+        "parent": "calf_correctiveRoot_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            29304,
+            29305,
+            29322,
+            29323,
+            51603,
+            51604,
+            51615,
+            51618,
+            51619,
+            51630,
+            53627,
+            53628,
+            53629
+        ],
+        "reference_mesh": "combined"
+    },
+    "thigh_twist_01_r": {
+        "parent": "thigh_r",
+        "child": "thigh_twistCor_01_r",
+        "world_position": [
+            "twist",
+            "twist",
+            "twist"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "thigh_twistCor_01_r": {
+        "parent": "thigh_twist_01_r",
+        "child": null,
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "thigh_twist_02_r": {
+        "parent": "thigh_r",
+        "child": "thigh_twistCor_02_r",
+        "world_position": [
+            "twist",
+            "twist",
+            "twist"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "thigh_twistCor_02_r": {
+        "parent": "thigh_twist_02_r",
+        "child": null,
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "thigh_correctiveRoot_r": {
+        "parent": "thigh_r",
+        "child": "thigh_fwd_r",
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "thigh_fwd_r": {
+        "parent": "thigh_correctiveRoot_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            29095,
+            31405,
+            29700,
+            31404,
+            31407,
+            31403,
+            31448,
+            31464,
+            53554,
+            53562,
+            53683,
+            53692,
+            53693
+        ],
+        "reference_mesh": "combined"
+    },
+    "thigh_bck_r": {
+        "parent": "thigh_correctiveRoot_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            38486,
+            38489,
+            38501,
+            38500,
+            38499,
+            38506,
+            38511,
+            38510,
+            38515,
+            39048,
+            39047,
+            39096,
+            39097
+        ],
+        "reference_mesh": "combined"
+    },
+    "thigh_out_r": {
+        "parent": "thigh_correctiveRoot_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            29026,
+            29091,
+            29090,
+            29101,
+            29024,
+            29017,
+            29023,
+            29027,
+            29028,
+            51439,
+            53222,
+            53559,
+            53560
+        ],
+        "reference_mesh": "combined"
+    },
+    "thigh_in_r": {
+        "parent": "thigh_correctiveRoot_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            29225,
+            31472,
+            31471,
+            29224,
+            51543,
+            53695,
+            53706,
+            53707,
+            53721,
+            53722,
+            54185,
+            54186,
+            54187
+        ],
+        "reference_mesh": "combined"
+    },
+    "thigh_bck_lwr_r": {
+        "parent": "thigh_correctiveRoot_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            31523,
+            31519,
+            31522,
+            31524,
+            53783,
+            53784,
+            54267,
+            54274,
+            54275,
+            54276,
+            54311,
+            54312,
+            54313
+        ],
+        "reference_mesh": "combined"
+    },
+    "thigh_fwd_lwr_r": {
+        "parent": "thigh_correctiveRoot_r",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            33670,
+            33683,
+            33682,
+            33688,
+            34713,
+            34711,
+            38123,
+            38122,
+            38139,
+            38138,
+            39065,
+            39066,
+            39067
+        ],
+        "reference_mesh": "combined"
+    },
+    "thigh_l": {
+        "parent": "pelvis",
+        "child": "calf_l",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "-x to child, +z to calculated +z",
+        "driver": true,
+        "reference_vertex_ids": [
+            24925,
+            24928,
+            24931,
+            27061,
+            41239,
+            41248,
+            41256,
+            41262,
+            41272,
+            42289,
+            45720,
+            45722,
+            45725,
+            45918,
+            45945,
+            46653,
+            47656,
+            47659,
+            49752,
+            49755,
+            49758,
+            49878,
+            49880,
+            50459
+        ],
+        "reference_mesh": "combined"
+    },
+    "calf_l": {
+        "parent": "thigh_l",
+        "child": "foot_l",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "-x to child, +z to calculated +z",
+        "driver": true,
+        "reference_vertex_ids": [
+            41601,
+            41610,
+            41619,
+            41625,
+            41633,
+            41635,
+            41644,
+            41653,
+            41659,
+            41666,
+            45151,
+            45154,
+            45798,
+            45799,
+            45803,
+            45806,
+            45809,
+            45812,
+            47800,
+            47801,
+            47804,
+            47805,
+            47808,
+            47811,
+            47812,
+            47815,
+            47816,
+            47819,
+            47820,
+            47823,
+            47826,
+            47827,
+            49813,
+            49816,
+            49819,
+            49821,
+            49824,
+            49825,
+            49826,
+            49938,
+            49939,
+            49940
+        ],
+        "reference_mesh": "combined"
+    },
+    "foot_l": {
+        "parent": "calf_l",
+        "child": "ball_l",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "keep, copy, copy",
+        "driver": true,
+        "reference_vertex_ids": [
+            42133,
+            42136,
+            42139,
+            42140,
+            42145,
+            42146,
+            42151,
+            42153,
+            42167,
+            42170,
+            42171,
+            42176,
+            42179,
+            42181,
+            43452,
+            43454,
+            43457,
+            43461,
+            43462,
+            43466,
+            43468,
+            45090,
+            45092,
+            45094,
+            45116,
+            45118,
+            45120,
+            46147,
+            46149,
+            46150,
+            46603,
+            46604,
+            46605,
+            46616,
+            46617,
+            46618
+        ],
+        "reference_mesh": "combined"
+    },
+    "ball_l": {
+        "parent": "foot_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            25826,
+            25830,
+            25840,
+            25841,
+            25842,
+            25894,
+            25896,
+            25899,
+            25902,
+            25904,
+            43333,
+            43335,
+            43342,
+            43348,
+            43350,
+            43408,
+            43409,
+            44107,
+            44108,
+            44112
+        ],
+        "reference_mesh": "combined"
+    },
+    "indextoe_01_l": {
+        "parent": "ball_l",
+        "child": "indextoe_02_l",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            25805,
+            25807,
+            25815,
+            25816,
+            25826,
+            25840,
+            25841,
+            25894,
+            25896,
+            25902,
+            25903,
+            26139,
+            43367,
+            43369,
+            43370,
+            43371,
+            43372,
+            43430,
+            43572,
+            48552,
+            48636
+        ],
+        "reference_mesh": "combined"
+    },
+    "indextoe_02_l": {
+        "parent": "indextoe_01_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            43789,
+            43791,
+            43792,
+            43794,
+            43796,
+            43798,
+            43799,
+            43801,
+            43803,
+            43807,
+            46482,
+            46483,
+            46484,
+            46485,
+            46486,
+            46487,
+            46488,
+            46489,
+            46490,
+            46491
+        ],
+        "reference_mesh": "combined"
+    },
+    "bigtoe_01_l": {
+        "parent": "ball_l",
+        "child": "bigtoe_02_l",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            43352,
+            43354,
+            43356,
+            43358,
+            43360,
+            43402,
+            43404,
+            43408,
+            43409,
+            43432,
+            43433,
+            43434,
+            43435,
+            43436,
+            43443,
+            43446
+        ],
+        "reference_mesh": "combined"
+    },
+    "bigtoe_02_l": {
+        "parent": "bigtoe_01_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            48556,
+            48557,
+            48558,
+            48559,
+            48560,
+            48561,
+            48563,
+            48565,
+            48566,
+            48567,
+            48568,
+            48569,
+            48570,
+            48571,
+            48579,
+            48580,
+            48675,
+            48676,
+            48683,
+            48684
+        ],
+        "reference_mesh": "combined"
+    },
+    "ringtoe_01_l": {
+        "parent": "ball_l",
+        "child": "ringtoe_02_l",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            25806,
+            25808,
+            25817,
+            25838,
+            25839,
+            25901,
+            25906,
+            25907,
+            25908,
+            25983,
+            25985,
+            26143,
+            43374,
+            43375,
+            43376,
+            43377,
+            43575,
+            43577,
+            43578,
+            48554,
+            48639
+        ],
+        "reference_mesh": "combined"
+    },
+    "ringtoe_02_l": {
+        "parent": "ringtoe_01_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            24699,
+            24700,
+            24701,
+            24702,
+            24703,
+            24704,
+            24705,
+            24706,
+            24707,
+            24708,
+            24709,
+            24710,
+            24711,
+            24712,
+            24713,
+            24714,
+            24715,
+            24716,
+            24717,
+            24718
+        ],
+        "reference_mesh": "combined"
+    },
+    "middletoe_01_l": {
+        "parent": "ball_l",
+        "child": "middletoe_02_l",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            25807,
+            25808,
+            25813,
+            25814,
+            25839,
+            25840,
+            25894,
+            25899,
+            25901,
+            25904,
+            25905,
+            26141,
+            43362,
+            43363,
+            43364,
+            43365,
+            43366,
+            43573,
+            43574,
+            48550,
+            48637
+        ],
+        "reference_mesh": "combined"
+    },
+    "middletoe_02_l": {
+        "parent": "middletoe_01_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            43923,
+            43925,
+            43927,
+            43930,
+            43933,
+            43935,
+            43937,
+            43940,
+            43942,
+            43949,
+            46492,
+            46493,
+            46494,
+            46495,
+            46496,
+            46497,
+            46498,
+            46499,
+            46500,
+            46501
+        ],
+        "reference_mesh": "combined"
+    },
+    "littletoe_01_l": {
+        "parent": "ball_l",
+        "child": "littletoe_02_l",
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            25803,
+            25806,
+            25838,
+            25862,
+            25863,
+            25864,
+            25971,
+            25982,
+            25983,
+            25986,
+            25987,
+            25988,
+            25989,
+            25990,
+            25991,
+            25992,
+            25993,
+            25994,
+            25995,
+            26015,
+            26016,
+            26144,
+            26145,
+            26725
+        ],
+        "reference_mesh": "combined"
+    },
+    "littletoe_02_l": {
+        "parent": "littletoe_01_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            40495,
+            40497,
+            40499,
+            40502,
+            40505,
+            40507,
+            40509,
+            40512,
+            40514,
+            40521,
+            46512,
+            46513,
+            46514,
+            46515,
+            46516,
+            46517,
+            46518,
+            46519,
+            46520,
+            46521
+        ],
+        "reference_mesh": "combined"
+    },
+    "ankle_bck_l": {
+        "parent": "foot_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            25286,
+            25287,
+            25300,
+            25301,
+            48047
+        ],
+        "reference_mesh": "combined"
+    },
+    "ankle_fwd_l": {
+        "parent": "foot_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            42097,
+            42099,
+            42120,
+            42126,
+            42127,
+            42128,
+            42129,
+            42150,
+            42158,
+            42159,
+            42160,
+            42161,
+            42163
+        ],
+        "reference_mesh": "combined"
+    },
+    "calf_twist_02_l": {
+        "parent": "calf_l",
+        "child": "calf_twistCor_02_l",
+        "world_position": [
+            "twist",
+            "twist",
+            "twist"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "calf_twistCor_02_l": {
+        "parent": "calf_twist_02_l",
+        "child": null,
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "calf_twist_01_l": {
+        "parent": "calf_l",
+        "child": null,
+        "world_position": [
+            "twist",
+            "twist",
+            "twist"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "calf_correctiveRoot_l": {
+        "parent": "calf_l",
+        "child": "calf_kneeBack_l",
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "calf_kneeBack_l": {
+        "parent": "calf_correctiveRoot_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            41620,
+            41622,
+            41624,
+            41654,
+            41655,
+            41656,
+            41657,
+            41658,
+            41695,
+            41698,
+            41703,
+            45804,
+            45805
+        ],
+        "reference_mesh": "combined"
+    },
+    "calf_knee_l": {
+        "parent": "calf_correctiveRoot_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            25068,
+            25069,
+            25082,
+            25083,
+            47800,
+            47801,
+            47812,
+            47815,
+            47816,
+            47827,
+            49824,
+            49825,
+            49826
+        ],
+        "reference_mesh": "combined"
+    },
+    "thigh_twist_01_l": {
+        "parent": "thigh_l",
+        "child": "thigh_twistCor_01_l",
+        "world_position": [
+            "twist",
+            "twist",
+            "twist"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "thigh_twistCor_01_l": {
+        "parent": "thigh_twist_01_l",
+        "child": null,
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "thigh_twist_02_l": {
+        "parent": "thigh_l",
+        "child": "thigh_twistCor_02_l",
+        "world_position": [
+            "twist",
+            "twist",
+            "twist"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "thigh_twistCor_02_l": {
+        "parent": "thigh_twist_02_l",
+        "child": null,
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "thigh_correctiveRoot_l": {
+        "parent": "thigh_l",
+        "child": "thigh_bck_l",
+        "world_position": [
+            "parent",
+            "parent",
+            "parent"
+        ],
+        "orientation": "0, 0, 0",
+        "driver": false,
+        "reference_vertex_ids": [],
+        "reference_mesh": "combined"
+    },
+    "thigh_bck_l": {
+        "parent": "thigh_correctiveRoot_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            46095,
+            46096,
+            46107,
+            46108,
+            46109,
+            46113,
+            46118,
+            46119,
+            46122,
+            46660,
+            46661,
+            46713,
+            46714
+        ],
+        "reference_mesh": "combined"
+    },
+    "thigh_fwd_l": {
+        "parent": "thigh_correctiveRoot_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            25009,
+            25351,
+            25352,
+            26935,
+            26937,
+            26938,
+            27030,
+            27050,
+            49751,
+            49759,
+            49880,
+            49889,
+            49890
+        ],
+        "reference_mesh": "combined"
+    },
+    "thigh_out_l": {
+        "parent": "thigh_correctiveRoot_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            24888,
+            24891,
+            24892,
+            26612,
+            26613,
+            26843,
+            26942,
+            26943,
+            26944,
+            47636,
+            49419,
+            49756,
+            49757
+        ],
+        "reference_mesh": "combined"
+    },
+    "thigh_bck_lwr_l": {
+        "parent": "thigh_correctiveRoot_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            27720,
+            27721,
+            27756,
+            27757,
+            49980,
+            49981,
+            50464,
+            50471,
+            50472,
+            50473,
+            50508,
+            50509,
+            50510
+        ],
+        "reference_mesh": "combined"
+    },
+    "thigh_in_l": {
+        "parent": "thigh_correctiveRoot_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            26723,
+            27065,
+            27627,
+            27628,
+            47740,
+            49892,
+            49903,
+            49904,
+            49918,
+            49919,
+            50382,
+            50383,
+            50384
+        ],
+        "reference_mesh": "combined"
+    },
+    "thigh_fwd_lwr_l": {
+        "parent": "thigh_correctiveRoot_l",
+        "child": null,
+        "world_position": [
+            "free",
+            "free",
+            "free"
+        ],
+        "orientation": "copy source",
+        "driver": false,
+        "reference_vertex_ids": [
+            41243,
+            41255,
+            41256,
+            41265,
+            42285,
+            42287,
+            45716,
+            45717,
+            45730,
+            45731,
+            46679,
+            46680,
+            46681
+        ],
+        "reference_mesh": "combined"
+    }
+}
