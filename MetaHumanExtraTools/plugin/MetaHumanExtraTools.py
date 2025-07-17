@@ -11,6 +11,8 @@ def initializePlugin(plugin):
     if "requests" not in [p.project_name for p in pkg_resources.working_set]:
         subprocess.run(["mayapy", "-m", "pip", "install", "requests"]) 
     
+    # Check if new version available
+    
     # Load MetaHumanForMaya
     try:
         if not cmds.pluginInfo("MetaHumanForMaya.py", query=True, loaded=True): cmds.loadPlugin("MetaHumanForMaya.py")

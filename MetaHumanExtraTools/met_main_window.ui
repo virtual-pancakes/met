@@ -734,6 +734,74 @@ font-size:20px
         </widget>
        </item>
        <item>
+        <widget class="QFrame" name="new_version_frame">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_12">
+          <property name="spacing">
+           <number>5</number>
+          </property>
+          <property name="leftMargin">
+           <number>5</number>
+          </property>
+          <property name="topMargin">
+           <number>5</number>
+          </property>
+          <property name="rightMargin">
+           <number>5</number>
+          </property>
+          <property name="bottomMargin">
+           <number>5</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="label_7">
+            <property name="text">
+             <string>New version available:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="changes_label">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="update_button">
+            <property name="styleSheet">
+             <string notr="true">QPushButton
+{
+	background-color: hsl(333, 100%, 50%);
+	color: rgb(255, 255, 255);
+	font-size: 20px;
+	font-weight: bold;
+	padding: 5px;
+	border: none;
+	border-radius: 5px;
+}
+QPushButton::hover
+{
+	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsl(333, 100%, 50%),stop:1 hsl(333, 100%, 65%));
+}
+QPushButton::pressed
+{
+	background-color: hsl(333, 100%, 70%);
+}</string>
+            </property>
+            <property name="text">
+             <string>Update</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
         <widget class="QFrame" name="debug_frame">
          <property name="sizePolicy">
           <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">

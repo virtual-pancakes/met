@@ -589,6 +589,50 @@ class Ui_METMainWindow(object):
 
         self.verticalLayout_8.addWidget(self.frame1)
 
+        self.new_version_frame = QFrame(self.start_frame)
+        self.new_version_frame.setObjectName(u"new_version_frame")
+        self.new_version_frame.setFrameShape(QFrame.StyledPanel)
+        self.new_version_frame.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_12 = QVBoxLayout(self.new_version_frame)
+        self.verticalLayout_12.setSpacing(5)
+        self.verticalLayout_12.setObjectName(u"verticalLayout_12")
+        self.verticalLayout_12.setContentsMargins(5, 5, 5, 5)
+        self.label_7 = QLabel(self.new_version_frame)
+        self.label_7.setObjectName(u"label_7")
+
+        self.verticalLayout_12.addWidget(self.label_7)
+
+        self.changes_label = QLabel(self.new_version_frame)
+        self.changes_label.setObjectName(u"changes_label")
+
+        self.verticalLayout_12.addWidget(self.changes_label)
+
+        self.update_button = QPushButton(self.new_version_frame)
+        self.update_button.setObjectName(u"update_button")
+        self.update_button.setStyleSheet(u"QPushButton\n"
+"{\n"
+"	background-color: hsl(333, 100%, 50%);\n"
+"	color: rgb(255, 255, 255);\n"
+"	font-size: 20px;\n"
+"	font-weight: bold;\n"
+"	padding: 5px;\n"
+"	border: none;\n"
+"	border-radius: 5px;\n"
+"}\n"
+"QPushButton::hover\n"
+"{\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsl(333, 100%, 50%),stop:1 hsl(333, 100%, 65%));\n"
+"}\n"
+"QPushButton::pressed\n"
+"{\n"
+"	background-color: hsl(333, 100%, 70%);\n"
+"}")
+
+        self.verticalLayout_12.addWidget(self.update_button)
+
+
+        self.verticalLayout_8.addWidget(self.new_version_frame)
+
         self.debug_frame = QFrame(self.start_frame)
         self.debug_frame.setObjectName(u"debug_frame")
         sizePolicy2.setHeightForWidth(self.debug_frame.sizePolicy().hasHeightForWidth())
@@ -1049,6 +1093,9 @@ class Ui_METMainWindow(object):
         self.metahuman_to_obj_button.setText(QCoreApplication.translate("METMainWindow", u"Metahuman to .OBJ", None))
         self.label_5.setText(QCoreApplication.translate("METMainWindow", u"Create new Metahuman head and body DNA from .obj files.", None))
         self.obj_to_metahuman_button.setText(QCoreApplication.translate("METMainWindow", u".OBJ to Metahuman", None))
+        self.label_7.setText(QCoreApplication.translate("METMainWindow", u"New version available:", None))
+        self.changes_label.setText("")
+        self.update_button.setText(QCoreApplication.translate("METMainWindow", u"Update", None))
         self.label_3.setText(QCoreApplication.translate("METMainWindow", u"Debug", None))
         self.debug_button.setText(QCoreApplication.translate("METMainWindow", u"Debug", None))
         self.import_dna_button.setText(QCoreApplication.translate("METMainWindow", u"import dna", None))
