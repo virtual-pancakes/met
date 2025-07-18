@@ -94,6 +94,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.artstation_link_label.setOpenExternalLinks(True)
         self.fab_link_label.setOpenExternalLinks(True)
         local_version_dict = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "version.json"), "r"))
+        self.setWindowTitle(f"Metahuman Extra Tools {local_version_dict['current_version']}")
         if local_version_dict["checked_for_new_version"]:
             if local_version_dict["current_version"] != local_version_dict["newest_version"]: 
                 self.changes_label.setText(local_version_dict["newest_version"] + "\n" + local_version_dict["newest_version_changes"])
@@ -268,7 +269,12 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
     
     def update(self):
         api_url = f"http://api.github.com/repos/virtual-pancakes/met/contents/?ref=main"
-        final_folder = "C:/modules"
+        #modules_folder = "C:/modules"
+        for path in sys.path:
+            if "MetaHumanExtraTools" in path: 
+                met_path = path
+                break
+        modules_folder = os.path.join(met_path, "..")
         
         # Create a temporary directory for caching
         temp_folder = tempfile.mkdtemp()
@@ -283,28 +289,33 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
             shutil.rmtree(temp_folder, ignore_errors=True)
             self.new_version_frame.hide()
             self.update_failed_frame.show()
+            self.setFixedSize(self.minimumSizeHint())
             return
 
         # All downloads succeeded; move files to final folder
         try:        
-            os.makedirs(final_folder, exist_ok=True)
+            os.makedirs(modules_folder, exist_ok=True)
             for temp_path in downloaded_files:
+                if ".gitignore" in temp_path: continue
+                if "README.txt" in temp_path: continue
                 relative_path = os.path.relpath(temp_path, temp_folder)
-                final_path = os.path.join(final_folder, relative_path)
+                final_path = os.path.join(modules_folder, relative_path)
                 os.makedirs(os.path.dirname(final_path), exist_ok=True)
                 shutil.move(temp_path, final_path)
                 print(f"Moved {temp_path} to {final_path}")
-            print(f"All files successfully moved to {final_folder}")
+            print(f"All files successfully moved to {modules_folder}")
             self.new_version_frame.hide()
             self.update_completed_frame.show()
         except OSError as e:
-            print(f"Error moving files to {final_folder}: {e}")
+            print(f"Error moving files to {modules_folder}: {e}")
             self.new_version_frame.hide()
             self.update_failed_frame.show()
         finally:
             # Clean up temporary directory
             shutil.rmtree(temp_folder, ignore_errors=True)
             print(f"Cleaned up temporary directory: {temp_folder}")
+            self.setFixedSize(self.minimumSizeHint())
+        
     
     def short_path(self, path, max_length):
         if len(path) > max_length:

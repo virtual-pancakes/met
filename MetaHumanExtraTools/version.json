@@ -1,7 +1,7 @@
 {
-    "current_version": "1.04",
+    "current_version": "1.06",
     "current_version_changes": "implemented update function\nbug fixes",
-    "newest_version": "1.04",
-    "newest_version_changes": "implemented update function\nbug fixes", 
-    "checked_for_new_version": false
+    "newest_version": "1.06",
+    "newest_version_changes": "implemented update function\nbug fixes",
+    "checked_for_new_version": true
 }

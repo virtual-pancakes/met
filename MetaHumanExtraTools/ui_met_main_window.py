@@ -591,6 +591,8 @@ class Ui_METMainWindow(object):
 
         self.new_version_frame = QFrame(self.start_frame)
         self.new_version_frame.setObjectName(u"new_version_frame")
+        sizePolicy2.setHeightForWidth(self.new_version_frame.sizePolicy().hasHeightForWidth())
+        self.new_version_frame.setSizePolicy(sizePolicy2)
         self.new_version_frame.setFrameShape(QFrame.StyledPanel)
         self.new_version_frame.setFrameShadow(QFrame.Raised)
         self.verticalLayout_12 = QVBoxLayout(self.new_version_frame)
@@ -635,6 +637,8 @@ class Ui_METMainWindow(object):
 
         self.update_completed_frame = QFrame(self.start_frame)
         self.update_completed_frame.setObjectName(u"update_completed_frame")
+        sizePolicy2.setHeightForWidth(self.update_completed_frame.sizePolicy().hasHeightForWidth())
+        self.update_completed_frame.setSizePolicy(sizePolicy2)
         self.update_completed_frame.setFrameShape(QFrame.StyledPanel)
         self.update_completed_frame.setFrameShadow(QFrame.Raised)
         self.verticalLayout_13 = QVBoxLayout(self.update_completed_frame)
@@ -652,6 +656,8 @@ class Ui_METMainWindow(object):
 
         self.update_failed_frame = QFrame(self.start_frame)
         self.update_failed_frame.setObjectName(u"update_failed_frame")
+        sizePolicy2.setHeightForWidth(self.update_failed_frame.sizePolicy().hasHeightForWidth())
+        self.update_failed_frame.setSizePolicy(sizePolicy2)
         self.update_failed_frame.setFrameShape(QFrame.StyledPanel)
         self.update_failed_frame.setFrameShadow(QFrame.Raised)
         self.verticalLayout_14 = QVBoxLayout(self.update_failed_frame)
