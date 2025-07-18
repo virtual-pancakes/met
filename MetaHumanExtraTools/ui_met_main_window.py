@@ -633,6 +633,51 @@ class Ui_METMainWindow(object):
 
         self.verticalLayout_8.addWidget(self.new_version_frame)
 
+        self.update_completed_frame = QFrame(self.start_frame)
+        self.update_completed_frame.setObjectName(u"update_completed_frame")
+        self.update_completed_frame.setFrameShape(QFrame.StyledPanel)
+        self.update_completed_frame.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_13 = QVBoxLayout(self.update_completed_frame)
+        self.verticalLayout_13.setSpacing(5)
+        self.verticalLayout_13.setObjectName(u"verticalLayout_13")
+        self.verticalLayout_13.setContentsMargins(5, 5, 5, 5)
+        self.label_8 = QLabel(self.update_completed_frame)
+        self.label_8.setObjectName(u"label_8")
+        self.label_8.setStyleSheet(u"color: hsl(177, 100%, 50%); font-weight: bold")
+
+        self.verticalLayout_13.addWidget(self.label_8)
+
+
+        self.verticalLayout_8.addWidget(self.update_completed_frame)
+
+        self.update_failed_frame = QFrame(self.start_frame)
+        self.update_failed_frame.setObjectName(u"update_failed_frame")
+        self.update_failed_frame.setFrameShape(QFrame.StyledPanel)
+        self.update_failed_frame.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_14 = QVBoxLayout(self.update_failed_frame)
+        self.verticalLayout_14.setSpacing(5)
+        self.verticalLayout_14.setObjectName(u"verticalLayout_14")
+        self.verticalLayout_14.setContentsMargins(5, 5, 5, 5)
+        self.label_9 = QLabel(self.update_failed_frame)
+        self.label_9.setObjectName(u"label_9")
+        self.label_9.setStyleSheet(u"color: hsl(333, 100%, 50%); font-weight: bold")
+        self.label_9.setWordWrap(True)
+
+        self.verticalLayout_14.addWidget(self.label_9)
+
+        self.artstation_link_label = QLabel(self.update_failed_frame)
+        self.artstation_link_label.setObjectName(u"artstation_link_label")
+
+        self.verticalLayout_14.addWidget(self.artstation_link_label, 0, Qt.AlignHCenter)
+
+        self.fab_link_label = QLabel(self.update_failed_frame)
+        self.fab_link_label.setObjectName(u"fab_link_label")
+
+        self.verticalLayout_14.addWidget(self.fab_link_label, 0, Qt.AlignHCenter)
+
+
+        self.verticalLayout_8.addWidget(self.update_failed_frame)
+
         self.debug_frame = QFrame(self.start_frame)
         self.debug_frame.setObjectName(u"debug_frame")
         sizePolicy2.setHeightForWidth(self.debug_frame.sizePolicy().hasHeightForWidth())
@@ -1096,6 +1141,10 @@ class Ui_METMainWindow(object):
         self.label_7.setText(QCoreApplication.translate("METMainWindow", u"New version available:", None))
         self.changes_label.setText("")
         self.update_button.setText(QCoreApplication.translate("METMainWindow", u"Update", None))
+        self.label_8.setText(QCoreApplication.translate("METMainWindow", u"Updated Successfully. Restart Maya to apply changes.", None))
+        self.label_9.setText(QCoreApplication.translate("METMainWindow", u"Failed to check for updates. Please check for the latest version available at:", None))
+        self.artstation_link_label.setText(QCoreApplication.translate("METMainWindow", u"<a href='https://www.artstation.com/marketplace/p/pR97n/metahuman-extra-tools'>ArtStation</a>", None))
+        self.fab_link_label.setText(QCoreApplication.translate("METMainWindow", u"<a href='https://www.fab.com/listings/22f90398-c29e-4b74-a80a-9c5b5ae19d47'>Fab</a>", None))
         self.label_3.setText(QCoreApplication.translate("METMainWindow", u"Debug", None))
         self.debug_button.setText(QCoreApplication.translate("METMainWindow", u"Debug", None))
         self.import_dna_button.setText(QCoreApplication.translate("METMainWindow", u"import dna", None))

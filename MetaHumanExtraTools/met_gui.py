@@ -87,6 +87,20 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         super().__init__(self.maya_widget)
         self.setupUi(self)
 
+        # Version
+        self.new_version_frame.hide()
+        self.update_completed_frame.hide()
+        self.update_failed_frame.hide()
+        self.artstation_link_label.setOpenExternalLinks(True)
+        self.fab_link_label.setOpenExternalLinks(True)
+        local_version_dict = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "version.json"), "r"))
+        if local_version_dict["checked_for_new_version"]:
+            if local_version_dict["current_version"] != local_version_dict["newest_version"]: 
+                self.changes_label.setText(local_version_dict["newest_version"] + "\n" + local_version_dict["newest_version_changes"])
+                self.new_version_frame.show()
+        else:
+            self.update_failed_frame.show()
+        
         # Set initial state
         self.metahuman_folder = None
         self.combined = None
@@ -97,11 +111,6 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         if not debug_mode: self.debug_frame.hide()
         self.modes_frame.hide()
         self.running_frame.hide()
-        self.new_version_frame.hide()
-        local_version_dict = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "version.json"), "r"))
-        if local_version_dict["current_version"] != local_version_dict["newest_version"]: 
-            self.changes_label.setText(local_version_dict["newest_version"] + "\n" + local_version_dict["newest_version_changes"])
-            self.new_version_frame.show()
         self.go_to_metahuman_folder_button.hide()
         self.setFixedSize(self.minimumSizeHint())
         self.show()
@@ -272,6 +281,8 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         if downloaded_files is None:
             print("Download failed; cleaning up temporary directory.")
             shutil.rmtree(temp_folder, ignore_errors=True)
+            self.new_version_frame.hide()
+            self.update_failed_frame.show()
             return
 
         # All downloads succeeded; move files to final folder
@@ -284,8 +295,12 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
                 shutil.move(temp_path, final_path)
                 print(f"Moved {temp_path} to {final_path}")
             print(f"All files successfully moved to {final_folder}")
+            self.new_version_frame.hide()
+            self.update_completed_frame.show()
         except OSError as e:
             print(f"Error moving files to {final_folder}: {e}")
+            self.new_version_frame.hide()
+            self.update_failed_frame.show()
         finally:
             # Clean up temporary directory
             shutil.rmtree(temp_folder, ignore_errors=True)
