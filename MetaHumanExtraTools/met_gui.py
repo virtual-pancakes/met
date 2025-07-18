@@ -298,6 +298,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
             for temp_path in downloaded_files:
                 if ".gitignore" in temp_path: continue
                 if "README.txt" in temp_path: continue
+                if "userSetup.py" in temp_path: continue
                 relative_path = os.path.relpath(temp_path, temp_folder)
                 final_path = os.path.join(modules_folder, relative_path)
                 os.makedirs(os.path.dirname(final_path), exist_ok=True)
