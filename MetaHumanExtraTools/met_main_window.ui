@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1089</width>
-    <height>605</height>
+    <height>755</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -974,6 +974,174 @@ QPushButton::pressed
             <property name="text">
              <string>import dna</string>
             </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="frame_5">
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_8">
+             <property name="spacing">
+              <number>5</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QPushButton" name="joints_button">
+               <property name="styleSheet">
+                <string notr="true">/*-----QPushButton-----*/
+QPushButton
+{
+	background-color: hsv(187, 100%, 50%);
+	color: hsv(0, 0, 50%);
+	font-weight: bold;
+	border: none;
+	border-radius: 5px;
+}
+QPushButton::hover
+{
+	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsv(187, 100%, 50%),stop:1 hsv(180, 100%, 70%));
+}
+QPushButton::pressed
+{
+	background-color: hsv(180, 100%, 100%);
+color: rgb(255, 255, 255);
+}
+
+QPushButton::checked
+{
+	color: rgb(255, 255, 255);
+	background-color: hsv(180, 100%, 90%);
+}
+QPushButton::checked::hover
+{
+	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsv(180, 100%, 90%),stop:1 hsv(180, 100%, 100%));
+}
+QPushButton::checked::pressed
+{
+	background-color: hsv(180, 100%, 100%);
+}</string>
+               </property>
+               <property name="text">
+                <string>joints</string>
+               </property>
+               <property name="checkable">
+                <bool>true</bool>
+               </property>
+               <property name="checked">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="skinweights_button">
+               <property name="styleSheet">
+                <string notr="true">/*-----QPushButton-----*/
+QPushButton
+{
+	background-color: hsv(187, 100%, 50%);
+	color: hsv(0, 0, 50%);
+	font-weight: bold;
+	border: none;
+	border-radius: 5px;
+}
+QPushButton::hover
+{
+	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsv(187, 100%, 50%),stop:1 hsv(180, 100%, 70%));
+}
+QPushButton::pressed
+{
+	background-color: hsv(180, 100%, 100%);
+color: rgb(255, 255, 255);
+}
+
+QPushButton::checked
+{
+	color: rgb(255, 255, 255);
+	background-color: hsv(180, 100%, 90%);
+}
+QPushButton::checked::hover
+{
+	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsv(180, 100%, 90%),stop:1 hsv(180, 100%, 100%));
+}
+QPushButton::checked::pressed
+{
+	background-color: hsv(180, 100%, 100%);
+}</string>
+               </property>
+               <property name="text">
+                <string>skin weights</string>
+               </property>
+               <property name="checkable">
+                <bool>true</bool>
+               </property>
+               <property name="checked">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="riglogic_button">
+               <property name="styleSheet">
+                <string notr="true">/*-----QPushButton-----*/
+QPushButton
+{
+	background-color: hsv(187, 100%, 50%);
+	color: hsv(0, 0, 50%);
+	font-weight: bold;
+	border: none;
+	border-radius: 5px;
+}
+QPushButton::hover
+{
+	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsv(187, 100%, 50%),stop:1 hsv(180, 100%, 70%));
+}
+QPushButton::pressed
+{
+	background-color: hsv(180, 100%, 100%);
+color: rgb(255, 255, 255);
+}
+
+QPushButton::checked
+{
+	color: rgb(255, 255, 255);
+	background-color: hsv(180, 100%, 90%);
+}
+QPushButton::checked::hover
+{
+	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsv(180, 100%, 90%),stop:1 hsv(180, 100%, 100%));
+}
+QPushButton::checked::pressed
+{
+	background-color: hsv(180, 100%, 100%);
+}</string>
+               </property>
+               <property name="text">
+                <string>rig logic</string>
+               </property>
+               <property name="checkable">
+                <bool>true</bool>
+               </property>
+               <property name="checked">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </widget>
           </item>
          </layout>

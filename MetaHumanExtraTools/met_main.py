@@ -59,15 +59,7 @@ class MetahumanToObj:
         self.head_dna_path = f"{self.input_metahuman_folder}/head.dna"
         self.body_dna_path = f"{self.input_metahuman_folder}/body.dna"
 
-        """
-        # Run
-        original_warning_state = cmds.scriptEditorInfo(query=True, suppressWarnings=True)
-        cmds.scriptEditorInfo(suppressWarnings=True)
-
-        self.run()
-
-        cmds.scriptEditorInfo(suppressWarnings=original_warning_state)
-        """
+        # Calling run() from gui
         
     def symmetrize(self, name):
         dagpath = om2.MSelectionList().add(name).getDagPath(0)
@@ -608,7 +600,7 @@ class ObjToMetahuman:
         aux = os.path.dirname(__file__) + "/resources/metahuman_body.fbx"
         cmds.file(aux, i=True, f=True)
         cmds.namespace(set=":")
-        cmds.loadPlugin("meshReorder.mll")
+        if not cmds.pluginInfo("meshReorder.mll", query=True, loaded=True): cmds.loadPlugin("meshReorder.mll")
         source_vertex1 = "temp:body_lod0_mesh.vtx[0]"
         source_vertex2 = "temp:body_lod0_mesh.vtx[9204]"
         source_vertex3 = "temp:body_lod0_mesh.vtx[27330]"
@@ -960,8 +952,6 @@ class ObjToMetahuman:
                 cmds.parent(children, joint)   
             
             elif joint_info["orientation"] == "+x to child, +z to calculated +z": # left finger, right leg
-                print("skip")
-                """
                 cmds.parent(children, world=True)
                 cmds.parent(joint, world=True)
                 locator_0 = cmds.spaceLocator()[0]
@@ -980,11 +970,8 @@ class ObjToMetahuman:
                 cmds.setAttr(f"{joint}.rotate", 0, 0, 0)
                 cmds.parent(joint, parent)
                 cmds.parent(children, joint)  
-                """
 
             elif joint_info["orientation"] == "-x to child, +z to calculated +z": # right finger 
-                print("skip")
-                """
                 cmds.parent(children, world=True)
                 cmds.parent(joint, world=True)
                 locator_0 = cmds.spaceLocator()[0]
@@ -1003,7 +990,6 @@ class ObjToMetahuman:
                 cmds.setAttr(f"{joint}.rotate", 0, 0, 0)
                 cmds.parent(joint, parent)
                 cmds.parent(children, joint)    
-                """
 
             elif joint_info["orientation"] == "-x to child, +y to world +z": # right_arm_up
                 cmds.parent(children, world=True)

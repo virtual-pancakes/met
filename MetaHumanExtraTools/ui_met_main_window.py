@@ -23,7 +23,7 @@ class Ui_METMainWindow(object):
     def setupUi(self, METMainWindow):
         if not METMainWindow.objectName():
             METMainWindow.setObjectName(u"METMainWindow")
-        METMainWindow.resize(1089, 605)
+        METMainWindow.resize(1089, 755)
         sizePolicy = QSizePolicy(QSizePolicy.Policy.Maximum, QSizePolicy.Policy.Maximum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -712,6 +712,134 @@ class Ui_METMainWindow(object):
 
         self.verticalLayout.addWidget(self.import_dna_button)
 
+        self.frame_5 = QFrame(self.debug_frame)
+        self.frame_5.setObjectName(u"frame_5")
+        self.frame_5.setFrameShape(QFrame.StyledPanel)
+        self.frame_5.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_8 = QHBoxLayout(self.frame_5)
+        self.horizontalLayout_8.setSpacing(5)
+        self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
+        self.horizontalLayout_8.setContentsMargins(0, 0, 0, 0)
+        self.joints_button = QPushButton(self.frame_5)
+        self.joints_button.setObjectName(u"joints_button")
+        self.joints_button.setStyleSheet(u"/*-----QPushButton-----*/\n"
+"QPushButton\n"
+"{\n"
+"	background-color: hsv(187, 100%, 50%);\n"
+"	color: hsv(0, 0, 50%);\n"
+"	font-weight: bold;\n"
+"	border: none;\n"
+"	border-radius: 5px;\n"
+"}\n"
+"QPushButton::hover\n"
+"{\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsv(187, 100%, 50%),stop:1 hsv(180, 100%, 70%));\n"
+"}\n"
+"QPushButton::pressed\n"
+"{\n"
+"	background-color: hsv(180, 100%, 100%);\n"
+"color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton::checked\n"
+"{\n"
+"	color: rgb(255, 255, 255);\n"
+"	background-color: hsv(180, 100%, 90%);\n"
+"}\n"
+"QPushButton::checked::hover\n"
+"{\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsv(180, 100%, 90%),stop:1 hsv(180, 100%, 100%));\n"
+"}\n"
+"QPushButton::checked::pressed\n"
+"{\n"
+"	background-color: hsv(180, 100%, 100%);\n"
+"}")
+        self.joints_button.setCheckable(True)
+        self.joints_button.setChecked(False)
+
+        self.horizontalLayout_8.addWidget(self.joints_button)
+
+        self.skinweights_button = QPushButton(self.frame_5)
+        self.skinweights_button.setObjectName(u"skinweights_button")
+        self.skinweights_button.setStyleSheet(u"/*-----QPushButton-----*/\n"
+"QPushButton\n"
+"{\n"
+"	background-color: hsv(187, 100%, 50%);\n"
+"	color: hsv(0, 0, 50%);\n"
+"	font-weight: bold;\n"
+"	border: none;\n"
+"	border-radius: 5px;\n"
+"}\n"
+"QPushButton::hover\n"
+"{\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsv(187, 100%, 50%),stop:1 hsv(180, 100%, 70%));\n"
+"}\n"
+"QPushButton::pressed\n"
+"{\n"
+"	background-color: hsv(180, 100%, 100%);\n"
+"color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton::checked\n"
+"{\n"
+"	color: rgb(255, 255, 255);\n"
+"	background-color: hsv(180, 100%, 90%);\n"
+"}\n"
+"QPushButton::checked::hover\n"
+"{\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsv(180, 100%, 90%),stop:1 hsv(180, 100%, 100%));\n"
+"}\n"
+"QPushButton::checked::pressed\n"
+"{\n"
+"	background-color: hsv(180, 100%, 100%);\n"
+"}")
+        self.skinweights_button.setCheckable(True)
+        self.skinweights_button.setChecked(False)
+
+        self.horizontalLayout_8.addWidget(self.skinweights_button)
+
+        self.riglogic_button = QPushButton(self.frame_5)
+        self.riglogic_button.setObjectName(u"riglogic_button")
+        self.riglogic_button.setStyleSheet(u"/*-----QPushButton-----*/\n"
+"QPushButton\n"
+"{\n"
+"	background-color: hsv(187, 100%, 50%);\n"
+"	color: hsv(0, 0, 50%);\n"
+"	font-weight: bold;\n"
+"	border: none;\n"
+"	border-radius: 5px;\n"
+"}\n"
+"QPushButton::hover\n"
+"{\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsv(187, 100%, 50%),stop:1 hsv(180, 100%, 70%));\n"
+"}\n"
+"QPushButton::pressed\n"
+"{\n"
+"	background-color: hsv(180, 100%, 100%);\n"
+"color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton::checked\n"
+"{\n"
+"	color: rgb(255, 255, 255);\n"
+"	background-color: hsv(180, 100%, 90%);\n"
+"}\n"
+"QPushButton::checked::hover\n"
+"{\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsv(180, 100%, 90%),stop:1 hsv(180, 100%, 100%));\n"
+"}\n"
+"QPushButton::checked::pressed\n"
+"{\n"
+"	background-color: hsv(180, 100%, 100%);\n"
+"}")
+        self.riglogic_button.setCheckable(True)
+        self.riglogic_button.setChecked(False)
+
+        self.horizontalLayout_8.addWidget(self.riglogic_button)
+
+
+        self.verticalLayout.addWidget(self.frame_5)
+
 
         self.verticalLayout_8.addWidget(self.debug_frame)
 
@@ -1154,6 +1282,9 @@ class Ui_METMainWindow(object):
         self.label_3.setText(QCoreApplication.translate("METMainWindow", u"Debug", None))
         self.debug_button.setText(QCoreApplication.translate("METMainWindow", u"Debug", None))
         self.import_dna_button.setText(QCoreApplication.translate("METMainWindow", u"import dna", None))
+        self.joints_button.setText(QCoreApplication.translate("METMainWindow", u"joints", None))
+        self.skinweights_button.setText(QCoreApplication.translate("METMainWindow", u"skin weights", None))
+        self.riglogic_button.setText(QCoreApplication.translate("METMainWindow", u"rig logic", None))
         self.back_button.setText(QCoreApplication.translate("METMainWindow", u"<", None))
         self.mode_label.setText(QCoreApplication.translate("METMainWindow", u"Mode", None))
         self.label_2.setText(QCoreApplication.translate("METMainWindow", u"New geometry:", None))
