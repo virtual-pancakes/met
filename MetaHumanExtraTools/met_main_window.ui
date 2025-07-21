@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1089</width>
-    <height>755</height>
+    <width>1200</width>
+    <height>826</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -477,7 +477,7 @@ QScrollBar::sub-page:vertical
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="sizePolicy">
-    <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+    <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
      <horstretch>0</horstretch>
      <verstretch>0</verstretch>
     </sizepolicy>
@@ -510,7 +510,7 @@ QScrollBar::sub-page:vertical
     <item>
      <widget class="QFrame" name="start_frame">
       <property name="sizePolicy">
-       <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+       <sizepolicy hsizetype="Fixed" vsizetype="Maximum">
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
@@ -591,7 +591,7 @@ font-size:20px
           <item>
            <widget class="QLabel" name="label_4">
             <property name="sizePolicy">
-             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Minimum">
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
@@ -609,7 +609,7 @@ font-size:20px
              </font>
             </property>
             <property name="text">
-             <string>Export a Metahuman to .obj files and edit it's geometry with any application.</string>
+             <string>Export a MetaHuman to .obj files and edit it's geometry with any application</string>
             </property>
             <property name="textFormat">
              <enum>Qt::PlainText</enum>
@@ -649,7 +649,7 @@ font-size:20px
              </font>
             </property>
             <property name="text">
-             <string>Metahuman to .OBJ</string>
+             <string>MetaHuman to .OBJ</string>
             </property>
            </widget>
           </item>
@@ -692,13 +692,13 @@ font-size:20px
           <item>
            <widget class="QLabel" name="label_5">
             <property name="sizePolicy">
-             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Minimum">
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
             <property name="text">
-             <string>Create new Metahuman head and body DNA from .obj files.</string>
+             <string>Create new MetaHuman head and body DNA from .obj files</string>
             </property>
             <property name="wordWrap">
              <bool>true</bool>
@@ -726,7 +726,60 @@ font-size:20px
              </size>
             </property>
             <property name="text">
-             <string>.OBJ to Metahuman</string>
+             <string>.OBJ to MetaHuman</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="frame_7">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_15">
+          <property name="spacing">
+           <number>5</number>
+          </property>
+          <property name="leftMargin">
+           <number>5</number>
+          </property>
+          <property name="topMargin">
+           <number>5</number>
+          </property>
+          <property name="rightMargin">
+           <number>5</number>
+          </property>
+          <property name="bottomMargin">
+           <number>5</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="label_10">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>Come into the Discord server to ask anything and share your experience:</string>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item alignment="Qt::AlignHCenter">
+           <widget class="QLabel" name="discord_label">
+            <property name="text">
+             <string>&lt;a href='https://discord.gg/XdQN8WWV'&gt;Discord&lt;/a&gt;</string>
+            </property>
+            <property name="openExternalLinks">
+             <bool>true</bool>
             </property>
            </widget>
           </item>
@@ -765,6 +818,12 @@ font-size:20px
           </property>
           <item>
            <widget class="QLabel" name="label_7">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="text">
              <string>New version available:</string>
             </property>
@@ -837,13 +896,19 @@ QPushButton::pressed
           <property name="bottomMargin">
            <number>5</number>
           </property>
-          <item>
+          <item alignment="Qt::AlignHCenter">
            <widget class="QLabel" name="label_8">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="styleSheet">
              <string notr="true">color: hsl(177, 100%, 50%); font-weight: bold</string>
             </property>
             <property name="text">
-             <string>Updated Successfully. Restart Maya to apply changes.</string>
+             <string>Updated Successfully. Restart Maya to apply changes</string>
             </property>
            </widget>
           </item>
@@ -882,6 +947,12 @@ QPushButton::pressed
           </property>
           <item>
            <widget class="QLabel" name="label_9">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="styleSheet">
              <string notr="true">color: hsl(333, 100%, 50%); font-weight: bold</string>
             </property>
@@ -945,6 +1016,12 @@ QPushButton::pressed
           </property>
           <item>
            <widget class="QLabel" name="label_3">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="text">
              <string>Debug</string>
             </property>
@@ -1153,7 +1230,7 @@ QPushButton::checked::pressed
     <item>
      <widget class="QFrame" name="modes_frame">
       <property name="sizePolicy">
-       <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
+       <sizepolicy hsizetype="Fixed" vsizetype="Maximum">
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
@@ -1299,9 +1376,83 @@ QPushButton::checked::pressed
         </widget>
        </item>
        <item>
-        <widget class="QFrame" name="new_geometry_frame">
+        <widget class="QFrame" name="select_metahuman_frame">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <property name="spacing">
+           <number>5</number>
+          </property>
+          <property name="leftMargin">
+           <number>5</number>
+          </property>
+          <property name="topMargin">
+           <number>5</number>
+          </property>
+          <property name="rightMargin">
+           <number>5</number>
+          </property>
+          <property name="bottomMargin">
+           <number>5</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>Select the MetaHuman folder generated by MetaHuman Creator DCC Export (the folder that contains both head.dna and body.dna)</string>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="metahuman_folder_button">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>37</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>37</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>MetaHuman folder</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="new_geometry_frame">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
@@ -1337,13 +1488,16 @@ QPushButton::checked::pressed
           <item>
            <widget class="QLabel" name="label_2">
             <property name="sizePolicy">
-             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Minimum">
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
             <property name="text">
-             <string>New geometry:</string>
+             <string>Select your new combined and eyes meshes. You can also provide eyelashes and teeth or let them be auto-generated. These meshes need to have the same topology and vertex order as the ones generated by MetaHuman to .OBJ</string>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
             </property>
            </widget>
           </item>
@@ -1617,74 +1771,6 @@ QPushButton::checked::pressed
         </widget>
        </item>
        <item>
-        <widget class="QFrame" name="select_metahuman_frame">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout_3">
-          <property name="spacing">
-           <number>5</number>
-          </property>
-          <property name="leftMargin">
-           <number>5</number>
-          </property>
-          <property name="topMargin">
-           <number>5</number>
-          </property>
-          <property name="rightMargin">
-           <number>5</number>
-          </property>
-          <property name="bottomMargin">
-           <number>5</number>
-          </property>
-          <item>
-           <widget class="QLabel" name="label">
-            <property name="text">
-             <string>Select Metahuman folder generated by Metahuman Creator DCC Export.</string>
-            </property>
-            <property name="wordWrap">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="metahuman_folder_button">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Minimum">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>37</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>37</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>Metahuman folder</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
         <widget class="QFrame" name="symmetrize_frame">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
@@ -1716,8 +1802,17 @@ QPushButton::checked::pressed
           </property>
           <item>
            <widget class="QLabel" name="label_6">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="text">
-             <string>Symmetry:</string>
+             <string>Symmetrize MetaHuman maintaining topology and vertex order or keep original asymmetry. Symmetrize is recommended for easier editing</string>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
             </property>
            </widget>
           </item>
@@ -1745,65 +1840,6 @@ QPushButton::checked::pressed
              <property name="bottomMargin">
               <number>0</number>
              </property>
-             <item>
-              <widget class="QPushButton" name="original_button">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="minimumSize">
-                <size>
-                 <width>145</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">/*-----QPushButton-----*/
-QPushButton
-{
-	background-color: hsv(187, 100%, 50%);
-	color: hsv(0, 0, 50%);
-	font-weight: bold;
-	border: none;
-	border-radius: 5px;
-}
-QPushButton::hover
-{
-	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsv(187, 100%, 50%),stop:1 hsv(180, 100%, 70%));
-}
-QPushButton::pressed
-{
-	background-color: hsv(180, 100%, 100%);
-color: rgb(255, 255, 255);
-}
-
-QPushButton::checked
-{
-	color: rgb(255, 255, 255);
-	background-color: hsv(180, 100%, 90%);
-}
-QPushButton::checked::hover
-{
-	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsv(180, 100%, 90%),stop:1 hsv(180, 100%, 100%));
-}
-QPushButton::checked::pressed
-{
-	background-color: hsv(180, 100%, 100%);
-}</string>
-               </property>
-               <property name="text">
-                <string>Keep Original</string>
-               </property>
-               <property name="checkable">
-                <bool>true</bool>
-               </property>
-               <property name="checked">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
              <item>
               <widget class="QPushButton" name="symmetrize_button">
                <property name="sizePolicy">
@@ -1854,6 +1890,65 @@ QPushButton::checked::pressed
                </property>
                <property name="text">
                 <string>Symmetrize</string>
+               </property>
+               <property name="checkable">
+                <bool>true</bool>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="original_button">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>145</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">/*-----QPushButton-----*/
+QPushButton
+{
+	background-color: hsv(187, 100%, 50%);
+	color: hsv(0, 0, 50%);
+	font-weight: bold;
+	border: none;
+	border-radius: 5px;
+}
+QPushButton::hover
+{
+	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsv(187, 100%, 50%),stop:1 hsv(180, 100%, 70%));
+}
+QPushButton::pressed
+{
+	background-color: hsv(180, 100%, 100%);
+color: rgb(255, 255, 255);
+}
+
+QPushButton::checked
+{
+	color: rgb(255, 255, 255);
+	background-color: hsv(180, 100%, 90%);
+}
+QPushButton::checked::hover
+{
+	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsv(180, 100%, 90%),stop:1 hsv(180, 100%, 100%));
+}
+QPushButton::checked::pressed
+{
+	background-color: hsv(180, 100%, 100%);
+}</string>
+               </property>
+               <property name="text">
+                <string>Keep Original</string>
                </property>
                <property name="checkable">
                 <bool>true</bool>
@@ -1940,14 +2035,14 @@ QPushButton::checked::pressed
     <item>
      <widget class="QFrame" name="running_frame">
       <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
       <property name="minimumSize">
        <size>
-        <width>369</width>
+        <width>480</width>
         <height>0</height>
        </size>
       </property>
@@ -1978,6 +2073,12 @@ QPushButton::checked::pressed
        </property>
        <item>
         <widget class="QFrame" name="frame_6">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
          </property>
@@ -2001,19 +2102,220 @@ QPushButton::checked::pressed
            <number>5</number>
           </property>
           <item>
+           <widget class="QFrame" name="metahuman_to_obj_info_frame">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background: transparent</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_16">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="label_12">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>460</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background: transparent</string>
+               </property>
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Please keep in mind that you need to maintain topology, vertex order and mesh distribution on the generated meshes. If you disrupt these properties you will need to restore them by performing a wrapping process with tools like Faceform Wrap or similar. Even if you maintain topology and vertex order, wrapping is still recommended for optimal mesh distribution.&lt;/p&gt;&lt;p&gt;MetaHuman to .OBJ will generate, inside the MetaHuman folder, two extra folders with &amp;quot;new&amp;quot; and &amp;quot;old&amp;quot; OBJs. The recommended workflow is to edit the new OBJs and keep the old OBJs intact, as a representation of the original MetaHuman, in case you need them for reference or wrapping. You will also find inside the old OBJs folder a set of textures that you can use to check mesh distribution.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+               <property name="wordWrap">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="obj_to_metahuman_info_frame">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background: transparent</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_17">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="label_11">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>460</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;.OBJ to MetaHuman will generate an extra folder inside the MetaHuman folder with new DNA for your MetaHuman. You can use this new DNA to update your MetaHuman in MetaHuman Creator.&lt;/p&gt;&lt;p&gt;First, in MetaHuman Creator, you will need to remove the rig that was previously applied.&lt;/p&gt;&lt;p&gt;Then conform to the new body DNA: go to &amp;quot;Body&amp;quot; &amp;gt; &amp;quot;Conform&amp;quot; &amp;gt; &amp;quot;Import DNA&amp;quot;, select your new body DNA file, and import with the following options:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+               <property name="wordWrap">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="dna_options_body_label">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background: green</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_13">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;Next conform to the new head DNA: go to &amp;quot;Head&amp;quot; &amp;gt; &amp;quot;Conform&amp;quot; &amp;gt; &amp;quot;Import DNA&amp;quot;, select your new head DNA file, and import with the following options:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+               <property name="wordWrap">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="dna_options_head_label">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background: green</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_14">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;Finally, create either &amp;quot;Full Rig&amp;quot; or &amp;quot;Joints Only Rig&amp;quot;. The difference between the two is that Full Rig enables the corrective Blend Shapes.&lt;/p&gt;&lt;p&gt;Once the rig is created you can check your updated MetaHuman using the template animations in the preview panel. Please be aware that the BodyROM animation has some problems with the fingers that are very visible around frame 180. This is an issue of the animation itself, you can see this behaviour even on the Preset MetaHumans.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+               <property name="wordWrap">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
            <widget class="QLabel" name="running_label">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Maximum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: hsl(50, 100%, 50%); font-weight: bold</string>
+            </property>
             <property name="text">
              <string>Running...</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
             </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
            </widget>
           </item>
           <item>
            <widget class="QPushButton" name="go_to_metahuman_folder_button">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="text">
-             <string>go to Metahuman folder</string>
+             <string>Go to MetaHuman folder</string>
             </property>
            </widget>
           </item>

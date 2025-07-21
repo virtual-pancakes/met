@@ -23,7 +23,7 @@ class Ui_METMainWindow(object):
     def setupUi(self, METMainWindow):
         if not METMainWindow.objectName():
             METMainWindow.setObjectName(u"METMainWindow")
-        METMainWindow.resize(1089, 755)
+        METMainWindow.resize(1200, 826)
         sizePolicy = QSizePolicy(QSizePolicy.Policy.Maximum, QSizePolicy.Policy.Maximum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -487,11 +487,8 @@ class Ui_METMainWindow(object):
 "")
         self.centralwidget = QWidget(METMainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Minimum)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.centralwidget.sizePolicy().hasHeightForWidth())
-        self.centralwidget.setSizePolicy(sizePolicy1)
+        sizePolicy.setHeightForWidth(self.centralwidget.sizePolicy().hasHeightForWidth())
+        self.centralwidget.setSizePolicy(sizePolicy)
         self.centralwidget.setMinimumSize(QSize(0, 0))
         self.centralwidget.setStyleSheet(u"#centralwidget {background: white}")
         self.horizontalLayout_2 = QHBoxLayout(self.centralwidget)
@@ -500,8 +497,11 @@ class Ui_METMainWindow(object):
         self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.start_frame = QFrame(self.centralwidget)
         self.start_frame.setObjectName(u"start_frame")
-        sizePolicy.setHeightForWidth(self.start_frame.sizePolicy().hasHeightForWidth())
-        self.start_frame.setSizePolicy(sizePolicy)
+        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Maximum)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.start_frame.sizePolicy().hasHeightForWidth())
+        self.start_frame.setSizePolicy(sizePolicy1)
         self.start_frame.setMinimumSize(QSize(360, 0))
         self.start_frame.setMaximumSize(QSize(360, 16777215))
         self.start_frame.setStyleSheet(u"QPushButton{\n"
@@ -529,7 +529,7 @@ class Ui_METMainWindow(object):
         self.verticalLayout_5.setContentsMargins(5, 5, 5, 5)
         self.label_4 = QLabel(self.frame2)
         self.label_4.setObjectName(u"label_4")
-        sizePolicy3 = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
+        sizePolicy3 = QSizePolicy(QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
         sizePolicy3.setHorizontalStretch(0)
         sizePolicy3.setVerticalStretch(0)
         sizePolicy3.setHeightForWidth(self.label_4.sizePolicy().hasHeightForWidth())
@@ -589,6 +589,31 @@ class Ui_METMainWindow(object):
 
         self.verticalLayout_8.addWidget(self.frame1)
 
+        self.frame_7 = QFrame(self.start_frame)
+        self.frame_7.setObjectName(u"frame_7")
+        self.frame_7.setFrameShape(QFrame.StyledPanel)
+        self.frame_7.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_15 = QVBoxLayout(self.frame_7)
+        self.verticalLayout_15.setSpacing(5)
+        self.verticalLayout_15.setObjectName(u"verticalLayout_15")
+        self.verticalLayout_15.setContentsMargins(5, 5, 5, 5)
+        self.label_10 = QLabel(self.frame_7)
+        self.label_10.setObjectName(u"label_10")
+        sizePolicy3.setHeightForWidth(self.label_10.sizePolicy().hasHeightForWidth())
+        self.label_10.setSizePolicy(sizePolicy3)
+        self.label_10.setWordWrap(True)
+
+        self.verticalLayout_15.addWidget(self.label_10)
+
+        self.discord_label = QLabel(self.frame_7)
+        self.discord_label.setObjectName(u"discord_label")
+        self.discord_label.setOpenExternalLinks(True)
+
+        self.verticalLayout_15.addWidget(self.discord_label, 0, Qt.AlignHCenter)
+
+
+        self.verticalLayout_8.addWidget(self.frame_7)
+
         self.new_version_frame = QFrame(self.start_frame)
         self.new_version_frame.setObjectName(u"new_version_frame")
         sizePolicy2.setHeightForWidth(self.new_version_frame.sizePolicy().hasHeightForWidth())
@@ -601,6 +626,8 @@ class Ui_METMainWindow(object):
         self.verticalLayout_12.setContentsMargins(5, 5, 5, 5)
         self.label_7 = QLabel(self.new_version_frame)
         self.label_7.setObjectName(u"label_7")
+        sizePolicy3.setHeightForWidth(self.label_7.sizePolicy().hasHeightForWidth())
+        self.label_7.setSizePolicy(sizePolicy3)
 
         self.verticalLayout_12.addWidget(self.label_7)
 
@@ -647,9 +674,11 @@ class Ui_METMainWindow(object):
         self.verticalLayout_13.setContentsMargins(5, 5, 5, 5)
         self.label_8 = QLabel(self.update_completed_frame)
         self.label_8.setObjectName(u"label_8")
+        sizePolicy3.setHeightForWidth(self.label_8.sizePolicy().hasHeightForWidth())
+        self.label_8.setSizePolicy(sizePolicy3)
         self.label_8.setStyleSheet(u"color: hsl(177, 100%, 50%); font-weight: bold")
 
-        self.verticalLayout_13.addWidget(self.label_8)
+        self.verticalLayout_13.addWidget(self.label_8, 0, Qt.AlignHCenter)
 
 
         self.verticalLayout_8.addWidget(self.update_completed_frame)
@@ -666,6 +695,8 @@ class Ui_METMainWindow(object):
         self.verticalLayout_14.setContentsMargins(5, 5, 5, 5)
         self.label_9 = QLabel(self.update_failed_frame)
         self.label_9.setObjectName(u"label_9")
+        sizePolicy3.setHeightForWidth(self.label_9.sizePolicy().hasHeightForWidth())
+        self.label_9.setSizePolicy(sizePolicy3)
         self.label_9.setStyleSheet(u"color: hsl(333, 100%, 50%); font-weight: bold")
         self.label_9.setWordWrap(True)
 
@@ -696,6 +727,11 @@ class Ui_METMainWindow(object):
         self.verticalLayout.setContentsMargins(5, 5, 5, 5)
         self.label_3 = QLabel(self.debug_frame)
         self.label_3.setObjectName(u"label_3")
+        sizePolicy4 = QSizePolicy(QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Preferred)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(0)
+        sizePolicy4.setHeightForWidth(self.label_3.sizePolicy().hasHeightForWidth())
+        self.label_3.setSizePolicy(sizePolicy4)
 
         self.verticalLayout.addWidget(self.label_3)
 
@@ -848,11 +884,8 @@ class Ui_METMainWindow(object):
 
         self.modes_frame = QFrame(self.centralwidget)
         self.modes_frame.setObjectName(u"modes_frame")
-        sizePolicy4 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.MinimumExpanding)
-        sizePolicy4.setHorizontalStretch(0)
-        sizePolicy4.setVerticalStretch(0)
-        sizePolicy4.setHeightForWidth(self.modes_frame.sizePolicy().hasHeightForWidth())
-        self.modes_frame.setSizePolicy(sizePolicy4)
+        sizePolicy1.setHeightForWidth(self.modes_frame.sizePolicy().hasHeightForWidth())
+        self.modes_frame.setSizePolicy(sizePolicy1)
         self.modes_frame.setStyleSheet(u"#modes_frame {background: transparent}")
         self.modes_frame.setFrameShape(QFrame.StyledPanel)
         self.modes_frame.setFrameShadow(QFrame.Raised)
@@ -905,13 +938,46 @@ class Ui_METMainWindow(object):
 
         self.verticalLayout_2.addWidget(self.back_frame)
 
-        self.new_geometry_frame = QFrame(self.modes_frame)
-        self.new_geometry_frame.setObjectName(u"new_geometry_frame")
+        self.select_metahuman_frame = QFrame(self.modes_frame)
+        self.select_metahuman_frame.setObjectName(u"select_metahuman_frame")
         sizePolicy7 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Maximum)
         sizePolicy7.setHorizontalStretch(0)
         sizePolicy7.setVerticalStretch(0)
-        sizePolicy7.setHeightForWidth(self.new_geometry_frame.sizePolicy().hasHeightForWidth())
-        self.new_geometry_frame.setSizePolicy(sizePolicy7)
+        sizePolicy7.setHeightForWidth(self.select_metahuman_frame.sizePolicy().hasHeightForWidth())
+        self.select_metahuman_frame.setSizePolicy(sizePolicy7)
+        self.select_metahuman_frame.setFrameShape(QFrame.StyledPanel)
+        self.select_metahuman_frame.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_3 = QVBoxLayout(self.select_metahuman_frame)
+        self.verticalLayout_3.setSpacing(5)
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.verticalLayout_3.setContentsMargins(5, 5, 5, 5)
+        self.label = QLabel(self.select_metahuman_frame)
+        self.label.setObjectName(u"label")
+        sizePolicy3.setHeightForWidth(self.label.sizePolicy().hasHeightForWidth())
+        self.label.setSizePolicy(sizePolicy3)
+        self.label.setWordWrap(True)
+
+        self.verticalLayout_3.addWidget(self.label)
+
+        self.metahuman_folder_button = QPushButton(self.select_metahuman_frame)
+        self.metahuman_folder_button.setObjectName(u"metahuman_folder_button")
+        sizePolicy3.setHeightForWidth(self.metahuman_folder_button.sizePolicy().hasHeightForWidth())
+        self.metahuman_folder_button.setSizePolicy(sizePolicy3)
+        self.metahuman_folder_button.setMinimumSize(QSize(0, 37))
+        self.metahuman_folder_button.setMaximumSize(QSize(16777215, 37))
+
+        self.verticalLayout_3.addWidget(self.metahuman_folder_button)
+
+
+        self.verticalLayout_2.addWidget(self.select_metahuman_frame)
+
+        self.new_geometry_frame = QFrame(self.modes_frame)
+        self.new_geometry_frame.setObjectName(u"new_geometry_frame")
+        sizePolicy8 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Minimum)
+        sizePolicy8.setHorizontalStretch(0)
+        sizePolicy8.setVerticalStretch(0)
+        sizePolicy8.setHeightForWidth(self.new_geometry_frame.sizePolicy().hasHeightForWidth())
+        self.new_geometry_frame.setSizePolicy(sizePolicy8)
         self.new_geometry_frame.setMinimumSize(QSize(0, 0))
         self.new_geometry_frame.setFrameShape(QFrame.StyledPanel)
         self.new_geometry_frame.setFrameShadow(QFrame.Raised)
@@ -921,8 +987,9 @@ class Ui_METMainWindow(object):
         self.verticalLayout_4.setContentsMargins(5, 5, 5, 5)
         self.label_2 = QLabel(self.new_geometry_frame)
         self.label_2.setObjectName(u"label_2")
-        sizePolicy6.setHeightForWidth(self.label_2.sizePolicy().hasHeightForWidth())
-        self.label_2.setSizePolicy(sizePolicy6)
+        sizePolicy3.setHeightForWidth(self.label_2.sizePolicy().hasHeightForWidth())
+        self.label_2.setSizePolicy(sizePolicy3)
+        self.label_2.setWordWrap(True)
 
         self.verticalLayout_4.addWidget(self.label_2)
 
@@ -936,11 +1003,11 @@ class Ui_METMainWindow(object):
         self.horizontalLayout_4.setContentsMargins(0, 0, 0, 0)
         self.combined_button = QPushButton(self.frame)
         self.combined_button.setObjectName(u"combined_button")
-        sizePolicy8 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
-        sizePolicy8.setHorizontalStretch(0)
-        sizePolicy8.setVerticalStretch(0)
-        sizePolicy8.setHeightForWidth(self.combined_button.sizePolicy().hasHeightForWidth())
-        self.combined_button.setSizePolicy(sizePolicy8)
+        sizePolicy9 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
+        sizePolicy9.setHorizontalStretch(0)
+        sizePolicy9.setVerticalStretch(0)
+        sizePolicy9.setHeightForWidth(self.combined_button.sizePolicy().hasHeightForWidth())
+        self.combined_button.setSizePolicy(sizePolicy9)
         self.combined_button.setMinimumSize(QSize(0, 31))
 
         self.horizontalLayout_4.addWidget(self.combined_button)
@@ -965,8 +1032,8 @@ class Ui_METMainWindow(object):
         self.horizontalLayout_5.setContentsMargins(0, 0, 0, 0)
         self.eyes_button = QPushButton(self.frame_2)
         self.eyes_button.setObjectName(u"eyes_button")
-        sizePolicy8.setHeightForWidth(self.eyes_button.sizePolicy().hasHeightForWidth())
-        self.eyes_button.setSizePolicy(sizePolicy8)
+        sizePolicy9.setHeightForWidth(self.eyes_button.sizePolicy().hasHeightForWidth())
+        self.eyes_button.setSizePolicy(sizePolicy9)
         self.eyes_button.setMinimumSize(QSize(0, 31))
 
         self.horizontalLayout_5.addWidget(self.eyes_button)
@@ -992,19 +1059,19 @@ class Ui_METMainWindow(object):
         self.eyelashes_button = QPushButton(self.frame_3)
         self.eyelashes_button.setObjectName(u"eyelashes_button")
         self.eyelashes_button.setEnabled(False)
-        sizePolicy8.setHeightForWidth(self.eyelashes_button.sizePolicy().hasHeightForWidth())
-        self.eyelashes_button.setSizePolicy(sizePolicy8)
+        sizePolicy9.setHeightForWidth(self.eyelashes_button.sizePolicy().hasHeightForWidth())
+        self.eyelashes_button.setSizePolicy(sizePolicy9)
         self.eyelashes_button.setMinimumSize(QSize(0, 31))
 
         self.horizontalLayout_6.addWidget(self.eyelashes_button)
 
         self.eyelashes_autogenerated_button = QPushButton(self.frame_3)
         self.eyelashes_autogenerated_button.setObjectName(u"eyelashes_autogenerated_button")
-        sizePolicy9 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Preferred)
-        sizePolicy9.setHorizontalStretch(0)
-        sizePolicy9.setVerticalStretch(0)
-        sizePolicy9.setHeightForWidth(self.eyelashes_autogenerated_button.sizePolicy().hasHeightForWidth())
-        self.eyelashes_autogenerated_button.setSizePolicy(sizePolicy9)
+        sizePolicy10 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Preferred)
+        sizePolicy10.setHorizontalStretch(0)
+        sizePolicy10.setVerticalStretch(0)
+        sizePolicy10.setHeightForWidth(self.eyelashes_autogenerated_button.sizePolicy().hasHeightForWidth())
+        self.eyelashes_autogenerated_button.setSizePolicy(sizePolicy10)
         self.eyelashes_autogenerated_button.setMinimumSize(QSize(80, 0))
         self.eyelashes_autogenerated_button.setStyleSheet(u"font-size: 10px")
 
@@ -1024,16 +1091,16 @@ class Ui_METMainWindow(object):
         self.teeth_button = QPushButton(self.frame_4)
         self.teeth_button.setObjectName(u"teeth_button")
         self.teeth_button.setEnabled(False)
-        sizePolicy8.setHeightForWidth(self.teeth_button.sizePolicy().hasHeightForWidth())
-        self.teeth_button.setSizePolicy(sizePolicy8)
+        sizePolicy9.setHeightForWidth(self.teeth_button.sizePolicy().hasHeightForWidth())
+        self.teeth_button.setSizePolicy(sizePolicy9)
         self.teeth_button.setMinimumSize(QSize(0, 31))
 
         self.horizontalLayout_7.addWidget(self.teeth_button)
 
         self.teeth_autogenerated_button = QPushButton(self.frame_4)
         self.teeth_autogenerated_button.setObjectName(u"teeth_autogenerated_button")
-        sizePolicy9.setHeightForWidth(self.teeth_autogenerated_button.sizePolicy().hasHeightForWidth())
-        self.teeth_autogenerated_button.setSizePolicy(sizePolicy9)
+        sizePolicy10.setHeightForWidth(self.teeth_autogenerated_button.sizePolicy().hasHeightForWidth())
+        self.teeth_autogenerated_button.setSizePolicy(sizePolicy10)
         self.teeth_autogenerated_button.setMinimumSize(QSize(80, 0))
         self.teeth_autogenerated_button.setStyleSheet(u"font-size: 10px")
 
@@ -1044,37 +1111,6 @@ class Ui_METMainWindow(object):
 
 
         self.verticalLayout_2.addWidget(self.new_geometry_frame)
-
-        self.select_metahuman_frame = QFrame(self.modes_frame)
-        self.select_metahuman_frame.setObjectName(u"select_metahuman_frame")
-        sizePolicy7.setHeightForWidth(self.select_metahuman_frame.sizePolicy().hasHeightForWidth())
-        self.select_metahuman_frame.setSizePolicy(sizePolicy7)
-        self.select_metahuman_frame.setFrameShape(QFrame.StyledPanel)
-        self.select_metahuman_frame.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_3 = QVBoxLayout(self.select_metahuman_frame)
-        self.verticalLayout_3.setSpacing(5)
-        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.verticalLayout_3.setContentsMargins(5, 5, 5, 5)
-        self.label = QLabel(self.select_metahuman_frame)
-        self.label.setObjectName(u"label")
-        self.label.setWordWrap(True)
-
-        self.verticalLayout_3.addWidget(self.label)
-
-        self.metahuman_folder_button = QPushButton(self.select_metahuman_frame)
-        self.metahuman_folder_button.setObjectName(u"metahuman_folder_button")
-        sizePolicy10 = QSizePolicy(QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Minimum)
-        sizePolicy10.setHorizontalStretch(0)
-        sizePolicy10.setVerticalStretch(0)
-        sizePolicy10.setHeightForWidth(self.metahuman_folder_button.sizePolicy().hasHeightForWidth())
-        self.metahuman_folder_button.setSizePolicy(sizePolicy10)
-        self.metahuman_folder_button.setMinimumSize(QSize(0, 37))
-        self.metahuman_folder_button.setMaximumSize(QSize(16777215, 37))
-
-        self.verticalLayout_3.addWidget(self.metahuman_folder_button)
-
-
-        self.verticalLayout_2.addWidget(self.select_metahuman_frame)
 
         self.symmetrize_frame = QFrame(self.modes_frame)
         self.symmetrize_frame.setObjectName(u"symmetrize_frame")
@@ -1088,6 +1124,9 @@ class Ui_METMainWindow(object):
         self.verticalLayout_9.setContentsMargins(5, 5, 5, 5)
         self.label_6 = QLabel(self.symmetrize_frame)
         self.label_6.setObjectName(u"label_6")
+        sizePolicy3.setHeightForWidth(self.label_6.sizePolicy().hasHeightForWidth())
+        self.label_6.setSizePolicy(sizePolicy3)
+        self.label_6.setWordWrap(True)
 
         self.verticalLayout_9.addWidget(self.label_6)
 
@@ -1099,53 +1138,11 @@ class Ui_METMainWindow(object):
         self.horizontalLayout_3.setSpacing(5)
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
-        self.original_button = QPushButton(self.symmetrize_frame2)
-        self.original_button.setObjectName(u"original_button")
+        self.symmetrize_button = QPushButton(self.symmetrize_frame2)
+        self.symmetrize_button.setObjectName(u"symmetrize_button")
         sizePolicy11 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
         sizePolicy11.setHorizontalStretch(0)
         sizePolicy11.setVerticalStretch(0)
-        sizePolicy11.setHeightForWidth(self.original_button.sizePolicy().hasHeightForWidth())
-        self.original_button.setSizePolicy(sizePolicy11)
-        self.original_button.setMinimumSize(QSize(145, 0))
-        self.original_button.setStyleSheet(u"/*-----QPushButton-----*/\n"
-"QPushButton\n"
-"{\n"
-"	background-color: hsv(187, 100%, 50%);\n"
-"	color: hsv(0, 0, 50%);\n"
-"	font-weight: bold;\n"
-"	border: none;\n"
-"	border-radius: 5px;\n"
-"}\n"
-"QPushButton::hover\n"
-"{\n"
-"	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsv(187, 100%, 50%),stop:1 hsv(180, 100%, 70%));\n"
-"}\n"
-"QPushButton::pressed\n"
-"{\n"
-"	background-color: hsv(180, 100%, 100%);\n"
-"color: rgb(255, 255, 255);\n"
-"}\n"
-"\n"
-"QPushButton::checked\n"
-"{\n"
-"	color: rgb(255, 255, 255);\n"
-"	background-color: hsv(180, 100%, 90%);\n"
-"}\n"
-"QPushButton::checked::hover\n"
-"{\n"
-"	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsv(180, 100%, 90%),stop:1 hsv(180, 100%, 100%));\n"
-"}\n"
-"QPushButton::checked::pressed\n"
-"{\n"
-"	background-color: hsv(180, 100%, 100%);\n"
-"}")
-        self.original_button.setCheckable(True)
-        self.original_button.setChecked(True)
-
-        self.horizontalLayout_3.addWidget(self.original_button)
-
-        self.symmetrize_button = QPushButton(self.symmetrize_frame2)
-        self.symmetrize_button.setObjectName(u"symmetrize_button")
         sizePolicy11.setHeightForWidth(self.symmetrize_button.sizePolicy().hasHeightForWidth())
         self.symmetrize_button.setSizePolicy(sizePolicy11)
         self.symmetrize_button.setMinimumSize(QSize(145, 0))
@@ -1182,9 +1179,51 @@ class Ui_METMainWindow(object):
 "	background-color: hsv(180, 100%, 100%);\n"
 "}")
         self.symmetrize_button.setCheckable(True)
-        self.symmetrize_button.setChecked(False)
+        self.symmetrize_button.setChecked(True)
 
         self.horizontalLayout_3.addWidget(self.symmetrize_button)
+
+        self.original_button = QPushButton(self.symmetrize_frame2)
+        self.original_button.setObjectName(u"original_button")
+        sizePolicy11.setHeightForWidth(self.original_button.sizePolicy().hasHeightForWidth())
+        self.original_button.setSizePolicy(sizePolicy11)
+        self.original_button.setMinimumSize(QSize(145, 0))
+        self.original_button.setStyleSheet(u"/*-----QPushButton-----*/\n"
+"QPushButton\n"
+"{\n"
+"	background-color: hsv(187, 100%, 50%);\n"
+"	color: hsv(0, 0, 50%);\n"
+"	font-weight: bold;\n"
+"	border: none;\n"
+"	border-radius: 5px;\n"
+"}\n"
+"QPushButton::hover\n"
+"{\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsv(187, 100%, 50%),stop:1 hsv(180, 100%, 70%));\n"
+"}\n"
+"QPushButton::pressed\n"
+"{\n"
+"	background-color: hsv(180, 100%, 100%);\n"
+"color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton::checked\n"
+"{\n"
+"	color: rgb(255, 255, 255);\n"
+"	background-color: hsv(180, 100%, 90%);\n"
+"}\n"
+"QPushButton::checked::hover\n"
+"{\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsv(180, 100%, 90%),stop:1 hsv(180, 100%, 100%));\n"
+"}\n"
+"QPushButton::checked::pressed\n"
+"{\n"
+"	background-color: hsv(180, 100%, 100%);\n"
+"}")
+        self.original_button.setCheckable(True)
+        self.original_button.setChecked(False)
+
+        self.horizontalLayout_3.addWidget(self.original_button)
 
 
         self.verticalLayout_9.addWidget(self.symmetrize_frame2)
@@ -1224,9 +1263,9 @@ class Ui_METMainWindow(object):
 
         self.running_frame = QFrame(self.centralwidget)
         self.running_frame.setObjectName(u"running_frame")
-        sizePolicy3.setHeightForWidth(self.running_frame.sizePolicy().hasHeightForWidth())
-        self.running_frame.setSizePolicy(sizePolicy3)
-        self.running_frame.setMinimumSize(QSize(369, 0))
+        sizePolicy.setHeightForWidth(self.running_frame.sizePolicy().hasHeightForWidth())
+        self.running_frame.setSizePolicy(sizePolicy)
+        self.running_frame.setMinimumSize(QSize(480, 0))
         self.running_frame.setStyleSheet(u"#running_frame {background: transparent}")
         self.running_frame.setFrameShape(QFrame.StyledPanel)
         self.running_frame.setFrameShadow(QFrame.Raised)
@@ -1236,20 +1275,113 @@ class Ui_METMainWindow(object):
         self.verticalLayout_10.setContentsMargins(5, 5, 5, 5)
         self.frame_6 = QFrame(self.running_frame)
         self.frame_6.setObjectName(u"frame_6")
+        sizePolicy.setHeightForWidth(self.frame_6.sizePolicy().hasHeightForWidth())
+        self.frame_6.setSizePolicy(sizePolicy)
         self.frame_6.setFrameShape(QFrame.StyledPanel)
         self.frame_6.setFrameShadow(QFrame.Raised)
         self.verticalLayout_11 = QVBoxLayout(self.frame_6)
         self.verticalLayout_11.setSpacing(5)
         self.verticalLayout_11.setObjectName(u"verticalLayout_11")
         self.verticalLayout_11.setContentsMargins(5, 5, 5, 5)
+        self.metahuman_to_obj_info_frame = QFrame(self.frame_6)
+        self.metahuman_to_obj_info_frame.setObjectName(u"metahuman_to_obj_info_frame")
+        sizePolicy.setHeightForWidth(self.metahuman_to_obj_info_frame.sizePolicy().hasHeightForWidth())
+        self.metahuman_to_obj_info_frame.setSizePolicy(sizePolicy)
+        self.metahuman_to_obj_info_frame.setStyleSheet(u"background: transparent")
+        self.metahuman_to_obj_info_frame.setFrameShape(QFrame.StyledPanel)
+        self.metahuman_to_obj_info_frame.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_16 = QVBoxLayout(self.metahuman_to_obj_info_frame)
+        self.verticalLayout_16.setSpacing(0)
+        self.verticalLayout_16.setObjectName(u"verticalLayout_16")
+        self.verticalLayout_16.setContentsMargins(0, 0, 0, 0)
+        self.label_12 = QLabel(self.metahuman_to_obj_info_frame)
+        self.label_12.setObjectName(u"label_12")
+        sizePolicy7.setHeightForWidth(self.label_12.sizePolicy().hasHeightForWidth())
+        self.label_12.setSizePolicy(sizePolicy7)
+        self.label_12.setMinimumSize(QSize(460, 0))
+        self.label_12.setStyleSheet(u"background: transparent")
+        self.label_12.setWordWrap(True)
+
+        self.verticalLayout_16.addWidget(self.label_12)
+
+
+        self.verticalLayout_11.addWidget(self.metahuman_to_obj_info_frame)
+
+        self.obj_to_metahuman_info_frame = QFrame(self.frame_6)
+        self.obj_to_metahuman_info_frame.setObjectName(u"obj_to_metahuman_info_frame")
+        sizePolicy.setHeightForWidth(self.obj_to_metahuman_info_frame.sizePolicy().hasHeightForWidth())
+        self.obj_to_metahuman_info_frame.setSizePolicy(sizePolicy)
+        self.obj_to_metahuman_info_frame.setStyleSheet(u"background: transparent")
+        self.obj_to_metahuman_info_frame.setFrameShape(QFrame.StyledPanel)
+        self.obj_to_metahuman_info_frame.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_17 = QVBoxLayout(self.obj_to_metahuman_info_frame)
+        self.verticalLayout_17.setSpacing(0)
+        self.verticalLayout_17.setObjectName(u"verticalLayout_17")
+        self.verticalLayout_17.setContentsMargins(0, 0, 0, 0)
+        self.label_11 = QLabel(self.obj_to_metahuman_info_frame)
+        self.label_11.setObjectName(u"label_11")
+        sizePolicy7.setHeightForWidth(self.label_11.sizePolicy().hasHeightForWidth())
+        self.label_11.setSizePolicy(sizePolicy7)
+        self.label_11.setMinimumSize(QSize(460, 0))
+        self.label_11.setWordWrap(True)
+
+        self.verticalLayout_17.addWidget(self.label_11)
+
+        self.dna_options_body_label = QLabel(self.obj_to_metahuman_info_frame)
+        self.dna_options_body_label.setObjectName(u"dna_options_body_label")
+        sizePolicy.setHeightForWidth(self.dna_options_body_label.sizePolicy().hasHeightForWidth())
+        self.dna_options_body_label.setSizePolicy(sizePolicy)
+        self.dna_options_body_label.setStyleSheet(u"background: green")
+
+        self.verticalLayout_17.addWidget(self.dna_options_body_label)
+
+        self.label_13 = QLabel(self.obj_to_metahuman_info_frame)
+        self.label_13.setObjectName(u"label_13")
+        sizePolicy7.setHeightForWidth(self.label_13.sizePolicy().hasHeightForWidth())
+        self.label_13.setSizePolicy(sizePolicy7)
+        self.label_13.setWordWrap(True)
+
+        self.verticalLayout_17.addWidget(self.label_13)
+
+        self.dna_options_head_label = QLabel(self.obj_to_metahuman_info_frame)
+        self.dna_options_head_label.setObjectName(u"dna_options_head_label")
+        sizePolicy.setHeightForWidth(self.dna_options_head_label.sizePolicy().hasHeightForWidth())
+        self.dna_options_head_label.setSizePolicy(sizePolicy)
+        self.dna_options_head_label.setStyleSheet(u"background: green")
+
+        self.verticalLayout_17.addWidget(self.dna_options_head_label)
+
+        self.label_14 = QLabel(self.obj_to_metahuman_info_frame)
+        self.label_14.setObjectName(u"label_14")
+        sizePolicy7.setHeightForWidth(self.label_14.sizePolicy().hasHeightForWidth())
+        self.label_14.setSizePolicy(sizePolicy7)
+        self.label_14.setWordWrap(True)
+
+        self.verticalLayout_17.addWidget(self.label_14)
+
+
+        self.verticalLayout_11.addWidget(self.obj_to_metahuman_info_frame)
+
         self.running_label = QLabel(self.frame_6)
         self.running_label.setObjectName(u"running_label")
+        sizePolicy12 = QSizePolicy(QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Maximum)
+        sizePolicy12.setHorizontalStretch(0)
+        sizePolicy12.setVerticalStretch(0)
+        sizePolicy12.setHeightForWidth(self.running_label.sizePolicy().hasHeightForWidth())
+        self.running_label.setSizePolicy(sizePolicy12)
+        self.running_label.setStyleSheet(u"color: hsl(50, 100%, 50%); font-weight: bold")
         self.running_label.setAlignment(Qt.AlignCenter)
+        self.running_label.setWordWrap(True)
 
         self.verticalLayout_11.addWidget(self.running_label)
 
         self.go_to_metahuman_folder_button = QPushButton(self.frame_6)
         self.go_to_metahuman_folder_button.setObjectName(u"go_to_metahuman_folder_button")
+        sizePolicy13 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Maximum)
+        sizePolicy13.setHorizontalStretch(0)
+        sizePolicy13.setVerticalStretch(0)
+        sizePolicy13.setHeightForWidth(self.go_to_metahuman_folder_button.sizePolicy().hasHeightForWidth())
+        self.go_to_metahuman_folder_button.setSizePolicy(sizePolicy13)
 
         self.verticalLayout_11.addWidget(self.go_to_metahuman_folder_button)
 
@@ -1268,14 +1400,16 @@ class Ui_METMainWindow(object):
 
     def retranslateUi(self, METMainWindow):
         METMainWindow.setWindowTitle(QCoreApplication.translate("METMainWindow", u"Metahuman Extra Tools", None))
-        self.label_4.setText(QCoreApplication.translate("METMainWindow", u"Export a Metahuman to .obj files and edit it's geometry with any application.", None))
-        self.metahuman_to_obj_button.setText(QCoreApplication.translate("METMainWindow", u"Metahuman to .OBJ", None))
-        self.label_5.setText(QCoreApplication.translate("METMainWindow", u"Create new Metahuman head and body DNA from .obj files.", None))
-        self.obj_to_metahuman_button.setText(QCoreApplication.translate("METMainWindow", u".OBJ to Metahuman", None))
+        self.label_4.setText(QCoreApplication.translate("METMainWindow", u"Export a MetaHuman to .obj files and edit it's geometry with any application", None))
+        self.metahuman_to_obj_button.setText(QCoreApplication.translate("METMainWindow", u"MetaHuman to .OBJ", None))
+        self.label_5.setText(QCoreApplication.translate("METMainWindow", u"Create new MetaHuman head and body DNA from .obj files", None))
+        self.obj_to_metahuman_button.setText(QCoreApplication.translate("METMainWindow", u".OBJ to MetaHuman", None))
+        self.label_10.setText(QCoreApplication.translate("METMainWindow", u"Come into the Discord server to ask anything and share your experience:", None))
+        self.discord_label.setText(QCoreApplication.translate("METMainWindow", u"<a href='https://discord.gg/XdQN8WWV'>Discord</a>", None))
         self.label_7.setText(QCoreApplication.translate("METMainWindow", u"New version available:", None))
         self.changes_label.setText("")
         self.update_button.setText(QCoreApplication.translate("METMainWindow", u"Update", None))
-        self.label_8.setText(QCoreApplication.translate("METMainWindow", u"Updated Successfully. Restart Maya to apply changes.", None))
+        self.label_8.setText(QCoreApplication.translate("METMainWindow", u"Updated Successfully. Restart Maya to apply changes", None))
         self.label_9.setText(QCoreApplication.translate("METMainWindow", u"Failed to check for updates. Please check for the latest version available at:", None))
         self.artstation_link_label.setText(QCoreApplication.translate("METMainWindow", u"<a href='https://www.artstation.com/marketplace/p/pR97n/metahuman-extra-tools'>ArtStation</a>", None))
         self.fab_link_label.setText(QCoreApplication.translate("METMainWindow", u"<a href='https://www.fab.com/listings/22f90398-c29e-4b74-a80a-9c5b5ae19d47'>Fab</a>", None))
@@ -1287,7 +1421,9 @@ class Ui_METMainWindow(object):
         self.riglogic_button.setText(QCoreApplication.translate("METMainWindow", u"rig logic", None))
         self.back_button.setText(QCoreApplication.translate("METMainWindow", u"<", None))
         self.mode_label.setText(QCoreApplication.translate("METMainWindow", u"Mode", None))
-        self.label_2.setText(QCoreApplication.translate("METMainWindow", u"New geometry:", None))
+        self.label.setText(QCoreApplication.translate("METMainWindow", u"Select the MetaHuman folder generated by MetaHuman Creator DCC Export (the folder that contains both head.dna and body.dna)", None))
+        self.metahuman_folder_button.setText(QCoreApplication.translate("METMainWindow", u"MetaHuman folder", None))
+        self.label_2.setText(QCoreApplication.translate("METMainWindow", u"Select your new combined and eyes meshes. You can also provide eyelashes and teeth or let them be auto-generated. These meshes need to have the same topology and vertex order as the ones generated by MetaHuman to .OBJ", None))
         self.combined_button.setText(QCoreApplication.translate("METMainWindow", u"combined", None))
         self.pushButton_2.setText(QCoreApplication.translate("METMainWindow", u"OBJ", None))
         self.eyes_button.setText(QCoreApplication.translate("METMainWindow", u"eyes", None))
@@ -1296,14 +1432,18 @@ class Ui_METMainWindow(object):
         self.eyelashes_autogenerated_button.setText(QCoreApplication.translate("METMainWindow", u"auto generated", None))
         self.teeth_button.setText(QCoreApplication.translate("METMainWindow", u"teeth", None))
         self.teeth_autogenerated_button.setText(QCoreApplication.translate("METMainWindow", u"auto generated", None))
-        self.label.setText(QCoreApplication.translate("METMainWindow", u"Select Metahuman folder generated by Metahuman Creator DCC Export.", None))
-        self.metahuman_folder_button.setText(QCoreApplication.translate("METMainWindow", u"Metahuman folder", None))
-        self.label_6.setText(QCoreApplication.translate("METMainWindow", u"Symmetry:", None))
-        self.original_button.setText(QCoreApplication.translate("METMainWindow", u"Keep Original", None))
+        self.label_6.setText(QCoreApplication.translate("METMainWindow", u"Symmetrize MetaHuman maintaining topology and vertex order or keep original asymmetry. Symmetrize is recommended for easier editing", None))
         self.symmetrize_button.setText(QCoreApplication.translate("METMainWindow", u"Symmetrize", None))
+        self.original_button.setText(QCoreApplication.translate("METMainWindow", u"Keep Original", None))
         self.metahuman_to_obj_run_button.setText(QCoreApplication.translate("METMainWindow", u"Run", None))
         self.obj_to_metahuman_run_button.setText(QCoreApplication.translate("METMainWindow", u"Run", None))
+        self.label_12.setText(QCoreApplication.translate("METMainWindow", u"<html><head/><body><p>Please keep in mind that you need to maintain topology, vertex order and mesh distribution on the generated meshes. If you disrupt these properties you will need to restore them by performing a wrapping process with tools like Faceform Wrap or similar. Even if you maintain topology and vertex order, wrapping is still recommended for optimal mesh distribution.</p><p>MetaHuman to .OBJ will generate, inside the MetaHuman folder, two extra folders with &quot;new&quot; and &quot;old&quot; OBJs. The recommended workflow is to edit the new OBJs and keep the old OBJs intact, as a representation of the original MetaHuman, in case you need them for reference or wrapping. You will also find inside the old OBJs folder a set of textures that you can use to check mesh distribution.</p></body></html>", None))
+        self.label_11.setText(QCoreApplication.translate("METMainWindow", u"<html><head/><body><p>.OBJ to MetaHuman will generate an extra folder inside the MetaHuman folder with new DNA for your MetaHuman. You can use this new DNA to update your MetaHuman in MetaHuman Creator.</p><p>First, in MetaHuman Creator, you will need to remove the rig that was previously applied.</p><p>Then conform to the new body DNA: go to &quot;Body&quot; &gt; &quot;Conform&quot; &gt; &quot;Import DNA&quot;, select your new body DNA file, and import with the following options:</p></body></html>", None))
+        self.dna_options_body_label.setText("")
+        self.label_13.setText(QCoreApplication.translate("METMainWindow", u"<html><head/><body><p><br/>Next conform to the new head DNA: go to &quot;Head&quot; &gt; &quot;Conform&quot; &gt; &quot;Import DNA&quot;, select your new head DNA file, and import with the following options:</p></body></html>", None))
+        self.dna_options_head_label.setText("")
+        self.label_14.setText(QCoreApplication.translate("METMainWindow", u"<html><head/><body><p><br/>Finally, create either &quot;Full Rig&quot; or &quot;Joints Only Rig&quot;. The difference between the two is that Full Rig enables the corrective Blend Shapes.</p><p>Once the rig is created you can check your updated MetaHuman using the template animations in the preview panel. Please be aware that the BodyROM animation has some problems with the fingers that are very visible around frame 180. This is an issue of the animation itself, you can see this behaviour even on the Preset MetaHumans.</p></body></html>", None))
         self.running_label.setText(QCoreApplication.translate("METMainWindow", u"Running...", None))
-        self.go_to_metahuman_folder_button.setText(QCoreApplication.translate("METMainWindow", u"go to Metahuman folder", None))
+        self.go_to_metahuman_folder_button.setText(QCoreApplication.translate("METMainWindow", u"Go to MetaHuman folder", None))
     # retranslateUi
 

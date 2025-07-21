@@ -58,8 +58,6 @@ class MetahumanToObj:
         self.input_make_symmetric = input_make_symmetric
         self.head_dna_path = f"{self.input_metahuman_folder}/head.dna"
         self.body_dna_path = f"{self.input_metahuman_folder}/body.dna"
-
-        # Calling run() from gui
         
     def symmetrize(self, name):
         dagpath = om2.MSelectionList().add(name).getDagPath(0)
@@ -270,11 +268,11 @@ class MetahumanToObj:
         cmds.file(new=True, force=True)
         cmds.scriptEditorInfo(suppressWarnings=original_warning_state)
 
+        return "Done!"
+
 class ObjToMetahuman:
     
     def __init__(self, input_combined_obj, input_eyes_obj, input_eyelashes_obj, input_teeth_obj, input_metahuman_folder):
-
-        # Parameters   
         self.input_combined_obj = input_combined_obj
         self.input_eyes_obj = input_eyes_obj
         self.input_eyelashes_obj = input_eyelashes_obj
@@ -282,16 +280,7 @@ class ObjToMetahuman:
         self.input_head_dna = input_metahuman_folder + "/head.dna"
         self.input_body_dna = input_metahuman_folder + "/body.dna"
         self.input_metahuman_folder = input_metahuman_folder
-
-        # Run
-        original_warning_state = cmds.scriptEditorInfo(query=True, suppressWarnings=True)
-        cmds.scriptEditorInfo(suppressWarnings=True)
-
         self.print_parameters()
-        self.run()    
-        #self.debug()
-
-        cmds.scriptEditorInfo(suppressWarnings=original_warning_state)
     
     def print_parameters(self):
         print(f"combined: {self.input_combined_obj}")
@@ -323,10 +312,6 @@ class ObjToMetahuman:
         body_reader.read()
         head_dna_object = DNA(self.input_head_dna, head_reader)
         body_dna_object = DNA(self.input_body_dna, body_reader)
-        print(self.input_head_dna)
-        print(self.input_body_dna)
-        print(head_dna_object)
-        print(body_dna_object)
         
         for dna_object in [head_dna_object, body_dna_object]:
             # Construct maya mesh handler
@@ -559,7 +544,7 @@ class ObjToMetahuman:
     
     def load_new_meshes(self):
         # Load obj plugin
-        cmds.loadPlugin("objExport.mll")
+        if not cmds.pluginInfo("objExport.mll", query=True, loaded=True): cmds.loadPlugin("objExport.mll")
         
         # New namespaces
         cmds.namespace(add=":temp")
@@ -1554,15 +1539,98 @@ class ObjToMetahuman:
                 if parents[joint]: cmds.parent(joint, parents[joint])
         cmds.select(cl=True)
 
+    def validate_inputs(self):
+        # Validate dnas
+        if not os.path.exists(self.input_head_dna): return "Error: head.dna not found in the MetaHuman folder."
+        if not os.path.exists(self.input_body_dna): return "Error: body.dna not found in the MetaHuman folder."
+        
+        # Load obj plugin
+        if not cmds.pluginInfo("objExport.mll", query=True, loaded=True): cmds.loadPlugin("objExport.mll")
+        
+        # Validate combined
+        cmds.namespace(add=":combined")
+        cmds.namespace(set=":combined")
+        try: cmds.file(self.input_combined_obj, i=True, options="mo=0")
+        except: return "Error: invalid combined mesh, could not import"
+        aux = cmds.ls(":combined:*", type="transform")
+        if not aux: return "Error: invalid combined mesh, no mesh found"
+        if len(aux) != 1: return "Error: invalid combined mesh, more than one mesh found"
+        combined = aux[0]
+        combined_evaluation = cmds.polyEvaluate(combined)
+        if combined_evaluation["vertex"] != 54412: return "Error: invalid combined mesh, vertex count should be 54412"
+        if combined_evaluation["edge"] != 108820: return "Error: invalid combined mesh, edge count should be 108820"
+        if combined_evaluation["face"] != 54410: return "Error: invalid combined mesh, face count should be 54410"
+        if combined_evaluation["uvcoord"] != 56742: return "Error: invalid combined mesh, uvcoord count should be 56742"
+        if combined_evaluation["triangle"] != 108820: return "Error: invalid combined mesh, triangle count should be 108820"
+        if combined_evaluation["shell"] != 1: return "Error: invalid combined mesh, shell count should be 1"
+
+        # Validate eyes
+        cmds.namespace(add=":eyes")
+        cmds.namespace(set=":eyes")
+        try: cmds.file(self.input_eyes_obj, i=True, options="mo=0")
+        except: return "Error: invalid eyes mesh, could not import"
+        aux = cmds.ls(":eyes:*", type="transform")
+        if not aux: return "Error: invalid eyes mesh, no mesh found"
+        if len(aux) != 1: return "Error: invalid eyes mesh, more than one mesh found"
+        eyes = aux[0]
+        eyes_evaluation = cmds.polyEvaluate(eyes)
+        if eyes_evaluation["vertex"] != 1540: return "Error: invalid eyes mesh, vertex count should be 1540"
+        if eyes_evaluation["edge"] != 3136: return "Error: invalid eyes mesh, edge count should be 3136"
+        if eyes_evaluation["face"] != 1600: return "Error: invalid eyes mesh, face count should be 1600"
+        if eyes_evaluation["uvcoord"] != 1604: return "Error: invalid eyes mesh, uvcoord count should be 1604"
+        if eyes_evaluation["triangle"] != 3072: return "Error: invalid eyes mesh, triangle count should be 3072"
+        if eyes_evaluation["shell"] != 2: return "Error: invalid eyes mesh, shell count should be 2"
+
+        if self.input_eyelashes_obj != "auto generated":
+            # Validate eyelashes
+            cmds.namespace(add=":eyelashes")
+            cmds.namespace(set=":eyelashes")
+            try: cmds.file(self.input_eyelashes_obj, i=True, options="mo=0")
+            except: return "Error: invalid eyelashes mesh, could not import"
+            aux = cmds.ls(":eyelashes:*", type="transform")
+            if not aux: return "Error: invalid eyelashes mesh, no mesh found"
+            if len(aux) != 1: return "Error: invalid eyelashes mesh, more than one mesh found"
+            eyelashes = aux[0]
+            eyelashes_evaluation = cmds.polyEvaluate(eyelashes)
+            if eyelashes_evaluation["vertex"] != 2144: return "Error: invalid eyelashes mesh, vertex count should be 2144"
+            if eyelashes_evaluation["edge"] != 2794: return "Error: invalid eyelashes mesh, edge count should be 2794"
+            if eyelashes_evaluation["face"] != 861: return "Error: invalid eyelashes mesh, face count should be 861"
+            if eyelashes_evaluation["uvcoord"] != 2144: return "Error: invalid eyelashes mesh, uvcoord count should be 2144"
+            if eyelashes_evaluation["triangle"] != 1722: return "Error: invalid eyelashes mesh, triangle count should be 1722"
+            if eyelashes_evaluation["shell"] != 211: return "Error: invalid eyelashes mesh, shell count should be 211"
+
+        if self.input_teeth_obj != "auto generated":
+            # Validate teeth
+            cmds.namespace(add=":teeth")
+            cmds.namespace(set=":teeth")
+            try: cmds.file(self.input_teeth_obj, i=True, options="mo=0")
+            except: return "Error: invalid teeth mesh, could not import"
+            aux = cmds.ls(":teeth:*", type="transform")
+            if not aux: return "Error: invalid teeth mesh, no mesh found"
+            if len(aux) != 1: return "Error: invalid teeth mesh, more than one mesh found"
+            teeth = aux[0]
+            teeth_evaluation = cmds.polyEvaluate(teeth)
+            if teeth_evaluation["vertex"] != 4246: return "Error: invalid teeth mesh, vertex count should be 4246"
+            if teeth_evaluation["edge"] != 8534: return "Error: invalid teeth mesh, edge count should be 8534"
+            if teeth_evaluation["face"] != 4288: return "Error: invalid teeth mesh, face count should be 4288"
+            if teeth_evaluation["uvcoord"] != 4585: return "Error: invalid teeth mesh, uvcoord count should be 4585"
+            if teeth_evaluation["triangle"] != 8350: return "Error: invalid teeth mesh, triangle count should be 8350"
+            if teeth_evaluation["shell"] != 1: return "Error: invalid teeth mesh, shell count should be 1"
+        
+        cmds.file(new=True, f=True)
+        return "valid"
+    
     def run(self):
         cmds.file(new=True, force=True)
 
         """
         """
+        result = self.validate_inputs()
+        if result != "valid": return result
+
         self.load_dna()
         #cmds.file(rename="F:/WorkspaceDesktop/met/MetaHumanExtraTools/private/debug/temp1_load_dna_done.mb")
         #cmds.file(f=True, save=True)
-        
         #cmds.file("F:/WorkspaceDesktop/met/MetaHumanExtraTools/private/debug/temp1_load_dna_done.mb", open=True, force=True)
         self.load_new_meshes()
         #cmds.file(rename="F:/WorkspaceDesktop/met/MetaHumanExtraTools/private/debug/temp2_load_new_meshes_done.mb")
@@ -1587,4 +1655,5 @@ class ObjToMetahuman:
         self.save_body_dna()
         
         cmds.file(new=True, f=True)
+        return "Done!"
         

@@ -113,10 +113,19 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.modes_frame.hide()
         self.running_frame.hide()
         self.go_to_metahuman_folder_button.hide()
-        self.setFixedSize(self.minimumSizeHint())
+        self.metahuman_to_obj_info_frame.hide()
+        self.obj_to_metahuman_info_frame.hide()
+        self.resize(self.sizeHint())
         self.show()
         #self.adjustSize()
-        #self.setFixedSize(self.minimumSizeHint())
+        self.resize(self.sizeHint())
+
+        # Set information images
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        dna_options_body_image_path = os.path.join(script_dir, "resources", "dna_options_body.png")
+        dna_options_head_image_path = os.path.join(script_dir, "resources", "dna_options_head.png")
+        self.dna_options_body_label.setPixmap(QPixmap(dna_options_body_image_path))
+        self.dna_options_head_label.setPixmap(QPixmap(dna_options_head_image_path))
 
         # Connect buttons
         self.metahuman_to_obj_button.clicked.connect(self.show_metahuman_to_obj)
@@ -308,7 +317,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
             shutil.rmtree(temp_folder, ignore_errors=True)
             self.new_version_frame.hide()
             self.update_failed_frame.show()
-            self.setFixedSize(self.minimumSizeHint())
+            self.resize(self.sizeHint())
             return
 
         # All downloads succeeded; move files to final folder
@@ -334,7 +343,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
             # Clean up temporary directory
             shutil.rmtree(temp_folder, ignore_errors=True)
             print(f"Cleaned up temporary directory: {temp_folder}")
-            self.setFixedSize(self.minimumSizeHint())
+            self.resize(self.sizeHint())
         
     def short_path(self, path, max_length):
         if len(path) > max_length:
@@ -353,7 +362,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
 
         self.modes_frame.show()
         self.adjustSize()
-        self.setFixedSize(self.minimumSizeHint())
+        self.resize(self.sizeHint())
 
     def show_obj_to_metahuman(self):
         self.start_frame.hide()
@@ -366,7 +375,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
 
         self.modes_frame.show()
         self.adjustSize()
-        self.setFixedSize(self.minimumSizeHint())
+        self.resize(self.sizeHint())
 
     def back_to_start_frame(self):
         self.metahuman_to_obj_run_button.setEnabled(False)
@@ -397,11 +406,11 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.modes_frame.hide()
         self.start_frame.show()
         self.adjustSize()
-        self.setFixedSize(self.minimumSizeHint())
+        self.resize(self.sizeHint())
     
     def go_to_metahuman_folder(self):
         os.startfile(self.metahuman_folder)
-        self.close()
+        #self.close()
     
     def combined_button_pressed(self):
         result = cmds.fileDialog2(fileMode=1, caption="Select new combined .obj:")
@@ -484,31 +493,33 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
     def press_metahuman_to_obj_run_button(self):
         make_symmetric = self.symmetrize_button.isChecked()
         self.modes_frame.hide()
+        self.metahuman_to_obj_info_frame.show()
         self.running_frame.show()
-        self.setFixedSize(self.minimumSizeHint())
-        try:
-            met_main.MetahumanToObj(self.metahuman_folder, make_symmetric).run()
-            self.running_label.setText("Done!")
+        self.resize(self.sizeHint())
+
+        result = met_main.MetahumanToObj(self.metahuman_folder, make_symmetric).run()
+        
+        self.running_label.setText(result)
+        if result == "Done!": 
+            self.running_label.setStyleSheet("color: hsl(177, 100%, 50%); font-weight: bold")
             self.go_to_metahuman_folder_button.show()
-            self.setFixedSize(self.minimumSizeHint())
-        except:
-            self.running_label.setText("Error :(")
-            self.running_label.setStyleSheet("color: hsl(333, 100%, 50%); font-weight: bold")
-            self.setFixedSize(self.minimumSizeHint())
+        else: self.running_label.setStyleSheet("color: hsl(333, 100%, 50%); font-weight: bold")
+        self.resize(self.sizeHint())
                 
     def press_obj_to_metahuman_run_button(self):
         self.modes_frame.hide()
+        self.obj_to_metahuman_info_frame.show()
         self.running_frame.show()
-        self.setFixedSize(self.minimumSizeHint())
-        try:
-            met_main.ObjToMetahuman(self.combined, self.eyes, self.eyelashes, self.teeth, self.metahuman_folder)
-            self.running_label.setText("Done!")
+        self.resize(self.sizeHint())
+
+        result = met_main.ObjToMetahuman(self.combined, self.eyes, self.eyelashes, self.teeth, self.metahuman_folder).run()
+        
+        self.running_label.setText(result)
+        if result == "Done!": 
+            self.running_label.setStyleSheet("color: hsl(177, 100%, 50%); font-weight: bold")
             self.go_to_metahuman_folder_button.show()
-            self.setFixedSize(self.minimumSizeHint())
-        except:
-            self.running_label.setText("Error :(")
-            self.running_label.setStyleSheet("color: hsl(333, 100%, 50%); font-weight: bold")
-            self.setFixedSize(self.minimumSizeHint())
+        else: self.running_label.setStyleSheet("color: hsl(333, 100%, 50%); font-weight: bold")
+        self.resize(self.sizeHint())
     
     def import_dna(self):
         #cmds.file(new=True, f=True)
@@ -560,29 +571,13 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
             self.close()
             
     def debug(self):
-        debug_folder = "F:/WorkspaceDesktop/met/MetaHumanExtraTools/private/debug"
-        input_combined_obj = f"{debug_folder}/new_combined.obj"
-        input_eyes_obj = f"{debug_folder}/new_eyes.obj"
-        input_eyelashes_obj = "auto generated"
-        input_teeth_obj = "auto generated"
-        input_head_dna = f"{debug_folder}/head.dna"
-        input_body_dna = f"{debug_folder}/body.dna"
-        input_fix_pose = ""
-        input_export_folder = debug_folder
-        debug_mode = True
-        #self.close()
-        self.start_frame.hide()
-        self.running_frame.show()
-        self.setFixedSize(self.minimumSizeHint())
-        try:
-            met_main.ObjToMetahuman(input_combined_obj, input_eyes_obj, input_eyelashes_obj, input_teeth_obj, debug_folder)
-            self.running_label.setText("Done!")
-            self.go_to_metahuman_folder_button.show()
-            self.setFixedSize(self.minimumSizeHint())
-        except:
-            self.running_label.setText("Error :(")
-            self.running_label.setStyleSheet("color: hsl(333, 100%, 50%); font-weight: bold")
-            self.setFixedSize(self.minimumSizeHint())
+        self.show_obj_to_metahuman()
+        self.metahuman_folder = "F:/WorkspaceDesktop/met/MetaHumanExtraTools/private/debug"
+        self.combined = f"{self.metahuman_folder}/new_OBJs/new_combined.obj"
+        self.eyes = f"{self.metahuman_folder}/new_OBJs/new_eyes.obj"
+        self.eyelashes = "auto generated"
+        self.teeth = "auto generated"
+        self.press_obj_to_metahuman_run_button()
 
         
 
