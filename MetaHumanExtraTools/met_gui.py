@@ -175,9 +175,11 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.symmetrize_button.setChecked(False)
     
     def is_metatahuman_customize_already_visible(self):
+        local_version_dict = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "version.json"), "r"))
+        title = f"Metahuman Extra Tools {local_version_dict['current_version']}"
         visible_mc_windows = []
         for widget in QApplication.topLevelWidgets():
-            if isinstance(widget, QWidget) and widget.windowTitle() == "Metahuman Extra Tools":
+            if isinstance(widget, QWidget) and widget.windowTitle() == title:
                 if widget.isVisible(): visible_mc_windows.append(widget)
                 else: del widget
         
