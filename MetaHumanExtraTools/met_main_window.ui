@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1200</width>
-    <height>826</height>
+    <height>860</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -841,7 +841,7 @@ font-size:20px
             <property name="styleSheet">
              <string notr="true">QPushButton
 {
-	background-color: hsl(333, 100%, 50%);
+	background-color: hsl(50, 100%, 50%);
 	color: rgb(255, 255, 255);
 	font-size: 20px;
 	font-weight: bold;
@@ -851,11 +851,11 @@ font-size:20px
 }
 QPushButton::hover
 {
-	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsl(333, 100%, 50%),stop:1 hsl(333, 100%, 65%));
+	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsl(50, 100%, 50%),stop:1 hsl(50, 100%, 65%));
 }
 QPushButton::pressed
 {
-	background-color: hsl(333, 100%, 70%);
+	background-color: hsl(50, 100%, 70%);
 }</string>
             </property>
             <property name="text">
@@ -863,119 +863,106 @@ QPushButton::pressed
             </property>
            </widget>
           </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
-        <widget class="QFrame" name="update_completed_frame">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout_13">
-          <property name="spacing">
-           <number>5</number>
-          </property>
-          <property name="leftMargin">
-           <number>5</number>
-          </property>
-          <property name="topMargin">
-           <number>5</number>
-          </property>
-          <property name="rightMargin">
-           <number>5</number>
-          </property>
-          <property name="bottomMargin">
-           <number>5</number>
-          </property>
           <item alignment="Qt::AlignHCenter">
-           <widget class="QLabel" name="label_8">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Minimum">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
+           <widget class="QLabel" name="updating_label">
+            <property name="styleSheet">
+             <string notr="true">color: hsl(50, 100%, 50%); font-weight: bold</string>
             </property>
+            <property name="text">
+             <string>Updating...</string>
+            </property>
+           </widget>
+          </item>
+          <item alignment="Qt::AlignHCenter">
+           <widget class="QLabel" name="updated_successfully_label">
             <property name="styleSheet">
              <string notr="true">color: hsl(177, 100%, 50%); font-weight: bold</string>
             </property>
             <property name="text">
-             <string>Updated Successfully. Restart Maya to apply changes</string>
+             <string>Updated successfully</string>
             </property>
            </widget>
           </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
-        <widget class="QFrame" name="update_failed_frame">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout_14">
-          <property name="spacing">
-           <number>5</number>
-          </property>
-          <property name="leftMargin">
-           <number>5</number>
-          </property>
-          <property name="topMargin">
-           <number>5</number>
-          </property>
-          <property name="rightMargin">
-           <number>5</number>
-          </property>
-          <property name="bottomMargin">
-           <number>5</number>
-          </property>
           <item>
-           <widget class="QLabel" name="label_9">
+           <widget class="QPushButton" name="restart_met_button">
             <property name="sizePolicy">
-             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Minimum">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>Restart MET to apply changes</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="update_failed_frame">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
             <property name="styleSheet">
-             <string notr="true">color: hsl(333, 100%, 50%); font-weight: bold</string>
+             <string notr="true">background: transparent</string>
             </property>
-            <property name="text">
-             <string>Failed to check for updates. Please check for the latest version available at:</string>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
             </property>
-            <property name="wordWrap">
-             <bool>true</bool>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
             </property>
-           </widget>
-          </item>
-          <item alignment="Qt::AlignHCenter">
-           <widget class="QLabel" name="artstation_link_label">
-            <property name="text">
-             <string>&lt;a href='https://www.artstation.com/marketplace/p/pR97n/metahuman-extra-tools'&gt;ArtStation&lt;/a&gt;</string>
-            </property>
-           </widget>
-          </item>
-          <item alignment="Qt::AlignHCenter">
-           <widget class="QLabel" name="fab_link_label">
-            <property name="text">
-             <string>&lt;a href='https://www.fab.com/listings/22f90398-c29e-4b74-a80a-9c5b5ae19d47'&gt;Fab&lt;/a&gt;</string>
-            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_14">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="label_9">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="MinimumExpanding" vsizetype="Minimum">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color: hsl(333, 100%, 50%); font-weight: bold</string>
+               </property>
+               <property name="text">
+                <string>Failed to check for updates. Please check for the latest version available at:</string>
+               </property>
+               <property name="wordWrap">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item alignment="Qt::AlignHCenter">
+              <widget class="QLabel" name="artstation_link_label">
+               <property name="text">
+                <string>&lt;a href='https://www.artstation.com/marketplace/p/pR97n/metahuman-extra-tools'&gt;ArtStation&lt;/a&gt;</string>
+               </property>
+              </widget>
+             </item>
+             <item alignment="Qt::AlignHCenter">
+              <widget class="QLabel" name="fab_link_label">
+               <property name="text">
+                <string>&lt;a href='https://www.fab.com/listings/22f90398-c29e-4b74-a80a-9c5b5ae19d47'&gt;Fab&lt;/a&gt;</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </widget>
           </item>
          </layout>

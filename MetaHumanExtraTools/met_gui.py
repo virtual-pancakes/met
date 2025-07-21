@@ -89,7 +89,9 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
 
         # Version
         self.new_version_frame.hide()
-        self.update_completed_frame.hide()
+        self.updating_label.hide()
+        self.updated_successfully_label.hide()
+        self.restart_met_button.hide()
         self.update_failed_frame.hide()
         self.artstation_link_label.setOpenExternalLinks(True)
         self.fab_link_label.setOpenExternalLinks(True)
@@ -149,7 +151,17 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.joints_button.clicked.connect(self.joints_button_pressed)
         self.skinweights_button.clicked.connect(self.skinweights_button_pressed)
         self.riglogic_button.clicked.connect(self.riglogic_button_pressed)
+        self.restart_met_button.clicked.connect(self.restart_met)
 
+    def restart_met(self):
+        self.close()
+        import importlib
+        try:
+            importlib.reload(met_gui)
+        except:
+            import met_gui
+        met_gui.METMainWindow(debug_mode=False)
+    
     def joints_button_pressed(self):
         if self.joints_button.isChecked() == False:
             self.skinweights_button.setChecked(False)
@@ -298,6 +310,11 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
             return None
     
     def update(self):
+        self.update_button.hide()
+        self.updating_label.show()
+        self.resize(self.sizeHint())
+        self.repaint()
+        
         api_url = f"http://api.github.com/repos/virtual-pancakes/met/contents/?ref=main"
         #modules_folder = "C:/modules"
         for path in sys.path:
@@ -317,7 +334,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         if downloaded_files is None:
             print("Download failed; cleaning up temporary directory.")
             shutil.rmtree(temp_folder, ignore_errors=True)
-            self.new_version_frame.hide()
+            self.updating_label.hide()
             self.update_failed_frame.show()
             self.resize(self.sizeHint())
             return
@@ -335,12 +352,15 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
                 shutil.move(temp_path, final_path)
                 print(f"Moved {temp_path} to {final_path}")
             print(f"All files successfully moved to {modules_folder}")
-            self.new_version_frame.hide()
-            self.update_completed_frame.show()
+            self.updating_label.hide()
+            self.updated_successfully_label.show()
+            self.restart_met_button.show()
+            self.resize(self.sizeHint())
         except OSError as e:
             print(f"Error moving files to {modules_folder}: {e}")
-            self.new_version_frame.hide()
+            self.updating_label.hide()
             self.update_failed_frame.show()
+            self.resize(self.sizeHint())
         finally:
             # Clean up temporary directory
             shutil.rmtree(temp_folder, ignore_errors=True)
@@ -498,6 +518,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.metahuman_to_obj_info_frame.show()
         self.running_frame.show()
         self.resize(self.sizeHint())
+        self.repaint()
 
         result = met_main.MetahumanToObj(self.metahuman_folder, make_symmetric).run()
         
@@ -513,6 +534,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.obj_to_metahuman_info_frame.show()
         self.running_frame.show()
         self.resize(self.sizeHint())
+        self.repaint()
 
         result = met_main.ObjToMetahuman(self.combined, self.eyes, self.eyelashes, self.teeth, self.metahuman_folder).run()
         

@@ -36,7 +36,7 @@ def initializePlugin(plugin):
     
     # Install into MetaHuman top menu
     metahuman_menu_items = cmds.menu("MetaHuman", query=True, itemArray=True)
-    cmds.menuItem(label="Metahuman Extra Tools", command="import met_gui; met_gui.METMainWindow()", parent="MetaHuman", insertAfter=metahuman_menu_items[2])
+    cmds.menuItem(label="Metahuman Extra Tools", command="import importlib\ntry: importlib.reload(met_gui)\nexcept: import met_gui\nmet_gui.METMainWindow()", parent="MetaHuman", insertAfter=metahuman_menu_items[2])
     print("MetahumanExtraTools loaded")
 
 # Uninitialize the plug-in
