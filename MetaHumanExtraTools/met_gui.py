@@ -34,7 +34,7 @@ try:
 except:
     from PySide2.QtCore import QSize, Qt, QMargins, Slot, Signal, QRect, QThread, QObject, QEvent
     from PySide2.QtWidgets import QApplication, QMainWindow, QPushButton, QVBoxLayout, QHBoxLayout, QWidget, QScrollArea, QWizard, QFrame, QLabel, QLineEdit, QSpacerItem
-    from PySide2.QtGui import QIcon, QPalette, QMovie, QImage
+    from PySide2.QtGui import QIcon, QPalette, QMovie, QImage, QPixmap
 
     sys.modules["PySide6"] = __import__("PySide2")
     sys.modules["PySide6.QtCore"] = sys.modules["PySide2.QtCore"]
@@ -48,35 +48,6 @@ try: importlib.reload(met_main)
 except: import met_main
 try: importlib.reload(resources.data)
 except: import resources.data
-
-class OriginalMetahuman:
-    json_file = None
-    asset_id = None
-    mhc_version = None
-    name = None
-    preview_image = None
-    small_preview_image = None
-    source_files_path = None
-    dna_file = None
-    body_file = None
-    gender = None
-    height = None
-    weight = None        
-
-    def print_info(self):
-        print(f"    json file:          {self.json_file}")
-        print(f"    asset id:           {self.asset_id}")
-        print(f"    mhc version:        {self.mhc_version}")
-        print(f"    preview image:      {self.preview_image}")
-        print(f"    small preview image:{self.small_preview_image}")
-        print(f"    source files path:  {self.source_files_path}")
-        print(f"    dna file:           {self.dna_file}")
-        print(f"    body file:          {self.body_file}")
-        print(f"    name:               {self.name}")
-        print(f"    gender:             {self.gender}")
-        print(f"    height:             {self.height}")
-        print(f"    weight:             {self.weight}")
-        print()
 
 class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):   
 

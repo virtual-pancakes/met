@@ -1,7 +1,7 @@
 {
-    "current_version": "1.4",
-    "current_version_changes": "Fixed issue with spine and neck joints",
-    "newest_version": "1.4",
-    "newest_version_changes": "Fixed issue with spine and neck joints",
+    "current_version": "1.4.1",
+    "current_version_changes": "Fixed bug for Maya 2023.3",
+    "newest_version": "1.4.1",
+    "newest_version_changes": "Fixed bug for Maya 2023.3",
     "checked_for_new_version": true
 }
