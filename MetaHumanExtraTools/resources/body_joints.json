@@ -10,7 +10,8 @@
         "orientation": "copy source",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": false
     },
     "pelvis": {
         "parent": "root",
@@ -20,7 +21,7 @@
             "free",
             "free"
         ],
-        "orientation": "+x to child, +y to world -z",
+        "orientation": "copy source",
         "driver": false,
         "reference_vertex_ids": [
             24076,
@@ -130,7 +131,8 @@
             54318,
             54320
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": false
     },
     "spine_01": {
         "parent": "pelvis",
@@ -228,7 +230,8 @@
             54318,
             54320
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": false
     },
     "spine_02": {
         "parent": "spine_01",
@@ -344,7 +347,8 @@
             54318,
             54320
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": false
     },
     "spine_03": {
         "parent": "spine_02",
@@ -498,7 +502,8 @@
             54318,
             54320
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": false
     },
     "spine_04": {
         "parent": "spine_03",
@@ -645,7 +650,8 @@
             53535,
             53856
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": false
     },
     "spine_05": {
         "parent": "spine_04",
@@ -672,7 +678,8 @@
             46740,
             46746
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": false
     },
     "neck_01": {
         "parent": "spine_05",
@@ -803,7 +810,8 @@
             24032,
             24041
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": false
     },
     "neck_02": {
         "parent": "neck_01",
@@ -969,7 +977,8 @@
             17846,
             17847
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": false
     },
     "head": {
         "parent": "neck_02",
@@ -979,7 +988,7 @@
             "free",
             "free"
         ],
-        "orientation": "-90, 0, 90 in WS",
+        "orientation": "-90, free, 90 in WS",
         "driver": false,
         "reference_vertex_ids": [
             20311,
@@ -1001,7 +1010,8 @@
             24045,
             24046
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": false
     },
     "clavicle_l": {
         "parent": "spine_05",
@@ -1051,7 +1061,8 @@
             40766,
             40768
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "upperarm_l": {
         "parent": "clavicle_l",
@@ -1132,7 +1143,8 @@
             27860,
             27861
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "lowerarm_l": {
         "parent": "upperarm_l",
@@ -1226,7 +1238,8 @@
             50159,
             50160
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "lowerarm_twist_02_l": {
         "parent": "lowerarm_l",
@@ -1239,7 +1252,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "lowerarm_twist_01_l": {
         "parent": "lowerarm_l",
@@ -1252,7 +1266,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "lowerarm_correctiveRoot_l": {
         "parent": "lowerarm_l",
@@ -1265,7 +1280,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "lowerarm_in_l": {
         "parent": "lowerarm_correctiveRoot_l",
@@ -1287,7 +1303,8 @@
             48223,
             49595
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "lowerarm_out_l": {
         "parent": "lowerarm_correctiveRoot_l",
@@ -1307,7 +1324,8 @@
             49584,
             49764
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "lowerarm_fwd_l": {
         "parent": "lowerarm_correctiveRoot_l",
@@ -1325,7 +1343,8 @@
             42603,
             48218
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "lowerarm_bck_l": {
         "parent": "lowerarm_correctiveRoot_l",
@@ -1343,7 +1362,8 @@
             48227,
             49600
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "hand_l": {
         "parent": "lowerarm_l",
@@ -1397,7 +1417,8 @@
             50174,
             50176
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middle_metacarpal_l": {
         "parent": "hand_l",
@@ -1424,7 +1445,8 @@
             49253,
             49254
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middle_01_l": {
         "parent": "middle_metacarpal_l",
@@ -1467,7 +1489,8 @@
             44343,
             44344
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middle_02_l": {
         "parent": "middle_01_l",
@@ -1501,7 +1524,8 @@
             46440,
             46441
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middle_03_l": {
         "parent": "middle_02_l",
@@ -1535,7 +1559,8 @@
             46460,
             46461
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middle_03_half_l": {
         "parent": "middle_03_l",
@@ -1548,7 +1573,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middle_03_in_l": {
         "parent": "middle_03_half_l",
@@ -1563,7 +1589,8 @@
         "reference_vertex_ids": [
             24282
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middle_02_dip_l": {
         "parent": "middle_03_half_l",
@@ -1578,7 +1605,8 @@
         "reference_vertex_ids": [
             24292
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middle_03_bulge_l": {
         "parent": "middle_03_l",
@@ -1593,7 +1621,8 @@
         "reference_vertex_ids": [
             27471
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middle_02_side_inn_l": {
         "parent": "middle_02_l",
@@ -1608,7 +1637,8 @@
         "reference_vertex_ids": [
             47033
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middle_02_side_out_l": {
         "parent": "middle_02_l",
@@ -1623,7 +1653,8 @@
         "reference_vertex_ids": [
             39734
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middle_02_half_l": {
         "parent": "middle_02_l",
@@ -1636,7 +1667,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middle_02_in_l": {
         "parent": "middle_02_half_l",
@@ -1651,7 +1683,8 @@
         "reference_vertex_ids": [
             46441
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middle_02_pip_l": {
         "parent": "middle_02_half_l",
@@ -1666,7 +1699,8 @@
         "reference_vertex_ids": [
             27431
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middle_02_bulge_l": {
         "parent": "middle_02_l",
@@ -1681,7 +1715,8 @@
         "reference_vertex_ids": [
             39722
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middle_01_side_inn_l": {
         "parent": "middle_01_l",
@@ -1696,7 +1731,8 @@
         "reference_vertex_ids": [
             24357
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middle_01_side_out_l": {
         "parent": "middle_01_l",
@@ -1711,7 +1747,8 @@
         "reference_vertex_ids": [
             24361
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middle_01_half_l": {
         "parent": "middle_01_l",
@@ -1724,7 +1761,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middle_01_palm_l": {
         "parent": "middle_01_half_l",
@@ -1739,7 +1777,8 @@
         "reference_vertex_ids": [
             26215
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middle_01_mcp_l": {
         "parent": "middle_01_half_l",
@@ -1754,7 +1793,8 @@
         "reference_vertex_ids": [
             26217
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middle_01_bulge_l": {
         "parent": "middle_01_l",
@@ -1770,7 +1810,8 @@
             24355,
             39796
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middle_01_palmMid_l": {
         "parent": "middle_01_l",
@@ -1785,7 +1826,8 @@
         "reference_vertex_ids": [
             24375
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middle_metacarpal_slide_l": {
         "parent": "middle_metacarpal_l",
@@ -1812,7 +1854,8 @@
             46547,
             46548
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "pinky_metacarpal_l": {
         "parent": "hand_l",
@@ -1839,7 +1882,8 @@
             49256,
             49260
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "pinky_01_l": {
         "parent": "pinky_metacarpal_l",
@@ -1883,7 +1927,8 @@
             50083,
             50091
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "pinky_02_l": {
         "parent": "pinky_01_l",
@@ -1917,7 +1962,8 @@
             39499,
             39500
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "pinky_03_l": {
         "parent": "pinky_02_l",
@@ -1951,7 +1997,8 @@
             24164,
             24215
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "pinky_03_half_l": {
         "parent": "pinky_03_l",
@@ -1964,7 +2011,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "pinky_03_in_l": {
         "parent": "pinky_03_half_l",
@@ -1979,7 +2027,8 @@
         "reference_vertex_ids": [
             39298
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "pinky_02_dip_l": {
         "parent": "pinky_03_half_l",
@@ -1994,7 +2043,8 @@
         "reference_vertex_ids": [
             39429
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "pinky_03_bulge_l": {
         "parent": "pinky_03_l",
@@ -2010,7 +2060,8 @@
             27481,
             39329
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "pinky_02_half_l": {
         "parent": "pinky_02_l",
@@ -2023,7 +2074,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "pinky_02_in_l": {
         "parent": "pinky_02_half_l",
@@ -2038,7 +2090,8 @@
         "reference_vertex_ids": [
             39458
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "pinky_02_pip_l": {
         "parent": "pinky_02_half_l",
@@ -2053,7 +2106,8 @@
         "reference_vertex_ids": [
             39500
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "pinky_02_bulge_l": {
         "parent": "pinky_02_l",
@@ -2068,7 +2122,8 @@
         "reference_vertex_ids": [
             39436
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "pinky_02_side_out_l": {
         "parent": "pinky_02_l",
@@ -2083,7 +2138,8 @@
         "reference_vertex_ids": [
             46904
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "pinky_02_side_inn_l": {
         "parent": "pinky_02_l",
@@ -2098,7 +2154,8 @@
         "reference_vertex_ids": [
             46903
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "pinky_01_side_inn_l": {
         "parent": "pinky_01_l",
@@ -2114,7 +2171,8 @@
             24239,
             39509
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "pinky_01_side_out_l": {
         "parent": "pinky_01_l",
@@ -2130,7 +2188,8 @@
             39537,
             46945
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "pinky_01_half_l": {
         "parent": "pinky_01_l",
@@ -2143,7 +2202,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "pinky_01_palm_l": {
         "parent": "pinky_01_half_l",
@@ -2158,7 +2218,8 @@
         "reference_vertex_ids": [
             26206
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "pinky_01_mcp_l": {
         "parent": "pinky_01_half_l",
@@ -2173,7 +2234,8 @@
         "reference_vertex_ids": [
             26246
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "pinky_01_bulge_l": {
         "parent": "pinky_01_l",
@@ -2188,7 +2250,8 @@
         "reference_vertex_ids": [
             39506
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "pinky_01_palmMid_l": {
         "parent": "pinky_01_l",
@@ -2203,7 +2266,8 @@
         "reference_vertex_ids": [
             39546
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "pinky_metacarpal_slide_l": {
         "parent": "pinky_metacarpal_l",
@@ -2230,7 +2294,8 @@
             50356,
             50358
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ring_metacarpal_l": {
         "parent": "hand_l",
@@ -2257,7 +2322,8 @@
             49255,
             49257
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ring_01_l": {
         "parent": "ring_metacarpal_l",
@@ -2294,7 +2360,8 @@
             50084,
             50085
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ring_02_l": {
         "parent": "ring_01_l",
@@ -2328,7 +2395,8 @@
             27355,
             27356
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ring_03_l": {
         "parent": "ring_02_l",
@@ -2362,7 +2430,8 @@
             46450,
             46451
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ring_03_half_l": {
         "parent": "ring_03_l",
@@ -2375,7 +2444,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ring_03_in_l": {
         "parent": "ring_03_half_l",
@@ -2390,7 +2460,8 @@
         "reference_vertex_ids": [
             24590
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ring_02_dip_l": {
         "parent": "ring_03_half_l",
@@ -2405,7 +2476,8 @@
         "reference_vertex_ids": [
             24598
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ring_03_bulge_l": {
         "parent": "ring_03_l",
@@ -2421,7 +2493,8 @@
             27451,
             40363
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ring_02_half_l": {
         "parent": "ring_02_l",
@@ -2434,7 +2507,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ring_02_in_l": {
         "parent": "ring_02_half_l",
@@ -2449,7 +2523,8 @@
         "reference_vertex_ids": [
             44143
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ring_02_pip_l": {
         "parent": "ring_02_half_l",
@@ -2464,7 +2539,8 @@
         "reference_vertex_ids": [
             27341
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ring_02_bulge_l": {
         "parent": "ring_02_l",
@@ -2479,7 +2555,8 @@
         "reference_vertex_ids": [
             44122
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ring_02_side_out_l": {
         "parent": "ring_02_l",
@@ -2494,7 +2571,8 @@
         "reference_vertex_ids": [
             24593
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ring_02_side_inn_l": {
         "parent": "ring_02_l",
@@ -2509,7 +2587,8 @@
         "reference_vertex_ids": [
             24586
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ring_01_half_l": {
         "parent": "ring_01_l",
@@ -2522,7 +2601,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ring_01_palm_l": {
         "parent": "ring_01_half_l",
@@ -2537,7 +2617,8 @@
         "reference_vertex_ids": [
             26231
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ring_01_mcp_l": {
         "parent": "ring_01_half_l",
@@ -2552,7 +2633,8 @@
         "reference_vertex_ids": [
             26233
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ring_01_bulge_l": {
         "parent": "ring_01_l",
@@ -2567,7 +2649,8 @@
         "reference_vertex_ids": [
             26168
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ring_01_side_out_l": {
         "parent": "ring_01_l",
@@ -2582,7 +2665,8 @@
         "reference_vertex_ids": [
             26174
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ring_01_side_inn_l": {
         "parent": "ring_01_l",
@@ -2597,7 +2681,8 @@
         "reference_vertex_ids": [
             26170
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ring_01_palmMid_l": {
         "parent": "ring_01_l",
@@ -2612,7 +2697,8 @@
         "reference_vertex_ids": [
             26188
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ring_metacarpal_slide_l": {
         "parent": "ring_metacarpal_l",
@@ -2639,7 +2725,8 @@
             46544,
             46545
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thumb_01_l": {
         "parent": "hand_l",
@@ -2709,7 +2796,8 @@
             45418,
             45419
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thumb_02_l": {
         "parent": "thumb_01_l",
@@ -2742,7 +2830,8 @@
             44452,
             44453
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thumb_03_l": {
         "parent": "thumb_02_l",
@@ -2776,7 +2865,8 @@
             45252,
             45253
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thumb_03_half_l": {
         "parent": "thumb_03_l",
@@ -2789,7 +2879,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thumb_03_pip_l": {
         "parent": "thumb_03_half_l",
@@ -2804,7 +2895,8 @@
         "reference_vertex_ids": [
             40263
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thumb_03_in_l": {
         "parent": "thumb_03_half_l",
@@ -2819,7 +2911,8 @@
         "reference_vertex_ids": [
             27400
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thumb_03_side_out_l": {
         "parent": "thumb_03_l",
@@ -2834,7 +2927,8 @@
         "reference_vertex_ids": [
             24516
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thumb_03_side_inn_l": {
         "parent": "thumb_03_l",
@@ -2849,7 +2943,8 @@
         "reference_vertex_ids": [
             40153
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thumb_03_bulge_l": {
         "parent": "thumb_03_l",
@@ -2864,7 +2959,8 @@
         "reference_vertex_ids": [
             26671
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thumb_02_half_l": {
         "parent": "thumb_02_l",
@@ -2877,7 +2973,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thumb_02_mcp_l": {
         "parent": "thumb_02_half_l",
@@ -2892,7 +2989,8 @@
         "reference_vertex_ids": [
             44453
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thumb_02_in_l": {
         "parent": "thumb_02_half_l",
@@ -2907,7 +3005,8 @@
         "reference_vertex_ids": [
             40308
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thumb_02_side_out_l": {
         "parent": "thumb_02_l",
@@ -2922,7 +3021,8 @@
         "reference_vertex_ids": [
             47278
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thumb_02_side_inn_l": {
         "parent": "thumb_02_l",
@@ -2937,7 +3037,8 @@
         "reference_vertex_ids": [
             40300
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thumb_02_bulge_l": {
         "parent": "thumb_02_l",
@@ -2952,7 +3053,8 @@
         "reference_vertex_ids": [
             40265
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thumb_01_side_out_l": {
         "parent": "thumb_01_l",
@@ -2967,7 +3069,8 @@
         "reference_vertex_ids": [
             45229
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thumb_01_side_inn_l": {
         "parent": "thumb_01_l",
@@ -2982,7 +3085,8 @@
         "reference_vertex_ids": [
             49084
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "index_metacarpal_l": {
         "parent": "hand_l",
@@ -3010,7 +3114,8 @@
             49250,
             49266
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "index_01_l": {
         "parent": "index_metacarpal_l",
@@ -3054,7 +3159,8 @@
             46239,
             46240
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "index_02_l": {
         "parent": "index_01_l",
@@ -3088,7 +3194,8 @@
             40073,
             40074
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "index_03_l": {
         "parent": "index_02_l",
@@ -3122,7 +3229,8 @@
             46410,
             46411
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "index_03_half_l": {
         "parent": "index_03_l",
@@ -3135,7 +3243,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "index_03_in_l": {
         "parent": "index_03_half_l",
@@ -3150,7 +3259,8 @@
         "reference_vertex_ids": [
             27390
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "index_02_dip_l": {
         "parent": "index_03_half_l",
@@ -3165,7 +3275,8 @@
         "reference_vertex_ids": [
             27395
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "index_03_bulge_l": {
         "parent": "index_03_l",
@@ -3180,7 +3291,8 @@
         "reference_vertex_ids": [
             39921
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "index_02_side_inn_l": {
         "parent": "index_02_l",
@@ -3195,7 +3307,8 @@
         "reference_vertex_ids": [
             40013
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "index_02_side_out_l": {
         "parent": "index_02_l",
@@ -3210,7 +3323,8 @@
         "reference_vertex_ids": [
             47156
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "index_02_half_l": {
         "parent": "index_02_l",
@@ -3223,7 +3337,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "index_02_in_l": {
         "parent": "index_02_half_l",
@@ -3238,7 +3353,8 @@
         "reference_vertex_ids": [
             27326
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "index_02_pip_l": {
         "parent": "index_02_half_l",
@@ -3253,7 +3369,8 @@
         "reference_vertex_ids": [
             27321
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "index_02_bulge_l": {
         "parent": "index_02_l",
@@ -3268,7 +3385,8 @@
         "reference_vertex_ids": [
             40000
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "index_01_side_out_l": {
         "parent": "index_01_l",
@@ -3283,7 +3401,8 @@
         "reference_vertex_ids": [
             24484
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "index_01_side_inn_l": {
         "parent": "index_01_l",
@@ -3298,7 +3417,8 @@
         "reference_vertex_ids": [
             40089
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "index_01_half_l": {
         "parent": "index_01_l",
@@ -3311,7 +3431,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "index_01_palm_l": {
         "parent": "index_01_half_l",
@@ -3326,7 +3447,8 @@
         "reference_vertex_ids": [
             26224
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "index_01_mcp_l": {
         "parent": "index_01_half_l",
@@ -3341,7 +3463,8 @@
         "reference_vertex_ids": [
             26226
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "index_01_bulge_l": {
         "parent": "index_01_l",
@@ -3356,7 +3479,8 @@
         "reference_vertex_ids": [
             24478
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "index_01_palmMid_l": {
         "parent": "index_01_l",
@@ -3371,7 +3495,8 @@
         "reference_vertex_ids": [
             24498
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "index_metacarpal_slide_l": {
         "parent": "index_metacarpal_l",
@@ -3393,7 +3518,8 @@
             49165,
             50365
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "wrist_inner_l": {
         "parent": "hand_l",
@@ -3411,7 +3537,8 @@
             46362,
             50175
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "wrist_outer_l": {
         "parent": "hand_l",
@@ -3426,7 +3553,8 @@
         "reference_vertex_ids": [
             49295
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "upperarm_twist_01_l": {
         "parent": "upperarm_l",
@@ -3439,7 +3567,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "upperarm_twistCor_01_l": {
         "parent": "upperarm_twist_01_l",
@@ -3452,7 +3581,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "upperarm_twist_02_l": {
         "parent": "upperarm_l",
@@ -3465,7 +3595,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "upperarm_tricep_l": {
         "parent": "upperarm_twist_02_l",
@@ -3488,7 +3619,8 @@
             42393,
             48134
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "upperarm_bicep_l": {
         "parent": "upperarm_twist_02_l",
@@ -3511,7 +3643,8 @@
             48145,
             48146
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "upperarm_twistCor_02_l": {
         "parent": "upperarm_twist_02_l",
@@ -3524,7 +3657,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "upperarm_correctiveRoot_l": {
         "parent": "upperarm_l",
@@ -3537,7 +3671,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "upperarm_bck_l": {
         "parent": "upperarm_correctiveRoot_l",
@@ -3560,7 +3695,8 @@
             50599,
             50600
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "upperarm_fwd_l": {
         "parent": "upperarm_correctiveRoot_l",
@@ -3583,7 +3719,8 @@
             46741,
             50544
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "upperarm_in_l": {
         "parent": "upperarm_correctiveRoot_l",
@@ -3609,7 +3746,8 @@
             50144,
             50145
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "upperarm_out_l": {
         "parent": "upperarm_correctiveRoot_l",
@@ -3632,7 +3770,8 @@
             50569,
             50575
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "clavicle_out_l": {
         "parent": "clavicle_l",
@@ -3659,7 +3798,8 @@
             23789,
             24000
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "clavicle_scap_l": {
         "parent": "clavicle_l",
@@ -3682,7 +3822,8 @@
             45864,
             45873
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "clavicle_r": {
         "parent": "spine_05",
@@ -3732,7 +3873,8 @@
             33203,
             40768
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "upperarm_r": {
         "parent": "clavicle_r",
@@ -3813,7 +3955,8 @@
             31618,
             31619
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "lowerarm_r": {
         "parent": "upperarm_r",
@@ -3907,7 +4050,8 @@
             53962,
             53963
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "lowerarm_twist_02_r": {
         "parent": "lowerarm_r",
@@ -3920,7 +4064,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "lowerarm_twist_01_r": {
         "parent": "lowerarm_r",
@@ -3933,7 +4078,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "lowerarm_correctiveRoot_r": {
         "parent": "lowerarm_r",
@@ -3946,7 +4092,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "lowerarm_out_r": {
         "parent": "lowerarm_correctiveRoot_r",
@@ -3966,7 +4113,8 @@
             53387,
             53567
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "lowerarm_in_r": {
         "parent": "lowerarm_correctiveRoot_r",
@@ -3988,7 +4136,8 @@
             52026,
             53398
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "lowerarm_fwd_r": {
         "parent": "lowerarm_correctiveRoot_r",
@@ -4006,7 +4155,8 @@
             35027,
             52021
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "lowerarm_bck_r": {
         "parent": "lowerarm_correctiveRoot_r",
@@ -4024,7 +4174,8 @@
             52030,
             53403
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "hand_r": {
         "parent": "lowerarm_r",
@@ -4078,7 +4229,8 @@
             53977,
             53979
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middle_metacarpal_r": {
         "parent": "hand_r",
@@ -4105,7 +4257,8 @@
             53056,
             53057
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middle_01_r": {
         "parent": "middle_metacarpal_r",
@@ -4148,7 +4301,8 @@
             36769,
             36768
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middle_02_r": {
         "parent": "middle_01_r",
@@ -4182,7 +4336,8 @@
             38829,
             38830
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middle_03_r": {
         "parent": "middle_02_r",
@@ -4216,7 +4371,8 @@
             38849,
             38850
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middle_03_half_r": {
         "parent": "middle_03_r",
@@ -4229,7 +4385,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middle_03_in_r": {
         "parent": "middle_03_half_r",
@@ -4244,7 +4401,8 @@
         "reference_vertex_ids": [
             28089
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middle_02_dip_r": {
         "parent": "middle_03_half_r",
@@ -4259,7 +4417,8 @@
         "reference_vertex_ids": [
             28159
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middle_03_bulge_r": {
         "parent": "middle_03_r",
@@ -4274,7 +4433,8 @@
         "reference_vertex_ids": [
             28109
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middle_02_side_inn_r": {
         "parent": "middle_02_r",
@@ -4289,7 +4449,8 @@
         "reference_vertex_ids": [
             50836
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middle_02_side_out_r": {
         "parent": "middle_02_r",
@@ -4304,7 +4465,8 @@
         "reference_vertex_ids": [
             32171
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middle_02_half_r": {
         "parent": "middle_02_r",
@@ -4317,7 +4479,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middle_02_in_r": {
         "parent": "middle_02_half_r",
@@ -4332,7 +4495,8 @@
         "reference_vertex_ids": [
             38830
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middle_02_pip_r": {
         "parent": "middle_02_half_r",
@@ -4347,7 +4511,8 @@
         "reference_vertex_ids": [
             28200
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middle_02_bulge_r": {
         "parent": "middle_02_r",
@@ -4362,7 +4527,8 @@
         "reference_vertex_ids": [
             32158
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middle_01_side_inn_r": {
         "parent": "middle_01_r",
@@ -4377,7 +4543,8 @@
         "reference_vertex_ids": [
             28208
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middle_01_side_out_r": {
         "parent": "middle_01_r",
@@ -4392,7 +4559,8 @@
         "reference_vertex_ids": [
             28216
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middle_01_half_r": {
         "parent": "middle_01_r",
@@ -4405,7 +4573,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middle_01_palm_r": {
         "parent": "middle_01_half_r",
@@ -4420,7 +4589,8 @@
         "reference_vertex_ids": [
             30781
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middle_01_mcp_r": {
         "parent": "middle_01_half_r",
@@ -4435,7 +4605,8 @@
         "reference_vertex_ids": [
             30785
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middle_01_bulge_r": {
         "parent": "middle_01_r",
@@ -4451,7 +4622,8 @@
             28204,
             32232
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middle_01_palmMid_r": {
         "parent": "middle_01_r",
@@ -4466,7 +4638,8 @@
         "reference_vertex_ids": [
             28222
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middle_metacarpal_slide_r": {
         "parent": "middle_metacarpal_r",
@@ -4493,7 +4666,8 @@
             38936,
             38937
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "pinky_metacarpal_r": {
         "parent": "hand_r",
@@ -4520,7 +4694,8 @@
             53059,
             53063
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "pinky_01_r": {
         "parent": "pinky_metacarpal_r",
@@ -4564,7 +4739,8 @@
             53886,
             53894
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "pinky_02_r": {
         "parent": "pinky_01_r",
@@ -4598,7 +4774,8 @@
             31936,
             31939
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "pinky_03_r": {
         "parent": "pinky_02_r",
@@ -4632,7 +4809,8 @@
             28001,
             28002
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "pinky_03_half_r": {
         "parent": "pinky_03_r",
@@ -4645,7 +4823,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "pinky_03_in_r": {
         "parent": "pinky_03_half_r",
@@ -4660,7 +4839,8 @@
         "reference_vertex_ids": [
             31737
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "pinky_02_dip_r": {
         "parent": "pinky_03_half_r",
@@ -4675,7 +4855,8 @@
         "reference_vertex_ids": [
             31867
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "pinky_03_bulge_r": {
         "parent": "pinky_03_r",
@@ -4691,7 +4872,8 @@
             27950,
             31769
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "pinky_02_half_r": {
         "parent": "pinky_02_r",
@@ -4704,7 +4886,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "pinky_02_in_r": {
         "parent": "pinky_02_half_r",
@@ -4719,7 +4902,8 @@
         "reference_vertex_ids": [
             31896
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "pinky_02_pip_r": {
         "parent": "pinky_02_half_r",
@@ -4734,7 +4918,8 @@
         "reference_vertex_ids": [
             31939
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "pinky_02_bulge_r": {
         "parent": "pinky_02_r",
@@ -4749,7 +4934,8 @@
         "reference_vertex_ids": [
             31875
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "pinky_02_side_out_r": {
         "parent": "pinky_02_r",
@@ -4764,7 +4950,8 @@
         "reference_vertex_ids": [
             50707
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "pinky_02_side_inn_r": {
         "parent": "pinky_02_r",
@@ -4779,7 +4966,8 @@
         "reference_vertex_ids": [
             50706
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "pinky_01_side_inn_r": {
         "parent": "pinky_01_r",
@@ -4795,7 +4983,8 @@
             28046,
             31946
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "pinky_01_side_out_r": {
         "parent": "pinky_01_r",
@@ -4811,7 +5000,8 @@
             31974,
             50748
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "pinky_01_half_r": {
         "parent": "pinky_01_r",
@@ -4824,7 +5014,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "pinky_01_palm_r": {
         "parent": "pinky_01_half_r",
@@ -4839,7 +5030,8 @@
         "reference_vertex_ids": [
             30774
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "pinky_01_mcp_r": {
         "parent": "pinky_01_half_r",
@@ -4854,7 +5046,8 @@
         "reference_vertex_ids": [
             30819
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "pinky_01_bulge_r": {
         "parent": "pinky_01_r",
@@ -4869,7 +5062,8 @@
         "reference_vertex_ids": [
             31945
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "pinky_01_palmMid_r": {
         "parent": "pinky_01_r",
@@ -4884,7 +5078,8 @@
         "reference_vertex_ids": [
             31985
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "pinky_metacarpal_slide_r": {
         "parent": "pinky_metacarpal_r",
@@ -4911,7 +5106,8 @@
             54159,
             54161
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ring_metacarpal_r": {
         "parent": "hand_r",
@@ -4938,7 +5134,8 @@
             53058,
             53060
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ring_01_r": {
         "parent": "ring_metacarpal_r",
@@ -4975,7 +5172,8 @@
             53887,
             53888
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ring_02_r": {
         "parent": "ring_01_r",
@@ -5009,7 +5207,8 @@
             30698,
             30694
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ring_03_r": {
         "parent": "ring_02_r",
@@ -5043,7 +5242,8 @@
             38839,
             38840
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ring_03_half_r": {
         "parent": "ring_03_r",
@@ -5056,7 +5256,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ring_03_in_r": {
         "parent": "ring_03_half_r",
@@ -5071,7 +5272,8 @@
         "reference_vertex_ids": [
             28519
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ring_02_dip_r": {
         "parent": "ring_03_half_r",
@@ -5086,7 +5288,8 @@
         "reference_vertex_ids": [
             30682
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ring_03_bulge_r": {
         "parent": "ring_03_r",
@@ -5102,7 +5305,8 @@
             28539,
             32800
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ring_02_half_r": {
         "parent": "ring_02_r",
@@ -5115,7 +5319,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ring_02_in_r": {
         "parent": "ring_02_half_r",
@@ -5130,7 +5335,8 @@
         "reference_vertex_ids": [
             36566
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ring_02_pip_r": {
         "parent": "ring_02_half_r",
@@ -5145,7 +5351,8 @@
         "reference_vertex_ids": [
             30713
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ring_02_bulge_r": {
         "parent": "ring_02_r",
@@ -5160,7 +5367,8 @@
         "reference_vertex_ids": [
             36546
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ring_02_side_out_r": {
         "parent": "ring_02_r",
@@ -5175,7 +5383,8 @@
         "reference_vertex_ids": [
             28524
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ring_02_side_inn_r": {
         "parent": "ring_02_r",
@@ -5190,7 +5399,8 @@
         "reference_vertex_ids": [
             28512
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ring_01_half_r": {
         "parent": "ring_01_r",
@@ -5203,7 +5413,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ring_01_palm_r": {
         "parent": "ring_01_half_r",
@@ -5218,7 +5429,8 @@
         "reference_vertex_ids": [
             30799
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ring_01_mcp_r": {
         "parent": "ring_01_half_r",
@@ -5233,7 +5445,8 @@
         "reference_vertex_ids": [
             30803
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ring_01_bulge_r": {
         "parent": "ring_01_r",
@@ -5248,7 +5461,8 @@
         "reference_vertex_ids": [
             30725
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ring_01_side_out_r": {
         "parent": "ring_01_r",
@@ -5263,7 +5477,8 @@
         "reference_vertex_ids": [
             30731
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ring_01_side_inn_r": {
         "parent": "ring_01_r",
@@ -5278,7 +5493,8 @@
         "reference_vertex_ids": [
             30727
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ring_01_palmMid_r": {
         "parent": "ring_01_r",
@@ -5293,7 +5509,8 @@
         "reference_vertex_ids": [
             30745
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ring_metacarpal_slide_r": {
         "parent": "ring_metacarpal_r",
@@ -5320,7 +5537,8 @@
             38933,
             38934
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thumb_01_r": {
         "parent": "hand_r",
@@ -5390,7 +5608,8 @@
             37844,
             37845
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thumb_02_r": {
         "parent": "thumb_01_r",
@@ -5423,7 +5642,8 @@
             36876,
             36880
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thumb_03_r": {
         "parent": "thumb_02_r",
@@ -5457,7 +5677,8 @@
             37678,
             37679
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thumb_03_half_r": {
         "parent": "thumb_03_r",
@@ -5470,7 +5691,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thumb_03_pip_r": {
         "parent": "thumb_03_half_r",
@@ -5485,7 +5707,8 @@
         "reference_vertex_ids": [
             32700
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thumb_03_in_r": {
         "parent": "thumb_03_half_r",
@@ -5500,7 +5723,8 @@
         "reference_vertex_ids": [
             28408
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thumb_03_side_out_r": {
         "parent": "thumb_03_r",
@@ -5515,7 +5739,8 @@
         "reference_vertex_ids": [
             28414
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thumb_03_side_inn_r": {
         "parent": "thumb_03_r",
@@ -5530,7 +5755,8 @@
         "reference_vertex_ids": [
             32589
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thumb_03_bulge_r": {
         "parent": "thumb_03_r",
@@ -5545,7 +5771,8 @@
         "reference_vertex_ids": [
             28425
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thumb_02_half_r": {
         "parent": "thumb_02_r",
@@ -5558,7 +5785,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thumb_02_mcp_r": {
         "parent": "thumb_02_half_r",
@@ -5573,7 +5801,8 @@
         "reference_vertex_ids": [
             36880
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thumb_02_in_r": {
         "parent": "thumb_02_half_r",
@@ -5588,7 +5817,8 @@
         "reference_vertex_ids": [
             32748
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thumb_02_side_out_r": {
         "parent": "thumb_02_r",
@@ -5603,7 +5833,8 @@
         "reference_vertex_ids": [
             51081
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thumb_02_side_inn_r": {
         "parent": "thumb_02_r",
@@ -5618,7 +5849,8 @@
         "reference_vertex_ids": [
             32736
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thumb_02_bulge_r": {
         "parent": "thumb_02_r",
@@ -5633,7 +5865,8 @@
         "reference_vertex_ids": [
             32704
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thumb_01_side_out_r": {
         "parent": "thumb_01_r",
@@ -5648,7 +5881,8 @@
         "reference_vertex_ids": [
             37655
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thumb_01_side_inn_r": {
         "parent": "thumb_01_r",
@@ -5663,7 +5897,8 @@
         "reference_vertex_ids": [
             52887
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "index_metacarpal_r": {
         "parent": "hand_r",
@@ -5691,7 +5926,8 @@
             53053,
             53069
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "index_01_r": {
         "parent": "index_metacarpal_r",
@@ -5735,7 +5971,8 @@
             38630,
             38629
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "index_02_r": {
         "parent": "index_01_r",
@@ -5769,7 +6006,8 @@
             32510,
             32513
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "index_03_r": {
         "parent": "index_02_r",
@@ -5803,7 +6041,8 @@
             38799,
             38800
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "index_03_half_r": {
         "parent": "index_03_r",
@@ -5816,7 +6055,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "index_03_in_r": {
         "parent": "index_03_half_r",
@@ -5831,7 +6071,8 @@
         "reference_vertex_ids": [
             28256
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "index_02_dip_r": {
         "parent": "index_03_half_r",
@@ -5846,7 +6087,8 @@
         "reference_vertex_ids": [
             31595
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "index_03_bulge_r": {
         "parent": "index_03_r",
@@ -5861,7 +6103,8 @@
         "reference_vertex_ids": [
             32361
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "index_02_side_inn_r": {
         "parent": "index_02_r",
@@ -5876,7 +6119,8 @@
         "reference_vertex_ids": [
             32448
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "index_02_side_out_r": {
         "parent": "index_02_r",
@@ -5891,7 +6135,8 @@
         "reference_vertex_ids": [
             50959
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "index_02_half_r": {
         "parent": "index_02_r",
@@ -5904,7 +6149,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "index_02_in_r": {
         "parent": "index_02_half_r",
@@ -5919,7 +6165,8 @@
         "reference_vertex_ids": [
             28341
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "index_02_pip_r": {
         "parent": "index_02_half_r",
@@ -5934,7 +6181,8 @@
         "reference_vertex_ids": [
             28357
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "index_02_bulge_r": {
         "parent": "index_02_r",
@@ -5949,7 +6197,8 @@
         "reference_vertex_ids": [
             32435
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "index_01_side_out_r": {
         "parent": "index_01_r",
@@ -5964,7 +6213,8 @@
         "reference_vertex_ids": [
             28375
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "index_01_side_inn_r": {
         "parent": "index_01_r",
@@ -5979,7 +6229,8 @@
         "reference_vertex_ids": [
             32527
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "index_01_half_r": {
         "parent": "index_01_r",
@@ -5992,7 +6243,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "index_01_palm_r": {
         "parent": "index_01_half_r",
@@ -6007,7 +6259,8 @@
         "reference_vertex_ids": [
             30792
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "index_01_mcp_r": {
         "parent": "index_01_half_r",
@@ -6022,7 +6275,8 @@
         "reference_vertex_ids": [
             30796
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "index_01_bulge_r": {
         "parent": "index_01_r",
@@ -6037,7 +6291,8 @@
         "reference_vertex_ids": [
             28369
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "index_01_palmMid_r": {
         "parent": "index_01_r",
@@ -6052,7 +6307,8 @@
         "reference_vertex_ids": [
             28389
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "index_metacarpal_slide_r": {
         "parent": "index_metacarpal_r",
@@ -6074,7 +6330,8 @@
             52968,
             54168
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "wrist_inner_r": {
         "parent": "hand_r",
@@ -6092,7 +6349,8 @@
             38751,
             53978
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "wrist_outer_r": {
         "parent": "hand_r",
@@ -6107,7 +6365,8 @@
         "reference_vertex_ids": [
             53098
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "upperarm_twist_01_r": {
         "parent": "upperarm_r",
@@ -6120,7 +6379,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "upperarm_twistCor_01_r": {
         "parent": "upperarm_twist_01_r",
@@ -6133,7 +6393,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "upperarm_twist_02_r": {
         "parent": "upperarm_r",
@@ -6146,7 +6407,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "upperarm_tricep_r": {
         "parent": "upperarm_twist_02_r",
@@ -6169,7 +6431,8 @@
             34818,
             51937
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "upperarm_bicep_r": {
         "parent": "upperarm_twist_02_r",
@@ -6192,7 +6455,8 @@
             51948,
             51949
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "upperarm_twistCor_02_r": {
         "parent": "upperarm_twist_02_r",
@@ -6205,7 +6469,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "upperarm_correctiveRoot_r": {
         "parent": "upperarm_r",
@@ -6218,7 +6483,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "upperarm_bck_r": {
         "parent": "upperarm_correctiveRoot_r",
@@ -6241,7 +6507,8 @@
             54402,
             54403
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "upperarm_in_r": {
         "parent": "upperarm_correctiveRoot_r",
@@ -6267,7 +6534,8 @@
             53947,
             53948
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "upperarm_fwd_r": {
         "parent": "upperarm_correctiveRoot_r",
@@ -6290,7 +6558,8 @@
             39122,
             54347
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "upperarm_out_r": {
         "parent": "upperarm_correctiveRoot_r",
@@ -6313,7 +6582,8 @@
             54372,
             54378
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "clavicle_out_r": {
         "parent": "clavicle_r",
@@ -6340,7 +6610,8 @@
             20776,
             20987
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "clavicle_scap_r": {
         "parent": "clavicle_r",
@@ -6363,7 +6634,8 @@
             38265,
             38275
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "clavicle_pec_r": {
         "parent": "spine_05",
@@ -6398,7 +6670,8 @@
             38196,
             38198
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "spine_04_latissimus_l": {
         "parent": "spine_05",
@@ -6425,7 +6698,8 @@
             46726,
             46727
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "spine_04_latissimus_r": {
         "parent": "spine_05",
@@ -6452,7 +6726,8 @@
             39108,
             39109
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "clavicle_pec_l": {
         "parent": "spine_05",
@@ -6487,7 +6762,8 @@
             45789,
             45791
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thigh_r": {
         "parent": "pelvis",
@@ -6525,7 +6801,8 @@
             53683,
             54262
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "calf_r": {
         "parent": "thigh_r",
@@ -6581,7 +6858,8 @@
             53742,
             53743
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "foot_r": {
         "parent": "calf_r",
@@ -6631,7 +6909,8 @@
             39004,
             39005
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ball_r": {
         "parent": "foot_r",
@@ -6665,7 +6944,8 @@
             36533,
             36537
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "indextoe_01_r": {
         "parent": "ball_r",
@@ -6700,7 +6980,8 @@
             52355,
             52439
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "indextoe_02_r": {
         "parent": "indextoe_01_r",
@@ -6734,7 +7015,8 @@
             38879,
             38880
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "bigtoe_01_r": {
         "parent": "ball_r",
@@ -6764,7 +7046,8 @@
             35869,
             35871
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "bigtoe_02_r": {
         "parent": "bigtoe_01_r",
@@ -6798,7 +7081,8 @@
             52486,
             52487
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "littletoe_01_r": {
         "parent": "ball_r",
@@ -6836,7 +7120,8 @@
             30679,
             30680
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "littletoe_02_r": {
         "parent": "littletoe_01_r",
@@ -6870,7 +7155,8 @@
             38909,
             38910
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middletoe_01_r": {
         "parent": "ball_r",
@@ -6905,7 +7191,8 @@
             52353,
             52440
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middletoe_02_r": {
         "parent": "middletoe_01_r",
@@ -6939,7 +7226,8 @@
             38889,
             38890
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ringtoe_01_r": {
         "parent": "ball_r",
@@ -6974,7 +7262,8 @@
             52357,
             52442
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ringtoe_02_r": {
         "parent": "ringtoe_01_r",
@@ -7008,7 +7297,8 @@
             28686,
             28688
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ankle_bck_r": {
         "parent": "foot_r",
@@ -7027,7 +7317,8 @@
             29629,
             51850
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ankle_fwd_r": {
         "parent": "foot_r",
@@ -7054,7 +7345,8 @@
             34586,
             34588
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "calf_twist_02_r": {
         "parent": "calf_r",
@@ -7067,7 +7359,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "calf_twistCor_02_r": {
         "parent": "calf_twist_02_r",
@@ -7080,7 +7373,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "calf_twist_01_r": {
         "parent": "calf_r",
@@ -7093,7 +7387,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "calf_correctiveRoot_r": {
         "parent": "calf_r",
@@ -7106,7 +7401,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "calf_kneeBack_r": {
         "parent": "calf_correctiveRoot_r",
@@ -7133,7 +7429,8 @@
             38210,
             38211
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "calf_knee_r": {
         "parent": "calf_correctiveRoot_r",
@@ -7160,7 +7457,8 @@
             53628,
             53629
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thigh_twist_01_r": {
         "parent": "thigh_r",
@@ -7173,7 +7471,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thigh_twistCor_01_r": {
         "parent": "thigh_twist_01_r",
@@ -7186,7 +7485,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thigh_twist_02_r": {
         "parent": "thigh_r",
@@ -7199,7 +7499,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thigh_twistCor_02_r": {
         "parent": "thigh_twist_02_r",
@@ -7212,7 +7513,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thigh_correctiveRoot_r": {
         "parent": "thigh_r",
@@ -7225,7 +7527,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thigh_fwd_r": {
         "parent": "thigh_correctiveRoot_r",
@@ -7252,7 +7555,8 @@
             53692,
             53693
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thigh_bck_r": {
         "parent": "thigh_correctiveRoot_r",
@@ -7279,7 +7583,8 @@
             39096,
             39097
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thigh_out_r": {
         "parent": "thigh_correctiveRoot_r",
@@ -7306,7 +7611,8 @@
             53559,
             53560
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thigh_in_r": {
         "parent": "thigh_correctiveRoot_r",
@@ -7333,7 +7639,8 @@
             54186,
             54187
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thigh_bck_lwr_r": {
         "parent": "thigh_correctiveRoot_r",
@@ -7360,7 +7667,8 @@
             54312,
             54313
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thigh_fwd_lwr_r": {
         "parent": "thigh_correctiveRoot_r",
@@ -7387,7 +7695,8 @@
             39066,
             39067
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thigh_l": {
         "parent": "pelvis",
@@ -7425,7 +7734,8 @@
             49880,
             50459
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "calf_l": {
         "parent": "thigh_l",
@@ -7481,7 +7791,8 @@
             49939,
             49940
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "foot_l": {
         "parent": "calf_l",
@@ -7531,7 +7842,8 @@
             46617,
             46618
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ball_l": {
         "parent": "foot_l",
@@ -7565,7 +7877,8 @@
             44108,
             44112
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "indextoe_01_l": {
         "parent": "ball_l",
@@ -7600,7 +7913,8 @@
             48552,
             48636
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "indextoe_02_l": {
         "parent": "indextoe_01_l",
@@ -7634,7 +7948,8 @@
             46490,
             46491
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "bigtoe_01_l": {
         "parent": "ball_l",
@@ -7664,7 +7979,8 @@
             43443,
             43446
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "bigtoe_02_l": {
         "parent": "bigtoe_01_l",
@@ -7698,7 +8014,8 @@
             48683,
             48684
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ringtoe_01_l": {
         "parent": "ball_l",
@@ -7733,7 +8050,8 @@
             48554,
             48639
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ringtoe_02_l": {
         "parent": "ringtoe_01_l",
@@ -7767,7 +8085,8 @@
             24717,
             24718
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middletoe_01_l": {
         "parent": "ball_l",
@@ -7802,7 +8121,8 @@
             48550,
             48637
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "middletoe_02_l": {
         "parent": "middletoe_01_l",
@@ -7836,7 +8156,8 @@
             46500,
             46501
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "littletoe_01_l": {
         "parent": "ball_l",
@@ -7874,7 +8195,8 @@
             26145,
             26725
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "littletoe_02_l": {
         "parent": "littletoe_01_l",
@@ -7908,7 +8230,8 @@
             46520,
             46521
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ankle_bck_l": {
         "parent": "foot_l",
@@ -7927,7 +8250,8 @@
             25301,
             48047
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "ankle_fwd_l": {
         "parent": "foot_l",
@@ -7954,7 +8278,8 @@
             42161,
             42163
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "calf_twist_02_l": {
         "parent": "calf_l",
@@ -7967,7 +8292,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "calf_twistCor_02_l": {
         "parent": "calf_twist_02_l",
@@ -7980,7 +8306,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "calf_twist_01_l": {
         "parent": "calf_l",
@@ -7993,7 +8320,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "calf_correctiveRoot_l": {
         "parent": "calf_l",
@@ -8006,7 +8334,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "calf_kneeBack_l": {
         "parent": "calf_correctiveRoot_l",
@@ -8033,7 +8362,8 @@
             45804,
             45805
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "calf_knee_l": {
         "parent": "calf_correctiveRoot_l",
@@ -8060,7 +8390,8 @@
             49825,
             49826
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thigh_twist_01_l": {
         "parent": "thigh_l",
@@ -8073,7 +8404,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thigh_twistCor_01_l": {
         "parent": "thigh_twist_01_l",
@@ -8086,7 +8418,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thigh_twist_02_l": {
         "parent": "thigh_l",
@@ -8099,7 +8432,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thigh_twistCor_02_l": {
         "parent": "thigh_twist_02_l",
@@ -8112,7 +8446,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thigh_correctiveRoot_l": {
         "parent": "thigh_l",
@@ -8125,7 +8460,8 @@
         "orientation": "0, 0, 0",
         "driver": false,
         "reference_vertex_ids": [],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thigh_bck_l": {
         "parent": "thigh_correctiveRoot_l",
@@ -8152,7 +8488,8 @@
             46713,
             46714
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thigh_fwd_l": {
         "parent": "thigh_correctiveRoot_l",
@@ -8179,7 +8516,8 @@
             49889,
             49890
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thigh_out_l": {
         "parent": "thigh_correctiveRoot_l",
@@ -8206,7 +8544,8 @@
             49756,
             49757
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thigh_bck_lwr_l": {
         "parent": "thigh_correctiveRoot_l",
@@ -8233,7 +8572,8 @@
             50509,
             50510
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thigh_in_l": {
         "parent": "thigh_correctiveRoot_l",
@@ -8260,7 +8600,8 @@
             50383,
             50384
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     },
     "thigh_fwd_lwr_l": {
         "parent": "thigh_correctiveRoot_l",
@@ -8287,6 +8628,7 @@
             46680,
             46681
         ],
-        "reference_mesh": "combined"
+        "reference_mesh": "combined",
+        "fix_pose": true
     }
 }

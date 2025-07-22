@@ -134,6 +134,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.obj_to_metahuman_button.clicked.connect(self.show_obj_to_metahuman)
         self.update_button.clicked.connect(self.update)
         self.debug_button.clicked.connect(self.debug)
+        self.select_reference_vertices_button.clicked.connect(self.select_reference_vertices)
         self.metahuman_folder_button.clicked.connect(self.select_metahuman_folder)
         self.back_button.clicked.connect(self.back_to_start_frame)
         self.symmetrize_button.clicked.connect(self.symmetrize_pressed)
@@ -594,6 +595,11 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
             cmds.select(cl=True)
             self.close()
             
+    def select_reference_vertices(self):
+        body_joints_file = os.path.dirname(__file__) + "/resources/body_joints.json"
+        joints_info = json.load(open(body_joints_file, "r"))
+        return
+
     def debug(self):
         self.show_obj_to_metahuman()
         self.metahuman_folder = "F:/WorkspaceDesktop/met/MetaHumanExtraTools/private/debug"

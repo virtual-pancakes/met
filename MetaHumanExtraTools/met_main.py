@@ -257,10 +257,10 @@ class MetahumanToObj:
             shutil.copyfile(new_obj_file, old_obj_file)
 
         # Copy utilities
-        head_texture = os.path.dirname(__file__) + "/resources/headT.png"
-        head_texture_destination = f"{old_objs_folder}/texture_head.png"
-        body_texture = os.path.dirname(__file__) + "/resources/bodyT.png"
-        body_texture_destination = f"{old_objs_folder}/texture_body.png"
+        head_texture = os.path.dirname(__file__) + "/resources/head_mesh_distribution_check.png"
+        head_texture_destination = f"{new_objs_folder}/head_mesh_distribution_check.png"
+        body_texture = os.path.dirname(__file__) + "/resources/body_mesh_distribution_check.png"
+        body_texture_destination = f"{new_objs_folder}/body_mesh_distribution_check.png"
         shutil.copyfile(head_texture, head_texture_destination)
         shutil.copyfile(body_texture, body_texture_destination)
 
@@ -916,9 +916,10 @@ class ObjToMetahuman:
                 cmds.parent(main_child, world=True)
                 cmds.parent(children, joint) 
             
-            elif joint_info["orientation"] == "-90, 0, 90 in WS": # head
+            elif joint_info["orientation"] == "-90, free, 90 in WS": # head
                 cmds.parent(joint, world=True)
-                cmds.setAttr(f"{joint}.jointOrient", -90, 0, 90)                    
+                cmds.setAttr(f"{joint}.jointOrientX", -90)                    
+                cmds.setAttr(f"{joint}.jointOrientZ", 90)                    
                 cmds.parent(joint, parent)
 
             elif joint_info["orientation"] == "+x to child, +z to parent^child RH": # left_arm_down
@@ -1240,9 +1241,7 @@ class ObjToMetahuman:
 
         # Fix skeleton
         if new_namespace == "new_body":
-            self.fix_body_skeleton(f"{new_namespace}:", f"{old_namespace}:")                
-
-            """
+            self.fix_body_skeleton(f"{new_namespace}:", f"{old_namespace}:")
             """
             # Fix spine
             if not cmds.namespace(exists=":temp"): cmds.namespace(add=":temp")
@@ -1263,6 +1262,7 @@ class ObjToMetahuman:
             for item in cmds.ls("temp:*"): cmds.rename(item, om2.MNamespace.stripNamespaceFromName(item))
             cmds.parent(spine_05_joints, f"{new_namespace}:spine_05")
             cmds.parent(pelvis_joints, f"{new_namespace}:pelvis")      
+            """
     
         if new_namespace == "new_head":
             self.fix_head_skeleton(joints_info)
@@ -1456,17 +1456,22 @@ class ObjToMetahuman:
         cmds.DeleteHistory()
         aux = cmds.orientConstraint("new_body:foot_r", "starting_foot_r", offset=(0, 0, 0), weight=1)[0]
         cmds.delete(aux)
-        
         #cmds.file("F:/WorkspaceDesktop/met/MetaHumanExtraTools/private/debug/temp.mb", open=True, force=True)
         # Copy joint orientations from old to new body joints
+        body_joints_info = json.load(open(os.path.dirname(__file__) + "/resources/body_joints.json", "r"))
         new_root_dagpath = om2.MSelectionList().add("new_body:root").getDagPath(0)
         dag_iterator = om2.MItDag().reset(new_root_dagpath)
         while not dag_iterator.isDone():
             new_joint = dag_iterator.partialPathName()
-            old_joint = new_joint.replace("new_", "old_")
-            old_orient = cmds.getAttr(f"{old_joint}.jointOrient")[0]
-            cmds.setAttr(f"{new_joint}.jointOrient", old_orient[0], old_orient[1], old_orient[2])
+            base_joint = om2.MNamespace.stripNamespaceFromName(new_joint)
+            if body_joints_info[base_joint]["fix_pose"]:
+                old_joint = new_joint.replace("new_", "old_")
+                old_orient = cmds.getAttr(f"{old_joint}.jointOrient")[0]
+                #cmds.setKeyframe(new_joint, attribute="jointOrient", t=100)
+                cmds.setAttr(f"{new_joint}.jointOrient", old_orient[0], old_orient[1], old_orient[2])
+                #cmds.setKeyframe(new_joint, attribute="jointOrient", t=0)
             dag_iterator.next()
+        #cmds.currentTime(0)
 
         # Match new head joints to new body joints
         dagpath = om2.MSelectionList().add("new_head:spine_04").getDagPath(0)
@@ -1478,9 +1483,14 @@ class ObjToMetahuman:
             if cmds.objExists(body_joint):
                 body_joint_position = cmds.xform(body_joint, q=True, t=True, ws=True)
                 body_joint_orientation = cmds.getAttr(f"{body_joint}.jointOrient")[0]
+                #cmds.setKeyframe(head_joint, attribute="translate", t=100)
+                #cmds.setKeyframe(head_joint, attribute="jointOrient", t=100)
                 cmds.xform(head_joint, t=body_joint_position, ws=True)
                 cmds.setAttr(f"{head_joint}.jointOrient", body_joint_orientation[0], body_joint_orientation[1], body_joint_orientation[2])
+                #cmds.setKeyframe(head_joint, attribute="translate", t=0)
+                #cmds.setKeyframe(head_joint, attribute="jointOrient", t=0)
             dag_iterator.next()
+            #cmds.currentTime(0)
         cmds.parent("new_body:spine_04", "new_body:spine_03")
 
         # Make feet flat
@@ -1631,6 +1641,7 @@ class ObjToMetahuman:
         self.load_dna()
         #cmds.file(rename="F:/WorkspaceDesktop/met/MetaHumanExtraTools/private/debug/temp1_load_dna_done.mb")
         #cmds.file(f=True, save=True)
+        
         #cmds.file("F:/WorkspaceDesktop/met/MetaHumanExtraTools/private/debug/temp1_load_dna_done.mb", open=True, force=True)
         self.load_new_meshes()
         #cmds.file(rename="F:/WorkspaceDesktop/met/MetaHumanExtraTools/private/debug/temp2_load_new_meshes_done.mb")

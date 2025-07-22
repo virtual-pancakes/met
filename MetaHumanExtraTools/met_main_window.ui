@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1200</width>
-    <height>860</height>
+    <height>902</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -1030,6 +1030,13 @@ QPushButton::pressed
             </property>
             <property name="text">
              <string>Debug</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="select_reference_vertices_button">
+            <property name="text">
+             <string>select reference vertices</string>
             </property>
            </widget>
           </item>
@@ -2139,7 +2146,7 @@ QPushButton::checked::pressed
                 <string notr="true">background: transparent</string>
                </property>
                <property name="text">
-                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Please keep in mind that you need to maintain topology, vertex order and mesh distribution on the generated meshes. If you disrupt these properties you will need to restore them by performing a wrapping process with tools like Faceform Wrap or similar. Even if you maintain topology and vertex order, wrapping is still recommended for optimal mesh distribution.&lt;/p&gt;&lt;p&gt;MetaHuman to .OBJ will generate, inside the MetaHuman folder, two extra folders with &amp;quot;new&amp;quot; and &amp;quot;old&amp;quot; OBJs. The recommended workflow is to edit the new OBJs and keep the old OBJs intact, as a representation of the original MetaHuman, in case you need them for reference or wrapping. You will also find inside the old OBJs folder a set of textures that you can use to check mesh distribution.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Please keep in mind that you need to maintain topology, vertex order and mesh distribution on the generated meshes. If you disrupt these properties you will need to restore them by performing a wrapping process with tools like Faceform Wrap or similar. Even if you maintain topology and vertex order, wrapping is still recommended for optimal mesh distribution.&lt;/p&gt;&lt;p&gt;MetaHuman to .OBJ will generate, inside the MetaHuman folder, two extra folders with &amp;quot;new&amp;quot; and &amp;quot;old&amp;quot; OBJs. The recommended workflow is to edit the new OBJs and keep the old OBJs intact, as a representation of the original MetaHuman, in case you need them for reference or wrapping. You will also find inside the new OBJs folder a set of textures that you can use to check mesh distribution.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                </property>
                <property name="wordWrap">
                 <bool>true</bool>

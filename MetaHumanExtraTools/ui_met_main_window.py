@@ -23,7 +23,7 @@ class Ui_METMainWindow(object):
     def setupUi(self, METMainWindow):
         if not METMainWindow.objectName():
             METMainWindow.setObjectName(u"METMainWindow")
-        METMainWindow.resize(1200, 860)
+        METMainWindow.resize(1200, 902)
         sizePolicy = QSizePolicy(QSizePolicy.Policy.Maximum, QSizePolicy.Policy.Maximum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -745,6 +745,11 @@ class Ui_METMainWindow(object):
 
         self.verticalLayout.addWidget(self.debug_button)
 
+        self.select_reference_vertices_button = QPushButton(self.debug_frame)
+        self.select_reference_vertices_button.setObjectName(u"select_reference_vertices_button")
+
+        self.verticalLayout.addWidget(self.select_reference_vertices_button)
+
         self.import_dna_button = QPushButton(self.debug_frame)
         self.import_dna_button.setObjectName(u"import_dna_button")
 
@@ -1416,6 +1421,7 @@ class Ui_METMainWindow(object):
         self.fab_link_label.setText(QCoreApplication.translate("METMainWindow", u"<a href='https://www.fab.com/listings/22f90398-c29e-4b74-a80a-9c5b5ae19d47'>Fab</a>", None))
         self.label_3.setText(QCoreApplication.translate("METMainWindow", u"Debug", None))
         self.debug_button.setText(QCoreApplication.translate("METMainWindow", u"Debug", None))
+        self.select_reference_vertices_button.setText(QCoreApplication.translate("METMainWindow", u"select reference vertices", None))
         self.import_dna_button.setText(QCoreApplication.translate("METMainWindow", u"import dna", None))
         self.joints_button.setText(QCoreApplication.translate("METMainWindow", u"joints", None))
         self.skinweights_button.setText(QCoreApplication.translate("METMainWindow", u"skin weights", None))
@@ -1438,7 +1444,7 @@ class Ui_METMainWindow(object):
         self.original_button.setText(QCoreApplication.translate("METMainWindow", u"Keep Original", None))
         self.metahuman_to_obj_run_button.setText(QCoreApplication.translate("METMainWindow", u"Run", None))
         self.obj_to_metahuman_run_button.setText(QCoreApplication.translate("METMainWindow", u"Run", None))
-        self.label_12.setText(QCoreApplication.translate("METMainWindow", u"<html><head/><body><p>Please keep in mind that you need to maintain topology, vertex order and mesh distribution on the generated meshes. If you disrupt these properties you will need to restore them by performing a wrapping process with tools like Faceform Wrap or similar. Even if you maintain topology and vertex order, wrapping is still recommended for optimal mesh distribution.</p><p>MetaHuman to .OBJ will generate, inside the MetaHuman folder, two extra folders with &quot;new&quot; and &quot;old&quot; OBJs. The recommended workflow is to edit the new OBJs and keep the old OBJs intact, as a representation of the original MetaHuman, in case you need them for reference or wrapping. You will also find inside the old OBJs folder a set of textures that you can use to check mesh distribution.</p></body></html>", None))
+        self.label_12.setText(QCoreApplication.translate("METMainWindow", u"<html><head/><body><p>Please keep in mind that you need to maintain topology, vertex order and mesh distribution on the generated meshes. If you disrupt these properties you will need to restore them by performing a wrapping process with tools like Faceform Wrap or similar. Even if you maintain topology and vertex order, wrapping is still recommended for optimal mesh distribution.</p><p>MetaHuman to .OBJ will generate, inside the MetaHuman folder, two extra folders with &quot;new&quot; and &quot;old&quot; OBJs. The recommended workflow is to edit the new OBJs and keep the old OBJs intact, as a representation of the original MetaHuman, in case you need them for reference or wrapping. You will also find inside the new OBJs folder a set of textures that you can use to check mesh distribution.</p></body></html>", None))
         self.label_11.setText(QCoreApplication.translate("METMainWindow", u"<html><head/><body><p>.OBJ to MetaHuman will generate an extra folder inside the MetaHuman folder with new DNA for your MetaHuman. You can use this new DNA to update your MetaHuman in MetaHuman Creator.</p><p>First, in MetaHuman Creator, you will need to remove the rig that was previously applied.</p><p>Then conform to the new body DNA: go to &quot;Body&quot; &gt; &quot;Conform&quot; &gt; &quot;Import DNA&quot;, select your new body DNA file, and import with the following options:</p></body></html>", None))
         self.dna_options_body_label.setText("")
         self.label_13.setText(QCoreApplication.translate("METMainWindow", u"<html><head/><body><p><br/>Next conform to the new head DNA: go to &quot;Head&quot; &gt; &quot;Conform&quot; &gt; &quot;Import DNA&quot;, select your new head DNA file, and import with the following options:</p></body></html>", None))
