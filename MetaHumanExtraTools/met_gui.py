@@ -12,6 +12,7 @@ import time
 import subprocess # type: ignore
 import tempfile # type: ignore
 import random # type: ignore
+import logging
 
 from dna import BinaryStreamReader, BinaryStreamWriter, DataLayer_All, FileStream, Status
 from dnacalib2 import CommandSequence, DNACalibDNAReader, SetNeutralJointRotationsCommand, SetNeutralJointTranslationsCommand, SetVertexPositionsCommand, SetLODsCommand, CalculateMeshLowerLODsCommand, VectorOperation_Add, RotateCommand
@@ -29,11 +30,11 @@ from mh_assemble_lib.model.element import MeshElement
 # Use PySide6 for Maya 2025+ and PySide2 for Maya 2024-
 try:
     from PySide6.QtCore import QSize, Qt, QMargins, Slot, Signal, QRect, QThread, QObject, QEvent
-    from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QVBoxLayout, QHBoxLayout, QWidget, QScrollArea, QWizard, QFrame, QLabel, QLineEdit, QSpacerItem
+    from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QVBoxLayout, QHBoxLayout, QWidget, QScrollArea, QWizard, QFrame, QLabel, QLineEdit, QSpacerItem, QProgressBar
     from PySide6.QtGui import QIcon, QPalette, QMovie, QImage, QPixmap
 except:
     from PySide2.QtCore import QSize, Qt, QMargins, Slot, Signal, QRect, QThread, QObject, QEvent
-    from PySide2.QtWidgets import QApplication, QMainWindow, QPushButton, QVBoxLayout, QHBoxLayout, QWidget, QScrollArea, QWizard, QFrame, QLabel, QLineEdit, QSpacerItem
+    from PySide2.QtWidgets import QApplication, QMainWindow, QPushButton, QVBoxLayout, QHBoxLayout, QWidget, QScrollArea, QWizard, QFrame, QLabel, QLineEdit, QSpacerItem, QProgressBar
     from PySide2.QtGui import QIcon, QPalette, QMovie, QImage, QPixmap
 
     sys.modules["PySide6"] = __import__("PySide2")
@@ -49,6 +50,22 @@ except: import met_main
 try: importlib.reload(resources.data)
 except: import resources.data
 
+# Configure logging
+for path in sys.path:
+    if "MetaHumanExtraTools" in path: 
+        met_path = path
+        break
+log_path = os.path.join(met_path, "met.log")
+logger = logging.getLogger(__name__)
+if logger.hasHandlers(): logger.handlers.clear()
+handler = logging.FileHandler(log_path)
+formatter = logging.Formatter("%(name)s|%(asctime)s|%(levelname)s|: %(message)s")
+handler.setFormatter(formatter)
+logger.addHandler(handler) 
+logger.setLevel(logging.DEBUG)
+logger.info(f"starting met_gui logger")
+logger.info("import met_gui")
+
 class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):   
 
     def __init__(self, debug_mode=False):
@@ -58,6 +75,20 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         super().__init__(self.maya_widget)
         self.setupUi(self)
 
+        # Maya version
+        maya_version = float(cmds.about(iv=True).split(" ")[-1])
+        if maya_version < 2023.3:
+            self.modes_frame.hide()
+            self.running_frame.hide()
+            self.new_version_frame.hide()
+            self.debug_frame.hide()
+            self.obj_to_metahuman_button.setEnabled(False)
+            self.metahuman_to_obj_button.setEnabled(False)
+            self.resize(self.sizeHint())
+            self.show()
+            logger.info("MET window opened")
+            return
+        
         # Version
         self.new_version_frame.hide()
         self.updating_label.hide()
@@ -83,8 +114,10 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.teeth = "auto generated"
         
         if not debug_mode: self.debug_frame.hide()
+        self.maya_version_frame.hide()
         self.modes_frame.hide()
         self.running_frame.hide()
+        self.done_label.hide()
         self.go_to_metahuman_folder_button.hide()
         self.metahuman_to_obj_info_frame.hide()
         self.obj_to_metahuman_info_frame.hide()
@@ -103,7 +136,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         # Connect buttons
         self.metahuman_to_obj_button.clicked.connect(self.show_metahuman_to_obj)
         self.obj_to_metahuman_button.clicked.connect(self.show_obj_to_metahuman)
-        self.update_button.clicked.connect(self.update)
+        self.update_button.clicked.connect(self.fake_update)
         self.debug_button.clicked.connect(self.debug)
         self.select_reference_vertices_button.clicked.connect(self.select_reference_vertices)
         self.metahuman_folder_button.clicked.connect(self.select_metahuman_folder)
@@ -135,30 +168,36 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         met_gui.METMainWindow(debug_mode=False)
     
     def joints_button_pressed(self):
+        logger.info("joints_button_pressed()")
         if self.joints_button.isChecked() == False:
             self.skinweights_button.setChecked(False)
             self.riglogic_button.setChecked(False)
 
     def skinweights_button_pressed(self):
+        logger.info("skinweights_button_pressed")
         if self.skinweights_button.isChecked():
             self.joints_button.setChecked(True)
         else:
             self.riglogic_button.setChecked(False)
 
     def riglogic_button_pressed(self):
+        logger.info("riglogic_button_pressed()")
         if self.riglogic_button.isChecked():
             self.joints_button.setChecked(True)
             self.skinweights_button.setChecked(True)
     
     def symmetrize_pressed(self):
+        logger.info("symmetrize_pressed()")
         self.symmetrize_button.setChecked(True)
         self.original_button.setChecked(False)
 
     def keep_original_pressed(self):
+        logger.info("keep_original_pressed()")
         self.original_button.setChecked(True)
         self.symmetrize_button.setChecked(False)
     
     def is_metatahuman_customize_already_visible(self):
+        logger.info("is_metahuman_customize_already_visible()")
         local_version_dict = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "version.json"), "r"))
         title = f"Metahuman Extra Tools {local_version_dict['current_version']}"
         visible_mc_windows = []
@@ -170,20 +209,24 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         return len(visible_mc_windows)
     
     def get_maya_widget(self) -> QWidget:
+        logger.info("get_maya_widget()")
         for obj in QApplication.topLevelWidgets():
             if obj.objectName() == "MayaWindow":
                 return obj
         raise RuntimeError("Could not find MayaWindow instance")
            
     def check_if_metahuman_to_obj_is_ready(self):
+        logger.info("check_if_metahuman_to_obj_is_ready()")
         if self.metahuman_folder: self.metahuman_to_obj_run_button.setEnabled(True)
         else: self.metahuman_to_obj_run_button.setEnabled(False)
 
     def check_if_obj_to_metahuman_is_ready(self):
+        logger.info("check_if_obj_to_metahuman_is_ready()")
         if self.metahuman_folder and self.combined and self.eyes and self.eyelashes and self.teeth: self.obj_to_metahuman_run_button.setEnabled(True)
         else: self.obj_to_metahuman_run_button.setEnabled(False)
 
     def select_metahuman_folder(self):
+        logger.info("select_metahuman_folder()")
         metahuman_folder = None
         result = cmds.fileDialog2(fileMode=2, caption="Select Metahuman folder:")
         if result: metahuman_folder = result[0]
@@ -208,6 +251,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.check_if_obj_to_metahuman_is_ready()      
     
     def download_file(self, file_url, local_path, max_retries=5):
+        logger.info(f"download_file({file_url}, {local_path})")
         """Download a single file to the specified path with retries."""
         # Convert https to http for raw file URLs
         file_url = file_url.replace("https://raw.githubusercontent.com", "http://raw.githubusercontent.com")
@@ -226,24 +270,26 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
                                 if not chunk:
                                     break
                                 f.write(chunk)
-                        print(f"Downloaded {file_url} to {local_path}")
+                        logger.info(f"Downloaded {file_url} to {local_path}")
+                        self.update_progress_bar.setValue(int(100 * self.downloaded_file_count / self.repo_file_count))
                         return True
                     else:
-                        print(f"Failed to download {file_url}: HTTP {response.getcode()}")
+                        logger.warning(f"Failed to download {file_url}: HTTP {response.getcode()}")
                         return False
             except urllib.error.URLError as e:
-                print(f"Attempt {attempt + 1}/{max_retries} failed for {file_url}: {e}")
+                logger.error(f"Attempt {attempt + 1}/{max_retries} failed for {file_url}: {e}")
                 if attempt < max_retries - 1:
                     time.sleep(2 ** attempt)  # Exponential backoff: 1s, 2s, 4s, 8s, 16s
                 else:
-                    print(f"Failed to download {file_url} after {max_retries} attempts")
+                    logger.error(f"Failed to download {file_url} after {max_retries} attempts")
                     return False
             except OSError as e:
-                print(f"Error saving {local_path}: {e}")
+                logger.exception(f"Error saving {local_path}: {e}")
                 return False
         return False
 
     def process_directory(self, api_url, temp_folder, repo_path=""):
+        logger.info(f"process_directory(temp_folder={temp_folder})")
         """Recursively process repository contents and download files to temp folder."""
         downloaded_files = []  # Track successfully downloaded files
         try:
@@ -251,19 +297,19 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
             with urllib.request.urlopen(api_url, timeout=30) as response:
                 if response.getcode() == 200:
                     items = json.loads(response.read().decode('utf-8'))
-                    for item in items:
+                    for i, item in enumerate(items):
                         item_name = item['name']
                         item_path = os.path.join(repo_path, item_name)
                         local_path = os.path.join(temp_folder, item_path.replace("/", os.sep))
                         
                         if item['type'] == 'file':
-                            print(f"Attempting to download {item_path}...")
+                            logger.info(f"Attempting to download {item_path}...")
                             if self.download_file(item['download_url'], local_path):
                                 downloaded_files.append(local_path)
                             else:
                                 return None  # Abort if any file fails
                         elif item['type'] == 'dir':
-                            print(f"Processing directory {item_path}...")
+                            logger.info(f"Processing directory {item_path}...")
                             # Update subfolder API URL to use http
                             subfolder_url = item['url'].replace("https://api.github.com", "http://api.github.com")
                             subfolder_files = self.process_directory(subfolder_url, temp_folder, item_path)
@@ -271,23 +317,48 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
                                 return None  # Abort if any subfolder file fails
                             downloaded_files.extend(subfolder_files)
                 else:
-                    print(f"Failed to fetch contents from {api_url}: HTTP {response.getcode()}")
+                    logger.warning(f"Failed to fetch contents from {api_url}: HTTP {response.getcode()}")
                     return None
             return downloaded_files
         except urllib.error.URLError as e:
-            print(f"Error fetching {api_url}: {e}")
+            logger.exception(f"Error fetching {api_url}: {e}")
             return None
         except OSError as e:
-            print(f"Error accessing temp folder {local_path}: {e}")
+            logger.exception(f"Error accessing temp folder {local_path}: {e}")
             return None
     
+    def count_files_in_repo(self, api_url):
+        count = 0
+        try:
+            with urllib.request.urlopen(api_url, timeout=30) as response:
+                if response.getcode() == 200:
+                    items = json.loads(response.read().decode('utf-8'))
+                    for item in items:
+                        if item['type'] == 'file':
+                            count += 1
+                        elif item['type'] == 'dir':
+                            subfolder_url = item['url'].replace("https://api.github.com", "http://api.github.com")
+                            count += self.count_files_in_repo(subfolder_url)
+                else:
+                    logger.warning(f"Failed to fetch contents from {api_url}: HTTP {response.getcode()}")
+        except Exception as e:
+            logger.exception(f"Error counting files in {api_url}: {e}")
+        return count
+    
+    def fake_update(self):
+        return
+    
     def update(self):
+        logger.info("update()")
         self.update_button.hide()
         self.updating_label.show()
         self.resize(self.sizeHint())
         self.repaint()
         
         api_url = f"http://api.github.com/repos/virtual-pancakes/met/contents/?ref=main"
+        self.repo_file_count = self.count_files_in_repo(api_url)
+        self.downloaded_file_count = 0
+
         #modules_folder = "C:/modules"
         for path in sys.path:
             if "MetaHumanExtraTools" in path: 
@@ -297,14 +368,14 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         
         # Create a temporary directory for caching
         temp_folder = tempfile.mkdtemp()
-        print(f"Using temporary directory: {temp_folder}")
+        logger.info(f"Using temporary directory: {temp_folder}")
 
         # Process the repository and download files to temp folder
-        print(f"Starting download from {api_url}...")
+        logger.info(f"Starting download from {api_url}...")
         downloaded_files = self.process_directory(api_url, temp_folder)
 
         if downloaded_files is None:
-            print("Download failed; cleaning up temporary directory.")
+            logger.info("Download failed; cleaning up temporary directory.")
             shutil.rmtree(temp_folder, ignore_errors=True)
             self.updating_label.hide()
             self.update_failed_frame.show()
@@ -322,30 +393,32 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
                 final_path = os.path.join(modules_folder, relative_path)
                 os.makedirs(os.path.dirname(final_path), exist_ok=True)
                 shutil.move(temp_path, final_path)
-                print(f"Moved {temp_path} to {final_path}")
-            print(f"All files successfully moved to {modules_folder}")
+                logger.info(f"Moved {temp_path} to {final_path}")
+            logger.info(f"All files successfully moved to {modules_folder}")
             self.updating_label.hide()
             self.updated_successfully_label.show()
             self.restart_met_button.show()
             self.resize(self.sizeHint())
         except OSError as e:
-            print(f"Error moving files to {modules_folder}: {e}")
+            logger.exception(f"Error moving files to {modules_folder}: {e}")
             self.updating_label.hide()
             self.update_failed_frame.show()
             self.resize(self.sizeHint())
         finally:
             # Clean up temporary directory
             shutil.rmtree(temp_folder, ignore_errors=True)
-            print(f"Cleaned up temporary directory: {temp_folder}")
+            logger.info(f"Cleaned up temporary directory: {temp_folder}")
             self.resize(self.sizeHint())
         
     def short_path(self, path, max_length):
+        logger.info(f"short_path({path}, {max_length})")
         if len(path) > max_length:
             return path[:3] + "..." + path[-(max_length - 6):]
         else:
             return path
     
     def show_metahuman_to_obj(self):
+        logger.info("show_metahuman_to_obj")
         self.start_frame.hide()
         
         self.new_geometry_frame.hide()
@@ -359,6 +432,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.resize(self.sizeHint())
 
     def show_obj_to_metahuman(self):
+        logger.info("show_obj_to_metahuman")
         self.start_frame.hide()
         
         self.new_geometry_frame.show()
@@ -372,6 +446,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.resize(self.sizeHint())
 
     def back_to_start_frame(self):
+        logger.info("back_to_start_frame()")
         self.metahuman_to_obj_run_button.setEnabled(False)
         self.metahuman_to_obj_run_button.setEnabled(False)
         self.metahuman_folder = None
@@ -403,10 +478,12 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.resize(self.sizeHint())
     
     def go_to_metahuman_folder(self):
+        logger.info("go_to_metahuman_folder")
         os.startfile(self.metahuman_folder)
         #self.close()
     
     def combined_button_pressed(self):
+        logger.info("combined_button_pressed()")
         result = cmds.fileDialog2(fileMode=1, caption="Select new combined .obj:")
         if result: 
             self.combined = result[0]
@@ -419,6 +496,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.check_if_obj_to_metahuman_is_ready()
 
     def eyes_button_pressed(self):
+        logger.info("eyes_button_pressed()")
         result = cmds.fileDialog2(fileMode=1, caption="Select new eyes .obj:")
         if result: 
             self.eyes = result[0]
@@ -431,6 +509,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.check_if_obj_to_metahuman_is_ready()
 
     def eyelashes_button_pressed(self):
+        logger.info("eyelashes_button_pressed()")
         result = cmds.fileDialog2(fileMode=1, caption="Select new eyelashes .obj:")
         if result: 
             self.eyelashes = result[0]
@@ -443,6 +522,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.check_if_obj_to_metahuman_is_ready()
 
     def teeth_button_pressed(self):
+        logger.info("teeth_button_pressed()")
         result = cmds.fileDialog2(fileMode=1, caption="Select new teeth .obj:")
         if result: 
             self.teeth = result[0]
@@ -455,6 +535,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.check_if_obj_to_metahuman_is_ready()
         
     def eyelashes_autogenerated_pressed(self):
+        logger.info("eyelashes_autogenerated_pressed()")
         if self.eyelashes_autogenerated_button.text() == "auto generated":
             self.eyelashes_autogenerated_button.setStyleSheet("")
             self.eyelashes_autogenerated_button.setText("OBJ")
@@ -470,6 +551,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.check_if_obj_to_metahuman_is_ready()
 
     def teeth_autogenerated_pressed(self):
+        logger.info("teeth_autogenerated_pressed()")
         if self.teeth_autogenerated_button.text() == "auto generated":
             self.teeth_autogenerated_button.setStyleSheet("")
             self.teeth_autogenerated_button.setText("OBJ")
@@ -485,6 +567,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.check_if_obj_to_metahuman_is_ready()
     
     def press_metahuman_to_obj_run_button(self):
+        logger.info("press_metahuman_to_obj_run_button()")
         make_symmetric = self.symmetrize_button.isChecked()
         self.modes_frame.hide()
         self.metahuman_to_obj_info_frame.show()
@@ -492,32 +575,50 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.resize(self.sizeHint())
         self.repaint()
 
-        result = met_main.MetahumanToObj(self.metahuman_folder, make_symmetric).run()
+        logger.info(f"met_main.MetahumanToObj({self.metahuman_folder}, {make_symmetric}).run()")
+        try:
+            result = met_main.MetahumanToObj(self, self.metahuman_folder, make_symmetric).run()
+        except Exception as e:
+            logger.exception(f"met_main.MetahumanToObj.run() failed: {e}")
+            result = "Error. Share your /MetaHumanExtraTools/met.log on Discord for help."
         
-        self.running_label.setText(result)
+        logger.info(f"met_main.MetahumanToObj.run() returned: {result}")
         if result == "Done!": 
-            self.running_label.setStyleSheet("color: hsl(177, 100%, 50%); font-weight: bold")
+            self.running_progress_bar.hide()
+            self.done_label.show()
             self.go_to_metahuman_folder_button.show()
-        else: self.running_label.setStyleSheet("color: hsl(333, 100%, 50%); font-weight: bold")
+        else:
+            self.running_progress_bar.setFormat(result)
+            self.running_progress_bar.setStyleSheet("/*-----QProgressBar-----*/\nQProgressBar\n{\n   background-color: hsl(333, 100%, 50%);\n}\n\nQProgressBar:chunk\n{\n   background-color: hsl(333, 100%, 50%);\n}")
         self.resize(self.sizeHint())
                 
     def press_obj_to_metahuman_run_button(self):
+        logger.info("press_obj_to_metahuman_run_button()")
         self.modes_frame.hide()
         self.obj_to_metahuman_info_frame.show()
         self.running_frame.show()
         self.resize(self.sizeHint())
         self.repaint()
 
-        result = met_main.ObjToMetahuman(self.combined, self.eyes, self.eyelashes, self.teeth, self.metahuman_folder).run()
+        logger.info(f"met_main.ObjToMetahuman({self.combined}, {self.eyes}, {self.eyelashes}, {self.teeth}, {self.metahuman_folder}).run()")
+        try:
+            result = met_main.ObjToMetahuman(self, self.combined, self.eyes, self.eyelashes, self.teeth, self.metahuman_folder).run()
+        except Exception as e:
+            logger.exception(f"met_main.ObjToMetahuman.run() failed: {e}")
+            result = "Error. Share your /MetaHumanExtraTools/met.log on Discord for help."
         
-        self.running_label.setText(result)
+        logger.info(f"met_main.ObjToMetahuman.run() returned: {result}")
         if result == "Done!": 
-            self.running_label.setStyleSheet("color: hsl(177, 100%, 50%); font-weight: bold")
+            self.running_progress_bar.hide()
+            self.done_label.show()
             self.go_to_metahuman_folder_button.show()
-        else: self.running_label.setStyleSheet("color: hsl(333, 100%, 50%); font-weight: bold")
+        else:
+            self.running_progress_bar.setFormat(result)
+            self.running_progress_bar.setStyleSheet("/*-----QProgressBar-----*/\nQProgressBar\n{\n   background-color: hsl(333, 100%, 50%);\n}\n\nQProgressBar:chunk\n{\n   background-color: hsl(333, 100%, 50%);\n}")
         self.resize(self.sizeHint())
     
     def import_dna(self):
+        logger.info("import_dna()")
         #cmds.file(new=True, f=True)
         response = cmds.fileDialog2(fileMode=1, caption="Select DNA file:")
         if response: 
@@ -567,11 +668,13 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
             self.close()
             
     def select_reference_vertices(self):
+        logger.info("select_reference_vertices()")
         body_joints_file = os.path.dirname(__file__) + "/resources/body_joints.json"
         joints_info = json.load(open(body_joints_file, "r"))
         return
 
     def debug(self):
+        logger.info("debug()")
         self.show_obj_to_metahuman()
         self.metahuman_folder = "F:/WorkspaceDesktop/met/MetaHumanExtraTools/private/debug"
         self.combined = f"{self.metahuman_folder}/new_OBJs/new_combined.obj"
@@ -581,6 +684,5 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.press_obj_to_metahuman_run_button()
 
         
-
 
 

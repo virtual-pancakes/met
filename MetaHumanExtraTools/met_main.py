@@ -7,6 +7,7 @@ import time
 import math
 import random # type: ignore
 import json
+import logging
 
 import maya.cmds as cmds
 import maya.api.OpenMaya as om2
@@ -34,8 +35,24 @@ sys.modules["PySide2.QtWidgets"] = sys.modules["PySide6.QtWidgets"]
 try: importlib.reload(resources.data)
 except: import resources.data
 
+# Configure logging
+for path in sys.path:
+    if "MetaHumanExtraTools" in path: 
+        met_path = path
+        break
+log_path = os.path.join(met_path, "met.log")
+logger = logging.getLogger(__name__)
+if logger.hasHandlers(): logger.handlers.clear()
+handler = logging.FileHandler(log_path)
+formatter = logging.Formatter("%(name)s|%(asctime)s|%(levelname)s|: %(message)s")
+handler.setFormatter(formatter)
+logger.addHandler(handler) 
+logger.setLevel(logging.DEBUG)
+logger.info(f"starting met_main logger ({logger})")
+logger.info("import met_main")
 
 def snap_vertices(floating, static, reference_vertex_ids):
+    logger.info(f"snap_vertices({floating}, {static})")
     #print("Snapping vertices...")
     #print(f"static: {static}")
     #print(f"floating: {floating}")
@@ -53,13 +70,16 @@ def snap_vertices(floating, static, reference_vertex_ids):
         floating_iterator.next()
 
 class MetahumanToObj:
-    def __init__(self, input_metahuman_folder, input_make_symmetric):
+    def __init__(self, gui, input_metahuman_folder, input_make_symmetric):
+        logger.info(f"MetahumanToObj.__init__({gui}, {input_metahuman_folder}, {input_make_symmetric})")
+        self.gui = gui
         self.input_metahuman_folder = input_metahuman_folder
         self.input_make_symmetric = input_make_symmetric
         self.head_dna_path = f"{self.input_metahuman_folder}/head.dna"
         self.body_dna_path = f"{self.input_metahuman_folder}/body.dna"
         
     def symmetrize(self, name):
+        logger.info(f"symmetrize({name})")
         dagpath = om2.MSelectionList().add(name).getDagPath(0)
         fn_mesh = om2.MFnMesh(dagpath)
         positions = fn_mesh.getPoints()
@@ -80,6 +100,7 @@ class MetahumanToObj:
             iterator.next()
     
     def symmetrize_eyelashes(self):
+        logger.info("symmetrize_eyelashes()")
         # Set drivers
         cmds.namespace(add=":driver")
         cmds.namespace(set=":driver")
@@ -106,6 +127,7 @@ class MetahumanToObj:
         cmds.namespace(set=":")
     
     def debug(self):
+        logger.info("debug()")
         cmds.file("F:/WorkspaceDesktop/met_tests/temp.mb", o=True, f=True)
         self.symmetrize("combined")
     
@@ -135,7 +157,8 @@ class MetahumanToObj:
 
         return closest_vertex_id
     
-    def run(self):    
+    def run(self):  
+        logger.info("run()")
         # start new scene
         original_warning_state = cmds.scriptEditorInfo(query=True, suppressWarnings=True)
         cmds.scriptEditorInfo(suppressWarnings=True)
@@ -163,6 +186,8 @@ class MetahumanToObj:
                     maya_mesh_handler.add_mesh_uv(element)
                     maya_mesh_handler.add_mesh_shader(element)
                     dna_meshes.append(element.name)
+            self.gui.running_progress_bar.setValue(25)
+        self.gui.running_progress_bar.setValue(35)
 
         # Rename meshes
         combined_meshes = []
@@ -210,15 +235,18 @@ class MetahumanToObj:
         destination_vertex1 = f"{combined_mesh}.vtx[{destination_vertex1_id}]"
         destination_vertex2 = f"{combined_mesh}.vtx[{destination_vertex2_id}]"
         destination_vertex3 = f"{combined_mesh}.vtx[{destination_vertex3_id}]"
-        mel.eval(f"meshRemap {source_vertex1} {source_vertex2} {source_vertex3} {destination_vertex1} {destination_vertex2} {destination_vertex3}")                       
+        mel.eval(f"meshRemap {source_vertex1} {source_vertex2} {source_vertex3} {destination_vertex1} {destination_vertex2} {destination_vertex3}")
 
         # Symmetrize
+        self.gui.running_progress_bar.setValue(50)
         if self.input_make_symmetric:
-            print("symmetrizing...")
+            self.gui.running_progress_bar.setFormat("Symmetrize takes a bit of time... don't panic!")
+            self.gui.repaint()
             self.symmetrize("combined")
             self.symmetrize("eyes")
             self.symmetrize("teeth")
             self.symmetrize_eyelashes()
+        self.gui.running_progress_bar.setValue(80)
         
         # Swap for meshes with polygroups
         for mesh in ["combined", "eyes", "eyelashes", "teeth"]:
@@ -272,7 +300,9 @@ class MetahumanToObj:
 
 class ObjToMetahuman:
     
-    def __init__(self, input_combined_obj, input_eyes_obj, input_eyelashes_obj, input_teeth_obj, input_metahuman_folder):
+    def __init__(self, gui, input_combined_obj, input_eyes_obj, input_eyelashes_obj, input_teeth_obj, input_metahuman_folder):
+        logger.info(f"ObjToMetahuman.__init__({gui}, {input_combined_obj}, {input_eyes_obj}, {input_eyelashes_obj}, {input_teeth_obj}, {input_metahuman_folder})")
+        self.gui = gui
         self.input_combined_obj = input_combined_obj
         self.input_eyes_obj = input_eyes_obj
         self.input_eyelashes_obj = input_eyelashes_obj
@@ -283,6 +313,7 @@ class ObjToMetahuman:
         self.print_parameters()
     
     def print_parameters(self):
+        logger.info("print_parameters()")
         print(f"combined: {self.input_combined_obj}")
         print(f"eyes: {self.input_eyes_obj}")
         print(f"eyelashes: {self.input_eyelashes_obj}")
@@ -291,15 +322,8 @@ class ObjToMetahuman:
         print(f"body dna: {self.input_body_dna}")
         print(f"metahuman folder: {self.input_metahuman_folder}")
     
-    def print_mesh_element(self, mesh_element):
-        print(f"{mesh_element.name}")
-        print(f"  index: {mesh_element.index}")
-        print(f"  lod: {mesh_element.lod}")
-        print(f"  poly_faces: {mesh_element.poly_faces}")
-        print(f"  poly_connections: {mesh_element.poly_connections}")
-        print("")
-    
     def load_dna(self):
+        logger.info("load_dna()")
         # Necessary group when creating meshes and joints from dna
         cmds.group(empty=True, name="head_grp")
             
@@ -380,6 +404,7 @@ class ObjToMetahuman:
         return
     
     def prepare_fitting_drivers(self):
+        logger.info("prepare_fitting_drivers()")
         cmds.namespace(add=":driver")
         cmds.namespace(set=":driver")
         drivers_file = os.path.dirname(__file__) + "/resources/drivers.fbx"
@@ -411,6 +436,7 @@ class ObjToMetahuman:
             cmds.setAttr(f"{bs}.{om2.MNamespace.stripNamespaceFromName(target)}", 1)
     
     def create_shrink_wrap(self, mesh, target, name="shrinkWrap1", **kwargs):
+        logger.info(f"create_shrink_wrap({mesh}, {target})")
         """
         Check available kwargs with parameters below.
         """
@@ -464,6 +490,7 @@ class ObjToMetahuman:
         return shrink_wrap
 
     def generate_missing_new_mesh(self, old_mesh):
+        logger.info(f"generate_missing_new_mesh({old_mesh})")
         new_mesh = old_mesh.replace("old", "new")
         cmds.namespace(set=":")
         cmds.duplicate(old_mesh, name=new_mesh)
@@ -543,6 +570,7 @@ class ObjToMetahuman:
         cmds.select(cl=True)
     
     def load_new_meshes(self):
+        logger.info("load_new_meshes()")
         # Load obj plugin
         if not cmds.pluginInfo("objExport.mll", query=True, loaded=True): cmds.loadPlugin("objExport.mll")
         
@@ -765,6 +793,7 @@ class ObjToMetahuman:
             cmds.setAttr(f"{target_joint_dag_path}.scaleZ", 1)  
     
     def fix_head_skeleton(self, joints_info):
+        logger.info("fix_head_skeleton()")
         dagpath = om2.MSelectionList().add("new_head:spine_04").getDagPath(0)
         dag_iterator = om2.MItDag().reset(dagpath)
         while not dag_iterator.isDone():
@@ -822,6 +851,7 @@ class ObjToMetahuman:
             dag_iterator.next()
     
     def fix_body_skeleton(self, namespace=":", source_namespace=":"):
+        logger.info("fix_body_skeleton()")
         body_joints_file = os.path.dirname(__file__) + "/resources/body_joints.json"
         joints_info = json.load(open(body_joints_file, "r"))
         root = namespace + "root"
@@ -1020,6 +1050,7 @@ class ObjToMetahuman:
             dag_iterator.next()
     
     def compute_total_error(self, joints, points):
+        logger.info("compute_total_error()")
         """
         Compute the total squared Euclidean distance between joints and their target points.
         
@@ -1039,6 +1070,7 @@ class ObjToMetahuman:
         return total_error
 
     def align_joints_to_points_with_tolerance(self, joints, points, iterations=50, step_size=1.0, tolerance=1.0, max_iterations=1000):
+        logger.info("align_joints_to_points_with_tolerance()")
         """
         Aligns a chain of joints to corresponding points in Maya with error tolerance.
         
@@ -1164,6 +1196,7 @@ class ObjToMetahuman:
         print(f"Final total squared error: {final_error:.6f} after {total_iterations} iterations")
     
     def create_new_skeleton(self, old_skeleton_root):
+        logger.info(f"create_new_skeleton({old_skeleton_root})")
 
         # Set namespace
         old_namespace = old_skeleton_root.split(":")[0]
@@ -1270,6 +1303,7 @@ class ObjToMetahuman:
         cmds.namespace(set=":")
     
     def get_mesh_vertex_positions_from_scene(self, meshName):
+        logger.info(f"get_mesh_vertex_positions_from_scene({meshName})")
         try:
             dagpath = om2.MSelectionList().add(meshName).getDagPath(0)
 
@@ -1288,6 +1322,7 @@ class ObjToMetahuman:
             return []
 
     def run_vertices_command(self, calibrated, old_vertex_positions, new_vertex_positions, mesh_id):
+        logger.info("run_vertices_command()")
         # Making deltas between old vertices positions and new one
         deltas = []
         i = 0
@@ -1315,6 +1350,7 @@ class ObjToMetahuman:
             raise RuntimeError(f"Error run_vertices_command: {status.message}")
 
     def run_joints_command(self, reader, calibrated, namespace=""):
+        logger.info("run_joints_command()")
         # Making arrays for joints' transformations and their corresponding mapping arrays
         joint_translations = []
         joint_rotations = []
@@ -1348,6 +1384,7 @@ class ObjToMetahuman:
             raise RuntimeError(f"Error run_joints_command: {status.message}")
         
     def save_body_dna(self):
+        logger.info("save_body_dna()")
         head_input_stream = FileStream(self.input_head_dna, FileStream.AccessMode_Read, FileStream.OpenMode_Binary)
         body_input_stream = FileStream(self.input_body_dna, FileStream.AccessMode_Read, FileStream.OpenMode_Binary)
         head_reader = BinaryStreamReader(head_input_stream, DataLayer_All)
@@ -1399,6 +1436,7 @@ class ObjToMetahuman:
         return
     
     def fix_pose(self):
+        logger.info("fix_pose()")
         """
         """
         head_input_stream = FileStream(self.input_head_dna, AccessMode_Read, OpenMode_Binary)
@@ -1437,6 +1475,7 @@ class ObjToMetahuman:
                 if element.lod == 0: lod0_mesh_elements.append(element)
             maya_skinweights_handler = MayaSkinWeightsHandler(dna_object, form, maya_config)
             maya_skinweights_handler.create_skin_weights(lod0_mesh_elements)
+            self.gui.running_progress_bar.setValue(65)
 
             ## Create body rig logic
             #if reader == body_reader:
@@ -1550,6 +1589,7 @@ class ObjToMetahuman:
         cmds.select(cl=True)
 
     def validate_inputs(self):
+        logger.info("validate_inputs()")
         # Validate dnas
         if not os.path.exists(self.input_head_dna): return "Error: head.dna not found in the MetaHuman folder."
         if not os.path.exists(self.input_body_dna): return "Error: body.dna not found in the MetaHuman folder."
@@ -1631,34 +1671,42 @@ class ObjToMetahuman:
         return "valid"
     
     def run(self):
+        logger.info("run()")
         cmds.file(new=True, force=True)
 
         """
         """
+
         result = self.validate_inputs()
         if result != "valid": return result
+        self.gui.running_progress_bar.setValue(5)
 
         self.load_dna()
+        self.gui.running_progress_bar.setValue(15)
         #cmds.file(rename="F:/WorkspaceDesktop/met/MetaHumanExtraTools/private/debug/temp1_load_dna_done.mb")
         #cmds.file(f=True, save=True)
         
         #cmds.file("F:/WorkspaceDesktop/met/MetaHumanExtraTools/private/debug/temp1_load_dna_done.mb", open=True, force=True)
         self.load_new_meshes()
+        self.gui.running_progress_bar.setValue(25)
         #cmds.file(rename="F:/WorkspaceDesktop/met/MetaHumanExtraTools/private/debug/temp2_load_new_meshes_done.mb")
         #cmds.file(f=True, save=True)
         
         #cmds.file("F:/WorkspaceDesktop/met/MetaHumanExtraTools/private/debug/temp2_load_new_meshes_done.mb", open=True, force=True)
         self.create_new_skeleton("old_body:root")
+        self.gui.running_progress_bar.setValue(35)
         #cmds.file(rename="F:/WorkspaceDesktop/met/MetaHumanExtraTools/private/debug/temp3_create_body_skeleton_done.mb")
         #cmds.file(f=True, save=True)
 
         #cmds.file("F:/WorkspaceDesktop/met/MetaHumanExtraTools/private/debug/temp3_create_body_skeleton_done.mb", open=True, force=True)
         self.create_new_skeleton("old_head:spine_04")
+        self.gui.running_progress_bar.setValue(45)
         #cmds.file(rename="F:/WorkspaceDesktop/met/MetaHumanExtraTools/private/debug/temp4_create_head_skeleton_done.mb")
         #cmds.file(f=True, save=True)
 
         #cmds.file("F:/WorkspaceDesktop/met/MetaHumanExtraTools/private/debug/temp4_create_head_skeleton_done.mb", open=True, force=True)
         self.fix_pose()
+        self.gui.running_progress_bar.setValue(80)
         #cmds.file(rename="F:/WorkspaceDesktop/met/MetaHumanExtraTools/private/debug/temp5_fix_pose_done.mb")
         #cmds.file(f=True, save=True)
         

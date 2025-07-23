@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1200</width>
-    <height>902</height>
+    <height>994</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -84,8 +84,6 @@ QPushButton
 	padding: 5px;
 	border: none;
 	border-radius: 5px;
-
-
 }
 
 
@@ -109,6 +107,29 @@ QPushButton::disabled
 
 }
 
+
+/*-----QProgressBar-----*/
+QProgressBar
+{
+	background-color: hsv(187, 100%, 70%);
+	color: rgb(255, 255, 255);
+	font-size: 13px;
+	font-weight: bold;
+	padding: -1px;
+	border: none;
+	border-radius: 5px;
+}
+
+QProgressBar:chunk
+{
+	background-color: hsv(180, 100%, 90%);
+	color: rgb(255, 255, 255);
+	font-size: 20px;
+	font-weight: bold;
+	padding: -1px;
+	border: none;
+	border-radius: 8px;
+}
 
 
 /*-----QCheckBox-----*/
@@ -556,6 +577,61 @@ font-size:20px
         <number>5</number>
        </property>
        <item>
+        <widget class="QFrame" name="maya_version_frame">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_13">
+          <property name="spacing">
+           <number>5</number>
+          </property>
+          <property name="leftMargin">
+           <number>5</number>
+          </property>
+          <property name="topMargin">
+           <number>5</number>
+          </property>
+          <property name="rightMargin">
+           <number>5</number>
+          </property>
+          <property name="bottomMargin">
+           <number>5</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="label_8">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: hsl(333, 100%, 50%); font-weight: bold</string>
+            </property>
+            <property name="text">
+             <string>Minimum Maya version required is 2023.3</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
         <widget class="QFrame" name="frame2">
          <property name="sizePolicy">
           <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
@@ -838,6 +914,18 @@ font-size:20px
           </item>
           <item>
            <widget class="QPushButton" name="update_button">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>40</height>
+             </size>
+            </property>
             <property name="styleSheet">
              <string notr="true">QPushButton
 {
@@ -863,6 +951,70 @@ QPushButton::pressed
             </property>
            </widget>
           </item>
+          <item>
+           <widget class="QProgressBar" name="update_progress_bar">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QProgressBar
+{
+	background-color: hsl(50, 100%, 50%);
+}
+
+QProgressBar:chunk
+{
+	background-color: hsv(180, 100%, 90%);
+}</string>
+            </property>
+            <property name="value">
+             <number>0</number>
+            </property>
+            <property name="format">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="restart_met_button">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Restart MET to apply changes</string>
+            </property>
+           </widget>
+          </item>
           <item alignment="Qt::AlignHCenter">
            <widget class="QLabel" name="updating_label">
             <property name="styleSheet">
@@ -880,19 +1032,6 @@ QPushButton::pressed
             </property>
             <property name="text">
              <string>Updated successfully</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="restart_met_button">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string>Restart MET to apply changes</string>
             </property>
            </widget>
           </item>
@@ -1028,6 +1167,9 @@ QPushButton::pressed
               <height>100</height>
              </size>
             </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
             <property name="text">
              <string>Debug</string>
             </property>
@@ -1035,6 +1177,18 @@ QPushButton::pressed
           </item>
           <item>
            <widget class="QPushButton" name="select_reference_vertices_button">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>40</height>
+             </size>
+            </property>
             <property name="text">
              <string>select reference vertices</string>
             </property>
@@ -1042,6 +1196,18 @@ QPushButton::pressed
           </item>
           <item>
            <widget class="QPushButton" name="import_dna_button">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>40</height>
+             </size>
+            </property>
             <property name="text">
              <string>import dna</string>
             </property>
@@ -1073,6 +1239,18 @@ QPushButton::pressed
              </property>
              <item>
               <widget class="QPushButton" name="joints_button">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>40</height>
+                </size>
+               </property>
                <property name="styleSheet">
                 <string notr="true">/*-----QPushButton-----*/
 QPushButton
@@ -1120,6 +1298,18 @@ QPushButton::checked::pressed
              </item>
              <item>
               <widget class="QPushButton" name="skinweights_button">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>40</height>
+                </size>
+               </property>
                <property name="styleSheet">
                 <string notr="true">/*-----QPushButton-----*/
 QPushButton
@@ -1167,6 +1357,18 @@ QPushButton::checked::pressed
              </item>
              <item>
               <widget class="QPushButton" name="riglogic_button">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>40</height>
+                </size>
+               </property>
                <property name="styleSheet">
                 <string notr="true">/*-----QPushButton-----*/
 QPushButton
@@ -1426,13 +1628,13 @@ QPushButton::checked::pressed
             <property name="minimumSize">
              <size>
               <width>0</width>
-              <height>37</height>
+              <height>40</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
               <width>16777215</width>
-              <height>37</height>
+              <height>40</height>
              </size>
             </property>
             <property name="text">
@@ -1530,7 +1732,13 @@ QPushButton::checked::pressed
                <property name="minimumSize">
                 <size>
                  <width>0</width>
-                 <height>31</height>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>40</height>
                 </size>
                </property>
                <property name="text">
@@ -1546,7 +1754,13 @@ QPushButton::checked::pressed
                <property name="minimumSize">
                 <size>
                  <width>80</width>
-                 <height>0</height>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>40</height>
                 </size>
                </property>
                <property name="text">
@@ -1592,7 +1806,13 @@ QPushButton::checked::pressed
                <property name="minimumSize">
                 <size>
                  <width>0</width>
-                 <height>31</height>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>40</height>
                 </size>
                </property>
                <property name="text">
@@ -1608,7 +1828,13 @@ QPushButton::checked::pressed
                <property name="minimumSize">
                 <size>
                  <width>80</width>
-                 <height>0</height>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>40</height>
                 </size>
                </property>
                <property name="text">
@@ -1657,7 +1883,13 @@ QPushButton::checked::pressed
                <property name="minimumSize">
                 <size>
                  <width>0</width>
-                 <height>31</height>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>40</height>
                 </size>
                </property>
                <property name="text">
@@ -1676,7 +1908,13 @@ QPushButton::checked::pressed
                <property name="minimumSize">
                 <size>
                  <width>80</width>
-                 <height>0</height>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>40</height>
                 </size>
                </property>
                <property name="styleSheet">
@@ -1728,7 +1966,13 @@ QPushButton::checked::pressed
                <property name="minimumSize">
                 <size>
                  <width>0</width>
-                 <height>31</height>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>40</height>
                 </size>
                </property>
                <property name="text">
@@ -1747,7 +1991,13 @@ QPushButton::checked::pressed
                <property name="minimumSize">
                 <size>
                  <width>80</width>
-                 <height>0</height>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>40</height>
                 </size>
                </property>
                <property name="styleSheet">
@@ -1845,7 +2095,13 @@ QPushButton::checked::pressed
                <property name="minimumSize">
                 <size>
                  <width>145</width>
-                 <height>0</height>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>40</height>
                 </size>
                </property>
                <property name="styleSheet">
@@ -1904,7 +2160,13 @@ QPushButton::checked::pressed
                <property name="minimumSize">
                 <size>
                  <width>145</width>
-                 <height>0</height>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>40</height>
                 </size>
                </property>
                <property name="styleSheet">
@@ -1994,7 +2256,7 @@ QPushButton::checked::pressed
              </size>
             </property>
             <property name="styleSheet">
-             <string notr="true">font-size:20px</string>
+             <string notr="true"/>
             </property>
             <property name="text">
              <string>Run</string>
@@ -2013,7 +2275,7 @@ QPushButton::checked::pressed
              </size>
             </property>
             <property name="styleSheet">
-             <string notr="true">font-size:20px</string>
+             <string notr="true"/>
             </property>
             <property name="text">
              <string>Run</string>
@@ -2068,7 +2330,7 @@ QPushButton::checked::pressed
        <item>
         <widget class="QFrame" name="frame_6">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+          <sizepolicy hsizetype="Maximum" vsizetype="Minimum">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
@@ -2131,7 +2393,7 @@ QPushButton::checked::pressed
              <item>
               <widget class="QLabel" name="label_12">
                <property name="sizePolicy">
-                <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+                <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
                  <horstretch>0</horstretch>
                  <verstretch>0</verstretch>
                 </sizepolicy>
@@ -2159,13 +2421,13 @@ QPushButton::checked::pressed
           <item>
            <widget class="QFrame" name="obj_to_metahuman_info_frame">
             <property name="sizePolicy">
-             <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+             <sizepolicy hsizetype="Maximum" vsizetype="Ignored">
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
             <property name="styleSheet">
-             <string notr="true">background: transparent</string>
+             <string notr="true">#obj_to_metahuman_info_frame {background: transparent}</string>
             </property>
             <property name="frameShape">
              <enum>QFrame::StyledPanel</enum>
@@ -2173,7 +2435,7 @@ QPushButton::checked::pressed
             <property name="frameShadow">
              <enum>QFrame::Raised</enum>
             </property>
-            <layout class="QVBoxLayout" name="verticalLayout_17">
+            <layout class="QVBoxLayout" name="verticalLayout_17" stretch="0,0,0,0,0">
              <property name="spacing">
               <number>0</number>
              </property>
@@ -2192,7 +2454,7 @@ QPushButton::checked::pressed
              <item>
               <widget class="QLabel" name="label_11">
                <property name="sizePolicy">
-                <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+                <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
                  <horstretch>0</horstretch>
                  <verstretch>0</verstretch>
                 </sizepolicy>
@@ -2230,10 +2492,13 @@ QPushButton::checked::pressed
              <item>
               <widget class="QLabel" name="label_13">
                <property name="sizePolicy">
-                <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+                <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
                  <horstretch>0</horstretch>
                  <verstretch>0</verstretch>
                 </sizepolicy>
+               </property>
+               <property name="mouseTracking">
+                <bool>true</bool>
                </property>
                <property name="text">
                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;Next conform to the new head DNA: go to &amp;quot;Head&amp;quot; &amp;gt; &amp;quot;Conform&amp;quot; &amp;gt; &amp;quot;Import DNA&amp;quot;, select your new head DNA file, and import with the following options:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -2262,7 +2527,7 @@ QPushButton::checked::pressed
              <item>
               <widget class="QLabel" name="label_14">
                <property name="sizePolicy">
-                <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+                <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
                  <horstretch>0</horstretch>
                  <verstretch>0</verstretch>
                 </sizepolicy>
@@ -2279,24 +2544,45 @@ QPushButton::checked::pressed
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="running_label">
+           <widget class="QProgressBar" name="running_progress_bar">
             <property name="sizePolicy">
-             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Maximum">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
-            <property name="styleSheet">
-             <string notr="true">color: hsl(50, 100%, 50%); font-weight: bold</string>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>40</height>
+             </size>
             </property>
-            <property name="text">
-             <string>Running...</string>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="value">
+             <number>1</number>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
             </property>
-            <property name="wordWrap">
+            <property name="textVisible">
              <bool>true</bool>
+            </property>
+            <property name="invertedAppearance">
+             <bool>false</bool>
+            </property>
+            <property name="textDirection">
+             <enum>QProgressBar::TopToBottom</enum>
+            </property>
+            <property name="format">
+             <string>Running...</string>
             </property>
            </widget>
           </item>
@@ -2308,8 +2594,42 @@ QPushButton::checked::pressed
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>40</height>
+             </size>
+            </property>
             <property name="text">
              <string>Go to MetaHuman folder</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="done_label">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Maximum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: hsl(177, 100%, 50%); font-weight: bold</string>
+            </property>
+            <property name="text">
+             <string>Done!</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
             </property>
            </widget>
           </item>
