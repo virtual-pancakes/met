@@ -29,9 +29,9 @@ from mh_assemble_lib.model.element import MeshElement
 
 # Use PySide6 for Maya 2025+ and PySide2 for Maya 2024-
 try:
-    from PySide6.QtCore import QSize, Qt, QMargins, Slot, Signal, QRect, QThread, QObject, QEvent
-    from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QVBoxLayout, QHBoxLayout, QWidget, QScrollArea, QWizard, QFrame, QLabel, QLineEdit, QSpacerItem, QProgressBar
-    from PySide6.QtGui import QIcon, QPalette, QMovie, QImage, QPixmap
+    from PySide6.QtCore import QSize, Qt, QMargins, Slot, Signal, QRect, QThread, QObject, QEvent # type: ignore
+    from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QVBoxLayout, QHBoxLayout, QWidget, QScrollArea, QWizard, QFrame, QLabel, QLineEdit, QSpacerItem, QProgressBar # type: ignore
+    from PySide6.QtGui import QIcon, QPalette, QMovie, QImage, QPixmap # type: ignore
 except:
     from PySide2.QtCore import QSize, Qt, QMargins, Slot, Signal, QRect, QThread, QObject, QEvent
     from PySide2.QtWidgets import QApplication, QMainWindow, QPushButton, QVBoxLayout, QHBoxLayout, QWidget, QScrollArea, QWizard, QFrame, QLabel, QLineEdit, QSpacerItem, QProgressBar
@@ -91,7 +91,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         
         # Version
         self.new_version_frame.hide()
-        self.updating_label.hide()
+        self.update_progress_bar.hide()
         self.updated_successfully_label.hide()
         self.restart_met_button.hide()
         self.update_failed_frame.hide()
@@ -136,7 +136,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         # Connect buttons
         self.metahuman_to_obj_button.clicked.connect(self.show_metahuman_to_obj)
         self.obj_to_metahuman_button.clicked.connect(self.show_obj_to_metahuman)
-        self.update_button.clicked.connect(self.fake_update)
+        self.update_button.clicked.connect(self.update)
         self.debug_button.clicked.connect(self.debug)
         self.select_reference_vertices_button.clicked.connect(self.select_reference_vertices)
         self.metahuman_folder_button.clicked.connect(self.select_metahuman_folder)
@@ -271,17 +271,18 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
                                     break
                                 f.write(chunk)
                         logger.info(f"Downloaded {file_url} to {local_path}")
+                        self.downloaded_file_count += 1
                         self.update_progress_bar.setValue(int(100 * self.downloaded_file_count / self.repo_file_count))
                         return True
                     else:
                         logger.warning(f"Failed to download {file_url}: HTTP {response.getcode()}")
                         return False
             except urllib.error.URLError as e:
-                logger.error(f"Attempt {attempt + 1}/{max_retries} failed for {file_url}: {e}")
+                logger.info(f"Attempt {attempt + 1}/{max_retries} failed for {file_url}: {e}")
                 if attempt < max_retries - 1:
                     time.sleep(2 ** attempt)  # Exponential backoff: 1s, 2s, 4s, 8s, 16s
                 else:
-                    logger.error(f"Failed to download {file_url} after {max_retries} attempts")
+                    logger.info(f"Failed to download {file_url} after {max_retries} attempts")
                     return False
             except OSError as e:
                 logger.exception(f"Error saving {local_path}: {e}")
@@ -345,26 +346,24 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
             logger.exception(f"Error counting files in {api_url}: {e}")
         return count
     
-    def fake_update(self):
-        return
-    
     def update(self):
         logger.info("update()")
         self.update_button.hide()
-        self.updating_label.show()
+        self.update_progress_bar.show()
         self.resize(self.sizeHint())
         self.repaint()
         
         api_url = f"http://api.github.com/repos/virtual-pancakes/met/contents/?ref=main"
         self.repo_file_count = self.count_files_in_repo(api_url)
+        if self.repo_file_count == 0: self.repo_file_count = 1
         self.downloaded_file_count = 0
 
-        #modules_folder = "C:/modules"
         for path in sys.path:
             if "MetaHumanExtraTools" in path: 
                 met_path = path
                 break
         modules_folder = os.path.join(met_path, "..")
+        #modules_folder = "E:/Downloads/modules"
         
         # Create a temporary directory for caching
         temp_folder = tempfile.mkdtemp()
@@ -377,7 +376,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         if downloaded_files is None:
             logger.info("Download failed; cleaning up temporary directory.")
             shutil.rmtree(temp_folder, ignore_errors=True)
-            self.updating_label.hide()
+            self.update_progress_bar.hide()
             self.update_failed_frame.show()
             self.resize(self.sizeHint())
             return
@@ -395,13 +394,13 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
                 shutil.move(temp_path, final_path)
                 logger.info(f"Moved {temp_path} to {final_path}")
             logger.info(f"All files successfully moved to {modules_folder}")
-            self.updating_label.hide()
+            self.update_progress_bar.hide()
             self.updated_successfully_label.show()
             self.restart_met_button.show()
             self.resize(self.sizeHint())
         except OSError as e:
             logger.exception(f"Error moving files to {modules_folder}: {e}")
-            self.updating_label.hide()
+            self.update_progress_bar.hide()
             self.update_failed_frame.show()
             self.resize(self.sizeHint())
         finally:

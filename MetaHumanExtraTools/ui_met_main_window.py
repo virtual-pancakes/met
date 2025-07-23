@@ -23,7 +23,7 @@ class Ui_METMainWindow(object):
     def setupUi(self, METMainWindow):
         if not METMainWindow.objectName():
             METMainWindow.setObjectName(u"METMainWindow")
-        METMainWindow.resize(1200, 994)
+        METMainWindow.resize(1200, 972)
         sizePolicy = QSizePolicy(QSizePolicy.Policy.Maximum, QSizePolicy.Policy.Maximum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -727,7 +727,8 @@ class Ui_METMainWindow(object):
 "{\n"
 "	background-color: hsv(180, 100%, 90%);\n"
 "}")
-        self.update_progress_bar.setValue(0)
+        self.update_progress_bar.setValue(5)
+        self.update_progress_bar.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_12.addWidget(self.update_progress_bar)
 
@@ -742,12 +743,6 @@ class Ui_METMainWindow(object):
         self.restart_met_button.setMaximumSize(QSize(16777215, 40))
 
         self.verticalLayout_12.addWidget(self.restart_met_button)
-
-        self.updating_label = QLabel(self.new_version_frame)
-        self.updating_label.setObjectName(u"updating_label")
-        self.updating_label.setStyleSheet(u"color: hsl(50, 100%, 50%); font-weight: bold")
-
-        self.verticalLayout_12.addWidget(self.updating_label, 0, Qt.AlignHCenter)
 
         self.updated_successfully_label = QLabel(self.new_version_frame)
         self.updated_successfully_label.setObjectName(u"updated_successfully_label")
@@ -1530,9 +1525,8 @@ class Ui_METMainWindow(object):
         self.label_7.setText(QCoreApplication.translate("METMainWindow", u"New version available:", None))
         self.changes_label.setText("")
         self.update_button.setText(QCoreApplication.translate("METMainWindow", u"Update", None))
-        self.update_progress_bar.setFormat("")
+        self.update_progress_bar.setFormat(QCoreApplication.translate("METMainWindow", u"Updating...", None))
         self.restart_met_button.setText(QCoreApplication.translate("METMainWindow", u"Restart MET to apply changes", None))
-        self.updating_label.setText(QCoreApplication.translate("METMainWindow", u"Updating...", None))
         self.updated_successfully_label.setText(QCoreApplication.translate("METMainWindow", u"Updated successfully", None))
         self.label_9.setText(QCoreApplication.translate("METMainWindow", u"Failed to check for updates. Please check for the latest version available at:", None))
         self.artstation_link_label.setText(QCoreApplication.translate("METMainWindow", u"<a href='https://www.artstation.com/marketplace/p/pR97n/metahuman-extra-tools'>ArtStation</a>", None))

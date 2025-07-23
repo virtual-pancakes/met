@@ -1,7 +1,7 @@
 {
-    "current_version": "1.4.1",
-    "current_version_changes": "Fixed bug for Maya 2023.3",
-    "newest_version": "1.4.1",
-    "newest_version_changes": "Fixed bug for Maya 2023.3",
+    "current_version": "1.5",
+    "current_version_changes": "Added loading bars\nImproved logging",
+    "newest_version": "1.5",
+    "newest_version_changes": "Added loading bars\nImproved logging",
     "checked_for_new_version": true
 }
