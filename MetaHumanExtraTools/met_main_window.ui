@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1610</width>
+    <width>1810</width>
     <height>972</height>
    </rect>
   </property>
@@ -2675,13 +2675,13 @@ QPushButton::checked::pressed
          </property>
          <property name="minimumSize">
           <size>
-           <width>400</width>
+           <width>600</width>
            <height>0</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>400</width>
+           <width>600</width>
            <height>16777215</height>
           </size>
          </property>
@@ -2708,7 +2708,7 @@ QPushButton::checked::pressed
            <number>50</number>
           </property>
           <item>
-           <widget class="QScrollArea" name="scrollArea">
+           <widget class="QScrollArea" name="bs_scroll_area">
             <property name="minimumSize">
              <size>
               <width>0</width>
@@ -2724,12 +2724,12 @@ QPushButton::checked::pressed
             <property name="widgetResizable">
              <bool>true</bool>
             </property>
-            <widget class="QWidget" name="scrollAreaWidgetContents">
+            <widget class="QWidget" name="bs_scroll_area_contents">
              <property name="geometry">
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>390</width>
+               <width>590</width>
                <height>100</height>
               </rect>
              </property>
@@ -2750,16 +2750,19 @@ QPushButton::checked::pressed
                <number>5</number>
               </property>
               <item>
-               <widget class="QPushButton" name="pushButton">
+               <widget class="QLabel" name="label_15">
                 <property name="text">
-                 <string>PushButton</string>
+                 <string>McornerPull_Mstretch_MupperLipRaise_MlowerLipDepress_JopenExtreme_R</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QPushButton" name="pushButton_3">
-                <property name="text">
-                 <string>PushButton</string>
+               <widget class="QFrame" name="active_bs_frame">
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
                 </property>
                </widget>
               </item>
