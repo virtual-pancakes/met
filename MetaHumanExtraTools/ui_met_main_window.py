@@ -16,14 +16,14 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
-    QMainWindow, QProgressBar, QPushButton, QSizePolicy,
-    QSpacerItem, QVBoxLayout, QWidget)
+    QMainWindow, QProgressBar, QPushButton, QScrollArea,
+    QSizePolicy, QSpacerItem, QVBoxLayout, QWidget)
 
 class Ui_METMainWindow(object):
     def setupUi(self, METMainWindow):
         if not METMainWindow.objectName():
             METMainWindow.setObjectName(u"METMainWindow")
-        METMainWindow.resize(1200, 972)
+        METMainWindow.resize(1610, 972)
         sizePolicy = QSizePolicy(QSizePolicy.Policy.Maximum, QSizePolicy.Policy.Maximum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -1506,6 +1506,82 @@ class Ui_METMainWindow(object):
 
         self.horizontalLayout_2.addWidget(self.running_frame)
 
+        self.edit_bs_frame = QFrame(self.centralwidget)
+        self.edit_bs_frame.setObjectName(u"edit_bs_frame")
+        sizePolicy.setHeightForWidth(self.edit_bs_frame.sizePolicy().hasHeightForWidth())
+        self.edit_bs_frame.setSizePolicy(sizePolicy)
+        self.edit_bs_frame.setStyleSheet(u"#edit_bs_frame {background: transparent}")
+        self.edit_bs_frame.setFrameShape(QFrame.StyledPanel)
+        self.edit_bs_frame.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_20 = QVBoxLayout(self.edit_bs_frame)
+        self.verticalLayout_20.setSpacing(5)
+        self.verticalLayout_20.setObjectName(u"verticalLayout_20")
+        self.verticalLayout_20.setContentsMargins(5, 5, 5, 5)
+        self.edit_bs_frame_inner = QFrame(self.edit_bs_frame)
+        self.edit_bs_frame_inner.setObjectName(u"edit_bs_frame_inner")
+        sizePolicy15.setHeightForWidth(self.edit_bs_frame_inner.sizePolicy().hasHeightForWidth())
+        self.edit_bs_frame_inner.setSizePolicy(sizePolicy15)
+        self.edit_bs_frame_inner.setMinimumSize(QSize(400, 0))
+        self.edit_bs_frame_inner.setMaximumSize(QSize(400, 16777215))
+        self.edit_bs_frame_inner.setFrameShape(QFrame.StyledPanel)
+        self.edit_bs_frame_inner.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_18 = QVBoxLayout(self.edit_bs_frame_inner)
+        self.verticalLayout_18.setSpacing(5)
+        self.verticalLayout_18.setObjectName(u"verticalLayout_18")
+        self.verticalLayout_18.setContentsMargins(5, 50, 5, 50)
+        self.scrollArea = QScrollArea(self.edit_bs_frame_inner)
+        self.scrollArea.setObjectName(u"scrollArea")
+        self.scrollArea.setMinimumSize(QSize(0, 100))
+        self.scrollArea.setMaximumSize(QSize(16777215, 100))
+        self.scrollArea.setWidgetResizable(True)
+        self.scrollAreaWidgetContents = QWidget()
+        self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 390, 100))
+        self.verticalLayout_19 = QVBoxLayout(self.scrollAreaWidgetContents)
+        self.verticalLayout_19.setSpacing(5)
+        self.verticalLayout_19.setObjectName(u"verticalLayout_19")
+        self.verticalLayout_19.setContentsMargins(5, 5, 5, 5)
+        self.pushButton = QPushButton(self.scrollAreaWidgetContents)
+        self.pushButton.setObjectName(u"pushButton")
+
+        self.verticalLayout_19.addWidget(self.pushButton)
+
+        self.pushButton_3 = QPushButton(self.scrollAreaWidgetContents)
+        self.pushButton_3.setObjectName(u"pushButton_3")
+
+        self.verticalLayout_19.addWidget(self.pushButton_3)
+
+        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
+
+        self.verticalLayout_18.addWidget(self.scrollArea)
+
+        self.animation_frame = QFrame(self.edit_bs_frame_inner)
+        self.animation_frame.setObjectName(u"animation_frame")
+        sizePolicy6.setHeightForWidth(self.animation_frame.sizePolicy().hasHeightForWidth())
+        self.animation_frame.setSizePolicy(sizePolicy6)
+        self.animation_frame.setFrameShape(QFrame.StyledPanel)
+        self.animation_frame.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_9 = QHBoxLayout(self.animation_frame)
+        self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
+        self.animation_button = QPushButton(self.animation_frame)
+        self.animation_button.setObjectName(u"animation_button")
+
+        self.horizontalLayout_9.addWidget(self.animation_button)
+
+        self.animation_label = QLabel(self.animation_frame)
+        self.animation_label.setObjectName(u"animation_label")
+
+        self.horizontalLayout_9.addWidget(self.animation_label)
+
+
+        self.verticalLayout_18.addWidget(self.animation_frame)
+
+
+        self.verticalLayout_20.addWidget(self.edit_bs_frame_inner)
+
+
+        self.horizontalLayout_2.addWidget(self.edit_bs_frame)
+
         METMainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(METMainWindow)
@@ -1565,5 +1641,9 @@ class Ui_METMainWindow(object):
         self.running_progress_bar.setFormat(QCoreApplication.translate("METMainWindow", u"Running...", None))
         self.go_to_metahuman_folder_button.setText(QCoreApplication.translate("METMainWindow", u"Go to MetaHuman folder", None))
         self.done_label.setText(QCoreApplication.translate("METMainWindow", u"Done!", None))
+        self.pushButton.setText(QCoreApplication.translate("METMainWindow", u"PushButton", None))
+        self.pushButton_3.setText(QCoreApplication.translate("METMainWindow", u"PushButton", None))
+        self.animation_button.setText(QCoreApplication.translate("METMainWindow", u"Facial Animation", None))
+        self.animation_label.setText(QCoreApplication.translate("METMainWindow", u"...", None))
     # retranslateUi
 

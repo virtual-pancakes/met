@@ -117,6 +117,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.maya_version_frame.hide()
         self.modes_frame.hide()
         self.running_frame.hide()
+        self.edit_bs_frame.hide()
         self.done_label.hide()
         self.go_to_metahuman_folder_button.hide()
         self.metahuman_to_obj_info_frame.hide()
