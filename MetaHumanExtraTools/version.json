@@ -1,7 +1,7 @@
 {
-    "current_version": "1.5.1",
-    "current_version_changes": "Modified lips polygroup\nFixed bug",
-    "newest_version": "1.5.1",
-    "newest_version_changes": "Modified lips polygroup\nFixed bug",
+    "current_version": "1.5.2",
+    "current_version_changes": "Better error message on invalid vertex order",
+    "newest_version": "1.5.2",
+    "newest_version_changes": "Better error message on invalid vertex order",
     "checked_for_new_version": true
 }
