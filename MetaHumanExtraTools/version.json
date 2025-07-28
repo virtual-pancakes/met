@@ -1,7 +1,7 @@
 {
     "current_version": "1.5.1",
     "current_version_changes": "Modified lips polygroup\nFixed bug",
-    "newest_version": "1.5",
-    "newest_version_changes": "Added loading bars\nImproved logging",
+    "newest_version": "1.5.1",
+    "newest_version_changes": "Modified lips polygroup\nFixed bug",
     "checked_for_new_version": true
 }
