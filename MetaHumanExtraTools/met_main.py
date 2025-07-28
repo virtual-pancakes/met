@@ -620,7 +620,10 @@ class ObjToMetahuman:
         destination_vertex1 = "new_body:body_lod0_mesh.vtx[8]"
         destination_vertex2 = "new_body:body_lod0_mesh.vtx[9244]"
         destination_vertex3 = "new_body:body_lod0_mesh.vtx[27330]"
-        mel.eval(f"meshRemap {source_vertex1} {source_vertex2} {source_vertex3} {destination_vertex1} {destination_vertex2} {destination_vertex3}")                       
+        try:
+            mel.eval(f"meshRemap {source_vertex1} {source_vertex2} {source_vertex3} {destination_vertex1} {destination_vertex2} {destination_vertex3}")
+        except:
+            return "meshRemap failed"
         cmds.delete(cmds.ls("temp:*"))
 
         # Import eyelashes if available
@@ -668,6 +671,8 @@ class ObjToMetahuman:
             cmds.delete(cmds.ls("driver_target:*"))
             cmds.namespace(rm=":driver")
             cmds.namespace(rm=":driver_target")
+
+        return True
 
     def create_matrix_from_vectors(self, tangent, bitangent, normal, position):
         # Create an MMatrix and fill it with the correct values
@@ -1687,7 +1692,8 @@ class ObjToMetahuman:
         #cmds.file(f=True, save=True)
         
         #cmds.file("F:/WorkspaceDesktop/met/MetaHumanExtraTools/private/debug/temp1_load_dna_done.mb", open=True, force=True)
-        self.load_new_meshes()
+        result = self.load_new_meshes()
+        if result == "meshRemap failed": return "Error. Combined mesh has wrong vertex order. Try using Maya's 'Transfer Vertex Order' to transfer from a valid combined mesh."
         self.gui.running_progress_bar.setValue(25)
         #cmds.file(rename="F:/WorkspaceDesktop/met/MetaHumanExtraTools/private/debug/temp2_load_new_meshes_done.mb")
         #cmds.file(f=True, save=True)

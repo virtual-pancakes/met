@@ -613,8 +613,12 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
             self.done_label.show()
             self.go_to_metahuman_folder_button.show()
         else:
-            self.running_progress_bar.setFormat(result)
-            self.running_progress_bar.setStyleSheet("/*-----QProgressBar-----*/\nQProgressBar\n{\n   background-color: hsl(333, 100%, 50%);\n}\n\nQProgressBar:chunk\n{\n   background-color: hsl(333, 100%, 50%);\n}")
+            self.running_progress_bar.hide()
+            self.done_label.setText(result)
+            self.done_label.setStyleSheet("color: hsl(333, 100%, 50%); font-weight: bold;")
+            self.done_label.show()
+            #self.running_progress_bar.setFormat(result)
+            #self.running_progress_bar.setStyleSheet("/*-----QProgressBar-----*/\nQProgressBar\n{\n   background-color: hsl(333, 100%, 50%);\n}\n\nQProgressBar:chunk\n{\n   background-color: hsl(333, 100%, 50%);\n}")
         self.resize(self.sizeHint())
     
     def import_dna(self):
