@@ -222,7 +222,7 @@ class MetahumanToObj:
         combined_meshes.pop(combined_meshes.index("body"))
         combined_meshes.insert(0, "combined")
         # Transfer vertex order
-        if not cmds.pluginInfo("meshReorder.mll", query=True, loaded=True): cmds.loadPlugin("meshReorder.mll")
+        cmds.loadPlugin("meshReorder.mll")
         source_vertex1 = "pgs:combined.vtx[26992]"
         source_vertex2 = "pgs:combined.vtx[45796]"
         source_vertex3 = "pgs:combined.vtx[49844]"
@@ -613,7 +613,7 @@ class ObjToMetahuman:
         aux = os.path.dirname(__file__) + "/resources/metahuman_body.fbx"
         cmds.file(aux, i=True, f=True)
         cmds.namespace(set=":")
-        if not cmds.pluginInfo("meshReorder.mll", query=True, loaded=True): cmds.loadPlugin("meshReorder.mll")
+        cmds.loadPlugin("meshReorder.mll")
         source_vertex1 = "temp:body_lod0_mesh.vtx[0]"
         source_vertex2 = "temp:body_lod0_mesh.vtx[9204]"
         source_vertex3 = "temp:body_lod0_mesh.vtx[27330]"

@@ -240,7 +240,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
 
         if metahuman_folder and dna_files_ok: 
             self.metahuman_folder = metahuman_folder
-            self.metahuman_folder_button.setText(self.short_path(metahuman_folder, 50))
+            self.metahuman_folder_button.setText(self.short_path(metahuman_folder, 48))
             self.metahuman_folder_button.setStyleSheet("font-size: 12px; color: white;")
             
         else: 
@@ -487,7 +487,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         result = cmds.fileDialog2(fileMode=1, caption="Select new combined .obj:")
         if result: 
             self.combined = result[0]
-            self.combined_button.setText(self.short_path(self.combined, 50))
+            self.combined_button.setText(self.short_path(self.combined, 48))
             self.combined_button.setStyleSheet("font-size: 10px")
         else:
             self.combined = None
@@ -500,7 +500,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         result = cmds.fileDialog2(fileMode=1, caption="Select new eyes .obj:")
         if result: 
             self.eyes = result[0]
-            self.eyes_button.setText(self.short_path(self.eyes, 50))
+            self.eyes_button.setText(self.short_path(self.eyes, 48))
             self.eyes_button.setStyleSheet("font-size: 10px")
         else:
             self.eyes = None
@@ -513,7 +513,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         result = cmds.fileDialog2(fileMode=1, caption="Select new eyelashes .obj:")
         if result: 
             self.eyelashes = result[0]
-            self.eyelashes_button.setText(self.short_path(self.eyelashes, 50))
+            self.eyelashes_button.setText(self.short_path(self.eyelashes, 48))
             self.eyelashes_button.setStyleSheet("font-size: 10px")
         else:
             self.eyelashes = None
@@ -526,7 +526,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         result = cmds.fileDialog2(fileMode=1, caption="Select new teeth .obj:")
         if result: 
             self.teeth = result[0]
-            self.teeth_button.setText(self.short_path(self.teeth, 50))
+            self.teeth_button.setText(self.short_path(self.teeth, 48))
             self.teeth_button.setStyleSheet("font-size: 10px")
         else:
             self.teeth = None
