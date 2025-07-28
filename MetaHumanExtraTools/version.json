@@ -1,7 +1,7 @@
 {
-    "current_version": "1.5.2",
-    "current_version_changes": "Better error message on invalid vertex order",
-    "newest_version": "1.5.2",
-    "newest_version_changes": "Better error message on invalid vertex order",
+    "current_version": "1.5.3",
+    "current_version_changes": "Fixed update bug",
+    "newest_version": "1.5.3",
+    "newest_version_changes": "Fixed update bug",
     "checked_for_new_version": true
 }

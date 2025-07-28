@@ -397,7 +397,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
             logger.info(f"All files successfully moved to {modules_folder}")
             self.update_progress_bar.hide()
             self.updated_successfully_label.show()
-            self.restart_met_button.show()
+            #self.restart_met_button.show()
             self.resize(self.sizeHint())
         except OSError as e:
             logger.exception(f"Error moving files to {modules_folder}: {e}")

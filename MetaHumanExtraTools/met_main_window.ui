@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1810</width>
-    <height>972</height>
+    <height>989</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -1018,13 +1018,16 @@ QProgressBar:chunk
             </property>
            </widget>
           </item>
-          <item alignment="Qt::AlignHCenter">
+          <item>
            <widget class="QLabel" name="updated_successfully_label">
             <property name="styleSheet">
              <string notr="true">color: hsl(177, 100%, 50%); font-weight: bold</string>
             </property>
             <property name="text">
-             <string>Updated successfully</string>
+             <string>Updated successfully. Reopen MetaHuman Extra Tools to apply changes.</string>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
             </property>
            </widget>
           </item>

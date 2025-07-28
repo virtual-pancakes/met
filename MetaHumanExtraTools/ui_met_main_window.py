@@ -23,7 +23,7 @@ class Ui_METMainWindow(object):
     def setupUi(self, METMainWindow):
         if not METMainWindow.objectName():
             METMainWindow.setObjectName(u"METMainWindow")
-        METMainWindow.resize(1810, 972)
+        METMainWindow.resize(1810, 989)
         sizePolicy = QSizePolicy(QSizePolicy.Policy.Maximum, QSizePolicy.Policy.Maximum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -747,8 +747,9 @@ class Ui_METMainWindow(object):
         self.updated_successfully_label = QLabel(self.new_version_frame)
         self.updated_successfully_label.setObjectName(u"updated_successfully_label")
         self.updated_successfully_label.setStyleSheet(u"color: hsl(177, 100%, 50%); font-weight: bold")
+        self.updated_successfully_label.setWordWrap(True)
 
-        self.verticalLayout_12.addWidget(self.updated_successfully_label, 0, Qt.AlignHCenter)
+        self.verticalLayout_12.addWidget(self.updated_successfully_label)
 
         self.update_failed_frame = QFrame(self.new_version_frame)
         self.update_failed_frame.setObjectName(u"update_failed_frame")
@@ -1605,7 +1606,7 @@ class Ui_METMainWindow(object):
         self.update_button.setText(QCoreApplication.translate("METMainWindow", u"Update", None))
         self.update_progress_bar.setFormat(QCoreApplication.translate("METMainWindow", u"Updating...", None))
         self.restart_met_button.setText(QCoreApplication.translate("METMainWindow", u"Restart MET to apply changes", None))
-        self.updated_successfully_label.setText(QCoreApplication.translate("METMainWindow", u"Updated successfully", None))
+        self.updated_successfully_label.setText(QCoreApplication.translate("METMainWindow", u"Updated successfully. Reopen MetaHuman Extra Tools to apply changes.", None))
         self.label_9.setText(QCoreApplication.translate("METMainWindow", u"Failed to check for updates. Please check for the latest version available at:", None))
         self.artstation_link_label.setText(QCoreApplication.translate("METMainWindow", u"<a href='https://www.artstation.com/marketplace/p/pR97n/metahuman-extra-tools'>ArtStation</a>", None))
         self.fab_link_label.setText(QCoreApplication.translate("METMainWindow", u"<a href='https://www.fab.com/listings/22f90398-c29e-4b74-a80a-9c5b5ae19d47'>Fab</a>", None))
