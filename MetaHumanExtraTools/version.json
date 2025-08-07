@@ -1,7 +1,7 @@
 {
-    "current_version": "1.5.3",
-    "current_version_changes": "Fixed update bug",
-    "newest_version": "1.5.3",
-    "newest_version_changes": "Fixed update bug",
+    "current_version": "1.6",
+    "current_version_changes": "Bug fix",
+    "newest_version": "1.6",
+    "newest_version_changes": "Bug fix",
     "checked_for_new_version": true
 }
