@@ -678,7 +678,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         selected_joint = om2.MNamespace.stripNamespaceFromName(cmds.ls(sl=True)[0])
         vertex_ids = joints_info[selected_joint]["reference_vertex_ids"]
         for id in vertex_ids:
-            cmds.select(f"new_combined:polySurface1.vtx[{id}]", add=True)
+            cmds.select(f"old_combined.vtx[{id}]", add=True)
         return
 
     def debug(self):
