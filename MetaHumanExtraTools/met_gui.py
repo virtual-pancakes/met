@@ -673,12 +673,12 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
             
     def select_reference_vertices(self):
         logger.info("select_reference_vertices()")
-        body_joints_file = os.path.dirname(__file__) + "/resources/body_joints.json"
-        joints_info = json.load(open(body_joints_file, "r"))
+        joints_info_file = os.path.dirname(__file__) + "/resources/joints_info.json"
+        joints_info = json.load(open(joints_info_file, "r"))
         selected_joint = om2.MNamespace.stripNamespaceFromName(cmds.ls(sl=True)[0])
         vertex_ids = joints_info[selected_joint]["reference_vertex_ids"]
         for id in vertex_ids:
-            cmds.select(f"old_combined.vtx[{id}]", add=True)
+            cmds.select(f"old:combined.vtx[{id}]", add=True)
         return
 
     def debug(self):

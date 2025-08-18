@@ -738,19 +738,7 @@ class ObjToMetahuman:
                     closest_vertex_distance = distance
 
         return closest_vertex_id, closest_vertex_position, closest_vertex_distance
-    
-    def get_reference_vertex_ids(self, mesh, cull_distance_multiplier, vertex_iterator, reference_position, valid_vertex_ids):
-        
-        closest_vertex_id, closest_vertex_position, closest_vertex_distance = self.get_closest_vertex_to_position(reference_position, mesh, valid_vertex_ids)
-        cull_distance = closest_vertex_distance * cull_distance_multiplier
-        reference_vertex_ids = []
-        vertex_positions = mesh.getPoints(om2.MSpace.kWorld)
-        for vertex_id in valid_vertex_ids:
-            vertex_position = vertex_positions[vertex_id]
-            distance = reference_position.distanceTo(vertex_position)
-            if distance <= cull_distance: reference_vertex_ids.append(vertex_id)
-        return reference_vertex_ids, closest_vertex_id
-    
+            
     def match_joint(self, joints_info, source_space_vertex_iterator, target_space_vertex_iterator, source_joint_dag_path, target_joint_dag_path):
         joint = om2.MNamespace.stripNamespaceFromName(str(target_joint_dag_path))
         reference_vertex_ids = joints_info[joint]["reference_vertex_ids"]
@@ -1307,6 +1295,333 @@ class ObjToMetahuman:
 
         cmds.namespace(set=":")
     
+    def create_full_skeleton(self):
+        logger.info(f"create_full_skeleton()")
+
+        # Set joints_info
+        joints_info_file = os.path.dirname(__file__) + "/resources/joints_info.json"
+        joints_info = json.load(open(joints_info_file, "r"))
+
+        # Get all possible vertex iterators
+        old_combined_dagpath = om2.MSelectionList().add("old:combined").getDagPath(0)
+        new_combined_dagpath = om2.MSelectionList().add("new:combined").getDagPath(0)
+        old_head_dagpath = om2.MSelectionList().add("old_head:head_lod0_mesh").getDagPath(0)
+        new_head_dagpath = om2.MSelectionList().add("new_head:head_lod0_mesh").getDagPath(0)
+        old_teeth_dagpath = om2.MSelectionList().add("old_head:teeth_lod0_mesh").getDagPath(0)
+        new_teeth_dagpath = om2.MSelectionList().add("new_head:teeth_lod0_mesh").getDagPath(0)
+        old_eyeLeft_dagpath = om2.MSelectionList().add("old_head:eyeLeft_lod0_mesh").getDagPath(0)
+        new_eyeLeft_dagpath = om2.MSelectionList().add("new_head:eyeLeft_lod0_mesh").getDagPath(0)
+        old_eyeRight_dagpath = om2.MSelectionList().add("old_head:eyeRight_lod0_mesh").getDagPath(0)
+        new_eyeRight_dagpath = om2.MSelectionList().add("new_head:eyeRight_lod0_mesh").getDagPath(0)
+        vertex_iterators = {}
+        vertex_iterators["old_combined"] = om2.MItMeshVertex(old_combined_dagpath)
+        vertex_iterators["new_combined"] = om2.MItMeshVertex(new_combined_dagpath)
+        vertex_iterators["old_head"] = om2.MItMeshVertex(old_head_dagpath)
+        vertex_iterators["new_head"] = om2.MItMeshVertex(new_head_dagpath)
+        vertex_iterators["old_teeth"] = om2.MItMeshVertex(old_teeth_dagpath)
+        vertex_iterators["new_teeth"] = om2.MItMeshVertex(new_teeth_dagpath)
+        vertex_iterators["old_eyeLeft"] = om2.MItMeshVertex(old_eyeLeft_dagpath)
+        vertex_iterators["new_eyeLeft"] = om2.MItMeshVertex(new_eyeLeft_dagpath)
+        vertex_iterators["old_eyeRight"] = om2.MItMeshVertex(old_eyeRight_dagpath)
+        vertex_iterators["new_eyeRight"] = om2.MItMeshVertex(new_eyeRight_dagpath)
+
+        # Create old combined skeleton
+        cmds.namespace(set="old")
+        cmds.duplicate("old_body:root")
+        cmds.delete("old:neck_01")
+        cmds.duplicate("old_head:neck_01")
+        cmds.parent("old:neck_01", "old:spine_05")
+
+        # Create a DAG iterator starting from the given object
+        source_root_dag_path = om2.MSelectionList().add("old:root").getDagPath(0)
+        dag_iterator = om2.MItDag(om2.MItDag.kDepthFirst, om2.MFn.kInvalid)
+        dag_iterator.reset(source_root_dag_path, om2.MItDag.kDepthFirst, om2.MFn.kInvalid)
+        cmds.namespace(set=":new")
+                
+        while not dag_iterator.isDone():
+            
+            # Get source joint name
+            old_joint = dag_iterator.partialPathName()
+            old_joint_dagpath = om2.MSelectionList().add(old_joint).getDagPath(0)
+            reference_joint = om2.MNamespace.stripNamespaceFromName(old_joint)
+            
+            # Set vertex iterators
+            old_vertex_iterator = vertex_iterators[f"old_{joints_info[reference_joint]['reference_mesh']}"]
+            new_vertex_iterator = vertex_iterators[f"new_{joints_info[reference_joint]['reference_mesh']}"]
+                            
+            # Create joint
+            cmds.select(cl = True)
+            new_joint = cmds.joint(p = (0, 0, 0), n = reference_joint)
+            new_joint_dagpath = om2.MSelectionList().add(new_joint).getDagPath(0)
+            
+            # Match joint
+            #valid_vertex_ids = [i for i in range(54412)]
+            self.match_joint(joints_info, old_vertex_iterator, new_vertex_iterator, old_joint_dagpath, new_joint_dagpath)
+            
+            # Parent 
+            old_parent = cmds.listRelatives(old_joint, parent=True)
+            if old_parent:
+                new_parent = old_parent[0].replace("old:", "new:")
+                cmds.parent(new_joint_dagpath, new_parent, a = True)
+            
+            """
+            """
+            dag_iterator.next()
+
+        # Fix positions
+        logger.info("fixing full skeleton position")
+        
+        for joint_basename in joints_info:
+            
+            # Get info
+            new_joint = "new:" + joint_basename
+            old_joint = "old:" + joint_basename
+            #
+            skeleton = joints_info[joint_basename]["skeleton"] 
+            reference_mesh = joints_info[joint_basename]["reference_mesh"] 
+            orientation_mode = joints_info[joint_basename]["orientation_mode"]            
+            position_mode = joints_info[joint_basename]["position_mode"]
+            reference_vertex_ids = joints_info[joint_basename]["reference_vertex_ids"]
+            fix_pose = joints_info[joint_basename]["fix_pose"]
+            side = joints_info[joint_basename]["side"]
+            #
+            parent_basename = joints_info[joint_basename]["parent"]
+            new_parent = parent_basename
+            old_parent = parent_basename
+            if parent_basename:
+                new_parent = "new:" + parent_basename
+                old_parent = "old:" + parent_basename
+            #
+            main_child_basename = joints_info[joint_basename]["main_child"]
+            new_main_child = main_child_basename
+            old_main_child = main_child_basename
+            if main_child_basename:
+                new_main_child = "new:" + main_child_basename
+                old_main_child = "old:" + main_child_basename
+            #
+            mirror_joint_basename = joints_info[joint_basename]["mirror_joint"]
+            new_mirror_joint = mirror_joint_basename
+            old_mirror_joint = mirror_joint_basename
+            if mirror_joint_basename:
+                new_mirror_joint = "new:" + mirror_joint_basename
+                old_mirror_joint = "old:" + mirror_joint_basename
+            #
+            children_basename = joints_info[joint_basename]["children"]
+            new_children = None
+            old_children = None
+            if children_basename:
+                new_children = children_basename.copy()
+                old_children = children_basename.copy()
+                for i, child in enumerate(new_children): new_children[i] = "new:" + child
+                for i, child in enumerate(old_children): old_children[i] = "old:" + child
+
+            # Isolate joint
+            if new_parent: cmds.parent(new_joint, w=True)
+            if new_children: cmds.parent(new_children, w=True)
+
+            # If single position mode:
+            if isinstance(position_mode, str): 
+            
+                if position_mode == "twist":
+                    new_parent_main_child = "new:" + joints_info[parent_basename]["main_child"]
+                    constraint = cmds.parentConstraint(new_parent, new_parent_main_child, new_joint, weight=1)
+                    if any(text in new_joint for text in ["upperarm_twist_01", "lowerarm_twist_02", "thigh_twist_01", "calf_twist_02"]):
+                        cmds.setAttr(f"{constraint[0]}.{om2.MNamespace.stripNamespaceFromName(new_parent)}W0", 0.6667)
+                        cmds.setAttr(f"{constraint[0]}.{om2.MNamespace.stripNamespaceFromName(new_parent_main_child)}W1", 0.3333)
+                    else:
+                        cmds.setAttr(f"{constraint[0]}.{om2.MNamespace.stripNamespaceFromName(new_parent)}W0", 0.3333)
+                        cmds.setAttr(f"{constraint[0]}.{om2.MNamespace.stripNamespaceFromName(new_parent_main_child)}W1", 0.6667)
+                    cmds.delete(constraint)
+                    cmds.setAttr(f"{new_joint}.rotate", 0, 0, 0) 
+
+                if "follow=" in position_mode:
+                    followed_joint = joints_info[joint_basename]["position_mode"].split("=")[1]
+                    followed_position = cmds.xform(followed_joint, query=True, translation=True, worldSpace=True)
+                    cmds.xform(new_joint, t=followed_position, ws=True)
+
+            # If segmented position mode:
+            else:
+                for i, axis in enumerate(["X", "Y", "Z"]):
+                    axis_position_mode = position_mode[i]
+                    
+                    if axis_position_mode == 0:
+                        cmds.setAttr(f"{new_joint}.translate{axis}", 0)
+                    
+                    elif axis_position_mode == "parent":
+                        parent_position = cmds.xform(new_parent, query=True, translation=True, worldSpace=True)[i]
+                        cmds.setAttr(f"{new_joint}.translate{axis}", parent_position)
+            
+           # Reintegrate joint into skeleton
+            if new_parent: cmds.parent(new_joint, new_parent)
+            if new_children: cmds.parent(new_children, new_joint)
+           
+        """
+            # If not twist
+            else:
+                for i, axis in enumerate(["X", "Y", "Z"]):
+                    mode = joint_info["world_position"][i]
+                    if mode == "0":
+                        #print(f"setting {joint}.translate{axis} to 0")
+                        cmds.setAttr(f"{joint}.translate{axis}", 0)
+                    elif mode == "parent":
+                        parent_position = cmds.xform(parent, query=True, translation=True, worldSpace=True)[i]
+                        cmds.setAttr(f"{joint}.translate{axis}", parent_position)
+                        #print(f"setting {joint}.translate{axis} to parent")
+
+            # Re-parent to parent
+            if joint_info["parent"]: cmds.parent(joint, parent)
+            
+             # Re-parent children
+            if children: cmds.parent(children, joint)
+
+            dag_iterator.next()
+
+        # Orientation pass
+        dag_iterator.reset(new_root_dagpath, filterType=om2.MFn.kJoint)
+        while not dag_iterator.isDone():
+            joint = dag_iterator.partialPathName()
+            #print(f"fixing orientation for joint: {joint}")
+            joint_info = joints_info[om2.MNamespace.stripNamespaceFromName(joint)]
+            if joint_info["parent"]: parent = new_namespace + joint_info["parent"]
+            if joint_info["child"]: main_child = new_namespace + joint_info["child"]
+            source_joint = old_namespace + om2.MNamespace.stripNamespaceFromName(joint)
+            children = cmds.listRelatives(joint, children=True)
+            
+            # Make sure rotate is [0, 0, 0]
+            cmds.setAttr(f"{joint}.rotate", 0, 0, 0)
+
+            # Joint orients
+            if joint_info["orientation"] == "-90, 0, 0 in LS": # hands
+                if children: cmds.parent(children, world=True)
+                cmds.setAttr(f"{joint}.jointOrient", -90, 0, 0)
+                if children: cmds.parent(children, joint)
+
+            elif joint_info["orientation"] == "0, 0, 0":
+                if children: cmds.parent(children, world=True)
+                cmds.setAttr(f"{joint}.jointOrient", 0, 0, 0)
+                if children: cmds.parent(children, joint)
+        
+            elif joint_info["orientation"] == "copy source":
+                if children: cmds.parent(children, world=True)
+                source_joint_orientation = cmds.getAttr(f"{source_joint}.jointOrient")[0]
+                cmds.setAttr(f"{joint}.jointOrient", source_joint_orientation[0], source_joint_orientation[1], source_joint_orientation[2])
+                if children: cmds.parent(children, joint)
+
+            elif joint_info["orientation"] == "+x to child, +y to world -z": # spine, left_arm_up
+                cmds.parent(children, world=True)
+                cmds.parent(main_child, joint)
+                cmds.joint(joint, edit=True, orientJoint="xyz", secondaryAxisOrient="zdown", zeroScaleOrient=True)
+                cmds.parent(main_child, world=True)
+                cmds.parent(children, joint) 
+            
+            elif joint_info["orientation"] == "-90, free, 90 in WS": # head
+                cmds.parent(joint, world=True)
+                cmds.setAttr(f"{joint}.jointOrientX", -90)                    
+                cmds.setAttr(f"{joint}.jointOrientZ", 90)                    
+                cmds.parent(joint, parent)
+
+            elif joint_info["orientation"] == "+x to child, +z to parent^child RH": # left_arm_down
+                cmds.parent(children, world=True)
+                cmds.parent(joint, world=True)
+                cmds.setAttr(f"{joint}.jointOrient", 0, 0, 0) 
+                v1 = om2.MVector(om2.MVector(cmds.xform(parent, query=True, t=True, ws=True)) - om2.MVector(cmds.xform(joint, query=True, t=True, ws=True)))
+                v2 = om2.MVector(om2.MVector(cmds.xform(main_child, query=True, t=True, ws=True)) - om2.MVector(cmds.xform(joint, query=True, t=True, ws=True)))
+                aux = v1 ^ v2
+                aim = cmds.aimConstraint(main_child, joint, aimVector=[1, 0, 0], upVector=[0, 0, 1], worldUpType="vector", worldUpVector=aux)[0]
+                orientation = cmds.getAttr(f"{joint}.rotate")[0]
+                cmds.delete(aim)
+                cmds.setAttr(f"{joint}.jointOrient", orientation[0], orientation[1], orientation[2])
+                cmds.setAttr(f"{joint}.rotate", 0, 0, 0)
+                cmds.parent(joint, parent)
+                cmds.parent(children, joint)   
+            
+            elif joint_info["orientation"] == "+x to child, +z to calculated +z": # left finger, right leg
+                cmds.parent(children, world=True)
+                cmds.parent(joint, world=True)
+                locator_0 = cmds.spaceLocator()[0]
+                locator_z = cmds.spaceLocator()[0]
+                cmds.parent([locator_0, locator_z], joint)
+                cmds.xform(locator_0, translation=[0, 0, 0])
+                cmds.xform(locator_z, translation=[0, 0, 1])
+                cmds.parent([locator_0, locator_z], world=True)
+                vector_z = om2.MVector(cmds.xform(locator_z, query=True, translation=True)) - om2.MVector(cmds.xform(locator_0, query=True, translation=True))
+                cmds.delete([locator_0, locator_z])
+                cmds.setAttr(f"{joint}.jointOrient", 0, 0, 0)                        
+                aim = cmds.aimConstraint(main_child, joint, aimVector=[1, 0, 0], upVector=[0, 0, 1], worldUpType="vector", worldUpVector=vector_z)[0]
+                orientation = cmds.getAttr(f"{joint}.rotate")[0]
+                cmds.delete(aim)
+                cmds.setAttr(f"{joint}.jointOrient", orientation[0], orientation[1], orientation[2])
+                cmds.setAttr(f"{joint}.rotate", 0, 0, 0)
+                cmds.parent(joint, parent)
+                cmds.parent(children, joint)  
+
+            elif joint_info["orientation"] == "-x to child, +z to calculated +z": # right finger 
+                cmds.parent(children, world=True)
+                cmds.parent(joint, world=True)
+                locator_0 = cmds.spaceLocator()[0]
+                locator_z = cmds.spaceLocator()[0]
+                cmds.parent([locator_0, locator_z], joint)
+                cmds.xform(locator_0, translation=[0, 0, 0])
+                cmds.xform(locator_z, translation=[0, 0, 1])
+                cmds.parent([locator_0, locator_z], world=True)
+                vector_z = om2.MVector(cmds.xform(locator_z, query=True, translation=True)) - om2.MVector(cmds.xform(locator_0, query=True, translation=True))
+                cmds.delete([locator_0, locator_z])
+                cmds.setAttr(f"{joint}.jointOrient", 0, 0, 0)                        
+                aim = cmds.aimConstraint(main_child, joint, aimVector=[-1, 0, 0], upVector=[0, 0, 1], worldUpType="vector", worldUpVector=vector_z)[0]
+                orientation = cmds.getAttr(f"{joint}.rotate")[0]
+                cmds.delete(aim)
+                cmds.setAttr(f"{joint}.jointOrient", orientation[0], orientation[1], orientation[2])
+                cmds.setAttr(f"{joint}.rotate", 0, 0, 0)
+                cmds.parent(joint, parent)
+                cmds.parent(children, joint)    
+
+            elif joint_info["orientation"] == "-x to child, +y to world +z": # right_arm_up
+                cmds.parent(children, world=True)
+                cmds.parent(joint, world=True)
+                cmds.setAttr(f"{joint}.jointOrient", 0, 0, 0)                        
+                aim = cmds.aimConstraint(main_child, joint, aimVector=[-1, 0, 0], upVector=[0, 1, 0], worldUpType="vector", worldUpVector=[0, 0, 1])[0]
+                orientation = cmds.getAttr(f"{joint}.rotate")[0]
+                cmds.delete(aim)
+                cmds.setAttr(f"{joint}.jointOrient", orientation[0], orientation[1], orientation[2])
+                cmds.setAttr(f"{joint}.rotate", 0, 0, 0)
+                cmds.parent(joint, parent)
+                cmds.parent(children, joint)   
+            
+            elif joint_info["orientation"] == "-x to child, +z to parent^child RH": # right_arm_down
+                cmds.parent(children, world=True)
+                cmds.parent(joint, world=True)
+                cmds.setAttr(f"{joint}.jointOrient", 0, 0, 0) 
+                v1 = om2.MVector(om2.MVector(cmds.xform(parent, query=True, t=True, ws=True)) - om2.MVector(cmds.xform(joint, query=True, t=True, ws=True)))
+                v2 = om2.MVector(om2.MVector(cmds.xform(main_child, query=True, t=True, ws=True)) - om2.MVector(cmds.xform(joint, query=True, t=True, ws=True)))
+                aux = v1 ^ v2
+                aim = cmds.aimConstraint(main_child, joint, aimVector=[-1, 0, 0], upVector=[0, 0, 1], worldUpType="vector", worldUpVector=aux)[0]
+                orientation = cmds.getAttr(f"{joint}.rotate")[0]
+                cmds.delete(aim)
+                cmds.setAttr(f"{joint}.jointOrient", orientation[0], orientation[1], orientation[2])
+                cmds.setAttr(f"{joint}.rotate", 0, 0, 0)
+                cmds.parent(joint, parent)
+                cmds.parent(children, joint)   
+
+            elif joint_info["orientation"] == "0, 0, keep": # finger tips
+                if children: cmds.parent(children, world=True)
+                cmds.setAttr(f"{joint}.jointOrientX", 0)
+                cmds.setAttr(f"{joint}.jointOrientY", 0)
+                if children: cmds.parent(children, joint)
+
+            elif joint_info["orientation"] == "keep, copy, copy": # feet
+                source_joint_orientation = cmds.getAttr(f"{source_joint}.jointOrient")[0]
+                if children: cmds.parent(children, world=True)
+                cmds.setAttr(f"{joint}.jointOrientY", source_joint_orientation[1])
+                cmds.setAttr(f"{joint}.jointOrientZ", source_joint_orientation[2])
+                if children: cmds.parent(children, joint)
+
+            dag_iterator.next()
+        """
+
+        
+        cmds.namespace(set=":")
+        return
+    
     def get_mesh_vertex_positions_from_scene(self, meshName):
         logger.info(f"get_mesh_vertex_positions_from_scene({meshName})")
         try:
@@ -1697,8 +2012,13 @@ class ObjToMetahuman:
         self.gui.running_progress_bar.setValue(25)
         #cmds.file(rename="F:/WorkspaceDesktop/met/MetaHumanExtraTools/private/debug/temp2_load_new_meshes_done.mb")
         #cmds.file(f=True, save=True)
+
+        """
+        cmds.file("F:/WorkspaceDesktop/met/MetaHumanExtraTools/private/debug/temp2_load_new_meshes_done.mb", open=True, force=True)
+        self.create_full_skeleton()
+        return "Done!"
+        """
         
-        #cmds.file("F:/WorkspaceDesktop/met/MetaHumanExtraTools/private/debug/temp2_load_new_meshes_done.mb", open=True, force=True)
         self.create_new_skeleton("old_body:root")
         self.gui.running_progress_bar.setValue(35)
         #cmds.file(rename="F:/WorkspaceDesktop/met/MetaHumanExtraTools/private/debug/temp3_create_body_skeleton_done.mb")
