@@ -229,7 +229,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
     def select_metahuman_folder(self):
         logger.info("select_metahuman_folder()")
         metahuman_folder = None
-        result = cmds.fileDialog2(fileMode=2, caption="Select Metahuman folder:")
+        result = cmds.fileDialog2(fileMode=2, caption="Select MetaHuman folder:")
         if result: metahuman_folder = result[0]
         body_dna = f"{metahuman_folder}/body.dna"
         head_dna = f"{metahuman_folder}/head.dna"
@@ -245,7 +245,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
             
         else: 
             self.metahuman_folder = None
-            self.metahuman_folder_button.setText("Metahuman folder")
+            self.metahuman_folder_button.setText("MetaHuman folder")
             self.metahuman_folder_button.setStyleSheet("font-size: 16px; color: white;")
             
         self.check_if_metahuman_to_obj_is_ready()
@@ -450,7 +450,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.metahuman_to_obj_run_button.setEnabled(False)
         self.metahuman_to_obj_run_button.setEnabled(False)
         self.metahuman_folder = None
-        self.metahuman_folder_button.setText("Metahuman folder")
+        self.metahuman_folder_button.setText("MetaHuman folder")
         self.metahuman_folder_button.setStyleSheet("font-size: 16px; color: white;")
         self.combined = None
         self.combined_button.setText("combined")
