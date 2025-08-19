@@ -44,6 +44,8 @@ except:
 
 try: importlib.reload(ui_met_main_window)
 except: import ui_met_main_window
+try: importlib.reload(ui_met_joint_widget)
+except: import ui_met_joint_widget
 
 try: importlib.reload(met_main)
 except: import met_main
@@ -65,6 +67,13 @@ logger.addHandler(handler)
 logger.setLevel(logging.DEBUG)
 logger.info(f"starting met_gui logger")
 logger.info("import met_gui")
+
+class METJointWidget(QWidget, ui_met_joint_widget.Ui_METJointWidget):
+    
+    def __init__(self, main_window):
+        super().__init__(main_window)
+        self.setupUi(self)
+        self.main_window = main_window        
 
 class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):   
 
@@ -113,15 +122,17 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.eyelashes = "auto generated"
         self.teeth = "auto generated"
         
-        if not debug_mode: self.debug_frame.hide()
+        if not debug_mode: 
+            self.debug_frame.hide()
+            self.store_fix_axes_button.hide()
         self.maya_version_frame.hide()
         self.modes_frame.hide()
         self.running_frame.hide()
-        self.edit_bs_frame.hide()
         self.done_label.hide()
         self.go_to_metahuman_folder_button.hide()
         self.metahuman_to_obj_info_frame.hide()
         self.obj_to_metahuman_info_frame.hide()
+        self.fixable_joints_frame.hide()
         self.resize(self.sizeHint())
         self.show()
         #self.adjustSize()
@@ -158,7 +169,50 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.skinweights_button.clicked.connect(self.skinweights_button_pressed)
         self.riglogic_button.clicked.connect(self.riglogic_button_pressed)
         self.restart_met_button.clicked.connect(self.restart_met)
+        self.edit_fixable_joints_button.clicked.connect(self.show_fixable_joints_frame)
+        self.store_fix_axes_button.clicked.connect(self.store_fix_axes)
 
+        # Add fixable joint widgets
+        body_joints_file = os.path.dirname(__file__) + "/resources/body_joints.json"
+        self.body_joints_info = json.load(open(body_joints_file, "r"))
+        self.fixable_joint_widgets = []
+        already_placed_joints = []
+        for joint in self.body_joints_info:
+            if joint not in already_placed_joints:
+                if self.body_joints_info[joint]["fixable"]:
+                    
+                    joint_widget = METJointWidget(self.fixable_joints_scroll_area_widget)
+                    joint_widget.fixable_joint_label.setText(joint)
+                    joint_widget.fixable_joint_x_button.setChecked(self.body_joints_info[joint]["fix_axes"][0])
+                    joint_widget.fixable_joint_y_button.setChecked(self.body_joints_info[joint]["fix_axes"][1])
+                    joint_widget.fixable_joint_z_button.setChecked(self.body_joints_info[joint]["fix_axes"][2])
+                    self.fixable_joints_layout.addWidget(joint_widget)
+                    self.fixable_joint_widgets.append(joint_widget)
+                    already_placed_joints.append(joint)
+                    #print(f"added {joint}")
+
+                    # Place mirror
+                    if joint[-2:] == "_l": joint = joint.replace("_l", "_r")
+                    elif joint[-2:] == "_r": joint = joint.replace("_r", "_l")
+                    else: continue
+                    joint_widget = METJointWidget(self.fixable_joints_scroll_area_widget)
+                    joint_widget.fixable_joint_label.setText(joint)
+                    joint_widget.fixable_joint_x_button.setChecked(self.body_joints_info[joint]["fix_axes"][0])
+                    joint_widget.fixable_joint_y_button.setChecked(self.body_joints_info[joint]["fix_axes"][1])
+                    joint_widget.fixable_joint_z_button.setChecked(self.body_joints_info[joint]["fix_axes"][2])
+                    self.fixable_joints_layout.addWidget(joint_widget)
+                    self.fixable_joint_widgets.append(joint_widget)
+                    already_placed_joints.append(joint)
+                    #print(f"added {joint}")
+    
+    def store_fix_axes(self):
+        body_joints_info = self.read_joint_widgets()
+        body_joints_info_file = "F:/WorkspaceDesktop/met/MetaHumanExtraTools/resources/body_joints.json"
+        json.dump(body_joints_info, open(body_joints_info_file, "w"), indent=4)
+    
+    def show_fixable_joints_frame(self):
+        self.fixable_joints_frame.show()
+    
     def restart_met(self):
         self.close()
         import importlib
@@ -422,6 +476,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.start_frame.hide()
         
         self.new_geometry_frame.hide()
+        self.fix_pose_frame.hide()
         self.symmetrize_frame.show()
         self.metahuman_to_obj_run_button.show()
         self.obj_to_metahuman_run_button.hide()
@@ -436,6 +491,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.start_frame.hide()
         
         self.new_geometry_frame.show()
+        self.fix_pose_frame.show()
         self.symmetrize_frame.hide()
         self.metahuman_to_obj_run_button.hide()
         self.obj_to_metahuman_run_button.show()
@@ -473,6 +529,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.teeth_button.setEnabled(False)
         self.teeth = "auto generated"
         self.modes_frame.hide()
+        self.fixable_joints_frame.hide()
         self.start_frame.show()
         self.adjustSize()
         self.resize(self.sizeHint())
@@ -595,14 +652,17 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
     def press_obj_to_metahuman_run_button(self):
         logger.info("press_obj_to_metahuman_run_button()")
         self.modes_frame.hide()
+        self.fixable_joints_frame.hide()
         self.obj_to_metahuman_info_frame.show()
         self.running_frame.show()
         self.resize(self.sizeHint())
         self.repaint()
+        fix_pose = self.fix_pose_button.isChecked()
+        custom_body_joints_info = self.read_joint_widgets()
 
         logger.info(f"met_main.ObjToMetahuman({self.combined}, {self.eyes}, {self.eyelashes}, {self.teeth}, {self.metahuman_folder}).run()")
         try:
-            result = met_main.ObjToMetahuman(self, self.combined, self.eyes, self.eyelashes, self.teeth, self.metahuman_folder).run()
+            result = met_main.ObjToMetahuman(self, self.combined, self.eyes, self.eyelashes, self.teeth, self.metahuman_folder, fix_pose, custom_body_joints_info).run()
         except Exception as e:
             logger.exception(f"met_main.ObjToMetahuman.run() failed: {e}")
             result = "Error. Share your /MetaHumanExtraTools/met.log on Discord for help."
@@ -678,10 +738,21 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         selected_joint = om2.MNamespace.stripNamespaceFromName(cmds.ls(sl=True)[0])
         vertex_ids = joints_info[selected_joint]["reference_vertex_ids"]
         for id in vertex_ids:
-            cmds.select(f"old:combined.vtx[{id}]", add=True)
+            cmds.select(f"combined.vtx[{id}]", add=True)
         return
 
+    def read_joint_widgets(self):
+        custom_body_joints_info = self.body_joints_info.copy()
+        for item in self.fixable_joint_widgets: 
+            joint = item.fixable_joint_label.text()
+            fix_axes = [item.fixable_joint_x_button.isChecked(), item.fixable_joint_y_button.isChecked(), item.fixable_joint_z_button.isChecked()]
+            custom_body_joints_info[joint]["fix_axes"] = fix_axes
+
+        return custom_body_joints_info
+    
     def debug(self):
+        """
+        """
         logger.info("debug()")
         self.show_obj_to_metahuman()
         self.metahuman_folder = "F:/WorkspaceDesktop/met/MetaHumanExtraTools/private/debug"
@@ -690,7 +761,3 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.eyelashes = "auto generated"
         self.teeth = "auto generated"
         self.press_obj_to_metahuman_run_button()
-
-        
-
-

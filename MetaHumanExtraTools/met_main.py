@@ -300,7 +300,7 @@ class MetahumanToObj:
 
 class ObjToMetahuman:
     
-    def __init__(self, gui, input_combined_obj, input_eyes_obj, input_eyelashes_obj, input_teeth_obj, input_metahuman_folder):
+    def __init__(self, gui, input_combined_obj, input_eyes_obj, input_eyelashes_obj, input_teeth_obj, input_metahuman_folder, fix_pose, custom_body_joints_info):
         logger.info(f"ObjToMetahuman.__init__({gui}, {input_combined_obj}, {input_eyes_obj}, {input_eyelashes_obj}, {input_teeth_obj}, {input_metahuman_folder})")
         self.gui = gui
         self.input_combined_obj = input_combined_obj
@@ -310,6 +310,8 @@ class ObjToMetahuman:
         self.input_head_dna = input_metahuman_folder + "/head.dna"
         self.input_body_dna = input_metahuman_folder + "/body.dna"
         self.input_metahuman_folder = input_metahuman_folder
+        self.fix_pose = fix_pose
+        self.custom_body_joints_info = custom_body_joints_info
         self.print_parameters()
     
     def print_parameters(self):
@@ -1755,7 +1757,7 @@ class ObjToMetahuman:
         
         return
     
-    def fix_pose(self):
+    def fix_pose_and_feet(self):
         logger.info("fix_pose()")
         """
         """
@@ -1817,20 +1819,26 @@ class ObjToMetahuman:
         cmds.delete(aux)
         #cmds.file("F:/WorkspaceDesktop/met/MetaHumanExtraTools/private/debug/temp.mb", open=True, force=True)
         # Copy joint orientations from old to new body joints
-        body_joints_info = json.load(open(os.path.dirname(__file__) + "/resources/body_joints.json", "r"))
-        new_root_dagpath = om2.MSelectionList().add("new_body:root").getDagPath(0)
-        dag_iterator = om2.MItDag().reset(new_root_dagpath)
-        while not dag_iterator.isDone():
-            new_joint = dag_iterator.partialPathName()
-            base_joint = om2.MNamespace.stripNamespaceFromName(new_joint)
-            if body_joints_info[base_joint]["fix_pose"]:
-                old_joint = new_joint.replace("new_", "old_")
-                old_orient = cmds.getAttr(f"{old_joint}.jointOrient")[0]
-                #cmds.setKeyframe(new_joint, attribute="jointOrient", t=100)
-                cmds.setAttr(f"{new_joint}.jointOrient", old_orient[0], old_orient[1], old_orient[2])
-                #cmds.setKeyframe(new_joint, attribute="jointOrient", t=0)
-            dag_iterator.next()
-        #cmds.currentTime(0)
+        if self.fix_pose:
+            body_joints_info = json.load(open(os.path.dirname(__file__) + "/resources/body_joints.json", "r"))
+            new_root_dagpath = om2.MSelectionList().add("new_body:root").getDagPath(0)
+            dag_iterator = om2.MItDag().reset(new_root_dagpath)
+            while not dag_iterator.isDone():
+                new_joint = dag_iterator.partialPathName()
+                base_joint = om2.MNamespace.stripNamespaceFromName(new_joint)
+                fix_axes = self.custom_body_joints_info[base_joint]["fix_axes"]
+                for i, fix_axis in enumerate(fix_axes):
+                    if fix_axis:
+                        old_joint = new_joint.replace("new_", "old_")
+                        old_orient = cmds.getAttr(f"{old_joint}.jointOrient")[0][i]
+                        #cmds.setKeyframe(new_joint, attribute="jointOrient", t=100)
+                        axes = ["X", "Y", "Z"]
+                        attribute = f"{new_joint}.jointOrient{axes[i]}"
+                        cmds.setAttr(attribute, old_orient)
+                        #print(f"fixed pose for {attribute}")
+                        #cmds.setKeyframe(new_joint, attribute="jointOrient", t=0)                    
+                dag_iterator.next()
+            #cmds.currentTime(0)
 
         # Match new head joints to new body joints
         dagpath = om2.MSelectionList().add("new_head:spine_04").getDagPath(0)
@@ -2013,11 +2021,9 @@ class ObjToMetahuman:
         #cmds.file(rename="F:/WorkspaceDesktop/met/MetaHumanExtraTools/private/debug/temp2_load_new_meshes_done.mb")
         #cmds.file(f=True, save=True)
 
-        """
-        cmds.file("F:/WorkspaceDesktop/met/MetaHumanExtraTools/private/debug/temp2_load_new_meshes_done.mb", open=True, force=True)
-        self.create_full_skeleton()
-        return "Done!"
-        """
+        #cmds.file("F:/WorkspaceDesktop/met/MetaHumanExtraTools/private/debug/temp2_load_new_meshes_done.mb", open=True, force=True)
+        #self.create_full_skeleton()
+        #return "Done!"
         
         self.create_new_skeleton("old_body:root")
         self.gui.running_progress_bar.setValue(35)
@@ -2031,7 +2037,7 @@ class ObjToMetahuman:
         #cmds.file(f=True, save=True)
 
         #cmds.file("F:/WorkspaceDesktop/met/MetaHumanExtraTools/private/debug/temp4_create_head_skeleton_done.mb", open=True, force=True)
-        self.fix_pose()
+        self.fix_pose_and_feet()
         self.gui.running_progress_bar.setValue(80)
         #cmds.file(rename="F:/WorkspaceDesktop/met/MetaHumanExtraTools/private/debug/temp5_fix_pose_done.mb")
         #cmds.file(f=True, save=True)

@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>METJointWidget</class>
+ <widget class="QWidget" name="METJointWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>169</width>
+    <height>25</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/*-----QScrollArea-----*/
+QScrollArea
+{
+	border: 0px solid black; 
+	margin: 0px 0px 0px 0px;
+	border-style:none;
+
+}
+
+
+/*-----QLayout-----*/
+QLayout
+{
+	border-style:none;
+	border-radius: 5px;
+
+}
+
+
+/*-----QWidget-----*/
+QWidget
+{
+	background-color: transparent;
+	color: #000000;
+
+}
+
+
+/*-----QFrame-----*/
+QFrame
+{
+	border-style:none;
+	border-radius: 5px;
+	background-color: transparent;
+
+}
+
+
+/*-----QLabel-----*/
+QLabel
+{
+	background-color: transparent;
+	color: #c2c7d5;
+	font-size: 13px;
+
+}
+
+
+/*-----QPushButton-----*/
+QPushButton
+{
+    background-color: hsv(187, 100%, 50%);
+    color: hsv(0, 0, 50%);
+    font-size: 13px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+}
+QPushButton::hover
+{
+    background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsv(187, 100%, 50%),stop:1 hsv(180, 100%, 70%));
+}
+QPushButton::pressed
+{
+    background-color: hsv(180, 100%, 100%);
+color: rgb(255, 255, 255);
+}
+
+QPushButton::checked
+{
+    color: rgb(255, 255, 255);
+    background-color: hsv(180, 100%, 90%);
+}
+QPushButton::checked::hover
+{
+    background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsv(180, 100%, 90%),stop:1 hsv(180, 100%, 100%));
+}
+QPushButton::checked::pressed
+{
+    background-color: hsv(180, 100%, 100%);
+}
+
+
+/*-----QProgressBar-----*/
+QProgressBar
+{
+	background-color: hsv(187, 100%, 70%);
+	color: rgb(255, 255, 255);
+	font-size: 13px;
+	font-weight: bold;
+	padding: -1px;
+	border: none;
+	border-radius: 5px;
+}
+
+QProgressBar:chunk
+{
+	background-color: hsv(180, 100%, 90%);
+	color: rgb(255, 255, 255);
+	font-size: 20px;
+	font-weight: bold;
+	padding: -1px;
+	border: none;
+	border-radius: 8px;
+}
+
+
+/*-----QCheckBox-----*/
+QCheckBox
+{
+	background-color: transparent;
+	color: #fff;
+	font-size: 10px;
+	font-weight: bold;
+	border: none;
+	border-radius: 5px;
+
+}
+
+
+/*-----QCheckBox-----*/
+QCheckBox::indicator
+{
+    color: #b1b1b1;
+    background-color: #323232;
+    border: 1px solid darkgray;
+    width: 12px;
+    height: 12px;
+
+}
+
+
+QCheckBox::indicator:checked
+{
+    image:url(&quot;./ressources/check.png&quot;);
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.511, x2:1, y2:0.511, stop:0 rgba(0, 172, 149, 255),stop:0.995192 rgba(54, 197, 177, 255));;
+    border: 1px solid #607cff;
+
+}
+
+
+QCheckBox::indicator:unchecked:hover
+{
+    border: 1px solid #08b099;
+
+}
+
+
+QCheckBox::disabled
+{
+	color: #656565;
+
+}
+
+
+QCheckBox::indicator:disabled
+{
+	background-color: #656565;
+	color: #656565;
+    border: 1px solid #656565;
+
+}
+
+
+/*-----QLineEdit-----*/
+QLineEdit
+{
+	background-color: #c2c7d5;
+	color: #000;
+	font-weight: bold;
+	border: none;
+	border-radius: 2px;
+	padding: 3px;
+
+}
+
+
+/*-----QListView-----*/
+QListView
+{
+	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(50, 61, 80, 255),stop:1 rgba(44, 49, 69, 255));
+	color: #fff;
+	font-size: 12px;
+	font-weight: bold;
+	border: 1px solid #191919;
+	show-decoration-selected: 0;
+
+}
+
+
+QListView::item
+{
+	color: #31cecb;
+	background-color: #454e5e;
+	border: none;
+	padding: 5px;
+	border-radius: 0px;
+	padding-left : 10px;
+	height: 42px;
+
+}
+
+QListView::item:selected
+{
+	color: #31cecb;
+	background-color: #454e5e;
+
+}
+
+
+QListView::item:!selected
+{
+	color:white;
+	background-color: transparent;
+	border: none;
+	padding-left : 10px;
+
+}
+
+
+QListView::item:!selected:hover
+{
+	color: #bbbcba;
+	background-color: #454e5e;
+	border: none;
+	padding-left : 10px;
+
+}
+
+
+/*-----QTreeView-----*/
+QTreeView 
+{
+	background-color: #232939;
+	show-decoration-selected: 0;
+	color: #c2c8d7;
+
+}
+
+
+QTreeView::item 
+{
+	border-top-color: transparent;
+	border-bottom-color: transparent;
+
+}
+
+
+QTreeView::item:hover 
+{
+	background-color: #606060;
+	color: #fff;
+
+}
+
+
+QTreeView::item:selected 
+{
+	background-color: #0ab19a;
+	color: #fff;
+
+}
+
+
+QTreeView::item:selected:active
+{
+	background-color: #0ab19a;
+	color: #fff;
+
+}
+
+
+QTreeView::branch:has-children:!has-siblings:closed,
+QTreeView::branch:closed:has-children:has-siblings 
+{
+	image: url(://tree-closed.png);
+
+}
+
+QTreeView::branch:open:has-children:!has-siblings,
+QTreeView::branch:open:has-children:has-siblings  
+{
+	image: url(://tree-open.png);
+
+}
+
+
+/*-----QTableView &amp; QTableWidget-----*/
+QTableView
+{
+    background-color: #232939;
+	border: 1px solid gray;
+    color: #f0f0f0;
+    gridline-color: #232939;
+    outline : 0;
+
+}
+
+
+QTableView::disabled
+{
+    background-color: #242526;
+    border: 1px solid #32414B;
+    color: #656565;
+    gridline-color: #656565;
+    outline : 0;
+
+}
+
+
+QTableView::item:hover 
+{
+    background-color: #606060;
+    color: #f0f0f0;
+
+}
+
+
+QTableView::item:selected 
+{
+	background-color: #0ab19a;
+    color: #F0F0F0;
+
+}
+
+
+QTableView::item:selected:disabled
+{
+    background-color: #1a1b1c;
+    border: 2px solid #525251;
+    color: #656565;
+
+}
+
+
+QTableCornerButton::section
+{
+	background-color: #343a49;
+    color: #fff;
+
+}
+
+
+QHeaderView::section
+{
+	color: #fff;
+	border-top: 0px;
+	border-bottom: 1px solid gray;
+	border-right: 1px solid gray;
+	background-color: #343a49;
+    margin-top:1px;
+	margin-bottom:1px;
+	padding: 5px;
+
+}
+
+
+QHeaderView::section:disabled
+{
+    background-color: #525251;
+    color: #656565;
+
+}
+
+
+QHeaderView::section:checked
+{
+    color: #fff;
+    background-color: #0ab19a;
+
+}
+
+
+QHeaderView::section:checked:disabled
+{
+    color: #656565;
+    background-color: #525251;
+
+}
+
+
+QHeaderView::section::vertical::first,
+QHeaderView::section::vertical::only-one
+{
+    border-top: 1px solid #353635;
+
+}
+
+
+QHeaderView::section::vertical
+{
+    border-top: 1px solid #353635;
+
+}
+
+
+QHeaderView::section::horizontal::first,
+QHeaderView::section::horizontal::only-one
+{
+    border-left: 1px solid #353635;
+
+}
+
+
+QHeaderView::section::horizontal
+{
+    border-left: 1px solid #353635;
+
+}
+
+
+/*-----QScrollBar-----*/
+QScrollBar:horizontal 
+{
+    background-color: transparent;
+    height: 8px;
+    margin: 0px;
+    padding: 0px;
+
+}
+
+
+QScrollBar::handle:horizontal 
+{
+    border: none;
+	min-width: 100px;
+    background-color: #56576c;
+
+}
+
+
+QScrollBar::add-line:horizontal, 
+QScrollBar::sub-line:horizontal,
+QScrollBar::add-page:horizontal, 
+QScrollBar::sub-page:horizontal 
+{
+    width: 0px;
+    background-color: transparent;
+
+}
+
+
+QScrollBar:vertical 
+{
+    background-color: transparent;
+    width: 8px;
+    margin: 0;
+
+}
+
+
+QScrollBar::handle:vertical 
+{
+    border: none;
+	min-height: 100px;
+    background-color: #56576c;
+
+}
+
+
+QScrollBar::add-line:vertical, 
+QScrollBar::sub-line:vertical,
+QScrollBar::add-page:vertical, 
+QScrollBar::sub-page:vertical 
+{
+    height: 0px;
+    background-color: transparent;
+
+}
+</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QFrame" name="fixable_joint_frame">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_10">
+      <property name="spacing">
+       <number>1</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="fixable_joint_label">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>thrgh_fwd_rwr_r</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="fixable_joint_x_button">
+        <property name="minimumSize">
+         <size>
+          <width>25</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>25</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>x</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="fixable_joint_y_button">
+        <property name="minimumSize">
+         <size>
+          <width>25</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>25</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>y</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="fixable_joint_z_button">
+        <property name="minimumSize">
+         <size>
+          <width>25</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>25</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>z</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

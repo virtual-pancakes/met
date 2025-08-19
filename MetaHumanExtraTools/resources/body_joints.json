@@ -11,7 +11,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": false,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "pelvis": {
         "parent": "root",
@@ -132,7 +138,13 @@
             54320
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": false,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "spine_01": {
         "parent": "pelvis",
@@ -231,7 +243,13 @@
             54320
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": false,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "spine_02": {
         "parent": "spine_01",
@@ -348,7 +366,13 @@
             54320
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": false,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "spine_03": {
         "parent": "spine_02",
@@ -503,7 +527,13 @@
             54320
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": false,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "spine_04": {
         "parent": "spine_03",
@@ -651,7 +681,13 @@
             53856
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": false,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "spine_05": {
         "parent": "spine_04",
@@ -679,7 +715,13 @@
             46746
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": false,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "neck_01": {
         "parent": "spine_05",
@@ -811,7 +853,13 @@
             24041
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": false,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "neck_02": {
         "parent": "neck_01",
@@ -978,7 +1026,13 @@
             17847
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": false,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "head": {
         "parent": "neck_02",
@@ -1011,7 +1065,13 @@
             24046
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": false,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "clavicle_l": {
         "parent": "spine_05",
@@ -1062,7 +1122,13 @@
             40768
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            true,
+            true,
+            true
+        ]
     },
     "upperarm_l": {
         "parent": "clavicle_l",
@@ -1144,7 +1210,13 @@
             27861
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            true,
+            true,
+            true
+        ]
     },
     "lowerarm_l": {
         "parent": "upperarm_l",
@@ -1239,7 +1311,13 @@
             50160
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            true,
+            true,
+            true
+        ]
     },
     "lowerarm_twist_02_l": {
         "parent": "lowerarm_l",
@@ -1253,7 +1331,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "lowerarm_twist_01_l": {
         "parent": "lowerarm_l",
@@ -1267,7 +1351,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "lowerarm_correctiveRoot_l": {
         "parent": "lowerarm_l",
@@ -1281,7 +1371,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "lowerarm_in_l": {
         "parent": "lowerarm_correctiveRoot_l",
@@ -1304,7 +1400,13 @@
             49595
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "lowerarm_out_l": {
         "parent": "lowerarm_correctiveRoot_l",
@@ -1325,7 +1427,13 @@
             49764
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "lowerarm_fwd_l": {
         "parent": "lowerarm_correctiveRoot_l",
@@ -1344,7 +1452,13 @@
             48218
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "lowerarm_bck_l": {
         "parent": "lowerarm_correctiveRoot_l",
@@ -1363,7 +1477,13 @@
             49600
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "hand_l": {
         "parent": "lowerarm_l",
@@ -1418,7 +1538,13 @@
             50176
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            true,
+            true,
+            true
+        ]
     },
     "middle_metacarpal_l": {
         "parent": "hand_l",
@@ -1446,7 +1572,13 @@
             49254
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "middle_01_l": {
         "parent": "middle_metacarpal_l",
@@ -1490,7 +1622,13 @@
             44344
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            true
+        ]
     },
     "middle_02_l": {
         "parent": "middle_01_l",
@@ -1525,7 +1663,13 @@
             46441
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            true
+        ]
     },
     "middle_03_l": {
         "parent": "middle_02_l",
@@ -1560,7 +1704,13 @@
             46461
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            true
+        ]
     },
     "middle_03_half_l": {
         "parent": "middle_03_l",
@@ -1574,7 +1724,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "middle_03_in_l": {
         "parent": "middle_03_half_l",
@@ -1590,7 +1746,13 @@
             24282
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "middle_02_dip_l": {
         "parent": "middle_03_half_l",
@@ -1606,7 +1768,13 @@
             24292
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "middle_03_bulge_l": {
         "parent": "middle_03_l",
@@ -1622,7 +1790,13 @@
             27471
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "middle_02_side_inn_l": {
         "parent": "middle_02_l",
@@ -1638,7 +1812,13 @@
             47033
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "middle_02_side_out_l": {
         "parent": "middle_02_l",
@@ -1654,7 +1834,13 @@
             39734
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "middle_02_half_l": {
         "parent": "middle_02_l",
@@ -1668,7 +1854,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "middle_02_in_l": {
         "parent": "middle_02_half_l",
@@ -1684,7 +1876,13 @@
             46441
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "middle_02_pip_l": {
         "parent": "middle_02_half_l",
@@ -1700,7 +1898,13 @@
             27431
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "middle_02_bulge_l": {
         "parent": "middle_02_l",
@@ -1716,7 +1920,13 @@
             39722
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "middle_01_side_inn_l": {
         "parent": "middle_01_l",
@@ -1732,7 +1942,13 @@
             24357
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "middle_01_side_out_l": {
         "parent": "middle_01_l",
@@ -1748,7 +1964,13 @@
             24361
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "middle_01_half_l": {
         "parent": "middle_01_l",
@@ -1762,7 +1984,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "middle_01_palm_l": {
         "parent": "middle_01_half_l",
@@ -1778,7 +2006,13 @@
             26215
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "middle_01_mcp_l": {
         "parent": "middle_01_half_l",
@@ -1794,7 +2028,13 @@
             26217
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "middle_01_bulge_l": {
         "parent": "middle_01_l",
@@ -1811,7 +2051,13 @@
             39796
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "middle_01_palmMid_l": {
         "parent": "middle_01_l",
@@ -1827,7 +2073,13 @@
             24375
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "middle_metacarpal_slide_l": {
         "parent": "middle_metacarpal_l",
@@ -1855,7 +2107,13 @@
             46548
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "pinky_metacarpal_l": {
         "parent": "hand_l",
@@ -1883,7 +2141,13 @@
             49260
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "pinky_01_l": {
         "parent": "pinky_metacarpal_l",
@@ -1928,7 +2192,13 @@
             50091
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            true
+        ]
     },
     "pinky_02_l": {
         "parent": "pinky_01_l",
@@ -1963,7 +2233,13 @@
             39500
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            true
+        ]
     },
     "pinky_03_l": {
         "parent": "pinky_02_l",
@@ -1998,7 +2274,13 @@
             24215
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            true
+        ]
     },
     "pinky_03_half_l": {
         "parent": "pinky_03_l",
@@ -2012,7 +2294,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "pinky_03_in_l": {
         "parent": "pinky_03_half_l",
@@ -2028,7 +2316,13 @@
             39298
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "pinky_02_dip_l": {
         "parent": "pinky_03_half_l",
@@ -2044,7 +2338,13 @@
             39429
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "pinky_03_bulge_l": {
         "parent": "pinky_03_l",
@@ -2061,7 +2361,13 @@
             39329
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "pinky_02_half_l": {
         "parent": "pinky_02_l",
@@ -2075,7 +2381,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "pinky_02_in_l": {
         "parent": "pinky_02_half_l",
@@ -2091,7 +2403,13 @@
             39458
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "pinky_02_pip_l": {
         "parent": "pinky_02_half_l",
@@ -2107,7 +2425,13 @@
             39500
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "pinky_02_bulge_l": {
         "parent": "pinky_02_l",
@@ -2123,7 +2447,13 @@
             39436
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "pinky_02_side_out_l": {
         "parent": "pinky_02_l",
@@ -2139,7 +2469,13 @@
             46904
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "pinky_02_side_inn_l": {
         "parent": "pinky_02_l",
@@ -2155,7 +2491,13 @@
             46903
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "pinky_01_side_inn_l": {
         "parent": "pinky_01_l",
@@ -2172,7 +2514,13 @@
             39509
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "pinky_01_side_out_l": {
         "parent": "pinky_01_l",
@@ -2189,7 +2537,13 @@
             46945
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "pinky_01_half_l": {
         "parent": "pinky_01_l",
@@ -2203,7 +2557,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "pinky_01_palm_l": {
         "parent": "pinky_01_half_l",
@@ -2219,7 +2579,13 @@
             26206
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "pinky_01_mcp_l": {
         "parent": "pinky_01_half_l",
@@ -2235,7 +2601,13 @@
             26246
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "pinky_01_bulge_l": {
         "parent": "pinky_01_l",
@@ -2251,7 +2623,13 @@
             39506
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "pinky_01_palmMid_l": {
         "parent": "pinky_01_l",
@@ -2267,7 +2645,13 @@
             39546
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "pinky_metacarpal_slide_l": {
         "parent": "pinky_metacarpal_l",
@@ -2295,7 +2679,13 @@
             50358
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ring_metacarpal_l": {
         "parent": "hand_l",
@@ -2323,7 +2713,13 @@
             49257
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ring_01_l": {
         "parent": "ring_metacarpal_l",
@@ -2361,7 +2757,13 @@
             50085
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            true
+        ]
     },
     "ring_02_l": {
         "parent": "ring_01_l",
@@ -2396,7 +2798,13 @@
             27356
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            true
+        ]
     },
     "ring_03_l": {
         "parent": "ring_02_l",
@@ -2431,7 +2839,13 @@
             46451
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            true
+        ]
     },
     "ring_03_half_l": {
         "parent": "ring_03_l",
@@ -2445,7 +2859,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ring_03_in_l": {
         "parent": "ring_03_half_l",
@@ -2461,7 +2881,13 @@
             24590
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ring_02_dip_l": {
         "parent": "ring_03_half_l",
@@ -2477,7 +2903,13 @@
             24598
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ring_03_bulge_l": {
         "parent": "ring_03_l",
@@ -2494,7 +2926,13 @@
             40363
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ring_02_half_l": {
         "parent": "ring_02_l",
@@ -2508,7 +2946,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ring_02_in_l": {
         "parent": "ring_02_half_l",
@@ -2524,7 +2968,13 @@
             44143
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ring_02_pip_l": {
         "parent": "ring_02_half_l",
@@ -2540,7 +2990,13 @@
             27341
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ring_02_bulge_l": {
         "parent": "ring_02_l",
@@ -2556,7 +3012,13 @@
             44122
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ring_02_side_out_l": {
         "parent": "ring_02_l",
@@ -2572,7 +3034,13 @@
             24593
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ring_02_side_inn_l": {
         "parent": "ring_02_l",
@@ -2588,7 +3056,13 @@
             24586
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ring_01_half_l": {
         "parent": "ring_01_l",
@@ -2602,7 +3076,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ring_01_palm_l": {
         "parent": "ring_01_half_l",
@@ -2618,7 +3098,13 @@
             26231
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ring_01_mcp_l": {
         "parent": "ring_01_half_l",
@@ -2634,7 +3120,13 @@
             26233
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ring_01_bulge_l": {
         "parent": "ring_01_l",
@@ -2650,7 +3142,13 @@
             26168
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ring_01_side_out_l": {
         "parent": "ring_01_l",
@@ -2666,7 +3164,13 @@
             26174
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ring_01_side_inn_l": {
         "parent": "ring_01_l",
@@ -2682,7 +3186,13 @@
             26170
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ring_01_palmMid_l": {
         "parent": "ring_01_l",
@@ -2698,7 +3208,13 @@
             26188
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ring_metacarpal_slide_l": {
         "parent": "ring_metacarpal_l",
@@ -2726,7 +3242,13 @@
             46545
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thumb_01_l": {
         "parent": "hand_l",
@@ -2797,7 +3319,13 @@
             45419
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thumb_02_l": {
         "parent": "thumb_01_l",
@@ -2831,7 +3359,13 @@
             44453
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            true
+        ]
     },
     "thumb_03_l": {
         "parent": "thumb_02_l",
@@ -2866,7 +3400,13 @@
             45253
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            true
+        ]
     },
     "thumb_03_half_l": {
         "parent": "thumb_03_l",
@@ -2880,7 +3420,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thumb_03_pip_l": {
         "parent": "thumb_03_half_l",
@@ -2896,7 +3442,13 @@
             40263
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thumb_03_in_l": {
         "parent": "thumb_03_half_l",
@@ -2912,7 +3464,13 @@
             27400
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thumb_03_side_out_l": {
         "parent": "thumb_03_l",
@@ -2928,7 +3486,13 @@
             24516
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thumb_03_side_inn_l": {
         "parent": "thumb_03_l",
@@ -2944,7 +3508,13 @@
             40153
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thumb_03_bulge_l": {
         "parent": "thumb_03_l",
@@ -2960,7 +3530,13 @@
             26671
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thumb_02_half_l": {
         "parent": "thumb_02_l",
@@ -2974,7 +3550,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thumb_02_mcp_l": {
         "parent": "thumb_02_half_l",
@@ -2990,7 +3572,13 @@
             44453
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thumb_02_in_l": {
         "parent": "thumb_02_half_l",
@@ -3006,7 +3594,13 @@
             40308
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thumb_02_side_out_l": {
         "parent": "thumb_02_l",
@@ -3022,7 +3616,13 @@
             47278
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thumb_02_side_inn_l": {
         "parent": "thumb_02_l",
@@ -3038,7 +3638,13 @@
             40300
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thumb_02_bulge_l": {
         "parent": "thumb_02_l",
@@ -3054,7 +3660,13 @@
             40265
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thumb_01_side_out_l": {
         "parent": "thumb_01_l",
@@ -3070,7 +3682,13 @@
             45229
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thumb_01_side_inn_l": {
         "parent": "thumb_01_l",
@@ -3086,7 +3704,13 @@
             49084
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "index_metacarpal_l": {
         "parent": "hand_l",
@@ -3115,7 +3739,13 @@
             49266
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "index_01_l": {
         "parent": "index_metacarpal_l",
@@ -3160,7 +3790,13 @@
             46240
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            true
+        ]
     },
     "index_02_l": {
         "parent": "index_01_l",
@@ -3195,7 +3831,13 @@
             40074
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            true
+        ]
     },
     "index_03_l": {
         "parent": "index_02_l",
@@ -3230,7 +3872,13 @@
             46411
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            true
+        ]
     },
     "index_03_half_l": {
         "parent": "index_03_l",
@@ -3244,7 +3892,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "index_03_in_l": {
         "parent": "index_03_half_l",
@@ -3260,7 +3914,13 @@
             27390
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "index_02_dip_l": {
         "parent": "index_03_half_l",
@@ -3276,7 +3936,13 @@
             27395
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "index_03_bulge_l": {
         "parent": "index_03_l",
@@ -3292,7 +3958,13 @@
             39921
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "index_02_side_inn_l": {
         "parent": "index_02_l",
@@ -3308,7 +3980,13 @@
             40013
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "index_02_side_out_l": {
         "parent": "index_02_l",
@@ -3324,7 +4002,13 @@
             47156
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "index_02_half_l": {
         "parent": "index_02_l",
@@ -3338,7 +4022,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "index_02_in_l": {
         "parent": "index_02_half_l",
@@ -3354,7 +4044,13 @@
             27326
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "index_02_pip_l": {
         "parent": "index_02_half_l",
@@ -3370,7 +4066,13 @@
             27321
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "index_02_bulge_l": {
         "parent": "index_02_l",
@@ -3386,7 +4088,13 @@
             40000
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "index_01_side_out_l": {
         "parent": "index_01_l",
@@ -3402,7 +4110,13 @@
             24484
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "index_01_side_inn_l": {
         "parent": "index_01_l",
@@ -3418,7 +4132,13 @@
             40089
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "index_01_half_l": {
         "parent": "index_01_l",
@@ -3432,7 +4152,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "index_01_palm_l": {
         "parent": "index_01_half_l",
@@ -3448,7 +4174,13 @@
             26224
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "index_01_mcp_l": {
         "parent": "index_01_half_l",
@@ -3464,7 +4196,13 @@
             26226
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "index_01_bulge_l": {
         "parent": "index_01_l",
@@ -3480,7 +4218,13 @@
             24478
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "index_01_palmMid_l": {
         "parent": "index_01_l",
@@ -3496,7 +4240,13 @@
             24498
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "index_metacarpal_slide_l": {
         "parent": "index_metacarpal_l",
@@ -3519,7 +4269,13 @@
             50365
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "wrist_inner_l": {
         "parent": "hand_l",
@@ -3538,7 +4294,13 @@
             50175
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "wrist_outer_l": {
         "parent": "hand_l",
@@ -3554,7 +4316,13 @@
             49295
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "upperarm_twist_01_l": {
         "parent": "upperarm_l",
@@ -3568,7 +4336,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "upperarm_twistCor_01_l": {
         "parent": "upperarm_twist_01_l",
@@ -3582,7 +4356,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "upperarm_twist_02_l": {
         "parent": "upperarm_l",
@@ -3596,7 +4376,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "upperarm_tricep_l": {
         "parent": "upperarm_twist_02_l",
@@ -3620,7 +4406,13 @@
             48134
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "upperarm_bicep_l": {
         "parent": "upperarm_twist_02_l",
@@ -3644,7 +4436,13 @@
             48146
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "upperarm_twistCor_02_l": {
         "parent": "upperarm_twist_02_l",
@@ -3658,7 +4456,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "upperarm_correctiveRoot_l": {
         "parent": "upperarm_l",
@@ -3672,7 +4476,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "upperarm_bck_l": {
         "parent": "upperarm_correctiveRoot_l",
@@ -3696,7 +4506,13 @@
             50600
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "upperarm_fwd_l": {
         "parent": "upperarm_correctiveRoot_l",
@@ -3720,7 +4536,13 @@
             50544
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "upperarm_in_l": {
         "parent": "upperarm_correctiveRoot_l",
@@ -3747,7 +4569,13 @@
             50145
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "upperarm_out_l": {
         "parent": "upperarm_correctiveRoot_l",
@@ -3771,7 +4599,13 @@
             50575
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "clavicle_out_l": {
         "parent": "clavicle_l",
@@ -3799,7 +4633,13 @@
             24000
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "clavicle_scap_l": {
         "parent": "clavicle_l",
@@ -3823,7 +4663,13 @@
             45873
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "clavicle_r": {
         "parent": "spine_05",
@@ -3874,7 +4720,13 @@
             40768
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            true,
+            true,
+            true
+        ]
     },
     "upperarm_r": {
         "parent": "clavicle_r",
@@ -3956,7 +4808,13 @@
             31619
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            true,
+            true,
+            true
+        ]
     },
     "lowerarm_r": {
         "parent": "upperarm_r",
@@ -4051,7 +4909,13 @@
             53963
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            true,
+            true,
+            true
+        ]
     },
     "lowerarm_twist_02_r": {
         "parent": "lowerarm_r",
@@ -4065,7 +4929,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "lowerarm_twist_01_r": {
         "parent": "lowerarm_r",
@@ -4079,7 +4949,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "lowerarm_correctiveRoot_r": {
         "parent": "lowerarm_r",
@@ -4093,7 +4969,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "lowerarm_out_r": {
         "parent": "lowerarm_correctiveRoot_r",
@@ -4114,7 +4996,13 @@
             53567
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "lowerarm_in_r": {
         "parent": "lowerarm_correctiveRoot_r",
@@ -4137,7 +5025,13 @@
             53398
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "lowerarm_fwd_r": {
         "parent": "lowerarm_correctiveRoot_r",
@@ -4156,7 +5050,13 @@
             52021
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "lowerarm_bck_r": {
         "parent": "lowerarm_correctiveRoot_r",
@@ -4175,7 +5075,13 @@
             53403
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "hand_r": {
         "parent": "lowerarm_r",
@@ -4230,7 +5136,13 @@
             53979
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            true,
+            true,
+            true
+        ]
     },
     "middle_metacarpal_r": {
         "parent": "hand_r",
@@ -4258,7 +5170,13 @@
             53057
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "middle_01_r": {
         "parent": "middle_metacarpal_r",
@@ -4302,7 +5220,13 @@
             36768
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            true
+        ]
     },
     "middle_02_r": {
         "parent": "middle_01_r",
@@ -4337,7 +5261,13 @@
             38830
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            true
+        ]
     },
     "middle_03_r": {
         "parent": "middle_02_r",
@@ -4372,7 +5302,13 @@
             38850
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            true
+        ]
     },
     "middle_03_half_r": {
         "parent": "middle_03_r",
@@ -4386,7 +5322,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "middle_03_in_r": {
         "parent": "middle_03_half_r",
@@ -4402,7 +5344,13 @@
             28089
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "middle_02_dip_r": {
         "parent": "middle_03_half_r",
@@ -4418,7 +5366,13 @@
             28159
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "middle_03_bulge_r": {
         "parent": "middle_03_r",
@@ -4434,7 +5388,13 @@
             28109
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "middle_02_side_inn_r": {
         "parent": "middle_02_r",
@@ -4450,7 +5410,13 @@
             50836
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "middle_02_side_out_r": {
         "parent": "middle_02_r",
@@ -4466,7 +5432,13 @@
             32171
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "middle_02_half_r": {
         "parent": "middle_02_r",
@@ -4480,7 +5452,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "middle_02_in_r": {
         "parent": "middle_02_half_r",
@@ -4496,7 +5474,13 @@
             38830
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "middle_02_pip_r": {
         "parent": "middle_02_half_r",
@@ -4512,7 +5496,13 @@
             28200
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "middle_02_bulge_r": {
         "parent": "middle_02_r",
@@ -4528,7 +5518,13 @@
             32158
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "middle_01_side_inn_r": {
         "parent": "middle_01_r",
@@ -4544,7 +5540,13 @@
             28208
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "middle_01_side_out_r": {
         "parent": "middle_01_r",
@@ -4560,7 +5562,13 @@
             28216
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "middle_01_half_r": {
         "parent": "middle_01_r",
@@ -4574,7 +5582,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "middle_01_palm_r": {
         "parent": "middle_01_half_r",
@@ -4590,7 +5604,13 @@
             30781
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "middle_01_mcp_r": {
         "parent": "middle_01_half_r",
@@ -4606,7 +5626,13 @@
             30785
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "middle_01_bulge_r": {
         "parent": "middle_01_r",
@@ -4623,7 +5649,13 @@
             32232
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "middle_01_palmMid_r": {
         "parent": "middle_01_r",
@@ -4639,7 +5671,13 @@
             28222
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "middle_metacarpal_slide_r": {
         "parent": "middle_metacarpal_r",
@@ -4667,7 +5705,13 @@
             38937
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "pinky_metacarpal_r": {
         "parent": "hand_r",
@@ -4695,7 +5739,13 @@
             53063
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "pinky_01_r": {
         "parent": "pinky_metacarpal_r",
@@ -4740,7 +5790,13 @@
             53894
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            true
+        ]
     },
     "pinky_02_r": {
         "parent": "pinky_01_r",
@@ -4775,7 +5831,13 @@
             31939
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            true
+        ]
     },
     "pinky_03_r": {
         "parent": "pinky_02_r",
@@ -4810,7 +5872,13 @@
             28002
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            true
+        ]
     },
     "pinky_03_half_r": {
         "parent": "pinky_03_r",
@@ -4824,7 +5892,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "pinky_03_in_r": {
         "parent": "pinky_03_half_r",
@@ -4840,7 +5914,13 @@
             31737
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "pinky_02_dip_r": {
         "parent": "pinky_03_half_r",
@@ -4856,7 +5936,13 @@
             31867
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "pinky_03_bulge_r": {
         "parent": "pinky_03_r",
@@ -4873,7 +5959,13 @@
             31769
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "pinky_02_half_r": {
         "parent": "pinky_02_r",
@@ -4887,7 +5979,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "pinky_02_in_r": {
         "parent": "pinky_02_half_r",
@@ -4903,7 +6001,13 @@
             31896
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "pinky_02_pip_r": {
         "parent": "pinky_02_half_r",
@@ -4919,7 +6023,13 @@
             31939
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "pinky_02_bulge_r": {
         "parent": "pinky_02_r",
@@ -4935,7 +6045,13 @@
             31875
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "pinky_02_side_out_r": {
         "parent": "pinky_02_r",
@@ -4951,7 +6067,13 @@
             50707
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "pinky_02_side_inn_r": {
         "parent": "pinky_02_r",
@@ -4967,7 +6089,13 @@
             50706
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "pinky_01_side_inn_r": {
         "parent": "pinky_01_r",
@@ -4984,7 +6112,13 @@
             31946
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "pinky_01_side_out_r": {
         "parent": "pinky_01_r",
@@ -5001,7 +6135,13 @@
             50748
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "pinky_01_half_r": {
         "parent": "pinky_01_r",
@@ -5015,7 +6155,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "pinky_01_palm_r": {
         "parent": "pinky_01_half_r",
@@ -5031,7 +6177,13 @@
             30774
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "pinky_01_mcp_r": {
         "parent": "pinky_01_half_r",
@@ -5047,7 +6199,13 @@
             30819
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "pinky_01_bulge_r": {
         "parent": "pinky_01_r",
@@ -5063,7 +6221,13 @@
             31945
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "pinky_01_palmMid_r": {
         "parent": "pinky_01_r",
@@ -5079,7 +6243,13 @@
             31985
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "pinky_metacarpal_slide_r": {
         "parent": "pinky_metacarpal_r",
@@ -5107,7 +6277,13 @@
             54161
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ring_metacarpal_r": {
         "parent": "hand_r",
@@ -5135,7 +6311,13 @@
             53060
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ring_01_r": {
         "parent": "ring_metacarpal_r",
@@ -5173,7 +6355,13 @@
             53888
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            true
+        ]
     },
     "ring_02_r": {
         "parent": "ring_01_r",
@@ -5208,7 +6396,13 @@
             30694
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            true
+        ]
     },
     "ring_03_r": {
         "parent": "ring_02_r",
@@ -5243,7 +6437,13 @@
             38840
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            true
+        ]
     },
     "ring_03_half_r": {
         "parent": "ring_03_r",
@@ -5257,7 +6457,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ring_03_in_r": {
         "parent": "ring_03_half_r",
@@ -5273,7 +6479,13 @@
             28519
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ring_02_dip_r": {
         "parent": "ring_03_half_r",
@@ -5289,7 +6501,13 @@
             30682
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ring_03_bulge_r": {
         "parent": "ring_03_r",
@@ -5306,7 +6524,13 @@
             32800
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ring_02_half_r": {
         "parent": "ring_02_r",
@@ -5320,7 +6544,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ring_02_in_r": {
         "parent": "ring_02_half_r",
@@ -5336,7 +6566,13 @@
             36566
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ring_02_pip_r": {
         "parent": "ring_02_half_r",
@@ -5352,7 +6588,13 @@
             30713
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ring_02_bulge_r": {
         "parent": "ring_02_r",
@@ -5368,7 +6610,13 @@
             36546
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ring_02_side_out_r": {
         "parent": "ring_02_r",
@@ -5384,7 +6632,13 @@
             28524
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ring_02_side_inn_r": {
         "parent": "ring_02_r",
@@ -5400,7 +6654,13 @@
             28512
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ring_01_half_r": {
         "parent": "ring_01_r",
@@ -5414,7 +6674,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ring_01_palm_r": {
         "parent": "ring_01_half_r",
@@ -5430,7 +6696,13 @@
             30799
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ring_01_mcp_r": {
         "parent": "ring_01_half_r",
@@ -5446,7 +6718,13 @@
             30803
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ring_01_bulge_r": {
         "parent": "ring_01_r",
@@ -5462,7 +6740,13 @@
             30725
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ring_01_side_out_r": {
         "parent": "ring_01_r",
@@ -5478,7 +6762,13 @@
             30731
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ring_01_side_inn_r": {
         "parent": "ring_01_r",
@@ -5494,7 +6784,13 @@
             30727
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ring_01_palmMid_r": {
         "parent": "ring_01_r",
@@ -5510,7 +6806,13 @@
             30745
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ring_metacarpal_slide_r": {
         "parent": "ring_metacarpal_r",
@@ -5538,7 +6840,13 @@
             38934
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thumb_01_r": {
         "parent": "hand_r",
@@ -5609,7 +6917,13 @@
             37845
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thumb_02_r": {
         "parent": "thumb_01_r",
@@ -5643,7 +6957,13 @@
             36880
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            true
+        ]
     },
     "thumb_03_r": {
         "parent": "thumb_02_r",
@@ -5678,7 +6998,13 @@
             37679
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            true
+        ]
     },
     "thumb_03_half_r": {
         "parent": "thumb_03_r",
@@ -5692,7 +7018,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thumb_03_pip_r": {
         "parent": "thumb_03_half_r",
@@ -5708,7 +7040,13 @@
             32700
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thumb_03_in_r": {
         "parent": "thumb_03_half_r",
@@ -5724,7 +7062,13 @@
             28408
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thumb_03_side_out_r": {
         "parent": "thumb_03_r",
@@ -5740,7 +7084,13 @@
             28414
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thumb_03_side_inn_r": {
         "parent": "thumb_03_r",
@@ -5756,7 +7106,13 @@
             32589
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thumb_03_bulge_r": {
         "parent": "thumb_03_r",
@@ -5772,7 +7128,13 @@
             28425
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thumb_02_half_r": {
         "parent": "thumb_02_r",
@@ -5786,7 +7148,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thumb_02_mcp_r": {
         "parent": "thumb_02_half_r",
@@ -5802,7 +7170,13 @@
             36880
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thumb_02_in_r": {
         "parent": "thumb_02_half_r",
@@ -5818,7 +7192,13 @@
             32748
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thumb_02_side_out_r": {
         "parent": "thumb_02_r",
@@ -5834,7 +7214,13 @@
             51081
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thumb_02_side_inn_r": {
         "parent": "thumb_02_r",
@@ -5850,7 +7236,13 @@
             32736
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thumb_02_bulge_r": {
         "parent": "thumb_02_r",
@@ -5866,7 +7258,13 @@
             32704
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thumb_01_side_out_r": {
         "parent": "thumb_01_r",
@@ -5882,7 +7280,13 @@
             37655
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thumb_01_side_inn_r": {
         "parent": "thumb_01_r",
@@ -5898,7 +7302,13 @@
             52887
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "index_metacarpal_r": {
         "parent": "hand_r",
@@ -5927,7 +7337,13 @@
             53069
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "index_01_r": {
         "parent": "index_metacarpal_r",
@@ -5972,7 +7388,13 @@
             38629
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            true
+        ]
     },
     "index_02_r": {
         "parent": "index_01_r",
@@ -6007,7 +7429,13 @@
             32513
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            true
+        ]
     },
     "index_03_r": {
         "parent": "index_02_r",
@@ -6042,7 +7470,13 @@
             38800
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            true
+        ]
     },
     "index_03_half_r": {
         "parent": "index_03_r",
@@ -6056,7 +7490,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "index_03_in_r": {
         "parent": "index_03_half_r",
@@ -6072,7 +7512,13 @@
             28256
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "index_02_dip_r": {
         "parent": "index_03_half_r",
@@ -6088,7 +7534,13 @@
             31595
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "index_03_bulge_r": {
         "parent": "index_03_r",
@@ -6104,7 +7556,13 @@
             32361
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "index_02_side_inn_r": {
         "parent": "index_02_r",
@@ -6120,7 +7578,13 @@
             32448
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "index_02_side_out_r": {
         "parent": "index_02_r",
@@ -6136,7 +7600,13 @@
             50959
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "index_02_half_r": {
         "parent": "index_02_r",
@@ -6150,7 +7620,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "index_02_in_r": {
         "parent": "index_02_half_r",
@@ -6166,7 +7642,13 @@
             28341
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "index_02_pip_r": {
         "parent": "index_02_half_r",
@@ -6182,7 +7664,13 @@
             28357
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "index_02_bulge_r": {
         "parent": "index_02_r",
@@ -6198,7 +7686,13 @@
             32435
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "index_01_side_out_r": {
         "parent": "index_01_r",
@@ -6214,7 +7708,13 @@
             28375
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "index_01_side_inn_r": {
         "parent": "index_01_r",
@@ -6230,7 +7730,13 @@
             32527
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "index_01_half_r": {
         "parent": "index_01_r",
@@ -6244,7 +7750,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "index_01_palm_r": {
         "parent": "index_01_half_r",
@@ -6260,7 +7772,13 @@
             30792
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "index_01_mcp_r": {
         "parent": "index_01_half_r",
@@ -6276,7 +7794,13 @@
             30796
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "index_01_bulge_r": {
         "parent": "index_01_r",
@@ -6292,7 +7816,13 @@
             28369
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "index_01_palmMid_r": {
         "parent": "index_01_r",
@@ -6308,7 +7838,13 @@
             28389
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "index_metacarpal_slide_r": {
         "parent": "index_metacarpal_r",
@@ -6331,7 +7867,13 @@
             54168
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "wrist_inner_r": {
         "parent": "hand_r",
@@ -6350,7 +7892,13 @@
             53978
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "wrist_outer_r": {
         "parent": "hand_r",
@@ -6366,7 +7914,13 @@
             53098
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "upperarm_twist_01_r": {
         "parent": "upperarm_r",
@@ -6380,7 +7934,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "upperarm_twistCor_01_r": {
         "parent": "upperarm_twist_01_r",
@@ -6394,7 +7954,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "upperarm_twist_02_r": {
         "parent": "upperarm_r",
@@ -6408,7 +7974,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "upperarm_tricep_r": {
         "parent": "upperarm_twist_02_r",
@@ -6432,7 +8004,13 @@
             51937
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "upperarm_bicep_r": {
         "parent": "upperarm_twist_02_r",
@@ -6456,7 +8034,13 @@
             51949
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "upperarm_twistCor_02_r": {
         "parent": "upperarm_twist_02_r",
@@ -6470,7 +8054,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "upperarm_correctiveRoot_r": {
         "parent": "upperarm_r",
@@ -6484,7 +8074,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "upperarm_bck_r": {
         "parent": "upperarm_correctiveRoot_r",
@@ -6508,7 +8104,13 @@
             54403
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "upperarm_in_r": {
         "parent": "upperarm_correctiveRoot_r",
@@ -6535,7 +8137,13 @@
             53948
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "upperarm_fwd_r": {
         "parent": "upperarm_correctiveRoot_r",
@@ -6559,7 +8167,13 @@
             54347
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "upperarm_out_r": {
         "parent": "upperarm_correctiveRoot_r",
@@ -6583,7 +8197,13 @@
             54378
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "clavicle_out_r": {
         "parent": "clavicle_r",
@@ -6611,7 +8231,13 @@
             20987
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "clavicle_scap_r": {
         "parent": "clavicle_r",
@@ -6635,7 +8261,13 @@
             38275
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "clavicle_pec_r": {
         "parent": "spine_05",
@@ -6671,7 +8303,13 @@
             38198
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "spine_04_latissimus_l": {
         "parent": "spine_05",
@@ -6699,7 +8337,13 @@
             46727
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "spine_04_latissimus_r": {
         "parent": "spine_05",
@@ -6727,7 +8371,13 @@
             39109
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "clavicle_pec_l": {
         "parent": "spine_05",
@@ -6763,7 +8413,13 @@
             45791
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thigh_r": {
         "parent": "pelvis",
@@ -6802,7 +8458,13 @@
             54262
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            true,
+            true,
+            true
+        ]
     },
     "calf_r": {
         "parent": "thigh_r",
@@ -6859,7 +8521,13 @@
             53743
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            true,
+            true,
+            true
+        ]
     },
     "foot_r": {
         "parent": "calf_r",
@@ -6910,7 +8578,13 @@
             39005
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            true,
+            true,
+            true
+        ]
     },
     "ball_r": {
         "parent": "foot_r",
@@ -6945,7 +8619,13 @@
             36537
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            true,
+            true,
+            true
+        ]
     },
     "indextoe_01_r": {
         "parent": "ball_r",
@@ -6981,7 +8661,13 @@
             52439
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "indextoe_02_r": {
         "parent": "indextoe_01_r",
@@ -7016,7 +8702,13 @@
             38880
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "bigtoe_01_r": {
         "parent": "ball_r",
@@ -7047,7 +8739,13 @@
             35871
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "bigtoe_02_r": {
         "parent": "bigtoe_01_r",
@@ -7082,7 +8780,13 @@
             52487
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "littletoe_01_r": {
         "parent": "ball_r",
@@ -7121,7 +8825,13 @@
             30680
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "littletoe_02_r": {
         "parent": "littletoe_01_r",
@@ -7156,7 +8866,13 @@
             38910
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "middletoe_01_r": {
         "parent": "ball_r",
@@ -7192,7 +8908,13 @@
             52440
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "middletoe_02_r": {
         "parent": "middletoe_01_r",
@@ -7227,7 +8949,13 @@
             38890
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ringtoe_01_r": {
         "parent": "ball_r",
@@ -7263,7 +8991,13 @@
             52442
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ringtoe_02_r": {
         "parent": "ringtoe_01_r",
@@ -7298,7 +9032,13 @@
             28688
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ankle_bck_r": {
         "parent": "foot_r",
@@ -7318,7 +9058,13 @@
             51850
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ankle_fwd_r": {
         "parent": "foot_r",
@@ -7346,7 +9092,13 @@
             34588
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "calf_twist_02_r": {
         "parent": "calf_r",
@@ -7360,7 +9112,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "calf_twistCor_02_r": {
         "parent": "calf_twist_02_r",
@@ -7374,7 +9132,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "calf_twist_01_r": {
         "parent": "calf_r",
@@ -7388,7 +9152,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "calf_correctiveRoot_r": {
         "parent": "calf_r",
@@ -7402,7 +9172,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "calf_kneeBack_r": {
         "parent": "calf_correctiveRoot_r",
@@ -7430,7 +9206,13 @@
             38211
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "calf_knee_r": {
         "parent": "calf_correctiveRoot_r",
@@ -7458,7 +9240,13 @@
             53629
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thigh_twist_01_r": {
         "parent": "thigh_r",
@@ -7472,7 +9260,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thigh_twistCor_01_r": {
         "parent": "thigh_twist_01_r",
@@ -7486,7 +9280,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thigh_twist_02_r": {
         "parent": "thigh_r",
@@ -7500,7 +9300,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thigh_twistCor_02_r": {
         "parent": "thigh_twist_02_r",
@@ -7514,7 +9320,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thigh_correctiveRoot_r": {
         "parent": "thigh_r",
@@ -7528,7 +9340,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thigh_fwd_r": {
         "parent": "thigh_correctiveRoot_r",
@@ -7556,7 +9374,13 @@
             53693
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thigh_bck_r": {
         "parent": "thigh_correctiveRoot_r",
@@ -7584,7 +9408,13 @@
             39097
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thigh_out_r": {
         "parent": "thigh_correctiveRoot_r",
@@ -7612,7 +9442,13 @@
             53560
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thigh_in_r": {
         "parent": "thigh_correctiveRoot_r",
@@ -7640,7 +9476,13 @@
             54187
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thigh_bck_lwr_r": {
         "parent": "thigh_correctiveRoot_r",
@@ -7668,7 +9510,13 @@
             54313
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thigh_fwd_lwr_r": {
         "parent": "thigh_correctiveRoot_r",
@@ -7696,7 +9544,13 @@
             39067
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thigh_l": {
         "parent": "pelvis",
@@ -7735,7 +9589,13 @@
             50459
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            true,
+            true,
+            true
+        ]
     },
     "calf_l": {
         "parent": "thigh_l",
@@ -7792,7 +9652,13 @@
             49940
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            true,
+            true,
+            true
+        ]
     },
     "foot_l": {
         "parent": "calf_l",
@@ -7843,7 +9709,13 @@
             46618
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            true,
+            true,
+            true
+        ]
     },
     "ball_l": {
         "parent": "foot_l",
@@ -7878,7 +9750,13 @@
             44112
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            true,
+            true,
+            true
+        ]
     },
     "indextoe_01_l": {
         "parent": "ball_l",
@@ -7914,7 +9792,13 @@
             48636
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "indextoe_02_l": {
         "parent": "indextoe_01_l",
@@ -7949,7 +9833,13 @@
             46491
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "bigtoe_01_l": {
         "parent": "ball_l",
@@ -7980,7 +9870,13 @@
             43446
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "bigtoe_02_l": {
         "parent": "bigtoe_01_l",
@@ -8015,7 +9911,13 @@
             48684
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ringtoe_01_l": {
         "parent": "ball_l",
@@ -8051,7 +9953,13 @@
             48639
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ringtoe_02_l": {
         "parent": "ringtoe_01_l",
@@ -8086,7 +9994,13 @@
             24718
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "middletoe_01_l": {
         "parent": "ball_l",
@@ -8122,7 +10036,13 @@
             48637
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "middletoe_02_l": {
         "parent": "middletoe_01_l",
@@ -8157,7 +10077,13 @@
             46501
         ],
         "reference_mesh": "combined",
-        "fix_pose": false
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "littletoe_01_l": {
         "parent": "ball_l",
@@ -8196,7 +10122,13 @@
             26725
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "littletoe_02_l": {
         "parent": "littletoe_01_l",
@@ -8231,7 +10163,13 @@
             46521
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": true,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ankle_bck_l": {
         "parent": "foot_l",
@@ -8251,7 +10189,13 @@
             48047
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "ankle_fwd_l": {
         "parent": "foot_l",
@@ -8279,7 +10223,13 @@
             42163
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "calf_twist_02_l": {
         "parent": "calf_l",
@@ -8293,7 +10243,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "calf_twistCor_02_l": {
         "parent": "calf_twist_02_l",
@@ -8307,7 +10263,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "calf_twist_01_l": {
         "parent": "calf_l",
@@ -8321,7 +10283,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "calf_correctiveRoot_l": {
         "parent": "calf_l",
@@ -8335,7 +10303,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "calf_kneeBack_l": {
         "parent": "calf_correctiveRoot_l",
@@ -8363,7 +10337,13 @@
             45805
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "calf_knee_l": {
         "parent": "calf_correctiveRoot_l",
@@ -8391,7 +10371,13 @@
             49826
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thigh_twist_01_l": {
         "parent": "thigh_l",
@@ -8405,7 +10391,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thigh_twistCor_01_l": {
         "parent": "thigh_twist_01_l",
@@ -8419,7 +10411,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thigh_twist_02_l": {
         "parent": "thigh_l",
@@ -8433,7 +10431,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thigh_twistCor_02_l": {
         "parent": "thigh_twist_02_l",
@@ -8447,7 +10451,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thigh_correctiveRoot_l": {
         "parent": "thigh_l",
@@ -8461,7 +10471,13 @@
         "driver": false,
         "reference_vertex_ids": [],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thigh_bck_l": {
         "parent": "thigh_correctiveRoot_l",
@@ -8489,7 +10505,13 @@
             46714
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thigh_fwd_l": {
         "parent": "thigh_correctiveRoot_l",
@@ -8517,7 +10539,13 @@
             49890
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thigh_out_l": {
         "parent": "thigh_correctiveRoot_l",
@@ -8545,7 +10573,13 @@
             49757
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thigh_bck_lwr_l": {
         "parent": "thigh_correctiveRoot_l",
@@ -8573,7 +10607,13 @@
             50510
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thigh_in_l": {
         "parent": "thigh_correctiveRoot_l",
@@ -8601,7 +10641,13 @@
             50384
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     },
     "thigh_fwd_lwr_l": {
         "parent": "thigh_correctiveRoot_l",
@@ -8629,6 +10675,12 @@
             46681
         ],
         "reference_mesh": "combined",
-        "fix_pose": true
+        "fix_pose": true,
+        "fixable": false,
+        "fix_axes": [
+            false,
+            false,
+            false
+        ]
     }
 }
