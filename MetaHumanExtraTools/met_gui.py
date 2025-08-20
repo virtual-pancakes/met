@@ -308,8 +308,10 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
     def download_file(self, file_url, local_path, max_retries=5):
         logger.info(f"download_file({file_url}, {local_path})")
         """Download a single file to the specified path with retries."""
+        
         # Convert https to http for raw file URLs
-        file_url = file_url.replace("https://raw.githubusercontent.com", "http://raw.githubusercontent.com")
+        #file_url = file_url.replace("https://raw.githubusercontent.com", "http://raw.githubusercontent.com")
+
         for attempt in range(max_retries):
             try:
                 # Create a request
