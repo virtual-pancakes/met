@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1463</width>
-    <height>989</height>
+    <height>1031</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -1189,6 +1189,13 @@ QProgressBar:chunk
             </property>
             <property name="text">
              <string>select reference vertices</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="store_reference_vertices_button">
+            <property name="text">
+             <string>store reference vertices</string>
             </property>
            </widget>
           </item>
@@ -2495,7 +2502,7 @@ QPushButton::checked::pressed
             <x>0</x>
             <y>0</y>
             <width>232</width>
-            <height>930</height>
+            <height>972</height>
            </rect>
           </property>
           <property name="sizePolicy">

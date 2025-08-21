@@ -171,6 +171,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.restart_met_button.clicked.connect(self.restart_met)
         self.edit_fixable_joints_button.clicked.connect(self.show_fixable_joints_frame)
         self.store_fix_axes_button.clicked.connect(self.store_fix_axes)
+        self.store_reference_vertices_button.clicked.connect(self.store_reference_vertices)
 
         # Add fixable joint widgets
         body_joints_file = os.path.dirname(__file__) + "/resources/body_joints.json"
@@ -733,12 +734,56 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
             cmds.select(cl=True)
             self.close()
             
+    def get_selected_vertex_ids(self):
+        items = cmds.ls(sl=True)
+        ids = []
+        if items:
+            for item in items:
+                if ".vtx[" in item:
+                    aux = item.split("[")[1].split("]")[0]
+                    if ":" not in aux:
+                        ids.append(int(aux))
+                    else:
+                        first = int(aux.split(":")[0])
+                        last = int(aux.split(":")[1])
+                        ids = ids + [i for i in range(first, (last + 1))]
+            #print(ids)
+            return ids
+        else: 
+            return []
+    
+    def select_joint(self):
+        selection = cmds.ls(sl=True)
+        if selection: 
+            self.join
+            #self.joint_button.setText(selection[0])
+            joint_position = cmds.xform(selection[0], q=True, ws=True, t=True)
+            mesh_dagpath = om2.MSelectionList().add("m_tal_nrw_combined_lod0_mesh").getDagPath(0)
+            mesh = om2.MFnMesh(mesh_dagpath)
+            closest_vertex_id, closest_vertex_position, closest_vertex_distance = self.get_closest_vertex_to_position(om2.MPoint(joint_position), mesh)
+            cmds.select(cl=True)
+            cmds.select("m_tal_nrw_combined_lod0_mesh")
+            mel.eval('changeSelectMode -component;')
+            mel.eval('setComponentPickMask "Point" true;')
+            cmds.select(f"m_tal_nrw_combined_lod0_mesh.vtx[{closest_vertex_id}]")
+        else: self.joint_button.setText("...")
+    
+    def store_reference_vertices(self):
+        body_joints_info_file = os.path.dirname(__file__) + "/resources/body_joints.json"
+        body_joints_info = json.load(open(body_joints_info_file, "r"))
+        selection = cmds.ls(sl=True)
+        joints = []
+        vertices = self.get_selected_vertex_ids()
+        print(vertices)
+
+        return
+    
     def select_reference_vertices(self):
         logger.info("select_reference_vertices()")
-        joints_info_file = os.path.dirname(__file__) + "/resources/joints_info.json"
-        joints_info = json.load(open(joints_info_file, "r"))
+        body_joints_info_file = os.path.dirname(__file__) + "/resources/body_joints.json"
+        body_joints_info = json.load(open(body_joints_info_file, "r"))
         selected_joint = om2.MNamespace.stripNamespaceFromName(cmds.ls(sl=True)[0])
-        vertex_ids = joints_info[selected_joint]["reference_vertex_ids"]
+        vertex_ids = body_joints_info[selected_joint]["reference_vertex_ids"]
         for id in vertex_ids:
             cmds.select(f"combined.vtx[{id}]", add=True)
         return
