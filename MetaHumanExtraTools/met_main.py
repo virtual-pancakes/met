@@ -70,13 +70,12 @@ def snap_vertices(floating, static, reference_vertex_ids):
         floating_iterator.next()
 
 class MetahumanToObj:
-    def __init__(self, gui, input_metahuman_folder, input_make_symmetric):
-        logger.info(f"MetahumanToObj.__init__({gui}, {input_metahuman_folder}, {input_make_symmetric})")
+    def __init__(self, gui, input_head_dna, input_body_dna, input_make_symmetric):
+        logger.info(f"MetahumanToObj.__init__({gui}, {input_head_dna}, {input_body_dna}, {input_make_symmetric})")
         self.gui = gui
-        self.input_metahuman_folder = input_metahuman_folder
+        self.head_dna = input_head_dna
+        self.body_dna = input_body_dna
         self.input_make_symmetric = input_make_symmetric
-        self.head_dna_path = f"{self.input_metahuman_folder}/head.dna"
-        self.body_dna_path = f"{self.input_metahuman_folder}/body.dna"
         
     def symmetrize(self, name):
         logger.info(f"symmetrize({name})")
@@ -168,7 +167,7 @@ class MetahumanToObj:
         # Load LOD0 meshes for each DNA, excluding secomdary meshes
         skip_names = ["saliva", "eyeshell", "eyeEdge", "cartilage"]
         dna_meshes = []
-        for dna_path in [self.head_dna_path, self.body_dna_path]:
+        for dna_path in [self.head_dna, self.body_dna]:
             print(f"Processing DNA: {dna_path}")        
             input_stream = FileStream(dna_path, FileStream.AccessMode_Read, FileStream.OpenMode_Binary)
             reader = BinaryStreamReader(input_stream, DataLayer_All)
@@ -264,9 +263,8 @@ class MetahumanToObj:
             cmds.rename(pg_mesh, mesh)
 
         # Create folders
-        name = self.input_metahuman_folder.split("/")[-1]
-        new_objs_folder = f"{self.input_metahuman_folder}/new_OBJs"
-        old_objs_folder = f"{self.input_metahuman_folder}/old_OBJs"
+        new_objs_folder = os.path.join(os.path.dirname(self.head_dna), "new_OBJs")
+        old_objs_folder = os.path.join(os.path.dirname(self.head_dna), "old_OBJs")
         if not os.path.exists(new_objs_folder):
             os.makedirs(new_objs_folder)  
         if not os.path.exists(old_objs_folder):
@@ -300,29 +298,27 @@ class MetahumanToObj:
 
 class ObjToMetahuman:
     
-    def __init__(self, gui, input_combined_obj, input_eyes_obj, input_eyelashes_obj, input_teeth_obj, input_metahuman_folder, fix_pose, custom_body_joints_info):
-        logger.info(f"ObjToMetahuman.__init__({gui}, {input_combined_obj}, {input_eyes_obj}, {input_eyelashes_obj}, {input_teeth_obj}, {input_metahuman_folder})")
-        self.gui = gui
+    def __init__(self, gui, input_head_dna, input_body_dna, input_combined_obj, input_eyes_obj, input_eyelashes_obj, input_teeth_obj, fix_pose, custom_body_joints_info):
+        logger.info(f"ObjToMetahuman.__init__({gui}, {input_head_dna}, {input_body_dna}, {input_combined_obj}, {input_eyes_obj}, {input_eyelashes_obj}, {input_teeth_obj})")
+        self.input_head_dna = input_head_dna
+        self.input_body_dna = input_body_dna
         self.input_combined_obj = input_combined_obj
         self.input_eyes_obj = input_eyes_obj
         self.input_eyelashes_obj = input_eyelashes_obj
         self.input_teeth_obj = input_teeth_obj
-        self.input_head_dna = input_metahuman_folder + "/head.dna"
-        self.input_body_dna = input_metahuman_folder + "/body.dna"
-        self.input_metahuman_folder = input_metahuman_folder
+        self.print_parameters()
+        self.gui = gui
         self.fix_pose = fix_pose
         self.custom_body_joints_info = custom_body_joints_info
-        self.print_parameters()
     
     def print_parameters(self):
         logger.info("print_parameters()")
+        print(f"head_dna: {self.input_head_dna}")
+        print(f"body_dna: {self.input_body_dna}")
         print(f"combined: {self.input_combined_obj}")
         print(f"eyes: {self.input_eyes_obj}")
         print(f"eyelashes: {self.input_eyelashes_obj}")
         print(f"teeth: {self.input_teeth_obj}")
-        print(f"head dna: {self.input_head_dna}")
-        print(f"body dna: {self.input_body_dna}")
-        print(f"metahuman folder: {self.input_metahuman_folder}")
     
     def load_dna(self):
         logger.info("load_dna()")
@@ -629,7 +625,7 @@ class ObjToMetahuman:
         cmds.delete(cmds.ls("temp:*"))
 
         # Import eyelashes if available
-        if self.input_eyelashes_obj != "auto generated": 
+        if self.input_eyelashes_obj != "auto\ngenerated": 
             cmds.namespace(set=":temp")
             cmds.file(self.input_eyelashes_obj, i=True, options="mo=0")
             cmds.namespace(set=":")
@@ -638,7 +634,7 @@ class ObjToMetahuman:
             cmds.delete(cmds.ls("temp:*"))
         
         # Import teeth if available
-        if self.input_teeth_obj != "auto generated": 
+        if self.input_teeth_obj != "auto\ngenerated": 
             cmds.namespace(set=":temp")
             cmds.file(self.input_teeth_obj, i=True, options="mo=0")
             cmds.namespace(set=":")
@@ -1744,7 +1740,7 @@ class ObjToMetahuman:
             self.run_joints_command(reader, dnacalib_reader, new_namespace)
             
             # Save dna
-            new_dna_folder = f"{self.input_metahuman_folder}/new_dna"
+            new_dna_folder = os.path.join(os.path.dirname(self.input_head_dna), "new_DNAs")
             if not os.path.exists(new_dna_folder): os.makedirs(new_dna_folder)
             if reader == head_reader: output_dna_file = new_dna_folder + "/new_head.dna"
             if reader == body_reader: output_dna_file = new_dna_folder + "/new_body.dna"
@@ -1959,7 +1955,7 @@ class ObjToMetahuman:
         if eyes_evaluation["triangle"] != 3072: return "Error: invalid eyes mesh, triangle count should be 3072"
         if eyes_evaluation["shell"] != 2: return "Error: invalid eyes mesh, shell count should be 2"
 
-        if self.input_eyelashes_obj != "auto generated":
+        if self.input_eyelashes_obj != "auto\ngenerated":
             # Validate eyelashes
             cmds.namespace(add=":eyelashes")
             cmds.namespace(set=":eyelashes")
@@ -1977,7 +1973,7 @@ class ObjToMetahuman:
             if eyelashes_evaluation["triangle"] != 1722: return "Error: invalid eyelashes mesh, triangle count should be 1722"
             if eyelashes_evaluation["shell"] != 211: return "Error: invalid eyelashes mesh, shell count should be 211"
 
-        if self.input_teeth_obj != "auto generated":
+        if self.input_teeth_obj != "auto\ngenerated":
             # Validate teeth
             cmds.namespace(add=":teeth")
             cmds.namespace(set=":teeth")
@@ -1999,6 +1995,7 @@ class ObjToMetahuman:
         return "valid"
     
     def run(self):
+        #self.print_parameters()
         logger.info("run()")
         cmds.file(new=True, force=True)
 

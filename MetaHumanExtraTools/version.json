@@ -1,7 +1,7 @@
 {
-    "current_version": "1.7.1",
-    "current_version_changes": "Exposed Pose Correction controls",
-    "newest_version": "1.7.1",
-    "newest_version_changes": "Exposed Pose Correction controls",
+    "current_version": "1.8",
+    "current_version_changes": "UI changes",
+    "newest_version": "1.8",
+    "newest_version_changes": "UI changes",
     "checked_for_new_version": true
 }

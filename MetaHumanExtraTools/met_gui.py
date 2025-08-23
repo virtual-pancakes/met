@@ -91,10 +91,6 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
             self.running_frame.hide()
             self.new_version_frame.hide()
             self.debug_frame.hide()
-            self.obj_to_metahuman_button.setEnabled(False)
-            self.metahuman_to_obj_button.setEnabled(False)
-            self.resize(self.sizeHint())
-            self.show()
             logger.info("MET window opened")
             return
         
@@ -102,7 +98,6 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.new_version_frame.hide()
         self.update_progress_bar.hide()
         self.updated_successfully_label.hide()
-        self.restart_met_button.hide()
         self.update_failed_frame.hide()
         self.artstation_link_label.setOpenExternalLinks(True)
         self.fab_link_label.setOpenExternalLinks(True)
@@ -116,11 +111,12 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
             self.update_failed_frame.show()
         
         # Set initial state
-        self.metahuman_folder = None
+        self.head_dna = None
+        self.body_dna = None
         self.combined = None
         self.eyes = None
-        self.eyelashes = "auto generated"
-        self.teeth = "auto generated"
+        self.eyelashes = "auto\ngenerated"
+        self.teeth = "auto\ngenerated"
         
         if not debug_mode: 
             self.debug_frame.hide()
@@ -133,10 +129,8 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.metahuman_to_obj_info_frame.hide()
         self.obj_to_metahuman_info_frame.hide()
         self.fixable_joints_frame.hide()
-        self.resize(self.sizeHint())
+        self.resize_window(False)
         self.show()
-        #self.adjustSize()
-        self.resize(self.sizeHint())
 
         # Set information images
         script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -144,6 +138,10 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         dna_options_head_image_path = os.path.join(script_dir, "resources", "dna_options_head.png")
         self.dna_options_body_label.setPixmap(QPixmap(dna_options_body_image_path))
         self.dna_options_head_label.setPixmap(QPixmap(dna_options_head_image_path))
+        icon = QIcon()
+        icon_path = os.path.join(os.path.dirname(__file__), "resources/settings_icon.png")
+        icon.addFile(icon_path, QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.edit_fixable_joints_button.setIcon(icon)
 
         # Connect buttons
         self.metahuman_to_obj_button.clicked.connect(self.show_metahuman_to_obj)
@@ -151,7 +149,8 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.update_button.clicked.connect(self.update)
         self.debug_button.clicked.connect(self.debug)
         self.select_reference_vertices_button.clicked.connect(self.select_reference_vertices)
-        self.metahuman_folder_button.clicked.connect(self.select_metahuman_folder)
+        self.head_dna_button.clicked.connect(self.select_head_dna)
+        self.body_dna_button.clicked.connect(self.select_body_dna)
         self.back_button.clicked.connect(self.back_to_start_frame)
         self.symmetrize_button.clicked.connect(self.symmetrize_pressed)
         self.original_button.clicked.connect(self.keep_original_pressed)
@@ -168,8 +167,9 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.joints_button.clicked.connect(self.joints_button_pressed)
         self.skinweights_button.clicked.connect(self.skinweights_button_pressed)
         self.riglogic_button.clicked.connect(self.riglogic_button_pressed)
-        self.restart_met_button.clicked.connect(self.restart_met)
-        self.edit_fixable_joints_button.clicked.connect(self.show_fixable_joints_frame)
+        self.keep_custom_pose_button.clicked.connect(self.keep_custom_pose_button_pressed)
+        self.fix_pose_button.clicked.connect(self.fix_pose_button_pressed)
+        self.edit_fixable_joints_button.clicked.connect(self.toggle_fixable_joints_frame)
         self.store_fix_axes_button.clicked.connect(self.store_fix_axes)
         self.store_reference_vertices_button.clicked.connect(self.store_reference_vertices)
 
@@ -211,17 +211,45 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         body_joints_info_file = "F:/WorkspaceDesktop/met/MetaHumanExtraTools/resources/body_joints.json"
         json.dump(body_joints_info, open(body_joints_info_file, "w"), indent=4)
     
-    def show_fixable_joints_frame(self):
-        self.fixable_joints_frame.show()
+    def keep_custom_pose_button_pressed(self):
+        self.keep_custom_pose_button.setChecked(True)
+        self.fix_pose_button.setChecked(False)
+        self.edit_fixable_joints_button.setChecked(False)
+        self.edit_fixable_joints_button.setEnabled(False)
+        #self.edit_fixable_joints_button.setText("edit")
+        self.fixable_joints_frame.hide()
+        self.resize_window()
     
-    def restart_met(self):
-        self.close()
-        import importlib
-        try:
-            importlib.reload(met_gui)
-        except:
-            import met_gui
-        met_gui.METMainWindow(debug_mode=False)
+    def fix_pose_button_pressed(self):
+        self.keep_custom_pose_button.setChecked(False)
+        self.fix_pose_button.setChecked(True)
+        #self.edit_fixable_joints_button.setChecked(False)
+        self.edit_fixable_joints_button.setEnabled(True)
+        #self.fixable_joints_frame.show()
+        self.resize_window()
+    
+    def toggle_fixable_joints_frame(self):
+        if self.edit_fixable_joints_button.isChecked():
+            self.fixable_joints_frame.show()
+            #self.edit_fixable_joints_button.setText("reset")
+            self.resize_window()
+        else:
+            self.fixable_joints_frame.hide()
+            #self.edit_fixable_joints_button.setText("edit")
+            self.resize_window()
+    
+    def resize_window(self, reposition=True):
+        old_center_x = self.geometry().x() + self.geometry().width() / 2
+        old_center_y = self.geometry().y() + self.geometry().height() / 2
+        self.central_layout.activate()
+        self.setFixedSize(self.sizeHint())
+        """
+        if reposition:
+            screen_geometry = QApplication.primaryScreen().geometry()
+            x = screen_geometry.width() // 2 - self.width() // 2
+            y = screen_geometry.height() // 2 - self.height() // 2
+            self.move(x, y)
+        """
     
     def joints_button_pressed(self):
         logger.info("joints_button_pressed()")
@@ -271,40 +299,37 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
                 return obj
         raise RuntimeError("Could not find MayaWindow instance")
            
-    def check_if_metahuman_to_obj_is_ready(self):
-        logger.info("check_if_metahuman_to_obj_is_ready()")
-        if self.metahuman_folder: self.metahuman_to_obj_run_button.setEnabled(True)
-        else: self.metahuman_to_obj_run_button.setEnabled(False)
+    def select_head_dna(self):
+        logger.info("select_head_dna()")
+        head_dna = None
+        result = cmds.fileDialog2(fileMode=1, caption="Select Head DNA:")
+        if result: head_dna = result[0]
 
-    def check_if_obj_to_metahuman_is_ready(self):
-        logger.info("check_if_obj_to_metahuman_is_ready()")
-        if self.metahuman_folder and self.combined and self.eyes and self.eyelashes and self.teeth: self.obj_to_metahuman_run_button.setEnabled(True)
-        else: self.obj_to_metahuman_run_button.setEnabled(False)
-
-    def select_metahuman_folder(self):
-        logger.info("select_metahuman_folder()")
-        metahuman_folder = None
-        result = cmds.fileDialog2(fileMode=2, caption="Select MetaHuman folder:")
-        if result: metahuman_folder = result[0]
-        body_dna = f"{metahuman_folder}/body.dna"
-        head_dna = f"{metahuman_folder}/head.dna"
-        
-        dna_files_ok = True
-        for file in [body_dna, head_dna]:
-            if not os.path.exists(file): dna_files_ok = False
-
-        if metahuman_folder and dna_files_ok: 
-            self.metahuman_folder = metahuman_folder
-            self.metahuman_folder_button.setText(self.short_path(metahuman_folder, 48))
-            self.metahuman_folder_button.setStyleSheet("font-size: 12px; color: white;")
+        if head_dna: 
+            self.head_dna = head_dna
+            self.head_dna_button.setText(self.short_path(head_dna, 48))
+            self.head_dna_button.setStyleSheet("font-size: 12px")
             
         else: 
-            self.metahuman_folder = None
-            self.metahuman_folder_button.setText("MetaHuman folder")
-            self.metahuman_folder_button.setStyleSheet("font-size: 16px; color: white;")
+            self.head_dna = None
+            self.head_dna_button.setText("Head DNA")
+            self.head_dna_button.setStyleSheet("font-size: 16px")
+             
+    def select_body_dna(self):
+        logger.info("select_body_dna()")
+        body_dna = None
+        result = cmds.fileDialog2(fileMode=1, caption="Select Body DNA:")
+        if result: body_dna = result[0]
+
+        if body_dna: 
+            self.body_dna = body_dna
+            self.body_dna_button.setText(self.short_path(body_dna, 48))
+            self.body_dna_button.setStyleSheet("font-size: 12px")
             
-        self.check_if_metahuman_to_obj_is_ready()
-        self.check_if_obj_to_metahuman_is_ready()      
+        else: 
+            self.body_dna = None
+            self.body_dna_button.setText("Body DNA")
+            self.body_dna_button.setStyleSheet("font-size: 16px")
     
     def download_file(self, file_url, local_path, max_retries=5):
         logger.info(f"download_file({file_url}, {local_path})")
@@ -408,7 +433,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         logger.info("update()")
         self.update_button.hide()
         self.update_progress_bar.show()
-        self.resize(self.sizeHint())
+        self.resize_window()
         self.repaint()
         
         api_url = f"http://api.github.com/repos/virtual-pancakes/met/contents/?ref=main"
@@ -436,7 +461,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
             shutil.rmtree(temp_folder, ignore_errors=True)
             self.update_progress_bar.hide()
             self.update_failed_frame.show()
-            self.resize(self.sizeHint())
+            self.resize_window()
             return
 
         # All downloads succeeded; move files to final folder
@@ -454,18 +479,17 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
             logger.info(f"All files successfully moved to {modules_folder}")
             self.update_progress_bar.hide()
             self.updated_successfully_label.show()
-            #self.restart_met_button.show()
-            self.resize(self.sizeHint())
+            self.resize_window()
         except OSError as e:
             logger.exception(f"Error moving files to {modules_folder}: {e}")
             self.update_progress_bar.hide()
             self.update_failed_frame.show()
-            self.resize(self.sizeHint())
+            self.resize_window()
         finally:
             # Clean up temporary directory
             shutil.rmtree(temp_folder, ignore_errors=True)
             logger.info(f"Cleaned up temporary directory: {temp_folder}")
-            self.resize(self.sizeHint())
+            self.resize_window()
         
     def short_path(self, path, max_length):
         logger.info(f"short_path({path}, {max_length})")
@@ -476,6 +500,11 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
     
     def show_metahuman_to_obj(self):
         logger.info("show_metahuman_to_obj")
+        self.dna_label.setText("Select head and body DNA to be converted to OBJ")
+        self.head_dna_button.setText("head DNA")
+        self.body_dna_button.setText("body DNA")
+        #self.dna_label.setFixedSize(self.dna_label.sizeHint())
+        #self.select_metahuman_frame.setFixedSize(self.select_metahuman_frame.sizeHint())
         self.start_frame.hide()
         
         self.new_geometry_frame.hide()
@@ -483,14 +512,17 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.symmetrize_frame.show()
         self.metahuman_to_obj_run_button.show()
         self.obj_to_metahuman_run_button.hide()
-        self.mode_label.setText("Metahuman to .OBJ")   
+        self.mode_label.setText("DNA to OBJ")
 
         self.modes_frame.show()
-        self.adjustSize()
-        self.resize(self.sizeHint())
+        self.resize_window()
 
     def show_obj_to_metahuman(self):
         logger.info("show_obj_to_metahuman")
+        self.dna_label.setText("Select original DNA that will act as the base for the new DNA")
+        self.head_dna_button.setText("Original head DNA")
+        self.body_dna_button.setText("Original body DNA")
+        #self.dna_label.setFixedSize(self.dna_label.sizeHint())
         self.start_frame.hide()
         
         self.new_geometry_frame.show()
@@ -498,49 +530,53 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.symmetrize_frame.hide()
         self.metahuman_to_obj_run_button.hide()
         self.obj_to_metahuman_run_button.show()
-        self.mode_label.setText(".OBJ to Metahuman")
+        self.mode_label.setText("OBJ to DNA")
 
         self.modes_frame.show()
-        self.adjustSize()
-        self.resize(self.sizeHint())
+        self.resize_window()
 
     def back_to_start_frame(self):
         logger.info("back_to_start_frame()")
-        self.metahuman_to_obj_run_button.setEnabled(False)
-        self.metahuman_to_obj_run_button.setEnabled(False)
-        self.metahuman_folder = None
-        self.metahuman_folder_button.setText("MetaHuman folder")
-        self.metahuman_folder_button.setStyleSheet("font-size: 16px; color: white;")
+        self.head_dna = None
+        self.head_dna_button.setText("head DNA")
+        self.head_dna_button.setStyleSheet("")
+        self.body_dna = None
+        self.body_dna_button.setText("body DNA")
+        self.body_dna_button.setStyleSheet("")
         self.combined = None
-        self.combined_button.setText("combined")
+        self.combined_button.setText("New combined OBJ")
         self.combined_button.setStyleSheet("")
         self.eyes = None
-        self.eyes_button.setText("eyes")
+        self.eyes_button.setText("New eyes OBJ")
         self.eyes_button.setStyleSheet("")
         self.eyelashes = None
-        self.eyelashes_button.setText("eyelashes")
+        self.eyelashes_button.setText("New eyelashes OBJ")
         self.eyelashes_button.setStyleSheet("")
         self.teeth = None
-        self.teeth_button.setText("teeth")
+        self.teeth_button.setText("New teeth OBJ")
         self.teeth_button.setStyleSheet("")
         self.eyelashes_autogenerated_button.setStyleSheet("font-size: 10px")
-        self.eyelashes_autogenerated_button.setText("auto generated")
+        self.eyelashes_autogenerated_button.setText("auto\ngenerated")
         self.eyelashes_button.setEnabled(False)
-        self.eyelashes = "auto generated"
+        self.eyelashes = "auto\ngenerated"
         self.teeth_autogenerated_button.setStyleSheet("font-size: 10px")
-        self.teeth_autogenerated_button.setText("auto generated")
+        self.teeth_autogenerated_button.setText("auto\ngenerated")
         self.teeth_button.setEnabled(False)
-        self.teeth = "auto generated"
+        self.teeth = "auto\ngenerated"
         self.modes_frame.hide()
         self.fixable_joints_frame.hide()
         self.start_frame.show()
         self.adjustSize()
-        self.resize(self.sizeHint())
+        self.resize_window()
     
     def go_to_metahuman_folder(self):
         logger.info("go_to_metahuman_folder")
-        os.startfile(self.metahuman_folder)
-        #self.close()
+        if self.mode_label.text() == "DNA to OBJ":
+            new_OBJs_folder = os.path.join(os.path.dirname(self.head_dna), "new_OBJs")
+            os.startfile(new_OBJs_folder)
+        if self.mode_label.text() == "OBJ to DNA":
+            new_DNAs_folder = os.path.join(os.path.dirname(self.head_dna), "new_DNAs")
+            os.startfile(new_DNAs_folder)
     
     def combined_button_pressed(self):
         logger.info("combined_button_pressed()")
@@ -551,9 +587,8 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
             self.combined_button.setStyleSheet("font-size: 10px")
         else:
             self.combined = None
-            self.combined_button.setText("combined")
+            self.combined_button.setText("New combined OBJ")
             self.combined_button.setStyleSheet("")
-        self.check_if_obj_to_metahuman_is_ready()
 
     def eyes_button_pressed(self):
         logger.info("eyes_button_pressed()")
@@ -564,9 +599,8 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
             self.eyes_button.setStyleSheet("font-size: 10px")
         else:
             self.eyes = None
-            self.eyes_button.setText("eyes")
+            self.eyes_button.setText("New eyes OBJ")
             self.eyes_button.setStyleSheet("")
-        self.check_if_obj_to_metahuman_is_ready()
 
     def eyelashes_button_pressed(self):
         logger.info("eyelashes_button_pressed()")
@@ -577,9 +611,8 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
             self.eyelashes_button.setStyleSheet("font-size: 10px")
         else:
             self.eyelashes = None
-            self.eyelashes_button.setText("eyelashes")
+            self.eyelashes_button.setText("New eyelashes OBJ")
             self.eyelashes_button.setStyleSheet("")
-        self.check_if_obj_to_metahuman_is_ready()
 
     def teeth_button_pressed(self):
         logger.info("teeth_button_pressed()")
@@ -590,57 +623,59 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
             self.teeth_button.setStyleSheet("font-size: 10px")
         else:
             self.teeth = None
-            self.teeth_button.setText("teeth")
+            self.teeth_button.setText("New teeth OBJ")
             self.teeth_button.setStyleSheet("")
-        self.check_if_obj_to_metahuman_is_ready()
         
     def eyelashes_autogenerated_pressed(self):
         logger.info("eyelashes_autogenerated_pressed()")
-        if self.eyelashes_autogenerated_button.text() == "auto generated":
+        if self.eyelashes_autogenerated_button.text() == "auto\ngenerated":
             self.eyelashes_autogenerated_button.setStyleSheet("")
             self.eyelashes_autogenerated_button.setText("OBJ")
             self.eyelashes_button.setEnabled(True)
             self.eyelashes = None
         else:
             self.eyelashes_autogenerated_button.setStyleSheet("font-size: 10px")
-            self.eyelashes_autogenerated_button.setText("auto generated")
-            self.eyelashes_button.setText("eyelashes")
+            self.eyelashes_autogenerated_button.setText("auto\ngenerated")
+            self.eyelashes_button.setText("New eyelashes OBJ")
             self.eyelashes_button.setStyleSheet("")
             self.eyelashes_button.setEnabled(False)
-            self.eyelashes = "auto generated"
-        self.check_if_obj_to_metahuman_is_ready()
+            self.eyelashes = "auto\ngenerated"
 
     def teeth_autogenerated_pressed(self):
         logger.info("teeth_autogenerated_pressed()")
-        if self.teeth_autogenerated_button.text() == "auto generated":
+        if self.teeth_autogenerated_button.text() == "auto\ngenerated":
             self.teeth_autogenerated_button.setStyleSheet("")
             self.teeth_autogenerated_button.setText("OBJ")
             self.teeth_button.setEnabled(True)
             self.teeth = None
         else:
             self.teeth_autogenerated_button.setStyleSheet("font-size: 10px")
-            self.teeth_autogenerated_button.setText("auto generated")
-            self.teeth_button.setText("teeth")
+            self.teeth_autogenerated_button.setText("auto\ngenerated")
+            self.teeth_button.setText("New teeth OBJ")
             self.teeth_button.setStyleSheet("")
             self.teeth_button.setEnabled(False)
-            self.teeth = "auto generated"
-        self.check_if_obj_to_metahuman_is_ready()
+            self.teeth = "auto\ngenerated"
     
     def press_metahuman_to_obj_run_button(self):
         logger.info("press_metahuman_to_obj_run_button()")
+        
+        if not self.body_dna: self.body_dna_button.setStyleSheet("QPushButton{background-color: hsl(333, 100%, 50%)}\nQPushButton::hover{background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsl(333, 100%, 50%),stop:1 hsl(326, 100%, 60%))}\nQPushButton::pressed{background-color: hsl(326, 100%, 70%)}")
+        if not self.head_dna: self.head_dna_button.setStyleSheet("QPushButton{background-color: hsl(333, 100%, 50%)}\nQPushButton::hover{background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsl(333, 100%, 50%),stop:1 hsl(326, 100%, 60%))}\nQPushButton::pressed{background-color: hsl(326, 100%, 70%)}")
+        if any(not item for item in [self.head_dna, self.body_dna]): return
+
         make_symmetric = self.symmetrize_button.isChecked()
         self.modes_frame.hide()
         self.metahuman_to_obj_info_frame.show()
         self.running_frame.show()
-        self.resize(self.sizeHint())
+        self.resize_window()
         self.repaint()
 
-        logger.info(f"met_main.MetahumanToObj({self.metahuman_folder}, {make_symmetric}).run()")
+        logger.info(f"met_main.MetahumanToObj({not self.body_dna}, {not self.head_dna}, {make_symmetric}).run()")
         try:
-            result = met_main.MetahumanToObj(self, self.metahuman_folder, make_symmetric).run()
+            result = met_main.MetahumanToObj(self, self.body_dna, self.head_dna, make_symmetric).run()
         except Exception as e:
             logger.exception(f"met_main.MetahumanToObj.run() failed: {e}")
-            result = "Error. Share your /MetaHumanExtraTools/met.log on Discord for help."
+            result = "Unexepected error. Please share your /MetaHumanExtraTools/met.log on the Discord server for help."
         
         logger.info(f"met_main.MetahumanToObj.run() returned: {result}")
         if result == "Done!": 
@@ -648,27 +683,42 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
             self.done_label.show()
             self.go_to_metahuman_folder_button.show()
         else:
+            """
             self.running_progress_bar.setFormat(result)
             self.running_progress_bar.setStyleSheet("/*-----QProgressBar-----*/\nQProgressBar\n{\n   background-color: hsl(333, 100%, 50%);\n}\n\nQProgressBar:chunk\n{\n   background-color: hsl(333, 100%, 50%);\n}")
-        self.resize(self.sizeHint())
+            """
+            self.running_progress_bar.hide()
+            self.done_label.setText(result)
+            self.done_label.setStyleSheet("color: hsl(333, 100%, 50%); font-weight: bold")
+            self.done_label.show()
+        self.resize_window()
                 
     def press_obj_to_metahuman_run_button(self):
         logger.info("press_obj_to_metahuman_run_button()")
+        
+        if not self.head_dna: self.head_dna_button.setStyleSheet("QPushButton{background-color: hsl(333, 100%, 50%)}\nQPushButton::hover{background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsl(333, 100%, 50%),stop:1 hsl(326, 100%, 60%))}\nQPushButton::pressed{background-color: hsl(326, 100%, 70%)}")
+        if not self.body_dna: self.body_dna_button.setStyleSheet("QPushButton{background-color: hsl(333, 100%, 50%)}\nQPushButton::hover{background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsl(333, 100%, 50%),stop:1 hsl(326, 100%, 60%))}\nQPushButton::pressed{background-color: hsl(326, 100%, 70%)}")
+        if not self.combined: self.combined_button.setStyleSheet("QPushButton{background-color: hsl(333, 100%, 50%)}\nQPushButton::hover{background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsl(333, 100%, 50%),stop:1 hsl(326, 100%, 60%))}\nQPushButton::pressed{background-color: hsl(326, 100%, 70%)}")
+        if not self.eyes: self.eyes_button.setStyleSheet("QPushButton{background-color: hsl(333, 100%, 50%)}\nQPushButton::hover{background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsl(333, 100%, 50%),stop:1 hsl(326, 100%, 60%))}\nQPushButton::pressed{background-color: hsl(326, 100%, 70%)}")
+        if not self.eyelashes: self.eyelashes_button.setStyleSheet("QPushButton{background-color: hsl(333, 100%, 50%)}\nQPushButton::hover{background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsl(333, 100%, 50%),stop:1 hsl(326, 100%, 60%))}\nQPushButton::pressed{background-color: hsl(326, 100%, 70%)}")
+        if not self.teeth: self.teeth_button.setStyleSheet("QPushButton{background-color: hsl(333, 100%, 50%)}\nQPushButton::hover{background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsl(333, 100%, 50%),stop:1 hsl(326, 100%, 60%))}\nQPushButton::pressed{background-color: hsl(326, 100%, 70%)}")
+        if any(not item for item in [self.head_dna, self.body_dna, self.combined, self.eyes, self.eyelashes, self.teeth]): return
+
         self.modes_frame.hide()
         self.fixable_joints_frame.hide()
         self.obj_to_metahuman_info_frame.show()
         self.running_frame.show()
-        self.resize(self.sizeHint())
+        self.resize_window()
         self.repaint()
         fix_pose = self.fix_pose_button.isChecked()
         custom_body_joints_info = self.read_joint_widgets()
-
-        logger.info(f"met_main.ObjToMetahuman({self.combined}, {self.eyes}, {self.eyelashes}, {self.teeth}, {self.metahuman_folder}).run()")
+        
+        logger.info(f"met_main.ObjToMetahuman({self.head_dna}, {self.body_dna}, {self.combined}, {self.eyes}, {self.eyelashes}, {self.teeth}).run()")
         try:
-            result = met_main.ObjToMetahuman(self, self.combined, self.eyes, self.eyelashes, self.teeth, self.metahuman_folder, fix_pose, custom_body_joints_info).run()
+            result = met_main.ObjToMetahuman(self, self.head_dna, self.body_dna, self.combined, self.eyes, self.eyelashes, self.teeth, fix_pose, custom_body_joints_info).run()
         except Exception as e:
             logger.exception(f"met_main.ObjToMetahuman.run() failed: {e}")
-            result = "Error. Share your /MetaHumanExtraTools/met.log on Discord for help."
+            result = "Unexepected error. Please share your /MetaHumanExtraTools/met.log on the Discord server for help."
         
         logger.info(f"met_main.ObjToMetahuman.run() returned: {result}")
         if result == "Done!": 
@@ -682,7 +732,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
             self.done_label.show()
             #self.running_progress_bar.setFormat(result)
             #self.running_progress_bar.setStyleSheet("/*-----QProgressBar-----*/\nQProgressBar\n{\n   background-color: hsl(333, 100%, 50%);\n}\n\nQProgressBar:chunk\n{\n   background-color: hsl(333, 100%, 50%);\n}")
-        self.resize(self.sizeHint())
+        self.resize_window()
     
     def import_dna(self):
         logger.info("import_dna()")
@@ -802,9 +852,11 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         """
         logger.info("debug()")
         self.show_obj_to_metahuman()
-        self.metahuman_folder = "F:/WorkspaceDesktop/met/MetaHumanExtraTools/private/debug"
-        self.combined = f"{self.metahuman_folder}/new_OBJs/new_combined.obj"
-        self.eyes = f"{self.metahuman_folder}/new_OBJs/new_eyes.obj"
-        self.eyelashes = "auto generated"
-        self.teeth = "auto generated"
+        debug_folder = "F:/WorkspaceDesktop/met/MetaHumanExtraTools/private/debug"
+        self.body_dna = f"{debug_folder}/body_dna"
+        self.head_dna = f"{debug_folder}/head_dna"
+        self.combined = f"{debug_folder}/new_OBJs/new_combined.obj"
+        self.eyes = f"{debug_folder}/new_OBJs/new_eyes.obj"
+        self.eyelashes = "auto\ngenerated"
+        self.teeth = "auto\ngenerated"
         self.press_obj_to_metahuman_run_button()

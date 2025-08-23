@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1463</width>
-    <height>1031</height>
+    <width>1442</width>
+    <height>1003</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -498,7 +498,7 @@ QScrollBar::sub-page:vertical
 }
 </string>
   </property>
-  <widget class="QWidget" name="centralwidget">
+  <widget class="QWidget" name="central_widget">
    <property name="sizePolicy">
     <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
      <horstretch>0</horstretch>
@@ -512,9 +512,9 @@ QScrollBar::sub-page:vertical
     </size>
    </property>
    <property name="styleSheet">
-    <string notr="true">#centralwidget {background: white}</string>
+    <string notr="true">#central_widget {background: white}</string>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_2">
+   <layout class="QHBoxLayout" name="central_layout">
     <property name="spacing">
      <number>5</number>
     </property>
@@ -687,7 +687,7 @@ font-size:20px
              </font>
             </property>
             <property name="text">
-             <string>Export a MetaHuman to .obj files and edit it's geometry with any application</string>
+             <string>Convert body and head DNA into a set of OBJs, combining body and head into a single mesh</string>
             </property>
             <property name="textFormat">
              <enum>Qt::PlainText</enum>
@@ -727,7 +727,7 @@ font-size:20px
              </font>
             </property>
             <property name="text">
-             <string>MetaHuman to .OBJ</string>
+             <string>DNA to OBJ</string>
             </property>
            </widget>
           </item>
@@ -776,7 +776,7 @@ font-size:20px
              </sizepolicy>
             </property>
             <property name="text">
-             <string>Create new MetaHuman head and body DNA from .obj files</string>
+             <string>Convert a set of OBJs based on MetaHuman topology into new body and head DNA</string>
             </property>
             <property name="wordWrap">
              <bool>true</bool>
@@ -804,7 +804,7 @@ font-size:20px
              </size>
             </property>
             <property name="text">
-             <string>.OBJ to MetaHuman</string>
+             <string>OBJ to DNA</string>
             </property>
            </widget>
           </item>
@@ -996,37 +996,12 @@ QProgressBar:chunk
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="restart_met_button">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>40</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>40</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>Restart MET to apply changes</string>
-            </property>
-           </widget>
-          </item>
-          <item>
            <widget class="QLabel" name="updated_successfully_label">
             <property name="styleSheet">
              <string notr="true">color: hsl(177, 100%, 50%); font-weight: bold</string>
             </property>
             <property name="text">
-             <string>Updated successfully. Reopen MetaHuman Extra Tools to apply changes.</string>
+             <string>Updated successfully. Please reopen MetaHuman Extra Tools to apply changes.</string>
             </property>
             <property name="wordWrap">
              <bool>true</bool>
@@ -1069,7 +1044,7 @@ QProgressBar:chunk
              <item>
               <widget class="QLabel" name="label_9">
                <property name="sizePolicy">
-                <sizepolicy hsizetype="MinimumExpanding" vsizetype="Minimum">
+                <sizepolicy hsizetype="MinimumExpanding" vsizetype="Maximum">
                  <horstretch>0</horstretch>
                  <verstretch>0</verstretch>
                 </sizepolicy>
@@ -1471,7 +1446,7 @@ QPushButton::checked::pressed
          </property>
          <property name="minimumSize">
           <size>
-           <width>350</width>
+           <width>408</width>
            <height>0</height>
           </size>
          </property>
@@ -1579,10 +1554,16 @@ QPushButton::checked::pressed
        <item>
         <widget class="QFrame" name="select_metahuman_frame">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Maximum">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
          </property>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
@@ -1607,15 +1588,21 @@ QPushButton::checked::pressed
            <number>5</number>
           </property>
           <item>
-           <widget class="QLabel" name="label">
+           <widget class="QLabel" name="dna_label">
             <property name="sizePolicy">
-             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Minimum">
+             <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
+            <property name="minimumSize">
+             <size>
+              <width>398</width>
+              <height>0</height>
+             </size>
+            </property>
             <property name="text">
-             <string>Select the MetaHuman folder generated by MetaHuman Creator DCC Export (the folder that contains both head.dna and body.dna)</string>
+             <string>Select DNA</string>
             </property>
             <property name="wordWrap">
              <bool>true</bool>
@@ -1623,13 +1610,7 @@ QPushButton::checked::pressed
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="metahuman_folder_button">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Minimum">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
+           <widget class="QPushButton" name="body_dna_button">
             <property name="minimumSize">
              <size>
               <width>0</width>
@@ -1643,7 +1624,31 @@ QPushButton::checked::pressed
              </size>
             </property>
             <property name="text">
-             <string>MetaHuman folder</string>
+             <string>body DNA</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="head_dna_button">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{background-color: hsv(187, 100%, 70%)}
+QPushButton::hover{background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsv(187, 100%, 70%),stop:1 hsv(180, 100%, 90%))}
+QPushButton::pressed{background-color: hsv(180, 100%, 100%)}</string>
+            </property>
+            <property name="text">
+             <string>head DNA</string>
             </property>
            </widget>
           </item>
@@ -1653,7 +1658,7 @@ QPushButton::checked::pressed
        <item>
         <widget class="QFrame" name="new_geometry_frame">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+          <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
@@ -1689,13 +1694,13 @@ QPushButton::checked::pressed
           <item>
            <widget class="QLabel" name="label_2">
             <property name="sizePolicy">
-             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Minimum">
+             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Maximum">
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
             <property name="text">
-             <string>Select your new combined and eyes meshes. You can also provide eyelashes and teeth or let them be auto-generated. These meshes need to have the same topology and vertex order as the ones generated by MetaHuman to .OBJ</string>
+             <string>Select your new combined and eyes meshes. You can also provide eyelashes and teeth or let them be auto-generated. These meshes need to have the same topology and vertex order as the ones generated by DNA to OBJ</string>
             </property>
             <property name="wordWrap">
              <bool>true</bool>
@@ -1704,6 +1709,18 @@ QPushButton::checked::pressed
           </item>
           <item>
            <widget class="QFrame" name="frame">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>40</height>
+             </size>
+            </property>
             <property name="frameShape">
              <enum>QFrame::StyledPanel</enum>
             </property>
@@ -1712,7 +1729,7 @@ QPushButton::checked::pressed
             </property>
             <layout class="QHBoxLayout" name="horizontalLayout_4">
              <property name="spacing">
-              <number>2</number>
+              <number>1</number>
              </property>
              <property name="leftMargin">
               <number>0</number>
@@ -1747,7 +1764,7 @@ QPushButton::checked::pressed
                 </size>
                </property>
                <property name="text">
-                <string>combined</string>
+                <string>new combined OBJ</string>
                </property>
               </widget>
              </item>
@@ -1758,7 +1775,7 @@ QPushButton::checked::pressed
                </property>
                <property name="minimumSize">
                 <size>
-                 <width>80</width>
+                 <width>56</width>
                  <height>40</height>
                 </size>
                </property>
@@ -1778,6 +1795,18 @@ QPushButton::checked::pressed
           </item>
           <item>
            <widget class="QFrame" name="frame_2">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>40</height>
+             </size>
+            </property>
             <property name="frameShape">
              <enum>QFrame::StyledPanel</enum>
             </property>
@@ -1786,7 +1815,7 @@ QPushButton::checked::pressed
             </property>
             <layout class="QHBoxLayout" name="horizontalLayout_5">
              <property name="spacing">
-              <number>2</number>
+              <number>1</number>
              </property>
              <property name="leftMargin">
               <number>0</number>
@@ -1821,7 +1850,7 @@ QPushButton::checked::pressed
                 </size>
                </property>
                <property name="text">
-                <string>eyes</string>
+                <string>new eyes OBJ</string>
                </property>
               </widget>
              </item>
@@ -1832,7 +1861,7 @@ QPushButton::checked::pressed
                </property>
                <property name="minimumSize">
                 <size>
-                 <width>80</width>
+                 <width>56</width>
                  <height>40</height>
                 </size>
                </property>
@@ -1852,6 +1881,18 @@ QPushButton::checked::pressed
           </item>
           <item>
            <widget class="QFrame" name="frame_3">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>40</height>
+             </size>
+            </property>
             <property name="frameShape">
              <enum>QFrame::StyledPanel</enum>
             </property>
@@ -1860,7 +1901,7 @@ QPushButton::checked::pressed
             </property>
             <layout class="QHBoxLayout" name="horizontalLayout_6">
              <property name="spacing">
-              <number>2</number>
+              <number>1</number>
              </property>
              <property name="leftMargin">
               <number>0</number>
@@ -1898,7 +1939,7 @@ QPushButton::checked::pressed
                 </size>
                </property>
                <property name="text">
-                <string>eyelashes</string>
+                <string>new eyelashes OBJ</string>
                </property>
               </widget>
              </item>
@@ -1912,7 +1953,7 @@ QPushButton::checked::pressed
                </property>
                <property name="minimumSize">
                 <size>
-                 <width>80</width>
+                 <width>56</width>
                  <height>40</height>
                 </size>
                </property>
@@ -1926,7 +1967,8 @@ QPushButton::checked::pressed
                 <string notr="true">font-size: 10px</string>
                </property>
                <property name="text">
-                <string>auto generated</string>
+                <string>auto
+generated</string>
                </property>
               </widget>
              </item>
@@ -1935,6 +1977,18 @@ QPushButton::checked::pressed
           </item>
           <item>
            <widget class="QFrame" name="frame_4">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>40</height>
+             </size>
+            </property>
             <property name="frameShape">
              <enum>QFrame::StyledPanel</enum>
             </property>
@@ -1943,7 +1997,7 @@ QPushButton::checked::pressed
             </property>
             <layout class="QHBoxLayout" name="horizontalLayout_7">
              <property name="spacing">
-              <number>2</number>
+              <number>1</number>
              </property>
              <property name="leftMargin">
               <number>0</number>
@@ -1981,7 +2035,7 @@ QPushButton::checked::pressed
                 </size>
                </property>
                <property name="text">
-                <string>teeth</string>
+                <string>new teeth OBJ</string>
                </property>
               </widget>
              </item>
@@ -1995,7 +2049,7 @@ QPushButton::checked::pressed
                </property>
                <property name="minimumSize">
                 <size>
-                 <width>80</width>
+                 <width>56</width>
                  <height>40</height>
                 </size>
                </property>
@@ -2009,7 +2063,8 @@ QPushButton::checked::pressed
                 <string notr="true">font-size: 10px</string>
                </property>
                <property name="text">
-                <string>auto generated</string>
+                <string>auto
+generated</string>
                </property>
               </widget>
              </item>
@@ -2052,13 +2107,13 @@ QPushButton::checked::pressed
           <item>
            <widget class="QLabel" name="label_6">
             <property name="sizePolicy">
-             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Minimum">
+             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Maximum">
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
             <property name="text">
-             <string>Symmetrize MetaHuman maintaining topology and vertex order or keep original asymmetry. Symmetrize is recommended for easier editing</string>
+             <string>Symmetrize the generated OBJs maintaining topology and vertex order or keep original asymmetry. Symmetrize is recommended for easier editing</string>
             </property>
             <property name="wordWrap">
              <bool>true</bool>
@@ -2067,6 +2122,12 @@ QPushButton::checked::pressed
           </item>
           <item>
            <widget class="QFrame" name="symmetrize_frame2">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="styleSheet">
              <string notr="true">#symmetrize_frame2 {background: transparent}</string>
             </property>
@@ -2089,71 +2150,6 @@ QPushButton::checked::pressed
              <property name="bottomMargin">
               <number>0</number>
              </property>
-             <item>
-              <widget class="QPushButton" name="symmetrize_button">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="minimumSize">
-                <size>
-                 <width>145</width>
-                 <height>40</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>16777215</width>
-                 <height>40</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">/*-----QPushButton-----*/
-QPushButton
-{
-	background-color: hsv(187, 100%, 50%);
-	color: hsv(0, 0, 50%);
-	font-weight: bold;
-	border: none;
-	border-radius: 5px;
-}
-QPushButton::hover
-{
-	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsv(187, 100%, 50%),stop:1 hsv(180, 100%, 70%));
-}
-QPushButton::pressed
-{
-	background-color: hsv(180, 100%, 100%);
-color: rgb(255, 255, 255);
-}
-
-QPushButton::checked
-{
-	color: rgb(255, 255, 255);
-	background-color: hsv(180, 100%, 90%);
-}
-QPushButton::checked::hover
-{
-	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsv(180, 100%, 90%),stop:1 hsv(180, 100%, 100%));
-}
-QPushButton::checked::pressed
-{
-	background-color: hsv(180, 100%, 100%);
-}</string>
-               </property>
-               <property name="text">
-                <string>Symmetrize</string>
-               </property>
-               <property name="checkable">
-                <bool>true</bool>
-               </property>
-               <property name="checked">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
              <item>
               <widget class="QPushButton" name="original_button">
                <property name="sizePolicy">
@@ -2219,72 +2215,26 @@ QPushButton::checked::pressed
                </property>
               </widget>
              </item>
-            </layout>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
-        <widget class="QFrame" name="fix_pose_frame">
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout_18">
-          <property name="spacing">
-           <number>5</number>
-          </property>
-          <property name="leftMargin">
-           <number>5</number>
-          </property>
-          <property name="topMargin">
-           <number>5</number>
-          </property>
-          <property name="rightMargin">
-           <number>5</number>
-          </property>
-          <property name="bottomMargin">
-           <number>5</number>
-          </property>
-          <item>
-           <widget class="QLabel" name="label_15">
-            <property name="text">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Fix joint rotations to match the MetaHuman pose as best as posible. This is important to achieve good deformations. The default configuration should work well for most characters, but you can edit how each joint will be corrected for your particular case.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-            </property>
-            <property name="wordWrap">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QFrame" name="frame_9">
-            <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
-            </property>
-            <property name="frameShadow">
-             <enum>QFrame::Raised</enum>
-            </property>
-            <layout class="QHBoxLayout" name="horizontalLayout_9">
-             <property name="spacing">
-              <number>5</number>
-             </property>
-             <property name="leftMargin">
-              <number>0</number>
-             </property>
-             <property name="topMargin">
-              <number>0</number>
-             </property>
-             <property name="rightMargin">
-              <number>0</number>
-             </property>
-             <property name="bottomMargin">
-              <number>0</number>
-             </property>
              <item>
-              <widget class="QPushButton" name="fix_pose_button">
+              <widget class="QPushButton" name="symmetrize_button">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>145</width>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>40</height>
+                </size>
+               </property>
                <property name="styleSheet">
                 <string notr="true">/*-----QPushButton-----*/
 QPushButton
@@ -2320,7 +2270,7 @@ QPushButton::checked::pressed
 }</string>
                </property>
                <property name="text">
-                <string>Pose Correction</string>
+                <string>Symmetrize</string>
                </property>
                <property name="checkable">
                 <bool>true</bool>
@@ -2330,29 +2280,297 @@ QPushButton::checked::pressed
                </property>
               </widget>
              </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="fix_pose_frame">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_18">
+          <property name="spacing">
+           <number>5</number>
+          </property>
+          <property name="leftMargin">
+           <number>5</number>
+          </property>
+          <property name="topMargin">
+           <number>5</number>
+          </property>
+          <property name="rightMargin">
+           <number>5</number>
+          </property>
+          <property name="bottomMargin">
+           <number>5</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="label_15">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Fix joint rotations to match the MetaHuman pose as best as posible. This is important to achieve good deformations&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="frame_9">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_9">
+             <property name="spacing">
+              <number>5</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
              <item>
-              <widget class="QPushButton" name="edit_fixable_joints_button">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
+              <widget class="QPushButton" name="keep_custom_pose_button">
                <property name="minimumSize">
                 <size>
                  <width>0</width>
-                 <height>31</height>
+                 <height>40</height>
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true"/>
+                <string notr="true">/*-----QPushButton-----*/
+QPushButton
+{
+	background-color: hsv(187, 100%, 50%);
+	color: hsv(0, 0, 50%);
+	font-weight: bold;
+	border: none;
+	border-radius: 5px;
+}
+QPushButton::hover
+{
+	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsv(187, 100%, 50%),stop:1 hsv(180, 100%, 70%));
+}
+QPushButton::pressed
+{
+	background-color: hsv(180, 100%, 100%);
+color: rgb(255, 255, 255);
+}
+
+QPushButton::checked
+{
+	color: rgb(255, 255, 255);
+	background-color: hsv(180, 100%, 90%);
+}
+QPushButton::checked::hover
+{
+	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsv(180, 100%, 90%),stop:1 hsv(180, 100%, 100%));
+}
+QPushButton::checked::pressed
+{
+	background-color: hsv(180, 100%, 100%);
+}</string>
                </property>
                <property name="text">
-                <string>edit</string>
+                <string>Keep custom pose</string>
                </property>
                <property name="checkable">
+                <bool>true</bool>
+               </property>
+               <property name="checked">
                 <bool>false</bool>
                </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QFrame" name="frame_8">
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+               <layout class="QHBoxLayout" name="horizontalLayout_2">
+                <property name="spacing">
+                 <number>1</number>
+                </property>
+                <property name="leftMargin">
+                 <number>0</number>
+                </property>
+                <property name="topMargin">
+                 <number>0</number>
+                </property>
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>0</number>
+                </property>
+                <item>
+                 <widget class="QPushButton" name="fix_pose_button">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">/*-----QPushButton-----*/
+QPushButton
+{
+	background-color: hsv(187, 100%, 50%);
+	color: hsv(0, 0, 50%);
+	font-weight: bold;
+	border: none;
+	border-radius: 5px;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+QPushButton::hover
+{
+	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsv(187, 100%, 50%),stop:1 hsv(180, 100%, 70%));
+}
+QPushButton::pressed
+{
+	background-color: hsv(180, 100%, 100%);
+color: rgb(255, 255, 255);
+}
+
+QPushButton::checked
+{
+	color: rgb(255, 255, 255);
+	background-color: hsv(180, 100%, 90%);
+}
+QPushButton::checked::hover
+{
+	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsv(180, 100%, 90%),stop:1 hsv(180, 100%, 100%));
+}
+QPushButton::checked::pressed
+{
+	background-color: hsv(180, 100%, 100%);
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>Match MetaHuman pose</string>
+                  </property>
+                  <property name="checkable">
+                   <bool>true</bool>
+                  </property>
+                  <property name="checked">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="edit_fixable_joints_button">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>20</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">/*-----QPushButton-----*/
+QPushButton
+{
+	background-color: hsv(187, 100%, 50%);
+	color: hsv(0, 0, 50%);
+	font-weight: bold;
+	border: none;
+	border-radius: 5px;
+	font-size: 10px;
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 0px
+}
+QPushButton::hover
+{
+	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsv(187, 100%, 50%),stop:1 hsv(180, 100%, 70%));
+}
+QPushButton::pressed
+{
+	background-color: hsv(180, 100%, 100%);
+color: rgb(255, 255, 255);
+}
+
+QPushButton::checked
+{
+	color: rgb(255, 255, 255);
+	background-color: hsv(180, 100%, 90%);
+}
+QPushButton::checked::hover
+{
+	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsv(180, 100%, 90%),stop:1 hsv(180, 100%, 100%));
+}
+QPushButton::checked::pressed
+{
+	background-color: hsv(180, 100%, 100%);
+}
+QPushButton::disabled
+{
+	background-color: hsv(180, 0%, 50%);
+	color: hsv(0, 0%, 40%);
+}</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="checkable">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
               </widget>
              </item>
             </layout>
@@ -2360,6 +2578,18 @@ QPushButton::checked::pressed
           </item>
           <item>
            <widget class="QPushButton" name="store_fix_axes_button">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>40</height>
+             </size>
+            </property>
             <property name="text">
              <string>store fix axes</string>
             </property>
@@ -2370,6 +2600,15 @@ QPushButton::checked::pressed
        </item>
        <item>
         <widget class="QFrame" name="run_frame">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{font-size: 20px}</string>
+         </property>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
          </property>
@@ -2395,7 +2634,7 @@ QPushButton::checked::pressed
           <item>
            <widget class="QPushButton" name="metahuman_to_obj_run_button">
             <property name="enabled">
-             <bool>false</bool>
+             <bool>true</bool>
             </property>
             <property name="minimumSize">
              <size>
@@ -2414,7 +2653,7 @@ QPushButton::checked::pressed
           <item>
            <widget class="QPushButton" name="obj_to_metahuman_run_button">
             <property name="enabled">
-             <bool>false</bool>
+             <bool>true</bool>
             </property>
             <property name="minimumSize">
              <size>
@@ -2439,10 +2678,16 @@ QPushButton::checked::pressed
     <item>
      <widget class="QFrame" name="fixable_joints_frame">
       <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Minimum">
+       <sizepolicy hsizetype="Maximum" vsizetype="Minimum">
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
       </property>
       <property name="styleSheet">
        <string notr="true"/>
@@ -2471,8 +2716,14 @@ QPushButton::checked::pressed
        </property>
        <item>
         <widget class="QLabel" name="label_16">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="text">
-          <string>Select which axes to correct for each joint:</string>
+          <string>Select wich joint axes will match the MetaHuman pose. The default configuration should work well for most characters</string>
          </property>
          <property name="wordWrap">
           <bool>true</bool>
@@ -2482,14 +2733,14 @@ QPushButton::checked::pressed
        <item>
         <widget class="QScrollArea" name="scrollArea">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
+          <sizepolicy hsizetype="Maximum" vsizetype="MinimumExpanding">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
          <property name="minimumSize">
           <size>
-           <width>232</width>
+           <width>0</width>
            <height>0</height>
           </size>
          </property>
@@ -2501,15 +2752,21 @@ QPushButton::checked::pressed
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>232</width>
-            <height>972</height>
+            <width>169</width>
+            <height>851</height>
            </rect>
           </property>
           <property name="sizePolicy">
-           <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
+           <sizepolicy hsizetype="Maximum" vsizetype="MinimumExpanding">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>169</width>
+            <height>0</height>
+           </size>
           </property>
           <layout class="QVBoxLayout" name="fixable_joints_layout">
            <property name="spacing">
@@ -2654,7 +2911,7 @@ QPushButton::checked::pressed
                 <string notr="true">background: transparent</string>
                </property>
                <property name="text">
-                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Please keep in mind that you need to maintain topology, vertex order and mesh distribution on the generated meshes. If you disrupt these properties you will need to restore them by performing a wrapping process with tools like Faceform Wrap or similar. Even if you maintain topology and vertex order, wrapping is still recommended for optimal mesh distribution.&lt;/p&gt;&lt;p&gt;MetaHuman to .OBJ will generate, inside the MetaHuman folder, two extra folders with &amp;quot;new&amp;quot; and &amp;quot;old&amp;quot; OBJs. The recommended workflow is to edit the new OBJs and keep the old OBJs intact, as a representation of the original MetaHuman, in case you need them for reference or wrapping. You will also find inside the new OBJs folder a set of textures that you can use to check mesh distribution.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Please keep in mind that you need to maintain topology, vertex order and mesh distribution on the generated meshes. If you disrupt these properties you will need to restore them by performing a wrapping process with tools like Faceform Wrap or similar. Even if you maintain topology and vertex order, wrapping is still recommended for optimal mesh distribution.&lt;/p&gt;&lt;p&gt;DNA to OBJ will generate, at the location of the original head DNA, two extra folders with &amp;quot;new&amp;quot; and &amp;quot;old&amp;quot; OBJs. The recommended workflow is to edit the new OBJs and keep the old OBJs intact, as a representation of the original MetaHuman, in case you need them for reference or wrapping. You will also find inside the new OBJs folder a set of textures that you can use to check mesh distribution.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                </property>
                <property name="wordWrap">
                 <bool>true</bool>
@@ -2712,7 +2969,7 @@ QPushButton::checked::pressed
                 </size>
                </property>
                <property name="text">
-                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;.OBJ to MetaHuman will generate an extra folder inside the MetaHuman folder with new DNA for your MetaHuman. You can use this new DNA to update your MetaHuman in MetaHuman Creator.&lt;/p&gt;&lt;p&gt;First, in MetaHuman Creator, you will need to remove the rig that was previously applied.&lt;/p&gt;&lt;p&gt;Then conform to the new body DNA: go to &amp;quot;Body&amp;quot; &amp;gt; &amp;quot;Conform&amp;quot; &amp;gt; &amp;quot;Import DNA&amp;quot;, select your new body DNA file, and import with the following options:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;OBJ to DNA will generate, at the location of the original head DNA, an extra folder with new body and head DNA. You can use this new DNA to update your MetaHuman in MetaHuman Creator.&lt;/p&gt;&lt;p&gt;First, in MetaHuman Creator, you will need to remove any rig that was previously applied.&lt;/p&gt;&lt;p&gt;Then conform to the new body DNA: go to &amp;quot;Body&amp;quot; &amp;gt; &amp;quot;Conform&amp;quot; &amp;gt; &amp;quot;Import DNA&amp;quot;, select your new body DNA file, and import with the following options:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                </property>
                <property name="wordWrap">
                 <bool>true</bool>
@@ -2779,7 +3036,7 @@ QPushButton::checked::pressed
                 </sizepolicy>
                </property>
                <property name="text">
-                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;Finally, create either &amp;quot;Full Rig&amp;quot; or &amp;quot;Joints Only Rig&amp;quot;. The difference between the two is that Full Rig enables the corrective Blend Shapes.&lt;/p&gt;&lt;p&gt;Once the rig is created you can check your updated MetaHuman using the template animations in the preview panel. Please be aware that the BodyROM animation has some problems with the fingers that are very visible around frame 180. This is an issue of the animation itself, you can see this behaviour even on the Preset MetaHumans.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;Finally, create either &amp;quot;Full Rig&amp;quot; or &amp;quot;Joints Only Rig&amp;quot;. The difference between the two is that Full Rig enables the corrective Blend Shapes.&lt;/p&gt;&lt;p&gt;Once the rig is created you can check your updated MetaHuman using the template animations in the preview panel. Please be aware that the BodyROM animation has some problems with the fingers that are very visible around frame 180. This is an issue from the animation itself, you can see this behaviour even on the Preset MetaHumans.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                </property>
                <property name="wordWrap">
                 <bool>true</bool>
@@ -2853,7 +3110,7 @@ QPushButton::checked::pressed
              </size>
             </property>
             <property name="text">
-             <string>Go to MetaHuman folder</string>
+             <string>Go to output files</string>
             </property>
            </widget>
           </item>
