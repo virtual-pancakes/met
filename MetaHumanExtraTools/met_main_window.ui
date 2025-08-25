@@ -854,7 +854,7 @@ font-size:20px
           <item alignment="Qt::AlignHCenter">
            <widget class="QLabel" name="discord_label">
             <property name="text">
-             <string>&lt;a href='https://discord.gg/XdQN8WWV'&gt;Discord&lt;/a&gt;</string>
+             <string>&lt;a href='https://discord.com/invite/39XApVmXZb'&gt;Discord&lt;/a&gt;</string>
             </property>
             <property name="openExternalLinks">
              <bool>true</bool>

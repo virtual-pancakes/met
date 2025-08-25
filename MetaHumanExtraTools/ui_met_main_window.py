@@ -1784,7 +1784,7 @@ class Ui_METMainWindow(object):
         self.label_5.setText(QCoreApplication.translate("METMainWindow", u"Convert a set of OBJs based on MetaHuman topology into new body and head DNA", None))
         self.obj_to_metahuman_button.setText(QCoreApplication.translate("METMainWindow", u"OBJ to DNA", None))
         self.label_10.setText(QCoreApplication.translate("METMainWindow", u"Come into the Discord server to ask anything and share your experience:", None))
-        self.discord_label.setText(QCoreApplication.translate("METMainWindow", u"<a href='https://discord.gg/XdQN8WWV'>Discord</a>", None))
+        self.discord_label.setText(QCoreApplication.translate("METMainWindow", u"<a href='https://discord.com/invite/39XApVmXZb'>Discord</a>", None))
         self.label_7.setText(QCoreApplication.translate("METMainWindow", u"New version available:", None))
         self.changes_label.setText("")
         self.update_button.setText(QCoreApplication.translate("METMainWindow", u"Update", None))
