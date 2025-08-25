@@ -1,7 +1,7 @@
 {
-    "current_version": "1.8.1",
-    "current_version_changes": "UI changes",
-    "newest_version": "1.8.1",
-    "newest_version_changes": "UI changes",
+    "current_version": "1.8.2",
+    "current_version_changes": "Fixed Discord link",
+    "newest_version": "1.8.2",
+    "newest_version_changes": "Fixed Discord link",
     "checked_for_new_version": true
 }
