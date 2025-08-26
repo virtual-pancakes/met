@@ -1,7 +1,7 @@
 {
-    "current_version": "1.8.2",
-    "current_version_changes": "Fixed Discord link",
-    "newest_version": "1.8.2",
-    "newest_version_changes": "Fixed Discord link",
+    "current_version": "1.8.3",
+    "current_version_changes": "bug fix",
+    "newest_version": "1.8.3",
+    "newest_version_changes": "bug fix",
     "checked_for_new_version": true
 }

@@ -91,7 +91,12 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
             self.running_frame.hide()
             self.new_version_frame.hide()
             self.debug_frame.hide()
+            self.fixable_joints_frame.hide()
+            self.metahuman_to_obj_button.setEnabled(False)
+            self.obj_to_metahuman_button.setEnabled(False)
             logger.info("MET window opened")
+            self.resize_window()
+            self.show()
             return
         
         # Version
