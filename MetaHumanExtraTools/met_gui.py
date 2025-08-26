@@ -85,8 +85,15 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.setupUi(self)
 
         # Maya version
-        maya_version = float(cmds.about(iv=True).split(" ")[-1])
-        if maya_version < 2023.3:
+        """
+        """
+        valid_version = True
+        maya_version = cmds.about(iv=True).split(" ")[-1].split(".")
+        for i, item in enumerate(maya_version): maya_version[i] = float(item)
+        if maya_version[0] <= 2023: valid_version = False
+        if len(maya_version) > 1:
+            if maya_version[0] == 2023 and maya_version[1] >= 3: valid_version = True 
+        if not valid_version:
             self.modes_frame.hide()
             self.running_frame.hide()
             self.new_version_frame.hide()
