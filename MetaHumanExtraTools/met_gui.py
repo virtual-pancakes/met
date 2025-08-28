@@ -687,12 +687,19 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.resize_window()
         self.repaint()
 
+        # Force Maya style file dialog for easier import
+        starting_file_dialog_style = mel.eval('optionVar -q FileDialogStyle')
+        mel.eval('optionVar -iv FileDialogStyle 2')
+
         logger.info(f"met_main.MetahumanToObj({self.body_dna}, {self.head_dna}, {make_symmetric}).run()")
         try:
             result = met_main.MetahumanToObj(self, self.body_dna, self.head_dna, make_symmetric).run()
         except Exception as e:
             logger.exception(f"met_main.MetahumanToObj.run() failed: {e}")
             result = "Unexepected error. Please share your /MetaHumanExtraTools/met.log on the Discord server for help."
+        
+        # Reapply original file dialog style
+        mel.eval(f'optionVar -iv FileDialogStyle {starting_file_dialog_style}')
         
         logger.info(f"met_main.MetahumanToObj.run() returned: {result}")
         if result == "Done!": 
@@ -730,12 +737,19 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         fix_pose = self.fix_pose_button.isChecked()
         custom_body_joints_info = self.read_joint_widgets()
         
+        # Force Maya style file dialog for easier import
+        starting_file_dialog_style = mel.eval('optionVar -q FileDialogStyle')
+        mel.eval('optionVar -iv FileDialogStyle 2')
+        
         logger.info(f"met_main.ObjToMetahuman({self.head_dna}, {self.body_dna}, {self.combined}, {self.eyes}, {self.eyelashes}, {self.teeth}).run()")
         try:
             result = met_main.ObjToMetahuman(self, self.head_dna, self.body_dna, self.combined, self.eyes, self.eyelashes, self.teeth, fix_pose, custom_body_joints_info).run()
         except Exception as e:
             logger.exception(f"met_main.ObjToMetahuman.run() failed: {e}")
             result = "Unexepected error. Please share your /MetaHumanExtraTools/met.log on the Discord server for help."
+        
+        # Reapply original file dialog style
+        mel.eval(f'optionVar -iv FileDialogStyle {starting_file_dialog_style}')
         
         logger.info(f"met_main.ObjToMetahuman.run() returned: {result}")
         if result == "Done!": 

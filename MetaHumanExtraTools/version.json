@@ -1,7 +1,7 @@
 {
-    "current_version": "1.8.4",
-    "current_version_changes": "bug fix",
-    "newest_version": "1.8.4",
-    "newest_version_changes": "bug fix",
+    "current_version": "1.8.5",
+    "current_version_changes": "Fixed bug when using OS style file dialogs",
+    "newest_version": "1.8.5",
+    "newest_version_changes": "Fixed bug when using OS style file dialogs",
     "checked_for_new_version": true
 }
