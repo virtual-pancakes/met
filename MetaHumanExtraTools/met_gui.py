@@ -122,6 +122,10 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
                 self.changes_label.setText(local_version_dict["newest_version"] + "\n" + local_version_dict["newest_version_changes"])
                 self.new_version_frame.show()
         else:
+            self.new_version_frame.show()
+            self.label_7.hide()
+            self.changes_label.hide()
+            self.update_button.hide()
             self.update_failed_frame.show()
         
         # Config Maya

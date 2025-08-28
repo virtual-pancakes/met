@@ -683,6 +683,7 @@ class Ui_METMainWindow(object):
 
         self.changes_label = QLabel(self.new_version_frame)
         self.changes_label.setObjectName(u"changes_label")
+        self.changes_label.setWordWrap(True)
 
         self.verticalLayout_12.addWidget(self.changes_label)
 
@@ -759,7 +760,7 @@ class Ui_METMainWindow(object):
         sizePolicy6.setVerticalStretch(0)
         sizePolicy6.setHeightForWidth(self.label_9.sizePolicy().hasHeightForWidth())
         self.label_9.setSizePolicy(sizePolicy6)
-        self.label_9.setStyleSheet(u"color: hsl(333, 100%, 50%); font-weight: bold")
+        self.label_9.setStyleSheet(u"color: hsl(50, 100%, 50%); font-weight: bold")
         self.label_9.setWordWrap(True)
 
         self.verticalLayout_14.addWidget(self.label_9)

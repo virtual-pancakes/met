@@ -912,6 +912,9 @@ font-size:20px
             <property name="text">
              <string/>
             </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
            </widget>
           </item>
           <item>
@@ -1050,7 +1053,7 @@ QProgressBar:chunk
                 </sizepolicy>
                </property>
                <property name="styleSheet">
-                <string notr="true">color: hsl(333, 100%, 50%); font-weight: bold</string>
+                <string notr="true">color: hsl(50, 100%, 50%); font-weight: bold</string>
                </property>
                <property name="text">
                 <string>Failed to check for updates. Please check for the latest version available at:</string>
