@@ -102,6 +102,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
             self.metahuman_to_obj_button.setEnabled(False)
             self.obj_to_metahuman_button.setEnabled(False)
             logger.info("MET window opened")
+            logger.info(f"Maya version: {cmds.about(iv=True)}")
             self.resize_window()
             self.show()
             return
@@ -114,6 +115,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.artstation_link_label.setOpenExternalLinks(True)
         self.fab_link_label.setOpenExternalLinks(True)
         local_version_dict = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "version.json"), "r"))
+        logger.info(f"MET version: {local_version_dict['current_version']}")
         self.setWindowTitle(f"Metahuman Extra Tools {local_version_dict['current_version']}")
         if local_version_dict["checked_for_new_version"]:
             if local_version_dict["current_version"] != local_version_dict["newest_version"]: 
