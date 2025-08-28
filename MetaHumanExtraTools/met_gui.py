@@ -124,6 +124,9 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         else:
             self.update_failed_frame.show()
         
+        # Config Maya
+        mel.eval("FBXResetImport")
+        
         # Set initial state
         self.head_dna = None
         self.body_dna = None
