@@ -682,7 +682,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.resize_window()
         self.repaint()
 
-        logger.info(f"met_main.MetahumanToObj({not self.body_dna}, {not self.head_dna}, {make_symmetric}).run()")
+        logger.info(f"met_main.MetahumanToObj({self.body_dna}, {self.head_dna}, {make_symmetric}).run()")
         try:
             result = met_main.MetahumanToObj(self, self.body_dna, self.head_dna, make_symmetric).run()
         except Exception as e:
