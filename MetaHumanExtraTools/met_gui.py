@@ -85,15 +85,9 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.setupUi(self)
 
         # Maya version
-        """
-        """
-        valid_version = True
-        maya_version = cmds.about(iv=True).split(" ")[-1].split(".")
-        for i, item in enumerate(maya_version): maya_version[i] = float(item)
-        if maya_version[0] <= 2023: valid_version = False
-        if len(maya_version) > 1:
-            if maya_version[0] == 2023 and maya_version[1] >= 3: valid_version = True 
-        if not valid_version:
+        maya_major_version = int(cmds.about(majorVersion=True))
+        maya_minor_version = int(cmds.about(minorVersion=True))
+        if maya_major_version == 2023 and maya_minor_version < 3:
             self.modes_frame.hide()
             self.running_frame.hide()
             self.new_version_frame.hide()
@@ -106,8 +100,8 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
             self.resize_window()
             self.show()
             return
-        
-        # Version
+                
+        # MET Version
         self.new_version_frame.hide()
         self.update_progress_bar.hide()
         self.updated_successfully_label.hide()
