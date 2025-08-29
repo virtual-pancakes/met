@@ -110,7 +110,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.fab_link_label.setOpenExternalLinks(True)
         local_version_dict = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "version.json"), "r"))
         logger.info(f"MET version: {local_version_dict['current_version']}")
-        self.setWindowTitle(f"Metahuman Extra Tools {local_version_dict['current_version']}")
+        self.setWindowTitle(f"MET {local_version_dict['current_version']}")
         if local_version_dict["checked_for_new_version"]:
             if local_version_dict["current_version"] != local_version_dict["newest_version"]: 
                 self.changes_label.setText(local_version_dict["newest_version"] + "\n" + local_version_dict["newest_version_changes"])
@@ -298,7 +298,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
     def is_metatahuman_customize_already_visible(self):
         logger.info("is_metahuman_customize_already_visible()")
         local_version_dict = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "version.json"), "r"))
-        title = f"Metahuman Extra Tools {local_version_dict['current_version']}"
+        title = f"MET {local_version_dict['current_version']}"
         visible_mc_windows = []
         for widget in QApplication.topLevelWidgets():
             if isinstance(widget, QWidget) and widget.windowTitle() == title:
