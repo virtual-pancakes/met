@@ -85,6 +85,8 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.setupUi(self)
 
         # Maya version
+        logger.info("MET window opened")
+        logger.info(f"Maya version: {cmds.about(iv=True)}")
         maya_major_version = int(cmds.about(majorVersion=True))
         maya_minor_version = int(cmds.about(minorVersion=True))
         if maya_major_version == 2023 and maya_minor_version < 3:
@@ -95,8 +97,6 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
             self.fixable_joints_frame.hide()
             self.metahuman_to_obj_button.setEnabled(False)
             self.obj_to_metahuman_button.setEnabled(False)
-            logger.info("MET window opened")
-            logger.info(f"Maya version: {cmds.about(iv=True)}")
             self.resize_window()
             self.show()
             return
