@@ -69,6 +69,23 @@ def snap_vertices(floating, static, reference_vertex_ids):
         
         floating_iterator.next()
 
+def combine_head_and_body(combined):
+    # Match border vertices
+    border_vertices = []
+    for id_pair in resources.data.combined_pre_merge_vertex_pairs:
+        head_vertex = f"{combined}.vtx[{id_pair[0]}]"
+        body_vertex = f"{combined}.vtx[{id_pair[1]}]"
+        head_vertex_position = om2.MPoint(cmds.xform(head_vertex, q=True, t=True, ws=True))
+        body_vertex_position = om2.MPoint(cmds.xform(body_vertex, q=True, t=True, ws=True))
+        mid_position = head_vertex_position + (body_vertex_position - head_vertex_position) / 2
+        cmds.xform(head_vertex, t=om2.MVector(mid_position), ws=True)
+        cmds.xform(body_vertex, t=om2.MVector(mid_position), ws=True)
+        border_vertices.append(f"{combined}.vtx[{id_pair[0]}]")
+        border_vertices.append(f"{combined}.vtx[{id_pair[1]}]")
+    
+    cmds.polyMergeVertex(border_vertices, d=0.0001, am=1, ch=0)
+    cmds.select(cl=True)
+
 class MetahumanToObj:
     def __init__(self, gui, input_head_dna, input_body_dna, input_make_symmetric):
         logger.info(f"MetahumanToObj.__init__({gui}, {input_head_dna}, {input_body_dna}, {input_make_symmetric})")
@@ -215,11 +232,13 @@ class MetahumanToObj:
         destination_vertex1_position = cmds.xform(f"{combined_mesh}.vtx[27037]", q=True, t=True, ws=True)
         destination_vertex2_position = cmds.xform(f"{combined_mesh}.vtx[45884]", q=True, t=True, ws=True)
         destination_vertex3_position = cmds.xform(f"{combined_mesh}.vtx[49936]", q=True, t=True, ws=True)
-        cmds.polyMergeVertex(['combined.vtx[2805:2824]', 'combined.vtx[2873]', 'combined.vtx[2876]', 'combined.vtx[2965]', 'combined.vtx[2997]', 'combined.vtx[5876:5895]', 'combined.vtx[5944]', 'combined.vtx[5947]', 'combined.vtx[11560]', 'combined.vtx[11564]', 'combined.vtx[11567]', 'combined.vtx[11569]', 'combined.vtx[11572]', 'combined.vtx[11575]', 'combined.vtx[11578]', 'combined.vtx[11582]', 'combined.vtx[11585]', 'combined.vtx[11587]', 'combined.vtx[11600]', 'combined.vtx[11795]', 'combined.vtx[11798:11799]', 'combined.vtx[11802:11803]', 'combined.vtx[11805]', 'combined.vtx[11807]', 'combined.vtx[11809]', 'combined.vtx[11811]', 'combined.vtx[11899]', 'combined.vtx[11909:11910]', 'combined.vtx[17607]', 'combined.vtx[17610]', 'combined.vtx[17614]', 'combined.vtx[17617]', 'combined.vtx[17619]', 'combined.vtx[17622]', 'combined.vtx[17626]', 'combined.vtx[17629]', 'combined.vtx[17632]', 'combined.vtx[17635]', 'combined.vtx[17647]', 'combined.vtx[17854]', 'combined.vtx[17856]', 'combined.vtx[17859:17860]', 'combined.vtx[17863]', 'combined.vtx[17865]', 'combined.vtx[17867]', 'combined.vtx[17869]', 'combined.vtx[17871]', 'combined.vtx[17962]', 'combined.vtx[17968]', 'combined.vtx[17972]', 'combined.vtx[24049:24093]', 'combined.vtx[27867]', 'combined.vtx[31694]', 'combined.vtx[33235]', 'combined.vtx[33241]', 'combined.vtx[33244]', 'combined.vtx[33247]', 'combined.vtx[33252]', 'combined.vtx[33255:33256]', 'combined.vtx[33260]', 'combined.vtx[37976]', 'combined.vtx[37980]', 'combined.vtx[38004]', 'combined.vtx[38006:38007]', 'combined.vtx[38009]', 'combined.vtx[38011]', 'combined.vtx[38013]', 'combined.vtx[38015]', 'combined.vtx[38017]', 'combined.vtx[39207]', 'combined.vtx[39219]', 'combined.vtx[39229]', 'combined.vtx[39238]', 'combined.vtx[39276]', 'combined.vtx[40823:40824]', 'combined.vtx[40828]', 'combined.vtx[40833]', 'combined.vtx[40835]', 'combined.vtx[40838]', 'combined.vtx[40843:40844]', 'combined.vtx[45589]', 'combined.vtx[45591]', 'combined.vtx[45613]', 'combined.vtx[45615]', 'combined.vtx[45618]', 'combined.vtx[45620]', 'combined.vtx[45622]', 'combined.vtx[45624]', 'combined.vtx[45626:45627]', 'combined.vtx[46850]', 'combined.vtx[46863]', 'combined.vtx[46873]', 'combined.vtx[46882]'], d=0.01, am=1, ch=0)
-        cmds.select(cl=True)
+        #
+        # Merge border vertices
+        combine_head_and_body("combined")
         combined_meshes.pop(combined_meshes.index("head"))
         combined_meshes.pop(combined_meshes.index("body"))
         combined_meshes.insert(0, "combined")
+        #
         # Transfer vertex order
         cmds.loadPlugin("meshReorder.mll")
         source_vertex1 = "pgs:combined.vtx[26992]"
@@ -387,8 +406,7 @@ class ObjToMetahuman:
         head = cmds.duplicate("old_head:head_lod0_mesh", name="old:head_lod0_mesh")[0]
         body = cmds.duplicate("old_body:body_lod0_mesh", name="old:body_lod0_mesh")[0]
         cmds.polyUnite([head, body], name="old:combined", ch=False)
-        cmds.polyMergeVertex(['old:combined.vtx[2805:2824]', 'old:combined.vtx[2873]', 'old:combined.vtx[2876]', 'old:combined.vtx[2965]', 'old:combined.vtx[2997]', 'old:combined.vtx[5876:5895]', 'old:combined.vtx[5944]', 'old:combined.vtx[5947]', 'old:combined.vtx[11560]', 'old:combined.vtx[11564]', 'old:combined.vtx[11567]', 'old:combined.vtx[11569]', 'old:combined.vtx[11572]', 'old:combined.vtx[11575]', 'old:combined.vtx[11578]', 'old:combined.vtx[11582]', 'old:combined.vtx[11585]', 'old:combined.vtx[11587]', 'old:combined.vtx[11600]', 'old:combined.vtx[11795]', 'old:combined.vtx[11798:11799]', 'old:combined.vtx[11802:11803]', 'old:combined.vtx[11805]', 'old:combined.vtx[11807]', 'old:combined.vtx[11809]', 'old:combined.vtx[11811]', 'old:combined.vtx[11899]', 'old:combined.vtx[11909:11910]', 'old:combined.vtx[17607]', 'old:combined.vtx[17610]', 'old:combined.vtx[17614]', 'old:combined.vtx[17617]', 'old:combined.vtx[17619]', 'old:combined.vtx[17622]', 'old:combined.vtx[17626]', 'old:combined.vtx[17629]', 'old:combined.vtx[17632]', 'old:combined.vtx[17635]', 'old:combined.vtx[17647]', 'old:combined.vtx[17854]', 'old:combined.vtx[17856]', 'old:combined.vtx[17859:17860]', 'old:combined.vtx[17863]', 'old:combined.vtx[17865]', 'old:combined.vtx[17867]', 'old:combined.vtx[17869]', 'old:combined.vtx[17871]', 'old:combined.vtx[17962]', 'old:combined.vtx[17968]', 'old:combined.vtx[17972]', 'old:combined.vtx[24049:24093]', 'old:combined.vtx[27867]', 'old:combined.vtx[31694]', 'old:combined.vtx[33235]', 'old:combined.vtx[33241]', 'old:combined.vtx[33244]', 'old:combined.vtx[33247]', 'old:combined.vtx[33252]', 'old:combined.vtx[33255:33256]', 'old:combined.vtx[33260]', 'old:combined.vtx[37976]', 'old:combined.vtx[37980]', 'old:combined.vtx[38004]', 'old:combined.vtx[38006:38007]', 'old:combined.vtx[38009]', 'old:combined.vtx[38011]', 'old:combined.vtx[38013]', 'old:combined.vtx[38015]', 'old:combined.vtx[38017]', 'old:combined.vtx[39207]', 'old:combined.vtx[39219]', 'old:combined.vtx[39229]', 'old:combined.vtx[39238]', 'old:combined.vtx[39276]', 'old:combined.vtx[40823:40824]', 'old:combined.vtx[40828]', 'old:combined.vtx[40833]', 'old:combined.vtx[40835]', 'old:combined.vtx[40838]', 'old:combined.vtx[40843:40844]', 'old:combined.vtx[45589]', 'old:combined.vtx[45591]', 'old:combined.vtx[45613]', 'old:combined.vtx[45615]', 'old:combined.vtx[45618]', 'old:combined.vtx[45620]', 'old:combined.vtx[45622]', 'old:combined.vtx[45624]', 'old:combined.vtx[45626:45627]', 'old:combined.vtx[46850]', 'old:combined.vtx[46863]', 'old:combined.vtx[46873]', 'old:combined.vtx[46882]'], d=0.01, am=1, ch=0)
-        cmds.select(cl=True)
+        combine_head_and_body("old:combined")
         cmds.reorder("old:combined", f=True)
         cmds.reorder("old:combined", r=4)
 
@@ -398,7 +416,6 @@ class ObjToMetahuman:
         cmds.parent("old_body:root", world=True)
         cmds.delete("head_grp")
         cmds.select(cl=True)
-
         return
     
     def prepare_fitting_drivers(self):

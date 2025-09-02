@@ -97,7 +97,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
             self.fixable_joints_frame.hide()
             self.metahuman_to_obj_button.setEnabled(False)
             self.obj_to_metahuman_button.setEnabled(False)
-            self.resize_window()
+            self.resize_window("maya")
             self.show()
             return
                 
@@ -144,7 +144,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.metahuman_to_obj_info_frame.hide()
         self.obj_to_metahuman_info_frame.hide()
         self.fixable_joints_frame.hide()
-        self.resize_window(False)
+        self.resize_window("maya")
         self.show()
 
         # Set information images
@@ -247,24 +247,61 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         if self.edit_fixable_joints_button.isChecked():
             self.fixable_joints_frame.show()
             #self.edit_fixable_joints_button.setText("reset")
-            self.resize_window()
+            self.resize_window(False)
         else:
             self.fixable_joints_frame.hide()
             #self.edit_fixable_joints_button.setText("edit")
-            self.resize_window()
+            self.resize_window(False)
     
-    def resize_window(self, reposition=True):
+    def resize_window(self, reposition="self"):
         old_center_x = self.geometry().x() + self.geometry().width() / 2
         old_center_y = self.geometry().y() + self.geometry().height() / 2
+
         self.central_layout.activate()
         self.setFixedSize(self.sizeHint())
-        """
+
         if reposition:
-            screen_geometry = QApplication.primaryScreen().geometry()
-            x = screen_geometry.width() // 2 - self.width() // 2
-            y = screen_geometry.height() // 2 - self.height() // 2
-            self.move(x, y)
-        """
+            if reposition == "self":
+                print("center on self")
+                new_position_x = old_center_x - self.geometry().width() / 2
+                new_position_y = old_center_y - self.geometry().height() / 2
+            if reposition == "maya":
+                print("center on maya")
+                maya_center_x = self.maya_widget.geometry().x() + self.maya_widget.geometry().width() / 2
+                maya_center_y = self.maya_widget.geometry().y() + self.maya_widget.geometry().height() / 2
+                new_position_x = maya_center_x - self.geometry().width() / 2
+                new_position_y = maya_center_y - self.geometry().height() / 2
+            
+            self.move(new_position_x, new_position_y - 31)
+
+        # Fit inside Maya
+        gui_left = self.geometry().x()
+        gui_right = self.geometry().x() + self.geometry().width()
+        gui_top = self.geometry().y()
+        gui_bottom = self.geometry().y() + self.geometry().height()
+        #
+        maya_left = self.maya_widget.geometry().x()
+        maya_right = self.maya_widget.geometry().x() + self.maya_widget.geometry().width()
+        maya_top = self.maya_widget.geometry().y()
+        maya_bottom = self.maya_widget.geometry().y() + self.maya_widget.geometry().height()
+        #
+        refit = False
+        new_x = gui_left
+        new_y = gui_top
+        if gui_left < maya_left:
+            new_x = maya_left
+            refit = True
+        if gui_right > maya_right:
+            new_x = maya_right - self.geometry().width()
+            refit = True
+        if gui_top < maya_top:
+            new_y = maya_top
+            refit = True
+        if gui_bottom > maya_bottom:
+            new_y = maya_bottom - self.geometry().height()
+            refit = True
+        #
+        if refit: self.move(new_x, new_y - 31)        
     
     def joints_button_pressed(self):
         logger.info("joints_button_pressed()")
@@ -531,10 +568,11 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
 
         self.modes_frame.show()
         self.resize_window()
+        self.resize_window()
 
     def show_obj_to_metahuman(self):
         logger.info("show_obj_to_metahuman")
-        self.dna_label.setText("Select original DNA that will act as the base for the new DNA")
+        self.dna_label.setText("Select original DNA that will act as the base for the new DNA. Keep in mind that <span style=' font-weight:700; color:#ffffff;'>if the original DNA has joint placement issues, the new DNA will inherit those issues</span>. MH Creator Conform From Template will almost always generate bad joint placement to some degree. It is recommended to use original DNA from the MetaHuman presets, MetaHumans edited with the Blend or Parametric tools, or DNA that you know for sure has good joint placement")
         self.head_dna_button.setText("Original head DNA")
         self.body_dna_button.setText("Original body DNA")
         #self.dna_label.setFixedSize(self.dna_label.sizeHint())
@@ -548,6 +586,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.mode_label.setText("OBJ to DNA")
 
         self.modes_frame.show()
+        self.resize_window()
         self.resize_window()
 
     def back_to_start_frame(self):

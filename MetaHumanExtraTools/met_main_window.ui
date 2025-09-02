@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1442</width>
+    <width>1397</width>
     <height>1003</height>
    </rect>
   </property>
@@ -2972,7 +2972,7 @@ QPushButton::disabled
                 </size>
                </property>
                <property name="text">
-                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;OBJ to DNA will generate, at the location of the original head DNA, an extra folder with new body and head DNA. You can use this new DNA to update your MetaHuman in MetaHuman Creator.&lt;/p&gt;&lt;p&gt;First, in MetaHuman Creator, you will need to remove any rig that was previously applied.&lt;/p&gt;&lt;p&gt;Then conform to the new body DNA: go to &amp;quot;Body&amp;quot; &amp;gt; &amp;quot;Conform&amp;quot; &amp;gt; &amp;quot;Import DNA&amp;quot;, select your new body DNA file, and import with the following options:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;OBJ to DNA will generate, at the location of the original head DNA, an extra folder with new body and head DNA. You can use this new DNA to update your MetaHuman in MetaHuman Creator.&lt;/p&gt;&lt;p&gt;Before applying the new DNA in MetaHuman Creator, you will need to remove any rig that was previously applied.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700; color:#ffffff;&quot;&gt;First, import the new body DNA&lt;/span&gt;: go to &amp;quot;Body&amp;quot; &amp;gt; &amp;quot;Conform&amp;quot; &amp;gt; &amp;quot;Import DNA&amp;quot;, select your new body DNA file, and import &lt;span style=&quot; font-weight:700; color:#ffffff;&quot;&gt;with the following options:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                </property>
                <property name="wordWrap">
                 <bool>true</bool>
@@ -3007,7 +3007,7 @@ QPushButton::disabled
                 <bool>true</bool>
                </property>
                <property name="text">
-                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;Next conform to the new head DNA: go to &amp;quot;Head&amp;quot; &amp;gt; &amp;quot;Conform&amp;quot; &amp;gt; &amp;quot;Import DNA&amp;quot;, select your new head DNA file, and import with the following options:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;span style=&quot; font-weight:700; color:#ffffff;&quot;&gt;Next import the new head DNA&lt;/span&gt;: go to &amp;quot;Head&amp;quot; &amp;gt; &amp;quot;Conform&amp;quot; &amp;gt; &amp;quot;Import DNA&amp;quot;, select your new head DNA file, and import &lt;span style=&quot; font-weight:700; color:#ffffff;&quot;&gt;with the following options:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                </property>
                <property name="wordWrap">
                 <bool>true</bool>
