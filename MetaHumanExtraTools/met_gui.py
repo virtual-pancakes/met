@@ -189,19 +189,19 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.store_reference_vertices_button.clicked.connect(self.store_reference_vertices)
 
         # Add fixable joint widgets
-        body_joints_file = os.path.dirname(__file__) + "/resources/body_joints.json"
-        self.body_joints_info = json.load(open(body_joints_file, "r"))
+        joints_info_file = os.path.dirname(__file__) + "/resources/joints_info.json"
+        self.joints_info = json.load(open(joints_info_file, "r"))
         self.fixable_joint_widgets = []
         already_placed_joints = []
-        for joint in self.body_joints_info:
+        for joint in self.joints_info:
             if joint not in already_placed_joints:
-                if self.body_joints_info[joint]["fixable"]:
+                if self.joints_info[joint]["fixable"]:
                     
                     joint_widget = METJointWidget(self.fixable_joints_scroll_area_widget)
                     joint_widget.fixable_joint_label.setText(joint)
-                    joint_widget.fixable_joint_x_button.setChecked(self.body_joints_info[joint]["fix_axes"][0])
-                    joint_widget.fixable_joint_y_button.setChecked(self.body_joints_info[joint]["fix_axes"][1])
-                    joint_widget.fixable_joint_z_button.setChecked(self.body_joints_info[joint]["fix_axes"][2])
+                    joint_widget.fixable_joint_x_button.setChecked(self.joints_info[joint]["fix_axes"][0])
+                    joint_widget.fixable_joint_y_button.setChecked(self.joints_info[joint]["fix_axes"][1])
+                    joint_widget.fixable_joint_z_button.setChecked(self.joints_info[joint]["fix_axes"][2])
                     self.fixable_joints_layout.addWidget(joint_widget)
                     self.fixable_joint_widgets.append(joint_widget)
                     already_placed_joints.append(joint)
@@ -213,9 +213,9 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
                     else: continue
                     joint_widget = METJointWidget(self.fixable_joints_scroll_area_widget)
                     joint_widget.fixable_joint_label.setText(joint)
-                    joint_widget.fixable_joint_x_button.setChecked(self.body_joints_info[joint]["fix_axes"][0])
-                    joint_widget.fixable_joint_y_button.setChecked(self.body_joints_info[joint]["fix_axes"][1])
-                    joint_widget.fixable_joint_z_button.setChecked(self.body_joints_info[joint]["fix_axes"][2])
+                    joint_widget.fixable_joint_x_button.setChecked(self.joints_info[joint]["fix_axes"][0])
+                    joint_widget.fixable_joint_y_button.setChecked(self.joints_info[joint]["fix_axes"][1])
+                    joint_widget.fixable_joint_z_button.setChecked(self.joints_info[joint]["fix_axes"][2])
                     self.fixable_joints_layout.addWidget(joint_widget)
                     self.fixable_joint_widgets.append(joint_widget)
                     already_placed_joints.append(joint)
@@ -772,7 +772,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.resize_window()
         self.repaint()
         fix_pose = self.fix_pose_button.isChecked()
-        custom_body_joints_info = self.read_joint_widgets()
+        custom_joints_info = self.read_joint_widgets()
         
         # Force Maya style file dialog for easier import
         starting_file_dialog_style = mel.eval('optionVar -q FileDialogStyle')
@@ -780,7 +780,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         
         logger.info(f"met_main.ObjToMetahuman({self.head_dna}, {self.body_dna}, {self.combined}, {self.eyes}, {self.eyelashes}, {self.teeth}).run()")
         try:
-            result = met_main.ObjToMetahuman(self, self.head_dna, self.body_dna, self.combined, self.eyes, self.eyelashes, self.teeth, fix_pose, custom_body_joints_info).run()
+            result = met_main.ObjToMetahuman(self, self.head_dna, self.body_dna, self.combined, self.eyes, self.eyelashes, self.teeth, fix_pose, custom_joints_info).run()
         except Exception as e:
             logger.exception(f"met_main.ObjToMetahuman.run() failed: {e}")
             result = "Unexepected error. Please share your /MetaHumanExtraTools/met.log on the Discord server for help."
@@ -907,13 +907,13 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         return
 
     def read_joint_widgets(self):
-        custom_body_joints_info = self.body_joints_info.copy()
+        custom_joints_info = self.joints_info.copy()
         for item in self.fixable_joint_widgets: 
             joint = item.fixable_joint_label.text()
             fix_axes = [item.fixable_joint_x_button.isChecked(), item.fixable_joint_y_button.isChecked(), item.fixable_joint_z_button.isChecked()]
-            custom_body_joints_info[joint]["fix_axes"] = fix_axes
+            custom_joints_info[joint]["fix_axes"] = fix_axes
 
-        return custom_body_joints_info
+        return custom_joints_info
     
     def debug(self):
         """
@@ -921,8 +921,8 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         logger.info("debug()")
         self.show_obj_to_metahuman()
         debug_folder = "F:/WorkspaceDesktop/met/MetaHumanExtraTools/private/debug"
-        self.body_dna = f"{debug_folder}/body_dna"
-        self.head_dna = f"{debug_folder}/head_dna"
+        self.body_dna = f"{debug_folder}/body.dna"
+        self.head_dna = f"{debug_folder}/head.dna"
         self.combined = f"{debug_folder}/new_OBJs/new_combined.obj"
         self.eyes = f"{debug_folder}/new_OBJs/new_eyes.obj"
         self.eyelashes = "auto\ngenerated"
