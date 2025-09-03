@@ -552,7 +552,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
     
     def show_metahuman_to_obj(self):
         logger.info("show_metahuman_to_obj")
-        self.dna_label.setText("Select head and body DNA to be converted to OBJ")
+        self.dna_label.setText("Select head and body DNA to be converted to OBJ.")
         self.head_dna_button.setText("head DNA")
         self.body_dna_button.setText("body DNA")
         #self.dna_label.setFixedSize(self.dna_label.sizeHint())
@@ -572,7 +572,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
 
     def show_obj_to_metahuman(self):
         logger.info("show_obj_to_metahuman")
-        self.dna_label.setText("Select original DNA that will act as the base for the new DNA. Keep in mind that <span style=' font-weight:700; color:#ffffff;'>if the original DNA has joint placement issues, the new DNA will inherit those issues</span>. MH Creator Conform From Template will almost always generate bad joint placement to some degree. It is recommended to use original DNA from the MetaHuman presets, MetaHumans edited with the Blend or Parametric tools, or DNA that you know for sure has good joint placement")
+        self.dna_label.setText("Select original DNA that will act as the base for the new DNA. Keep in mind that <span style=' font-weight:700; color:#ffffff;'>if the original DNA has joint placement issues, the new DNA will inherit those issues</span>. MH Creator Conform From Template will almost always generate bad joint placement to some degree. It is recommended to use original DNA from the MetaHuman presets, MetaHumans edited with the Blend or Parametric tools, or DNA that you know for sure has good joint placement.")
         self.head_dna_button.setText("Original head DNA")
         self.body_dna_button.setText("Original body DNA")
         #self.dna_label.setFixedSize(self.dna_label.sizeHint())
