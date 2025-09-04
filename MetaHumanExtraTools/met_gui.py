@@ -222,9 +222,9 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
                     #print(f"added {joint}")
     
     def store_fix_axes(self):
-        body_joints_info = self.read_joint_widgets()
-        body_joints_info_file = "F:/WorkspaceDesktop/met/MetaHumanExtraTools/resources/body_joints.json"
-        json.dump(body_joints_info, open(body_joints_info_file, "w"), indent=4)
+        joints_info = self.read_joint_widgets()
+        joints_info_file = "F:/WorkspaceDesktop/met/MetaHumanExtraTools/resources/joints_info.json"
+        json.dump(joints_info, open(joints_info_file, "w"), indent=4)
     
     def keep_custom_pose_button_pressed(self):
         self.keep_custom_pose_button.setChecked(True)
@@ -364,7 +364,8 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
             
         else: 
             self.head_dna = None
-            self.head_dna_button.setText("Head DNA")
+            if self.metahuman_to_obj_run_button.isVisible(): self.head_dna_button.setText("Head DNA")
+            else: self.head_dna_button.setText("Original head DNA")
             self.head_dna_button.setStyleSheet("font-size: 16px")
              
     def select_body_dna(self):
@@ -380,7 +381,8 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
             
         else: 
             self.body_dna = None
-            self.body_dna_button.setText("Body DNA")
+            if self.metahuman_to_obj_run_button.isVisible(): self.body_dna_button.setText("Body DNA")
+            else: self.body_dna_button.setText("Original body DNA")
             self.body_dna_button.setStyleSheet("font-size: 16px")
     
     def download_file(self, file_url, local_path, max_retries=5):
@@ -553,8 +555,8 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
     def show_metahuman_to_obj(self):
         logger.info("show_metahuman_to_obj")
         self.dna_label.setText("Select head and body DNA to be converted to OBJ.")
-        self.head_dna_button.setText("head DNA")
-        self.body_dna_button.setText("body DNA")
+        self.head_dna_button.setText("Head DNA")
+        self.body_dna_button.setText("Body DNA")
         #self.dna_label.setFixedSize(self.dna_label.sizeHint())
         #self.select_metahuman_frame.setFixedSize(self.select_metahuman_frame.sizeHint())
         self.start_frame.hide()
@@ -592,10 +594,10 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
     def back_to_start_frame(self):
         logger.info("back_to_start_frame()")
         self.head_dna = None
-        self.head_dna_button.setText("head DNA")
+        self.head_dna_button.setText("Head DNA")
         self.head_dna_button.setStyleSheet("")
         self.body_dna = None
-        self.body_dna_button.setText("body DNA")
+        self.body_dna_button.setText("Body DNA")
         self.body_dna_button.setStyleSheet("")
         self.combined = None
         self.combined_button.setText("New combined OBJ")
@@ -887,24 +889,26 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         else: self.joint_button.setText("...")
     
     def store_reference_vertices(self):
-        body_joints_info_file = os.path.dirname(__file__) + "/resources/body_joints.json"
-        body_joints_info = json.load(open(body_joints_info_file, "r"))
+        joints_info_file = os.path.dirname(__file__) + "/resources/joints_info.json"
+        joints_info = json.load(open(joints_info_file, "r"))
         selection = cmds.ls(sl=True)
-        joints = []
-        vertices = self.get_selected_vertex_ids()
-        print(vertices)
-
-        return
+        if selection:
+            vertices = self.get_selected_vertex_ids()
+            joint = selection[-1]
+            joints_info[joint]["reference_vertex_ids"] = vertices
+            joints_info_file = os.path.dirname(__file__) + "/resources/joints_info.json"
+            json.dump(joints_info, open(joints_info_file, "w"), indent=4)
     
     def select_reference_vertices(self):
         logger.info("select_reference_vertices()")
-        body_joints_info_file = os.path.dirname(__file__) + "/resources/body_joints.json"
-        body_joints_info = json.load(open(body_joints_info_file, "r"))
-        selected_joint = om2.MNamespace.stripNamespaceFromName(cmds.ls(sl=True)[0])
-        vertex_ids = body_joints_info[selected_joint]["reference_vertex_ids"]
-        for id in vertex_ids:
-            cmds.select(f"combined.vtx[{id}]", add=True)
-        return
+        joints_info_file = os.path.dirname(__file__) + "/resources/joints_info.json"
+        joints_info = json.load(open(joints_info_file, "r"))
+        selection = cmds.ls(sl=True)
+        if selection:
+            joint = om2.MNamespace.stripNamespaceFromName(cmds.ls(sl=True)[0])
+            vertex_ids = joints_info[joint]["reference_vertex_ids"]
+            for id in vertex_ids:
+                cmds.select(f"combined.vtx[{id}]", add=True)
 
     def read_joint_widgets(self):
         custom_joints_info = self.joints_info.copy()
@@ -920,11 +924,18 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         """
         logger.info("debug()")
         self.show_obj_to_metahuman()
-        debug_folder = "F:/WorkspaceDesktop/met/MetaHumanExtraTools/private/debug"
+        debug_folder = "F:/WorkspaceDesktop/met/private/MET_tests/Luna(test)"
         self.body_dna = f"{debug_folder}/body.dna"
         self.head_dna = f"{debug_folder}/head.dna"
         self.combined = f"{debug_folder}/new_OBJs/new_combined.obj"
         self.eyes = f"{debug_folder}/new_OBJs/new_eyes.obj"
         self.eyelashes = "auto\ngenerated"
         self.teeth = "auto\ngenerated"
+        
+        #cmds.file(f"{debug_folder}/temp2_load_new_meshes_done.mb", open=True, force=True)
+        #cmds.file(f"{debug_folder}/temp3_create_full_skeleton_done.mb", open=True, force=True)
+        #cmds.file(f"{debug_folder}/temp4_mid_fix_pose.mb", open=True, force=True)
         self.press_obj_to_metahuman_run_button()
+        #cmds.file(rename=f"{debug_folder}/temp3_create_full_skeleton_done.mb")
+        #cmds.file(rename=f"{debug_folder}/temp4_mid_fix_pose.mb")
+        #cmds.file(save=True, force=True)

@@ -1633,7 +1633,7 @@ QPushButton::checked::pressed
              </size>
             </property>
             <property name="text">
-             <string>body DNA</string>
+             <string>Body DNA</string>
             </property>
            </widget>
           </item>
@@ -1657,7 +1657,7 @@ QPushButton::hover{background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:
 QPushButton::pressed{background-color: hsv(180, 100%, 100%)}</string>
             </property>
             <property name="text">
-             <string>head DNA</string>
+             <string>Head DNA</string>
             </property>
            </widget>
           </item>
@@ -1773,7 +1773,7 @@ QPushButton::pressed{background-color: hsv(180, 100%, 100%)}</string>
                 </size>
                </property>
                <property name="text">
-                <string>new combined OBJ</string>
+                <string>New combined OBJ</string>
                </property>
               </widget>
              </item>
@@ -1859,7 +1859,7 @@ QPushButton::pressed{background-color: hsv(180, 100%, 100%)}</string>
                 </size>
                </property>
                <property name="text">
-                <string>new eyes OBJ</string>
+                <string>New eyes OBJ</string>
                </property>
               </widget>
              </item>
@@ -1948,7 +1948,7 @@ QPushButton::pressed{background-color: hsv(180, 100%, 100%)}</string>
                 </size>
                </property>
                <property name="text">
-                <string>new eyelashes OBJ</string>
+                <string>New eyelashes OBJ</string>
                </property>
               </widget>
              </item>
@@ -2044,7 +2044,7 @@ generated</string>
                 </size>
                </property>
                <property name="text">
-                <string>new teeth OBJ</string>
+                <string>New teeth OBJ</string>
                </property>
               </widget>
              </item>
@@ -2214,7 +2214,7 @@ QPushButton::checked::pressed
 }</string>
                </property>
                <property name="text">
-                <string>Keep Original</string>
+                <string>Keep original</string>
                </property>
                <property name="checkable">
                 <bool>true</bool>
@@ -2949,7 +2949,7 @@ QPushButton::disabled
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_17" stretch="0,0,0,0,0">
              <property name="spacing">
-              <number>0</number>
+              <number>5</number>
              </property>
              <property name="leftMargin">
               <number>0</number>
