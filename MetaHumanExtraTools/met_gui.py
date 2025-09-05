@@ -920,11 +920,43 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         return custom_joints_info
     
     def debug(self):
+        for character in ["Draconis", "Jin", "JonCG", "KG", "Logan", "Luna", "Lux", "Male01", "Merline", "MR3D"]:
+            print(character)
+            continue
+            self.show_obj_to_metahuman()
+            debug_folder = f"F:/WorkspaceDesktop/met/private/MET_tests/{character}_test"
+            self.body_dna = f"{debug_folder}/body.dna"
+            self.head_dna = f"{debug_folder}/head.dna"
+            self.combined = f"{debug_folder}/new_OBJs/new_combined.obj"
+            self.eyes = f"{debug_folder}/new_OBJs/new_eyes.obj"
+            self.eyelashes = "auto\ngenerated"
+            self.teeth = "auto\ngenerated"
+
+            for item in self.fixable_joint_widgets: 
+                joint = item.fixable_joint_label.text()
+                if "pinky" in joint: 
+                    if character == "JonCG":
+                        item.fixable_joint_x_button.setChecked(False)
+                        item.fixable_joint_y_button.setChecked(False)
+                        item.fixable_joint_z_button.setChecked(False)
+                    else:
+                        item.fixable_joint_x_button.setChecked(True)
+                        item.fixable_joint_y_button.setChecked(True)
+                        item.fixable_joint_z_button.setChecked(True)
+            
+                #cmds.file(f"{debug_folder}/temp2_load_new_meshes_done.mb", open=True, force=True)
+                #cmds.file(f"{debug_folder}/temp3_create_full_skeleton_done.mb", open=True, force=True)
+                #cmds.file(f"{debug_folder}/temp4_mid_fix_pose.mb", open=True, force=True)
+                self.press_obj_to_metahuman_run_button()
+                #cmds.file(rename=f"{debug_folder}/temp2_load_new_meshes_done.mb")
+                #cmds.file(rename=f"{debug_folder}/temp3_create_full_skeleton_done.mb")
+                #cmds.file(rename=f"{debug_folder}/temp4_mid_fix_pose.mb")
+                #cmds.file(save=True, force=True)
+
         """
-        """
-        logger.info("debug()")
+        character = "MR3D"
         self.show_obj_to_metahuman()
-        debug_folder = "F:/WorkspaceDesktop/met/private/MET_tests/Luna(test)"
+        debug_folder = f"F:/WorkspaceDesktop/met/private/MET_tests/{character}_test"
         self.body_dna = f"{debug_folder}/body.dna"
         self.head_dna = f"{debug_folder}/head.dna"
         self.combined = f"{debug_folder}/new_OBJs/new_combined.obj"
@@ -936,6 +968,8 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         #cmds.file(f"{debug_folder}/temp3_create_full_skeleton_done.mb", open=True, force=True)
         #cmds.file(f"{debug_folder}/temp4_mid_fix_pose.mb", open=True, force=True)
         self.press_obj_to_metahuman_run_button()
+        #cmds.file(rename=f"{debug_folder}/temp2_load_new_meshes_done.mb")
         #cmds.file(rename=f"{debug_folder}/temp3_create_full_skeleton_done.mb")
         #cmds.file(rename=f"{debug_folder}/temp4_mid_fix_pose.mb")
         #cmds.file(save=True, force=True)
+        """

@@ -1,7 +1,7 @@
 {
     "current_version": "1.9",
-    "current_version_changes": "Fixed head and body DNA not matching bug\nAdded some notes about original DNA",
-    "newest_version": "1.8.8",
-    "newest_version_changes": "Fixed head and body DNA not matching bug\nAdded some notes about original DNA",
+    "current_version_changes": "Improved finger joints Fitting/Pose Correction",
+    "newest_version": "1.9",
+    "newest_version_changes": "Improved finger joints Fitting/Pose Correction",
     "checked_for_new_version": true
 }

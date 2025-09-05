@@ -1549,9 +1549,11 @@ class ObjToMetahuman:
 
                 elif orientation_mode == "head":
                     cmds.parent(new_joint, world=True)
+                    if new_children: cmds.parent(new_children, world=True)
                     cmds.setAttr(f"{new_joint}.jointOrientX", -90)                    
                     cmds.setAttr(f"{new_joint}.jointOrientZ", 90)                    
                     if new_parent: cmds.parent(new_joint, new_parent)
+                    if new_children: cmds.parent(new_children, new_joint)
 
                 elif orientation_mode == "+x to child, +y to world -z": # spine, left_arm_up
                     if new_children: cmds.parent(new_children, world=True)
@@ -1683,7 +1685,7 @@ class ObjToMetahuman:
                         pass
 
                 if new_children: cmds.parent(new_children, new_joint) 
-                    
+        
         # Split skeleton
         cmds.namespace(set=":new_body")
         cmds.duplicate("new:root")
@@ -1705,7 +1707,8 @@ class ObjToMetahuman:
         cmds.delete("new_head:upperarm_twist_02_r")
         cmds.delete("new_head:lowerarm_r")
 
-        # Fix metacarpals
+        """
+        # Fix metacarpals (keep standard metacarpal jointOrients)
         metacarpal_orientations = {
             "new_body:index_metacarpal_l": [8, 6, 0],
             "new_body:middle_metacarpal_l": [0.8, -1, -5],
@@ -1751,6 +1754,7 @@ class ObjToMetahuman:
             # Set metacarpal to target position and reparent
             cmds.xform(metacarpal, t=target_position, ws=True)
             cmds.parent(children, metacarpal)
+        """
     
     def get_mesh_vertex_positions_from_scene(self, meshName):
         logger.info(f"get_mesh_vertex_positions_from_scene({meshName})")
@@ -1964,7 +1968,7 @@ class ObjToMetahuman:
                         #cmds.setKeyframe(new_joint, attribute=f"jointOrient{axes[i]}", t=0)                    
                 dag_iterator.next()
             #cmds.currentTime(0)
-
+    
         # Match new head joints to new body joints
         dagpath = om2.MSelectionList().add("new_head:spine_04").getDagPath(0)
         dag_iterator = om2.MItDag().reset(dagpath)
@@ -2124,15 +2128,16 @@ class ObjToMetahuman:
         return "valid"
     
     def run(self):
-        """
-        """
         ######################
         # INITIALIZE
         ######################
-        #self.print_parameters()
+        self.print_parameters()
         logger.info("run()")
         cmds.file(new=True, force=True)
+        metahuman_folder = os.path.dirname(self.input_head_dna)
 
+        """
+        """
         ######################
         # VALIDATE INPUTS
         ######################
@@ -2152,19 +2157,7 @@ class ObjToMetahuman:
         result = self.load_new_meshes()
         if result == "meshRemap failed": return "Error. Combined mesh has wrong vertex order. Try using Maya's 'Transfer Vertex Order' to transfer from a valid combined mesh."
         self.gui.running_progress_bar.setValue(25)
-        
-        ######################
-        # CREATE BODY SKELETON (DEPRECATED)
-        ######################
-        #self.create_new_skeleton("old_body:root")
-        #self.gui.running_progress_bar.setValue(35)
-
-        ######################
-        # CREATE HEAD SKELETON (DEPRECATED)
-        ######################
-        #self.create_new_skeleton("old_head:spine_04")
-        #self.gui.running_progress_bar.setValue(45)
-        
+                
         ######################
         # CREATE FULL SKELETON
         ######################
