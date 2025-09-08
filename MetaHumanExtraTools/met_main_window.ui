@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1397</width>
-    <height>998</height>
+    <height>1040</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -1158,6 +1158,13 @@ QProgressBar:chunk
            </widget>
           </item>
           <item>
+           <widget class="QPushButton" name="batch_button">
+            <property name="text">
+             <string>batch test</string>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QPushButton" name="select_reference_vertices_button">
             <property name="minimumSize">
              <size>
@@ -1172,14 +1179,14 @@ QProgressBar:chunk
              </size>
             </property>
             <property name="text">
-             <string>select reference vertices</string>
+             <string>select </string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QPushButton" name="store_reference_vertices_button">
             <property name="text">
-             <string>store reference vertices</string>
+             <string>store </string>
             </property>
            </widget>
           </item>
@@ -2762,7 +2769,7 @@ QPushButton::disabled
             <x>0</x>
             <y>0</y>
             <width>169</width>
-            <height>846</height>
+            <height>888</height>
            </rect>
           </property>
           <property name="sizePolicy">

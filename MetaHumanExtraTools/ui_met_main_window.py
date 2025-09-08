@@ -23,7 +23,7 @@ class Ui_METMainWindow(object):
     def setupUi(self, METMainWindow):
         if not METMainWindow.objectName():
             METMainWindow.setObjectName(u"METMainWindow")
-        METMainWindow.resize(1397, 998)
+        METMainWindow.resize(1397, 1040)
         sizePolicy = QSizePolicy(QSizePolicy.Policy.Maximum, QSizePolicy.Policy.Maximum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -814,6 +814,11 @@ class Ui_METMainWindow(object):
         self.debug_button.setStyleSheet(u"")
 
         self.verticalLayout.addWidget(self.debug_button)
+
+        self.batch_button = QPushButton(self.debug_frame)
+        self.batch_button.setObjectName(u"batch_button")
+
+        self.verticalLayout.addWidget(self.batch_button)
 
         self.select_reference_vertices_button = QPushButton(self.debug_frame)
         self.select_reference_vertices_button.setObjectName(u"select_reference_vertices_button")
@@ -1609,7 +1614,7 @@ class Ui_METMainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.fixable_joints_scroll_area_widget = QWidget()
         self.fixable_joints_scroll_area_widget.setObjectName(u"fixable_joints_scroll_area_widget")
-        self.fixable_joints_scroll_area_widget.setGeometry(QRect(0, 0, 169, 846))
+        self.fixable_joints_scroll_area_widget.setGeometry(QRect(0, 0, 169, 888))
         sizePolicy16.setHeightForWidth(self.fixable_joints_scroll_area_widget.sizePolicy().hasHeightForWidth())
         self.fixable_joints_scroll_area_widget.setSizePolicy(sizePolicy16)
         self.fixable_joints_scroll_area_widget.setMinimumSize(QSize(169, 0))
@@ -1798,8 +1803,9 @@ class Ui_METMainWindow(object):
         self.fab_link_label.setText(QCoreApplication.translate("METMainWindow", u"<a href='https://www.fab.com/listings/22f90398-c29e-4b74-a80a-9c5b5ae19d47'>Fab</a>", None))
         self.label_3.setText(QCoreApplication.translate("METMainWindow", u"Debug", None))
         self.debug_button.setText(QCoreApplication.translate("METMainWindow", u"Debug", None))
-        self.select_reference_vertices_button.setText(QCoreApplication.translate("METMainWindow", u"select reference vertices", None))
-        self.store_reference_vertices_button.setText(QCoreApplication.translate("METMainWindow", u"store reference vertices", None))
+        self.batch_button.setText(QCoreApplication.translate("METMainWindow", u"batch test", None))
+        self.select_reference_vertices_button.setText(QCoreApplication.translate("METMainWindow", u"select ", None))
+        self.store_reference_vertices_button.setText(QCoreApplication.translate("METMainWindow", u"store ", None))
         self.import_dna_button.setText(QCoreApplication.translate("METMainWindow", u"import dna", None))
         self.joints_button.setText(QCoreApplication.translate("METMainWindow", u"joints", None))
         self.skinweights_button.setText(QCoreApplication.translate("METMainWindow", u"skin weights", None))

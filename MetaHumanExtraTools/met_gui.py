@@ -26,6 +26,13 @@ from mh_assemble_lib.impl.maya.scene.sw_handler import MayaSkinWeightsHandler
 from mh_assemble_lib.impl.maya.scene.rig_handler import MayaRigHandler
 from mh_assemble_lib.impl.maya.properties import MayaConfig
 from mh_assemble_lib.model.element import MeshElement
+from mh_expression_editor.window import Window
+from mh_expression_editor.utils import ui, dcc, general
+from mh_expression_editor.widgets.file import FileChooser
+from mh_expression_editor.resource import Resources
+from mh_expression_editor import lib, control
+from frt_api.rig import RigDataHandler
+import mh_expression_editor
 
 # Use PySide6 for Maya 2025+ and PySide2 for Maya 2024-
 try:
@@ -159,6 +166,7 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         self.edit_fixable_joints_button.setIcon(icon)
 
         # Connect buttons
+        self.batch_button.clicked.connect(self.batch_test)
         self.metahuman_to_obj_button.clicked.connect(self.show_metahuman_to_obj)
         self.obj_to_metahuman_button.clicked.connect(self.show_obj_to_metahuman)
         self.update_button.clicked.connect(self.update)
@@ -919,6 +927,56 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
 
         return custom_joints_info
     
+    def batch_test(self):
+        input_dna_path = "F:/WorkspaceDesktop/batch_expression_editing/head.dna"
+        output_dna_path = "F:/WorkspaceDesktop/batch_expression_editing/new_head.dna"
+
+        expressions_folder = os.path.join(os.path.dirname(input_dna_path), "expressions")
+        expression_files = os.listdir(expressions_folder)
+        for i, item in enumerate(expression_files): expression_files[i] = os.path.join(expressions_folder, item)
+
+        win = mh_expression_editor.show()
+        win.on_load_btn_clicked(dna_file_path=input_dna_path)
+        win.on_rig_assemble_btn_clicked(force=True)
+
+        for expression_file in expression_files:
+            expression = os.path.basename(expression_file).split(".")[0]
+            print(expression)
+            node = win.ui["widget"]["graph"].currentWidget().scene().get_node_by_name(expression)
+            
+            # Start editing
+            win.controller.double_click_editing(node)
+            cmds.select(cl=True)
+            cmds.namespace(add=":new_expression")
+            cmds.namespace(set=":new_expression")
+            cmds.file(expression_file, i=True)
+            cmds.namespace(set=":")
+            new_expression = cmds.ls("new_expression:*", type="transform")[0]
+            sculpt = cmds.ls("sculpt_head_lod0_mesh", type="transform")[0]
+            bs = cmds.blendShape(new_expression, sculpt)[0]
+            bs_target = om2.MNamespace.stripNamespaceFromName(new_expression)
+            cmds.setAttr(f"{bs}.{bs_target}", 1)
+            cmds.delete(new_expression)
+            cmds.namespace(rm=":new_expression")
+            
+            # Run joint matching
+            #win.on_run_ml_joints_matching_in_scene_clicked()
+            win.controller.run_ml_joints_matching_in_scene(
+                win.rig,
+                win.expression_joints_mapping,
+                win.config["ml_jm_config"]["expressions"],
+                win.config["ml_jm_config"]["data"],
+                set(win.config["user_defined_joints"]),
+            )
+
+            # Stop editing
+            #win.controller.stop_editing(win.rig, win.ui["widget"]["graph"].currentWidget())
+            win.on_toggle_editing_clicked()
+            
+        # Save new DNA
+        win.on_save_action(output_dna_path)
+
+
     def debug(self):
         for character in ["Draconis", "Jin", "JonCG", "KG", "Logan", "Luna", "Lux", "Male01", "Merline", "MR3D"]:
             print(character)
