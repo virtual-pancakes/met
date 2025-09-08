@@ -2009,6 +2009,11 @@ class ObjToMetahuman:
         aux = cmds.orientConstraint("posed_foot_r", "new_body:foot_r", offset=(0, 0, 0), skip=["y", "z"], weight=1)[0]
         cmds.delete(aux)
 
+        # Save temp scene
+        #file = os.path.join(os.path.dirname(self.input_head_dna), "temp_fix_pose.mb")
+        #cmds.file(rename=file)
+        #cmds.file(save=True, f=True)
+
         # Delete history for all meshes
         cmds.select(cmds.ls("new_head:*", et="transform"))
         cmds.select(cmds.ls("new_body:*", et="transform"), add=True)
