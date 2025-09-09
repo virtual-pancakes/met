@@ -976,7 +976,6 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
         # Save new DNA
         win.on_save_action(output_dna_path)
 
-
     def debug(self):
         for character in ["Draconis", "Jin", "JonCG", "KG", "Logan", "Luna", "Lux", "Male01", "Merline", "MR3D"]:
             print(character)
