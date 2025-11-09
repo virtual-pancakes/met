@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1397</width>
-    <height>1040</height>
+    <height>1217</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -1158,11 +1158,44 @@ QProgressBar:chunk
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="batch_button">
+           <spacer name="verticalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>10</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="export_expressions_as_obj_button">
             <property name="text">
-             <string>batch test</string>
+             <string>export mld expressions as obj</string>
             </property>
            </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="insert_expressions_into_dna_button">
+            <property name="text">
+             <string>insert expressions into dna</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>10</height>
+             </size>
+            </property>
+           </spacer>
           </item>
           <item>
            <widget class="QPushButton" name="select_reference_vertices_button">
@@ -1191,22 +1224,125 @@ QProgressBar:chunk
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="import_dna_button">
+           <spacer name="verticalSpacer">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>10</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="load_dna_path_button">
             <property name="minimumSize">
              <size>
               <width>0</width>
               <height>40</height>
              </size>
             </property>
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>40</height>
-             </size>
-            </property>
             <property name="text">
-             <string>import dna</string>
+             <string>DNA path</string>
             </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="frame_10">
+            <property name="styleSheet">
+             <string notr="true">/*-----QPushButton-----*/
+QPushButton
+{
+	background-color: hsv(187, 100%, 50%);
+	color: hsv(0, 0, 50%);
+	font-weight: bold;
+	border: none;
+	border-radius: 5px;
+}
+QPushButton::hover
+{
+	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsv(187, 100%, 50%),stop:1 hsv(180, 100%, 70%));
+}
+QPushButton::pressed
+{
+	background-color: hsv(180, 100%, 100%);
+color: rgb(255, 255, 255);
+}
+
+QPushButton::checked
+{
+	color: rgb(255, 255, 255);
+	background-color: hsv(180, 100%, 90%);
+}
+QPushButton::checked::hover
+{
+	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsv(180, 100%, 90%),stop:1 hsv(180, 100%, 100%));
+}
+QPushButton::checked::pressed
+{
+	background-color: hsv(180, 100%, 100%);
+}</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_10">
+             <property name="spacing">
+              <number>5</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QPushButton" name="lod0_button">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>LOD 0</string>
+               </property>
+               <property name="checkable">
+                <bool>true</bool>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="all_lods_button">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>All LODs</string>
+               </property>
+               <property name="checkable">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </widget>
           </item>
           <item>
@@ -1282,7 +1418,7 @@ QPushButton::checked::pressed
 }</string>
                </property>
                <property name="text">
-                <string>joints</string>
+                <string>Joints</string>
                </property>
                <property name="checkable">
                 <bool>true</bool>
@@ -1341,7 +1477,7 @@ QPushButton::checked::pressed
 }</string>
                </property>
                <property name="text">
-                <string>skin weights</string>
+                <string>SkinClusters</string>
                </property>
                <property name="checkable">
                 <bool>true</bool>
@@ -1400,7 +1536,7 @@ QPushButton::checked::pressed
 }</string>
                </property>
                <property name="text">
-                <string>rig logic</string>
+                <string>Rig Logic</string>
                </property>
                <property name="checkable">
                 <bool>true</bool>
@@ -1411,6 +1547,25 @@ QPushButton::checked::pressed
               </widget>
              </item>
             </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="import_dna_button">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Load DNA</string>
+            </property>
            </widget>
           </item>
          </layout>
@@ -1716,7 +1871,7 @@ QPushButton::pressed{background-color: hsv(180, 100%, 100%)}</string>
              </sizepolicy>
             </property>
             <property name="text">
-             <string>Select your new combined and eyes meshes. You can also provide eyelashes and teeth or let them be auto-generated. These meshes need to have the same topology and vertex order as the ones generated by DNA to OBJ.</string>
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Select your new combined and eyes meshes. You can also provide eyelashes and teeth or let them be auto-generated. These meshes &lt;span style=&quot; font-weight:700; color:#ffffff;&quot;&gt;need to have the same topology and vertex order as the ones generated by DNA to OBJ&lt;/span&gt;.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
             <property name="wordWrap">
              <bool>true</bool>
@@ -2769,7 +2924,7 @@ QPushButton::disabled
             <x>0</x>
             <y>0</y>
             <width>169</width>
-            <height>888</height>
+            <height>1065</height>
            </rect>
           </property>
           <property name="sizePolicy">

@@ -1486,6 +1486,10 @@ class ObjToMetahuman:
                     elif axis_position_mode == "parent":
                         parent_position = cmds.xform(new_parent, query=True, translation=True, worldSpace=True)[i]
                         cmds.setAttr(f"{new_joint}.translate{axis}", parent_position)
+
+                    elif axis == "X":
+                        if side == "left" and cmds.getAttr(f"{new_joint}.translateX") < 0.1: cmds.setAttr(f"{new_joint}.translateX", 0.1)
+                        if side == "right" and cmds.getAttr(f"{new_joint}.translateX") > -0.1: cmds.setAttr(f"{new_joint}.translateX", -0.1)
             
            # Reintegrate joint into skeleton
             if new_parent: cmds.parent(new_joint, new_parent)

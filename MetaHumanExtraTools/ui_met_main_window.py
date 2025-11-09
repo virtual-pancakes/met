@@ -23,7 +23,7 @@ class Ui_METMainWindow(object):
     def setupUi(self, METMainWindow):
         if not METMainWindow.objectName():
             METMainWindow.setObjectName(u"METMainWindow")
-        METMainWindow.resize(1397, 1040)
+        METMainWindow.resize(1397, 1217)
         sizePolicy = QSizePolicy(QSizePolicy.Policy.Maximum, QSizePolicy.Policy.Maximum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -815,10 +815,23 @@ class Ui_METMainWindow(object):
 
         self.verticalLayout.addWidget(self.debug_button)
 
-        self.batch_button = QPushButton(self.debug_frame)
-        self.batch_button.setObjectName(u"batch_button")
+        self.verticalSpacer_2 = QSpacerItem(20, 10, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
-        self.verticalLayout.addWidget(self.batch_button)
+        self.verticalLayout.addItem(self.verticalSpacer_2)
+
+        self.export_expressions_as_obj_button = QPushButton(self.debug_frame)
+        self.export_expressions_as_obj_button.setObjectName(u"export_expressions_as_obj_button")
+
+        self.verticalLayout.addWidget(self.export_expressions_as_obj_button)
+
+        self.insert_expressions_into_dna_button = QPushButton(self.debug_frame)
+        self.insert_expressions_into_dna_button.setObjectName(u"insert_expressions_into_dna_button")
+
+        self.verticalLayout.addWidget(self.insert_expressions_into_dna_button)
+
+        self.verticalSpacer_3 = QSpacerItem(20, 10, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.verticalLayout.addItem(self.verticalSpacer_3)
 
         self.select_reference_vertices_button = QPushButton(self.debug_frame)
         self.select_reference_vertices_button.setObjectName(u"select_reference_vertices_button")
@@ -832,12 +845,73 @@ class Ui_METMainWindow(object):
 
         self.verticalLayout.addWidget(self.store_reference_vertices_button)
 
-        self.import_dna_button = QPushButton(self.debug_frame)
-        self.import_dna_button.setObjectName(u"import_dna_button")
-        self.import_dna_button.setMinimumSize(QSize(0, 40))
-        self.import_dna_button.setMaximumSize(QSize(16777215, 40))
+        self.verticalSpacer = QSpacerItem(20, 10, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
-        self.verticalLayout.addWidget(self.import_dna_button)
+        self.verticalLayout.addItem(self.verticalSpacer)
+
+        self.load_dna_path_button = QPushButton(self.debug_frame)
+        self.load_dna_path_button.setObjectName(u"load_dna_path_button")
+        self.load_dna_path_button.setMinimumSize(QSize(0, 40))
+
+        self.verticalLayout.addWidget(self.load_dna_path_button)
+
+        self.frame_10 = QFrame(self.debug_frame)
+        self.frame_10.setObjectName(u"frame_10")
+        self.frame_10.setStyleSheet(u"/*-----QPushButton-----*/\n"
+"QPushButton\n"
+"{\n"
+"	background-color: hsv(187, 100%, 50%);\n"
+"	color: hsv(0, 0, 50%);\n"
+"	font-weight: bold;\n"
+"	border: none;\n"
+"	border-radius: 5px;\n"
+"}\n"
+"QPushButton::hover\n"
+"{\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsv(187, 100%, 50%),stop:1 hsv(180, 100%, 70%));\n"
+"}\n"
+"QPushButton::pressed\n"
+"{\n"
+"	background-color: hsv(180, 100%, 100%);\n"
+"color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QPushButton::checked\n"
+"{\n"
+"	color: rgb(255, 255, 255);\n"
+"	background-color: hsv(180, 100%, 90%);\n"
+"}\n"
+"QPushButton::checked::hover\n"
+"{\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 hsv(180, 100%, 90%),stop:1 hsv(180, 100%, 100%));\n"
+"}\n"
+"QPushButton::checked::pressed\n"
+"{\n"
+"	background-color: hsv(180, 100%, 100%);\n"
+"}")
+        self.frame_10.setFrameShape(QFrame.StyledPanel)
+        self.frame_10.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_10 = QHBoxLayout(self.frame_10)
+        self.horizontalLayout_10.setSpacing(5)
+        self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
+        self.horizontalLayout_10.setContentsMargins(0, 0, 0, 0)
+        self.lod0_button = QPushButton(self.frame_10)
+        self.lod0_button.setObjectName(u"lod0_button")
+        self.lod0_button.setMinimumSize(QSize(0, 40))
+        self.lod0_button.setCheckable(True)
+        self.lod0_button.setChecked(True)
+
+        self.horizontalLayout_10.addWidget(self.lod0_button)
+
+        self.all_lods_button = QPushButton(self.frame_10)
+        self.all_lods_button.setObjectName(u"all_lods_button")
+        self.all_lods_button.setMinimumSize(QSize(0, 40))
+        self.all_lods_button.setCheckable(True)
+
+        self.horizontalLayout_10.addWidget(self.all_lods_button)
+
+
+        self.verticalLayout.addWidget(self.frame_10)
 
         self.frame_5 = QFrame(self.debug_frame)
         self.frame_5.setObjectName(u"frame_5")
@@ -972,6 +1046,13 @@ class Ui_METMainWindow(object):
 
 
         self.verticalLayout.addWidget(self.frame_5)
+
+        self.import_dna_button = QPushButton(self.debug_frame)
+        self.import_dna_button.setObjectName(u"import_dna_button")
+        self.import_dna_button.setMinimumSize(QSize(0, 40))
+        self.import_dna_button.setMaximumSize(QSize(16777215, 40))
+
+        self.verticalLayout.addWidget(self.import_dna_button)
 
 
         self.verticalLayout_8.addWidget(self.debug_frame)
@@ -1614,7 +1695,7 @@ class Ui_METMainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.fixable_joints_scroll_area_widget = QWidget()
         self.fixable_joints_scroll_area_widget.setObjectName(u"fixable_joints_scroll_area_widget")
-        self.fixable_joints_scroll_area_widget.setGeometry(QRect(0, 0, 169, 888))
+        self.fixable_joints_scroll_area_widget.setGeometry(QRect(0, 0, 169, 1065))
         sizePolicy16.setHeightForWidth(self.fixable_joints_scroll_area_widget.sizePolicy().hasHeightForWidth())
         self.fixable_joints_scroll_area_widget.setSizePolicy(sizePolicy16)
         self.fixable_joints_scroll_area_widget.setMinimumSize(QSize(169, 0))
@@ -1803,19 +1884,23 @@ class Ui_METMainWindow(object):
         self.fab_link_label.setText(QCoreApplication.translate("METMainWindow", u"<a href='https://www.fab.com/listings/22f90398-c29e-4b74-a80a-9c5b5ae19d47'>Fab</a>", None))
         self.label_3.setText(QCoreApplication.translate("METMainWindow", u"Debug", None))
         self.debug_button.setText(QCoreApplication.translate("METMainWindow", u"Debug", None))
-        self.batch_button.setText(QCoreApplication.translate("METMainWindow", u"batch test", None))
+        self.export_expressions_as_obj_button.setText(QCoreApplication.translate("METMainWindow", u"export mld expressions as obj", None))
+        self.insert_expressions_into_dna_button.setText(QCoreApplication.translate("METMainWindow", u"insert expressions into dna", None))
         self.select_reference_vertices_button.setText(QCoreApplication.translate("METMainWindow", u"select ", None))
         self.store_reference_vertices_button.setText(QCoreApplication.translate("METMainWindow", u"store ", None))
-        self.import_dna_button.setText(QCoreApplication.translate("METMainWindow", u"import dna", None))
-        self.joints_button.setText(QCoreApplication.translate("METMainWindow", u"joints", None))
-        self.skinweights_button.setText(QCoreApplication.translate("METMainWindow", u"skin weights", None))
-        self.riglogic_button.setText(QCoreApplication.translate("METMainWindow", u"rig logic", None))
+        self.load_dna_path_button.setText(QCoreApplication.translate("METMainWindow", u"DNA path", None))
+        self.lod0_button.setText(QCoreApplication.translate("METMainWindow", u"LOD 0", None))
+        self.all_lods_button.setText(QCoreApplication.translate("METMainWindow", u"All LODs", None))
+        self.joints_button.setText(QCoreApplication.translate("METMainWindow", u"Joints", None))
+        self.skinweights_button.setText(QCoreApplication.translate("METMainWindow", u"SkinClusters", None))
+        self.riglogic_button.setText(QCoreApplication.translate("METMainWindow", u"Rig Logic", None))
+        self.import_dna_button.setText(QCoreApplication.translate("METMainWindow", u"Load DNA", None))
         self.back_button.setText(QCoreApplication.translate("METMainWindow", u"<", None))
         self.mode_label.setText(QCoreApplication.translate("METMainWindow", u"Mode", None))
         self.dna_label.setText(QCoreApplication.translate("METMainWindow", u"Select DNA", None))
         self.body_dna_button.setText(QCoreApplication.translate("METMainWindow", u"Body DNA", None))
         self.head_dna_button.setText(QCoreApplication.translate("METMainWindow", u"Head DNA", None))
-        self.label_2.setText(QCoreApplication.translate("METMainWindow", u"Select your new combined and eyes meshes. You can also provide eyelashes and teeth or let them be auto-generated. These meshes need to have the same topology and vertex order as the ones generated by DNA to OBJ.", None))
+        self.label_2.setText(QCoreApplication.translate("METMainWindow", u"<html><head/><body><p>Select your new combined and eyes meshes. You can also provide eyelashes and teeth or let them be auto-generated. These meshes <span style=\" font-weight:700; color:#ffffff;\">need to have the same topology and vertex order as the ones generated by DNA to OBJ</span>.</p></body></html>", None))
         self.combined_button.setText(QCoreApplication.translate("METMainWindow", u"New combined OBJ", None))
         self.pushButton_2.setText(QCoreApplication.translate("METMainWindow", u"OBJ", None))
         self.eyes_button.setText(QCoreApplication.translate("METMainWindow", u"New eyes OBJ", None))
