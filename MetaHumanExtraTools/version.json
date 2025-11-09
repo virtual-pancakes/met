@@ -1,7 +1,7 @@
 {
-    "current_version": "1.9",
-    "current_version_changes": "Improved finger joints Fitting/Pose Correction",
-    "newest_version": "1.9",
-    "newest_version_changes": "Improved finger joints Fitting/Pose Correction",
+    "current_version": "1.9.1",
+    "current_version_changes": "Bug fix",
+    "newest_version": "1.9.1",
+    "newest_version_changes": "Bug fix",
     "checked_for_new_version": true
 }
