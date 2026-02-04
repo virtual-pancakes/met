@@ -10066,7 +10066,7 @@
         "main_child": "calf_r",
         "side": "right",
         "mirror_joint": "thigh_l",
-        "orientation_mode": "copy source",
+        "orientation_mode": "+x to child, +z to calculated +z",
         "position_mode": [
             "free",
             "free",
@@ -10120,7 +10120,7 @@
         "main_child": "foot_r",
         "side": "right",
         "mirror_joint": "calf_l",
-        "orientation_mode": "copy source",
+        "orientation_mode": "+x to child, +z to calculated +z",
         "position_mode": [
             "free",
             "free",
@@ -11287,7 +11287,7 @@
         "main_child": "calf_l",
         "side": "left",
         "mirror_joint": "thigh_r",
-        "orientation_mode": "copy source",
+        "orientation_mode": "x to child, +z to calculated +z",
         "position_mode": [
             "free",
             "free",
@@ -11341,7 +11341,7 @@
         "main_child": "foot_l",
         "side": "left",
         "mirror_joint": "calf_r",
-        "orientation_mode": "copy source",
+        "orientation_mode": "x to child, +z to calculated +z",
         "position_mode": [
             "free",
             "free",

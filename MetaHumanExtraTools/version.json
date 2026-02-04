@@ -1,7 +1,7 @@
 {
-    "current_version": "1.9.2",
-    "current_version_changes": "Added support for Maya 2026",
-    "newest_version": "1.9.2",
-    "newest_version_changes": "Added support for Maya 2026",
+    "current_version": "1.9.3",
+    "current_version_changes": "Fixed legs pose correction bug",
+    "newest_version": "1.9.3",
+    "newest_version_changes": "Fixed legs pose correction bug",
     "checked_for_new_version": true
 }
