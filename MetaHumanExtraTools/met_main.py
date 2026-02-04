@@ -1362,11 +1362,15 @@ class ObjToMetahuman:
         vertex_iterators["new_eyeRight"] = om2.MItMeshVertex(new_eyeRight_dagpath)
 
         # Create old combined skeleton
+        clavicle_l_orientation = cmds.getAttr("old_body:clavicle_l.jointOrient")[0]
+        clavicle_r_orientation = cmds.getAttr("old_body:clavicle_r.jointOrient")[0]
         cmds.namespace(set="old")
         cmds.duplicate("old_body:root")
         cmds.delete("old:neck_01")
         cmds.duplicate("old_head:neck_01")
         cmds.parent("old:neck_01", "old:spine_05")
+        cmds.joint("old:clavicle_l", e=True, o=clavicle_l_orientation)
+        cmds.joint("old:clavicle_r", e=True, o=clavicle_r_orientation)
 
         # Create a DAG iterator starting from the given object
         source_root_dag_path = om2.MSelectionList().add("old:root").getDagPath(0)
@@ -1691,12 +1695,18 @@ class ObjToMetahuman:
                 if new_children: cmds.parent(new_children, new_joint) 
         
         # Split skeleton
+        clavicle_l_orientation = cmds.getAttr("new:clavicle_l.jointOrient")[0]
+        clavicle_r_orientation = cmds.getAttr("new:clavicle_r.jointOrient")[0]
         cmds.namespace(set=":new_body")
         cmds.duplicate("new:root")
         cmds.namespace(set=":new_head")
         cmds.duplicate("new:root")
         cmds.namespace(set=":")
         cmds.delete("new:root")
+        cmds.joint("new_body:clavicle_l", e=True, o=clavicle_l_orientation)
+        cmds.joint("new_body:clavicle_r", e=True, o=clavicle_r_orientation)
+        cmds.joint("new_head:clavicle_l", e=True, o=clavicle_l_orientation)
+        cmds.joint("new_head:clavicle_r", e=True, o=clavicle_r_orientation)
         # Delete joints that shouldn't be on body skeleton
         cmds.delete("new_body:FACIAL_C_Neck1Root")
         cmds.delete("new_body:FACIAL_C_Neck2Root")
@@ -1794,7 +1804,7 @@ class ObjToMetahuman:
 
         # Commands to run
         new_neutral_mesh = SetVertexPositionsCommand(mesh_id, deltas, VectorOperation_Add)
-        calculate_lower_LODs = CalculateMeshLowerLODsCommand(mesh_id)
+        #calculate_lower_LODs = CalculateMeshLowerLODsCommand(mesh_id)
         
         # Add nex vertex position deltas (NOT ABSOLUTE VALUES) onto existing vertex positions
         commands = CommandSequence()
@@ -1841,6 +1851,21 @@ class ObjToMetahuman:
             status = Status.get()
             raise RuntimeError(f"Error run_joints_command: {status.message}")
         
+    def get_vertex_normals(self, mesh_name):
+        fn_mesh = om2.MFnMesh(om2.MSelectionList().add(mesh_name).getDagPath(0))    
+        vertex_count = fn_mesh.numVertices
+        face_count = fn_mesh.numPolygons
+        
+        vertex_normals = [[] for _ in range(vertex_count)]
+        
+        for face_id in range(face_count):
+            vertex_ids = fn_mesh.getPolygonVertices(face_id)
+            normals = fn_mesh.getFaceVertexNormals(face_id)
+            for i, vertex_id in enumerate(vertex_ids):
+                vertex_normals[vertex_id] = [normals[i].x, normals[i].y, normals[i].z] 
+
+        return vertex_normals
+    
     def save_new_dna(self):
         logger.info("save_new_dna()")
         head_input_stream = FileStream(self.input_head_dna, FileStream.AccessMode_Read, FileStream.OpenMode_Binary)
@@ -1853,8 +1878,6 @@ class ObjToMetahuman:
         for reader in [head_reader, body_reader]:
             dnacalib_reader = DNACalibDNAReader(reader)
             
-            """
-            """
             # Modify meshes
             DNA_object = DNA(None, reader)
             mesh_elements = DNA_object.get_meshes()
@@ -1879,7 +1902,7 @@ class ObjToMetahuman:
             else: new_namespace = "new_body"
             self.run_joints_command(reader, dnacalib_reader, new_namespace)
             
-            # Save dna
+            # DNA writer setup
             new_dna_folder = os.path.join(os.path.dirname(self.input_head_dna), "new_DNAs")
             if not os.path.exists(new_dna_folder): os.makedirs(new_dna_folder)
             if reader == head_reader: output_dna_file = new_dna_folder + "/new_head.dna"
@@ -1887,6 +1910,16 @@ class ObjToMetahuman:
             output_stream = FileStream(output_dna_file, AccessMode_Write, OpenMode_Binary)
             writer = BinaryStreamWriter(output_stream)
             writer.setFrom(dnacalib_reader)
+            
+            """
+            # Set normals
+            for mesh_id in range(reader.getMeshCount()):
+                good_normals_mesh = f"{reader.getMeshName(mesh_id)}_goodNormals"
+                if cmds.objExists(good_normals_mesh):
+                    new_normals = self.get_vertex_normals(good_normals_mesh)
+                    writer.setVertexNormals(mesh_id, new_normals)
+            """
+            
             writer.write()
         
         return
@@ -2159,7 +2192,7 @@ class ObjToMetahuman:
         ######################
         self.load_dna()
         self.gui.running_progress_bar.setValue(15)
-        
+
         ######################
         # LOAD NEW MESHES
         ######################
@@ -2189,7 +2222,7 @@ class ObjToMetahuman:
         # CLEANUP
         ######################
         cmds.file(new=True, f=True)
-        """
-        """
         return "Done!"
+        """
+        """
         

@@ -568,7 +568,7 @@
         "single_vertex": false
     },
     "spine_04": {
-        "skeleton": "body",
+        "skeleton": "both",
         "reference_mesh": "combined",
         "parent": "spine_03",
         "main_child": "spine_05",
@@ -728,7 +728,7 @@
         "single_vertex": false
     },
     "spine_05": {
-        "skeleton": "body",
+        "skeleton": "both",
         "reference_mesh": "combined",
         "parent": "spine_04",
         "main_child": "neck_01",
@@ -774,7 +774,7 @@
         "single_vertex": false
     },
     "neck_01": {
-        "skeleton": "body",
+        "skeleton": "both",
         "reference_mesh": "combined",
         "parent": "spine_05",
         "main_child": "neck_02",
@@ -919,7 +919,7 @@
         "single_vertex": false
     },
     "neck_02": {
-        "skeleton": "body",
+        "skeleton": "both",
         "reference_mesh": "combined",
         "parent": "neck_01",
         "main_child": "head",
@@ -1099,7 +1099,7 @@
         "single_vertex": false
     },
     "head": {
-        "skeleton": "body",
+        "skeleton": "both",
         "reference_mesh": "combined",
         "parent": "neck_02",
         "main_child": null,
@@ -1144,13 +1144,13 @@
         "single_vertex": false
     },
     "clavicle_l": {
-        "skeleton": "body",
+        "skeleton": "both",
         "reference_mesh": "combined",
         "parent": "spine_05",
         "main_child": "upperarm_l",
         "side": "left",
         "mirror_joint": "clavicle_r",
-        "orientation_mode": "copy source",
+        "orientation_mode": "+x to child, +y to world -z",
         "position_mode": [
             "free",
             "free",
@@ -1209,7 +1209,7 @@
         "single_vertex": false
     },
     "upperarm_l": {
-        "skeleton": "body",
+        "skeleton": "both",
         "reference_mesh": "combined",
         "parent": "clavicle_l",
         "main_child": "lowerarm_l",
@@ -1615,7 +1615,7 @@
         "main_child": "middle_01_l",
         "side": "left",
         "mirror_joint": "hand_r",
-        "orientation_mode": "+x to child, +z to calculated +z",
+        "orientation_mode": "free",
         "position_mode": [
             "free",
             "free",
@@ -5363,7 +5363,7 @@
         "single_vertex": false
     },
     "upperarm_correctiveRoot_l": {
-        "skeleton": "body",
+        "skeleton": "both",
         "reference_mesh": "combined",
         "parent": "upperarm_l",
         "main_child": "upperarm_bck_l",
@@ -5396,7 +5396,7 @@
         "single_vertex": false
     },
     "upperarm_bck_l": {
-        "skeleton": "body",
+        "skeleton": "both",
         "reference_mesh": "combined",
         "parent": "upperarm_correctiveRoot_l",
         "main_child": null,
@@ -5422,7 +5422,7 @@
         "single_vertex": true
     },
     "upperarm_fwd_l": {
-        "skeleton": "body",
+        "skeleton": "both",
         "reference_mesh": "combined",
         "parent": "upperarm_correctiveRoot_l",
         "main_child": null,
@@ -5448,7 +5448,7 @@
         "single_vertex": true
     },
     "upperarm_in_l": {
-        "skeleton": "body",
+        "skeleton": "both",
         "reference_mesh": "combined",
         "parent": "upperarm_correctiveRoot_l",
         "main_child": null,
@@ -5474,7 +5474,7 @@
         "single_vertex": true
     },
     "upperarm_out_l": {
-        "skeleton": "body",
+        "skeleton": "both",
         "reference_mesh": "combined",
         "parent": "upperarm_correctiveRoot_l",
         "main_child": null,
@@ -5500,7 +5500,7 @@
         "single_vertex": true
     },
     "clavicle_out_l": {
-        "skeleton": "body",
+        "skeleton": "both",
         "reference_mesh": "combined",
         "parent": "clavicle_l",
         "main_child": null,
@@ -5526,7 +5526,7 @@
         "single_vertex": true
     },
     "clavicle_scap_l": {
-        "skeleton": "body",
+        "skeleton": "both",
         "reference_mesh": "combined",
         "parent": "clavicle_l",
         "main_child": null,
@@ -5552,13 +5552,13 @@
         "single_vertex": true
     },
     "clavicle_r": {
-        "skeleton": "body",
+        "skeleton": "both",
         "reference_mesh": "combined",
         "parent": "spine_05",
         "main_child": "upperarm_r",
         "side": "right",
         "mirror_joint": "clavicle_l",
-        "orientation_mode": "copy source",
+        "orientation_mode": "-x to child, +y to world +z",
         "position_mode": [
             "free",
             "free",
@@ -5617,7 +5617,7 @@
         "single_vertex": false
     },
     "upperarm_r": {
-        "skeleton": "body",
+        "skeleton": "both",
         "reference_mesh": "combined",
         "parent": "clavicle_r",
         "main_child": "lowerarm_r",
@@ -6019,7 +6019,7 @@
         "main_child": "middle_01_r",
         "side": "right",
         "mirror_joint": "hand_l",
-        "orientation_mode": "-x to child, +z to calculated +z",
+        "orientation_mode": "free",
         "position_mode": [
             "free",
             "free",
@@ -9767,7 +9767,7 @@
         "single_vertex": false
     },
     "upperarm_correctiveRoot_r": {
-        "skeleton": "body",
+        "skeleton": "both",
         "reference_mesh": "combined",
         "parent": "upperarm_r",
         "main_child": "upperarm_bck_r",
@@ -9800,7 +9800,7 @@
         "single_vertex": false
     },
     "upperarm_bck_r": {
-        "skeleton": "body",
+        "skeleton": "both",
         "reference_mesh": "combined",
         "parent": "upperarm_correctiveRoot_r",
         "main_child": null,
@@ -9826,7 +9826,7 @@
         "single_vertex": true
     },
     "upperarm_in_r": {
-        "skeleton": "body",
+        "skeleton": "both",
         "reference_mesh": "combined",
         "parent": "upperarm_correctiveRoot_r",
         "main_child": null,
@@ -9852,7 +9852,7 @@
         "single_vertex": true
     },
     "upperarm_fwd_r": {
-        "skeleton": "body",
+        "skeleton": "both",
         "reference_mesh": "combined",
         "parent": "upperarm_correctiveRoot_r",
         "main_child": null,
@@ -9878,7 +9878,7 @@
         "single_vertex": true
     },
     "upperarm_out_r": {
-        "skeleton": "body",
+        "skeleton": "both",
         "reference_mesh": "combined",
         "parent": "upperarm_correctiveRoot_r",
         "main_child": null,
@@ -9904,7 +9904,7 @@
         "single_vertex": true
     },
     "clavicle_out_r": {
-        "skeleton": "body",
+        "skeleton": "both",
         "reference_mesh": "combined",
         "parent": "clavicle_r",
         "main_child": null,
@@ -9930,7 +9930,7 @@
         "single_vertex": true
     },
     "clavicle_scap_r": {
-        "skeleton": "body",
+        "skeleton": "both",
         "reference_mesh": "combined",
         "parent": "clavicle_r",
         "main_child": null,
@@ -9956,7 +9956,7 @@
         "single_vertex": true
     },
     "clavicle_pec_r": {
-        "skeleton": "body",
+        "skeleton": "both",
         "reference_mesh": "combined",
         "parent": "spine_05",
         "main_child": null,
@@ -9982,7 +9982,7 @@
         "single_vertex": true
     },
     "spine_04_latissimus_l": {
-        "skeleton": "body",
+        "skeleton": "both",
         "reference_mesh": "combined",
         "parent": "spine_05",
         "main_child": null,
@@ -10008,7 +10008,7 @@
         "single_vertex": true
     },
     "spine_04_latissimus_r": {
-        "skeleton": "body",
+        "skeleton": "both",
         "reference_mesh": "combined",
         "parent": "spine_05",
         "main_child": null,
@@ -10034,7 +10034,7 @@
         "single_vertex": true
     },
     "clavicle_pec_l": {
-        "skeleton": "body",
+        "skeleton": "both",
         "reference_mesh": "combined",
         "parent": "spine_05",
         "main_child": null,
@@ -10066,7 +10066,7 @@
         "main_child": "calf_r",
         "side": "right",
         "mirror_joint": "thigh_l",
-        "orientation_mode": "+x to child, +z to calculated +z",
+        "orientation_mode": "copy source",
         "position_mode": [
             "free",
             "free",
@@ -10120,7 +10120,7 @@
         "main_child": "foot_r",
         "side": "right",
         "mirror_joint": "calf_l",
-        "orientation_mode": "+x to child, +z to calculated +z",
+        "orientation_mode": "copy source",
         "position_mode": [
             "free",
             "free",
@@ -11287,7 +11287,7 @@
         "main_child": "calf_l",
         "side": "left",
         "mirror_joint": "thigh_r",
-        "orientation_mode": "-x to child, +z to calculated +z",
+        "orientation_mode": "copy source",
         "position_mode": [
             "free",
             "free",
@@ -11341,7 +11341,7 @@
         "main_child": "foot_l",
         "side": "left",
         "mirror_joint": "calf_r",
-        "orientation_mode": "-x to child, +z to calculated +z",
+        "orientation_mode": "copy source",
         "position_mode": [
             "free",
             "free",

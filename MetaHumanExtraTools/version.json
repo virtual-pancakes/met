@@ -1,7 +1,7 @@
 {
-    "current_version": "1.9.1",
-    "current_version_changes": "Bug fix",
-    "newest_version": "1.9.1",
-    "newest_version_changes": "Bug fix",
+    "current_version": "1.9.2",
+    "current_version_changes": "Added support for Maya 2026",
+    "newest_version": "1.9.2",
+    "newest_version_changes": "Added support for Maya 2026",
     "checked_for_new_version": true
 }
