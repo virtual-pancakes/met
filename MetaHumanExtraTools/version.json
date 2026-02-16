@@ -1,7 +1,7 @@
 {
-    "current_version": "1.9.3",
-    "current_version_changes": "Fixed legs pose correction bug",
-    "newest_version": "1.9.3",
-    "newest_version_changes": "Fixed legs pose correction bug",
+    "current_version": "1.9.4",
+    "current_version_changes": "Bug fix",
+    "newest_version": "1.9.4",
+    "newest_version_changes": "Bug fix",
     "checked_for_new_version": true
 }
