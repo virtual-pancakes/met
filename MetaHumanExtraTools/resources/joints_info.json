@@ -11287,7 +11287,7 @@
         "main_child": "calf_l",
         "side": "left",
         "mirror_joint": "thigh_r",
-        "orientation_mode": "x to child, +z to calculated +z",
+        "orientation_mode": "-x to child, +z to calculated +z",
         "position_mode": [
             "free",
             "free",
@@ -11341,7 +11341,7 @@
         "main_child": "foot_l",
         "side": "left",
         "mirror_joint": "calf_r",
-        "orientation_mode": "x to child, +z to calculated +z",
+        "orientation_mode": "-x to child, +z to calculated +z",
         "position_mode": [
             "free",
             "free",
