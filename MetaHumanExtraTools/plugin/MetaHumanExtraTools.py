@@ -12,6 +12,9 @@ from logging import Logger
 
 
 def initializePlugin(plugin):
+    print()
+    print("Initilizing MetaHuman Extra Tools")
+    print()
     #om2.MFnPlugin(plugin)
 
     # Get MetaHumanExtraTools path
