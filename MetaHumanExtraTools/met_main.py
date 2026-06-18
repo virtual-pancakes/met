@@ -17,15 +17,11 @@ import maya.mel as mel
 from dna import BinaryStreamReader, BinaryStreamWriter, AccessMode_Read, AccessMode_Write, OpenMode_Binary, DataLayer_All, FileStream, Status
 from dnacalib2 import CommandSequence, DNACalibDNAReader, SetNeutralJointRotationsCommand, SetNeutralJointTranslationsCommand, SetVertexPositionsCommand, SetLODsCommand, CalculateMeshLowerLODsCommand, VectorOperation_Add, RotateCommand
 from mh_assemble_lib.control.form import MeshForm, ProcessForm
-from mh_assemble_lib.impl.maya.handler import MayaHandler
-from mh_assemble_lib.impl.maya.properties import MayaSceneOrient
 from mh_assemble_lib.model.dnalib import DNAReader, Layer, DNA
 from mh_assemble_lib.impl.maya.scene.mesh_handler import MayaMeshHandler
 from mh_assemble_lib.impl.maya.scene.joint_handler import MayaJointHandler
 from mh_assemble_lib.impl.maya.scene.sw_handler import MayaSkinWeightsHandler
-from mh_assemble_lib.impl.maya.scene.rig_handler import MayaRigHandler
 from mh_assemble_lib.impl.maya.properties import MayaConfig
-from mh_assemble_lib.model.element import MeshElement
 
 sys.modules["PySide2"] = __import__("PySide6")
 sys.modules["PySide2.QtCore"] = sys.modules["PySide6.QtCore"]

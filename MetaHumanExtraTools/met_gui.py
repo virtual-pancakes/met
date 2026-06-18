@@ -17,25 +17,7 @@ import logging
 from dna import FileStream, BinaryStreamReader, BinaryStreamWriter, Status, OpenMode_Binary, AccessMode_Read, DataLayer_All
 from dnacalib2 import CommandSequence, DNACalibDNAReader, SetNeutralJointRotationsCommand, SetNeutralJointTranslationsCommand, SetVertexPositionsCommand, SetLODsCommand, CalculateMeshLowerLODsCommand, VectorOperation_Add, RotateCommand
 import mh_character_assembler
-from mh_assemble_lib.control.form import MeshForm, ProcessForm, ProgressBarForm
-from mh_assemble_lib.control.handler_api import Handler
-from mh_assemble_lib.impl.maya.handler import MayaHandler
-from mh_assemble_lib.control.business import Controller
-from mh_assemble_lib.impl.maya.factory import MayaFactory
-from mh_assemble_lib.impl.maya.properties import MayaSceneOrient
 from mh_assemble_lib.model.dnalib import DNAReader, Layer, DNA
-from mh_assemble_lib.impl.maya.scene.mesh_handler import MayaMeshHandler
-from mh_assemble_lib.impl.maya.scene.joint_handler import MayaJointHandler
-from mh_assemble_lib.impl.maya.scene.sw_handler import MayaSkinWeightsHandler
-from mh_assemble_lib.impl.maya.scene.rig_handler import MayaRigHandler
-from mh_assemble_lib.impl.maya.properties import MayaConfig
-from mh_assemble_lib.model.element import MeshElement
-from mh_expression_editor.window import Window
-from mh_expression_editor.utils import ui, dcc, general
-from mh_expression_editor.widgets.file import FileChooser
-from mh_expression_editor.resource import Resources
-from mh_expression_editor import lib, control
-from frt_api.rig import RigDataHandler
 import mh_expression_editor
 
 # Use PySide6 for Maya 2025+ and PySide2 for Maya 2024-
@@ -364,6 +346,9 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
     def import_dna(self):
         logger.info("import_dna()")
         if self.load_dna_path:
+
+            from mh_assemble_lib.api import ProcessForm
+            from mh_assemble_lib.impl.maya import MayaAssembler
             
             # Paths
             dna_path = self.load_dna_path
@@ -414,17 +399,24 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
             #factory.show_viewer()
             """
             
-
+            """
             handler = MayaHandler()
             controller = Controller(handler)
             controller.build_mh(form)
+            """
+
+            assembler = MayaAssembler()
+            assembler.set_state(dna, form)
+            assembler.build_mh()
 
             # Fix normals
-            cmds.select("head_lod0_mesh")
-            cmds.UnlockNormals()
-            cmds.select(cl=True)
-            cmds.polySoftEdge("head_lod0_mesh", a=180)
-            cmds.select(cl=True)
+            for item in ["head_lod0_mesh", "body_lod0_mesh"]:
+                if cmds.objExists(item):
+                    cmds.select(item)
+                    cmds.UnlockNormals()
+                    cmds.select(cl=True)
+                    cmds.polySoftEdge(item, a=180)
+                    cmds.select(cl=True)
 
             # Close window
             cmds.select(cl=True)
@@ -980,11 +972,11 @@ class METMainWindow(QMainWindow, ui_met_main_window.Ui_METMainWindow):
     
     def debug(self):
         self.show_obj_to_metahuman()
-        self.body_dna = "C:/Workspace/MetaHumans/char/B/body.dna"
-        self.head_dna = "C:/Workspace/MetaHumans/char/B/head.dna"
-        self.combined = "C:/Workspace/MetaHumans/char/B/OBJ/char_combined_posed_2.obj"
-        self.eyes = "C:/Workspace/MetaHumans/char/B/OBJ/char_eyes_posed_2.obj"
-        self.eyelashes = "auto\ngenerated"
-        self.teeth = "C:/Workspace/MetaHumans/char/B/OBJ/char_teeth_posed_2.obj"
+        self.body_dna = "C:/Downloads/test/body.dna"
+        self.head_dna = "C:/Downloads/test/head.dna"
+        self.combined = "C:/Downloads/test/new_combined.obj"
+        self.eyes = "C:/Downloads/test/new_eyes.obj"
+        self.eyelashes = "C:/Downloads/test/optional_new_eyelashes.obj"
+        self.teeth = "C:/Downloads/test/optional_new_teeth.obj"
         
         self.press_obj_to_metahuman_run_button()

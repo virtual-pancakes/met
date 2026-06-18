@@ -1,7 +1,7 @@
 {
-    "current_version": "1.9.4",
-    "current_version_changes": "Bug fix",
-    "newest_version": "1.9.4",
-    "newest_version_changes": "Bug fix",
+    "current_version": "1.9.5",
+    "current_version_changes": "Fixed compatibility with MetaHumanForMaya 1.3.0",
+    "newest_version": "1.9.5",
+    "newest_version_changes": "Fixed compatibility with MetaHumanForMaya 1.3.0",
     "checked_for_new_version": true
 }
